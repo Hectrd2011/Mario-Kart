@@ -128,6 +128,8 @@
     fog: 0.10, fogColor: U('#b8d8f8'),
     mapRoad: '#b0b0b8', mapGround: '#309020',
     objects: ['pipe', 'oil'],
+    scenery: [{ type: 'tree', spacing: 96, u: 1.52, alternate: true, jitter: 14 },
+              { type: 'fence', spacing: 58, u: 1.40, both: true, skipNear: true }],
     /* tarmac, a white edge line, then a strip of kerb before the grass */
     surfAt: function (t, u) {
       var a = Math.abs(u);
@@ -174,6 +176,8 @@
     fog: 0.09, fogColor: U('#c0e0f8'),
     mapRoad: '#a8a898', mapGround: '#288818',
     objects: ['mole', 'oil'],
+    scenery: [{ type: 'tree', spacing: 84, u: 1.62, alternate: true, jitter: 18 },
+              { type: 'fence', spacing: 62, u: 1.52, both: true }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.10) return SURF.ROAD;
@@ -217,6 +221,7 @@
     fog: 0.22, fogColor: U('#382058'),
     mapRoad: '#c0a070', mapGround: '#1a0e28',
     objects: ['boo', 'rail'],
+    scenery: [{ type: 'lantern', spacing: 78, u: 1.06, both: true }],
     /* a plank causeway with nothing at all beside it */
     surfAt: function (t, u) {
       var a = Math.abs(u);
@@ -257,6 +262,7 @@
     fog: 0.18, fogColor: U('#582018'),
     mapRoad: '#807878', mapGround: '#301818',
     objects: ['thwomp', 'firebar'],
+    scenery: [{ type: 'torch', spacing: 64, u: 1.18, both: true }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ROAD;
@@ -311,6 +317,8 @@
     fog: 0.10, fogColor: U('#a8e0f8'),
     mapRoad: '#f0d890', mapGround: '#3898e0',
     objects: ['cheep'],
+    scenery: [{ type: 'palm', spacing: 118, u: 1.90, alternate: true, jitter: 22 },
+              { type: 'rock', spacing: 140, u: 1.72, alternate: true, jitter: 30 }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ROAD;
@@ -352,6 +360,8 @@
     fog: 0.12, fogColor: U('#c09060'),
     mapRoad: '#b08048', mapGround: '#4c2810',
     objects: ['puddle'],
+    scenery: [{ type: 'cactus', spacing: 104, u: 1.46, alternate: true, jitter: 20 },
+              { type: 'rock', spacing: 78, u: 1.30, alternate: true, jitter: 16 }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.05) return SURF.ROAD;
@@ -385,6 +395,7 @@
     fog: 0.14, fogColor: U('#d8e8f8'),
     mapRoad: '#e0f0f8', mapGround: '#3060a8',
     objects: ['iceblock'],
+    scenery: [{ type: 'pine', spacing: 92, u: 1.52, alternate: true, jitter: 16 }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ICE;

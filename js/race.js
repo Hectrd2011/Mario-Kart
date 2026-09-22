@@ -152,6 +152,7 @@
 
   /* ---- props ------------------------------------------------------ */
   R.buildObjects = function () {
+    this.buildScenery();
     var list = this.course.objects || [];
     for (var i = 0; i < list.length; i++) {
       var spec = list[i];
@@ -164,6 +165,35 @@
         }
       } else {
         this.addObject(spec.type, spec.at, spec.u, spec);
+      }
+    }
+  };
+
+  /* Theme scenery: things standing beside the road.  Without them the
+     Mode 7 plane reads as a flat painted disc, because nothing but the
+     road itself tells the eye it is passing anything. */
+  R.buildScenery = function () {
+    var spec = this.track.theme.scenery;
+    var len = this.track.length;
+
+    /* the start gantry, the one landmark every lap goes under */
+    var g = this.addObject('gantry', this.course.startAt || 0, 0);
+    if (g) { g.z = 0; g.decor = true; }
+
+    if (!spec) return;
+    for (var i = 0; i < spec.length; i++) {
+      var sp = spec[i];
+      var n = Math.max(2, Math.round(len / sp.spacing));
+      for (var k = 0; k < n; k++) {
+        var t = (this.course.startAt || 0) + k / n;
+        /* keep the run-off by the start line clear */
+        if (sp.skipNear && (k / n < 0.03 || k / n > 0.97)) continue;
+        var jitter = sp.jitter ? (this.rnd() - 0.5) * sp.jitter / len : 0;
+        var sides = sp.both ? [-1, 1] : [(k & 1) ? 1 : -1];
+        for (var q = 0; q < sides.length; q++) {
+          var o = this.addObject(sp.type, t + jitter, sides[q] * sp.u);
+          if (o) o.decor = true;
+        }
       }
     }
   };
@@ -439,6 +469,7 @@
       var o = this.objects[i];
       if (!o.active) continue;
       var art = o.art;
+      if (art.kind === 'decor') continue;
       for (var j = 0; j < this.karts.length; j++) {
         var k = this.karts[j];
         if (k.fallTime > 0 || k.respawnTime > 0) continue;
@@ -741,6 +772,15 @@
 
     var x = vp.x + p.x - s.w / 2;
     var y;
+    if (o.type === 'gantry') {
+      /* A billboard this wide fills the screen once you are under it,
+         which is not what going under a banner looks like.  Drop it as
+         you arrive: it reads as a landmark on the approach and then
+         passes overhead. */
+      if (p.depth < 230) return;
+      SMK.blitScaled(frame, W, H, src, x, vp.y + p.y - s.h, s.w, s.h, this.clip);
+      return;
+    }
     if (art.flat) {
       /* lies on the tarmac: its centre is the contact point */
       y = vp.y + p.y - s.h / 2;

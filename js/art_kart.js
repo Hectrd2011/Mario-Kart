@@ -775,8 +775,10 @@
     starFrame: function (ch, angleIndex, steer, phase) {
       var tints = ['#ffffff', '#ffe040', '#40e0ff', '#ff70c0'];
       var t = tints[phase % tints.length];
+      /* enough to read as flashing, not so much that the kart becomes
+         a coloured blob — the shape still has to be legible */
       var rows = variant(ch, 'star' + (phase % tints.length), function (buf) {
-        return buf.clone().tint(t, 0.62).brighten(1.15);
+        return buf.clone().tint(t, 0.40).brighten(1.10);
       });
       return rows[steerSlot(steer)][wrapAngle16(angleIndex)];
     },

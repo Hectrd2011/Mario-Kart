@@ -234,6 +234,148 @@
     return b;
   }
 
+  /* ---------------- roadside scenery ----------------
+     The original's courses were framed by things standing beside the
+     road — pipes, trees, torches, fence posts.  Without them a Mode 7
+     plane reads as a flat painted disc, because nothing but the road
+     itself gives the eye a sense of passing anything.  These are pure
+     decoration: they sit outside the racing surface and never collide.
+     ------------------------------------------------------------------ */
+
+  function treeSprite() {
+    var b = buf(30, 44);
+    /* trunk */
+    b.rect(13, 30, 5, 13, '#6c4418');
+    b.rect(13, 30, 2, 13, '#8c5c24');
+    b.rect(17, 30, 1, 13, '#4c2c0c');
+    /* three tiers of canopy, brightest at the top-left */
+    var g = '#208828', gl = '#58c048', gd = '#0c5418';
+    b.ellipse(15, 28, 13, 6.5, gd);
+    b.ellipse(15, 21, 12, 7.5, g);
+    b.ellipse(13, 18, 8, 5, gl);
+    b.ellipse(15, 12, 9, 6.5, g);
+    b.ellipse(13, 9, 6, 4, gl);
+    b.ellipse(15, 5, 5.5, 4, g);
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function pineSprite() {
+    var b = buf(26, 44);
+    b.rect(11, 34, 4, 9, '#5c3c18');
+    var g = '#186838', gl = '#48a860';
+    /* stacked triangles, with snow caught on the upper faces */
+    for (var i = 0; i < 3; i++) {
+      var w = 11 - i * 2.6, cy = 32 - i * 10;
+      b.poly([[13, cy - 12], [13 + w, cy], [13 - w, cy]], g);
+      b.poly([[13, cy - 12], [13 + w * 0.55, cy - 4], [13 - w * 0.55, cy - 4]], gl);
+      b.poly([[13, cy - 11], [13 + w * 0.4, cy - 6], [13 - w * 0.4, cy - 6]], '#e8f4ff');
+    }
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function palmSprite() {
+    var b = buf(34, 48);
+    /* a trunk that leans, because a straight palm looks like a pole */
+    for (var y = 0; y < 30; y++) {
+      var x = 16 + Math.sin(y * 0.09) * 3;
+      b.rect(Math.round(x), 46 - y, 4, 1, y % 4 === 0 ? '#7c5424' : '#9c6c34');
+    }
+    var cx = 16 + Math.sin(30 * 0.09) * 3, cy = 15;
+    var g = '#28a038', gl = '#60d060';
+    for (var i = 0; i < 6; i++) {
+      var a = Math.PI + i * (Math.PI / 5);
+      var ex = cx + Math.cos(a) * 13, ey = cy + Math.sin(a) * 8 + 2;
+      b.line(cx, cy, ex, ey, g);
+      b.line(cx, cy + 1, ex, ey + 1, gl);
+      b.ellipse(ex, ey, 3, 2, g);
+    }
+    b.ellipse(cx, cy + 4, 3, 2.4, '#8c6c2c');   /* coconuts */
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function torchSprite(phase) {
+    var b = buf(16, 40);
+    b.rect(6, 18, 4, 21, '#584c48');
+    b.rect(6, 18, 2, 21, '#786c68');
+    b.rect(4, 15, 8, 4, '#403838');
+    /* flame, guttering */
+    var h = 9 + (phase % 2) * 2;
+    b.ellipse(8, 15 - h * 0.4, 4, h * 0.55, '#f83000');
+    b.ellipse(8, 15 - h * 0.5, 2.6, h * 0.42, '#f89800');
+    b.ellipse(8, 15 - h * 0.55, 1.4, h * 0.26, '#f8f800');
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function lanternSprite(phase) {
+    var b = buf(18, 42);
+    b.rect(8, 12, 2, 29, '#3c2c20');
+    b.rect(5, 12, 8, 2, '#3c2c20');
+    /* a cold ghost-light that pulses */
+    var r = 5 + (phase % 2);
+    b.ellipse(9, 9, r, r, '#4c5c88');
+    b.ellipse(9, 9, r - 1.5, r - 1.5, '#a8c8f8');
+    b.ellipse(9, 8, r - 3, r - 3, '#e8f4ff');
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function fenceSprite() {
+    var b = buf(26, 24);
+    var w = '#b08850', wd = '#785828';
+    b.rect(2, 6, 3, 18, w); b.rect(21, 6, 3, 18, w);
+    b.rect(2, 6, 1, 18, wd); b.rect(21, 6, 1, 18, wd);
+    b.rect(0, 9, 26, 3, w); b.rect(0, 16, 26, 3, w);
+    b.rect(0, 11, 26, 1, wd); b.rect(0, 18, 26, 1, wd);
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function rockSprite() {
+    var b = buf(26, 22);
+    b.ellipse(13, 15, 11, 7, '#6c5434');
+    b.ellipse(13, 12, 9.5, 6, '#8c7048');
+    b.ellipse(10, 9, 5, 3.4, '#a88c60');
+    b.line(15, 8, 18, 16, '#5c4428');
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  function cactusSprite() {
+    var b = buf(24, 38);
+    var g = '#4c7c3c', gl = '#70a860';
+    b.rect(9, 12, 6, 26, g);
+    b.rect(9, 12, 2, 26, gl);
+    b.rect(3, 20, 5, 4, g); b.rect(3, 14, 3, 8, g);
+    b.rect(16, 24, 5, 4, g); b.rect(18, 17, 3, 9, g);
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
+  /* the gantry over the start line — the one landmark every lap passes */
+  function gantrySprite() {
+    /* Wide and low: the posts must be short enough that the banner sits
+       below the camera's eye line, or you never see it — you drive
+       under a sign that is entirely above the top of the screen. */
+    var b = buf(164, 34);
+    var post = '#c0c4d8', postD = '#787c98';
+    b.rect(6, 11, 8, 23, post); b.rect(6, 11, 3, 23, postD);
+    b.rect(150, 11, 8, 23, post); b.rect(155, 11, 3, 23, postD);
+    /* banner */
+    b.rect(3, 0, 158, 13, '#283458');
+    b.frame(3, 0, 158, 13, '#8890b0');
+    b.rect(4, 1, 156, 2, '#48548c');
+    /* chequered trim along its lower edge */
+    for (var i = 0; i < 40; i++)
+      b.rect(3 + i * 4, 13, 4, 3, (i & 1) ? '#181820' : '#f8f8f8');
+    SMK.font.draw(b, 82, 3, 'START', { color: '#ffd800', outline: '#101020', align: 'center', tracking: 2 });
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
   /* ---------------- items ---------------- */
 
   function mushroomSprite(poison) {
@@ -508,6 +650,17 @@
     i_boo:      { frames: 1, make: ghostItemSprite, worldW: 28, radius: 12, kind: 'item' },
     i_coin:     { frames: 1, make: function () { return coinSprite(0); }, worldW: 14, radius: 7, kind: 'item' },
     i_fireball: { frames: 4, make: fireballSprite, worldW: 18, radius: 9, kind: 'item', fps: 12 },
+
+    /* scenery: decoration only, never collides */
+    tree:     { frames: 1, make: treeSprite,    worldW: 46, kind: 'decor' },
+    pine:     { frames: 1, make: pineSprite,    worldW: 40, kind: 'decor' },
+    palm:     { frames: 1, make: palmSprite,    worldW: 52, kind: 'decor' },
+    torch:    { frames: 2, make: torchSprite,   worldW: 20, kind: 'decor', fps: 7 },
+    lantern:  { frames: 2, make: lanternSprite, worldW: 22, kind: 'decor', fps: 3 },
+    fence:    { frames: 1, make: fenceSprite,   worldW: 34, kind: 'decor' },
+    rock:     { frames: 1, make: rockSprite,    worldW: 30, kind: 'decor' },
+    cactus:   { frames: 1, make: cactusSprite,  worldW: 30, kind: 'decor' },
+    gantry:   { frames: 1, make: gantrySprite,  worldW: 168, kind: 'decor' },
 
     fx_smoke: { frames: 5, make: smokePuff, worldW: 20, kind: 'fx' },
     fx_spark: { frames: 4, make: sparkSprite, worldW: 14, kind: 'fx' },
