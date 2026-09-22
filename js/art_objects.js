@@ -684,7 +684,7 @@
     i_fireball: { frames: 4, make: fireballSprite, worldW: 18, radius: 9, kind: 'item', fps: 12 },
 
     /* scenery: decoration only, never collides */
-    tree:     { frames: 1, make: treeSprite,    worldW: 46, kind: 'decor' },
+    tree:     { frames: 1, make: treeSprite,    worldW: 40, kind: 'decor' },
     pine:     { frames: 1, make: pineSprite,    worldW: 40, kind: 'decor' },
     palm:     { frames: 1, make: palmSprite,    worldW: 52, kind: 'decor' },
     torch:    { frames: 2, make: torchSprite,   worldW: 20, kind: 'decor', fps: 7 },

@@ -182,13 +182,23 @@
   }
 
   function resize() {
-    var pad = document.body.classList.contains('fs') ? 0 : 56;
+    var fs = document.body.classList.contains('fs');
+    var touch = document.body.classList.contains('touch');
+    var pad = fs ? 0 : (touch ? 12 : 56);
     var availW = window.innerWidth - pad;
-    var availH = window.innerHeight - pad;
-    var scale = Math.max(1, Math.floor(Math.min(availW / W, availH / H)));
-    canvas.style.width = (W * scale) + 'px';
-    canvas.style.height = (H * scale) + 'px';
+    /* on a touch device the lower part of the screen belongs to the pads */
+    var availH = (touch && !fs ? window.innerHeight * 0.56 : window.innerHeight) - pad;
+
+    var raw = Math.min(availW / W, availH / H);
+    /* Integer scaling keeps every pixel square, which is the whole point
+       — but on a phone the nearest integer is 1x, which wastes most of
+       the screen. Below 2x, take the fractional scale and accept that
+       some pixel rows come out a row taller than others. */
+    var scale = raw >= 2 ? Math.floor(raw) : Math.max(1, raw);
+    canvas.style.width = Math.round(W * scale) + 'px';
+    canvas.style.height = Math.round(H * scale) + 'px';
   }
+  SMK._resize = resize;
 
   function present() {
     ctx.putImageData(imageData, 0, 0);
@@ -333,6 +343,7 @@
     booted = true;
     setupCanvas();
     SMK.input.attach(window);
+    SMK.touch.init();
     if (app.settings.crt) document.body.classList.add('crt');
 
     /* warm the sprite sheets so the first race does not hitch */

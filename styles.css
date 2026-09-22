@@ -84,3 +84,40 @@ body.crt #scanlines { opacity:1; }
 body.fs #legend { display:none; }
 body.fs #bezel { padding:0; border-radius:0; box-shadow:none; background:#000; }
 body.fs #bezel::after, body.fs #scanlines { inset:0; }
+
+/* ---- on-screen controls (touch devices only) ---- */
+#touchpad { display:none; }
+#touchpad.visible { display:block; }
+.tc {
+  position:fixed; z-index:40;
+  display:flex; align-items:center; justify-content:center;
+  font:700 13px/1 "Trebuchet MS", sans-serif; letter-spacing:.06em;
+  color:#e8ecff; border:2px solid rgba(220,230,255,.35);
+  background:rgba(30,38,70,.52);
+  border-radius:50%;
+  -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent;
+  touch-action:none; backdrop-filter:blur(2px);
+}
+.tc.on { background:rgba(120,160,255,.66); border-color:#fff; transform:scale(.94); }
+.tc-left   { left:14px;  bottom:96px; width:74px; height:74px; font-size:22px; }
+.tc-right  { left:100px; bottom:96px; width:74px; height:74px; font-size:22px; }
+.tc-accel  { right:14px;  bottom:96px; width:86px; height:86px; font-size:17px;
+             background:rgba(40,120,60,.58); }
+.tc-brake  { right:112px; bottom:118px; width:62px; height:62px;
+             background:rgba(130,50,40,.55); }
+.tc-drift  { right:22px;  bottom:196px; width:68px; height:68px;
+             background:rgba(50,70,140,.58); }
+.tc-item   { left:36px;   bottom:190px; width:68px; height:68px;
+             background:rgba(130,110,30,.58); }
+.tc-start  { left:50%; transform:translateX(-50%); bottom:18px;
+             width:52px; height:52px; font-size:18px; }
+.tc-start.on { transform:translateX(-50%) scale(.94); }
+
+body.touch #legend { display:none; }
+body.touch #shell { gap:0; }
+@media (max-width: 720px) {
+  body.touch #bezel { padding:4px; border-radius:4px; }
+}
+
+body.touch { align-items:flex-start; padding-top:3vh; }
+body.touch #bootinner h1 { font-size:34px; }

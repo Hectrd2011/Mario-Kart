@@ -128,7 +128,7 @@
     fog: 0.10, fogColor: U('#b8d8f8'),
     mapRoad: '#b0b0b8', mapGround: '#309020',
     objects: ['pipe', 'oil'],
-    scenery: [{ type: 'tree', spacing: 96, u: 1.52, alternate: true, jitter: 14 },
+    scenery: [{ type: 'tree', spacing: 96, u: 1.68, alternate: true, jitter: 14 },
               { type: 'fence', spacing: 58, u: 1.40, both: true, skipNear: true }],
     /* tarmac, a white edge line, then a strip of kerb before the grass */
     surfAt: function (t, u) {
@@ -176,7 +176,7 @@
     fog: 0.09, fogColor: U('#c0e0f8'),
     mapRoad: '#a8a898', mapGround: '#288818',
     objects: ['mole', 'oil'],
-    scenery: [{ type: 'tree', spacing: 84, u: 1.62, alternate: true, jitter: 18 },
+    scenery: [{ type: 'tree', spacing: 84, u: 1.76, alternate: true, jitter: 18 },
               { type: 'fence', spacing: 62, u: 1.52, both: true }],
     surfAt: function (t, u) {
       var a = Math.abs(u);

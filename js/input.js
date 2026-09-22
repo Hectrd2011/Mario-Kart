@@ -39,6 +39,8 @@
 
   var rawHeld = {}, prevHeld = {};
   var hotPending = {};
+  /* on-screen controls feed in here, alongside the keyboard and pad */
+  var virtualHeld = {};
   /* A key tapped and released inside one frame would otherwise vanish:
      the poll would see it already up and never report a press.  Latch
      the keydown and let the next update consume it. */
@@ -72,6 +74,7 @@
       for (var i = 0; i < ACTIONS.length; i++) {
         rawHeld[ACTIONS[i]] = false;
         pressLatch[ACTIONS[i]] = false;
+        virtualHeld[ACTIONS[i]] = false;
       }
     });
   };
@@ -89,6 +92,18 @@
   }
 
   function btn(p, i) { return p.buttons[i] && (p.buttons[i].pressed || p.buttons[i].value > 0.5); }
+
+  /* the touch overlay pushes state in through this */
+  Input.setVirtual = function (action, down) {
+    if (!action) return;
+    virtualHeld[action] = !!down;
+    if (down) pressLatch[action] = true;
+  };
+  Input.clearVirtual = function () { virtualHeld = {}; };
+  Input.hasVirtual = function () {
+    for (var k in virtualHeld) if (virtualHeld[k]) return true;
+    return false;
+  };
 
   /* call once per frame, before anything reads the state */
   Input.update = function () {
@@ -114,7 +129,7 @@
     for (i = 0; i < ACTIONS.length; i++) {
       a = ACTIONS[i];
       prevHeld[a] = Input.held[a];
-      var down = !!rawHeld[a] || !!padHeld[a];
+      var down = !!rawHeld[a] || !!padHeld[a] || !!virtualHeld[a];
       Input.held[a] = down;
       Input.pressed[a] = (down && !prevHeld[a]) || !!pressLatch[a];
       Input.released[a] = !down && prevHeld[a];
