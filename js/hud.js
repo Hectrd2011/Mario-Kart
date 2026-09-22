@@ -201,7 +201,15 @@
     drawBanner(frame, W, H, race, vp);
 
     /* ---- the lower panel ---- */
-    if (classic) {
+    if (classic && race.rearView) {
+      /* the mirror has already been drawn there; just label it */
+      var ry = vp.h;
+      SMK.fillRect(frame, W, H, 0, ry, W, 1, '#485880');
+      SMK.fillRect(frame, W, H, 0, ry + 1, W, 1, '#182440');
+      SMK.ditherRect(frame, W, H, 0, ry + 2, W, 11, '#101828');
+      text(frame, W, H, 6, ry + 4, 'REAR VIEW', 'hudDim');
+      text(frame, W, H, W - 6, ry + 4, race.course.name, 'hudDim', { align: 'right' });
+    } else if (classic) {
       var py = vp.h;
       var ph = H - py;
       SMK.fillRect(frame, W, H, 0, py, W, ph, '#0c1020');

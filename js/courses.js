@@ -438,8 +438,8 @@
       { type: 'boost', at: 0.5, u: 0, len: 24, w: 0.55 }
     ],
     objects: [
-      { type: 'iceblock', at: 0.25, u: -0.35 }, { type: 'iceblock', at: 0.28, u: 0.4 },
-      { type: 'iceblock', at: 0.6, u: 0 }, { type: 'iceblock', at: 0.82, u: -0.35 },
+      { type: 'iceblock', at: 0.25, u: -0.62 }, { type: 'iceblock', at: 0.28, u: 0.66 },
+      { type: 'iceblock', at: 0.6, u: 0.64 }, { type: 'iceblock', at: 0.82, u: -0.62 },
       { type: 'itembox', at: 0.13, u: -0.3 }, { type: 'itembox', at: 0.13, u: 0.3 },
       { type: 'coin', at: 0.42, u: 0, count: 6 }, { type: 'coin', at: 0.72, u: 0.2, count: 6 }
     ]
@@ -457,9 +457,9 @@
       { type: 'boost', at: 0.76, u: 0, len: 22, w: 0.55 }
     ],
     objects: [
-      { type: 'iceblock', at: 0.2, u: 0.35 }, { type: 'iceblock', at: 0.38, u: -0.35 },
-      { type: 'iceblock', at: 0.58, u: 0.3 }, { type: 'iceblock', at: 0.74, u: -0.3 },
-      { type: 'iceblock', at: 0.9, u: 0 },
+      { type: 'iceblock', at: 0.2, u: 0.64 }, { type: 'iceblock', at: 0.38, u: -0.64 },
+      { type: 'iceblock', at: 0.58, u: 0.60 }, { type: 'iceblock', at: 0.74, u: -0.60 },
+      { type: 'iceblock', at: 0.9, u: 0.58 },
       { type: 'itembox', at: 0.1, u: -0.28 }, { type: 'itembox', at: 0.1, u: 0.28 },
       { type: 'coin', at: 0.3, u: 0, count: 6 }, { type: 'coin', at: 0.64, u: 0, count: 6 }
     ]

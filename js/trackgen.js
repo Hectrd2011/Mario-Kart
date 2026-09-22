@@ -149,7 +149,9 @@
     var total = rs.total;
 
     /* ---- 3. stamp the road in (along, across) space ---- */
-    var uMax = theme.id === 'beach' ? 1.55 : 1.42;
+    /* how far past the road edge this theme paints: enough to cover its
+       run-off, or the snow bank would be surfaced but never coloured */
+    var uMax = theme.stampU || (theme.id === 'beach' ? 1.55 : 1.42);
     for (var i = 0; i < dense.length; i++) {
       var p = dense[i];
       var hw = widthAt(course, p.t);

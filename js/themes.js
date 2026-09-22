@@ -395,6 +395,7 @@
     id: 'vanilla', name: 'VANILLA LAKE',
     music: 'vanilla',
     voidBeyond: true,
+    stampU: 2.15,
     voidColor: U('#3060a8'),
     fog: 0.14, fogColor: U('#d8e8f8'),
     mapRoad: '#e0f0f8', mapGround: '#3060a8',
@@ -403,8 +404,9 @@
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ICE;
-      /* a generous snow bank: on ice you need somewhere to be wrong */
-      if (a <= 1.62) return SURF.OFFROAD;
+      /* A wide snow bank: on ice you need somewhere to be wrong, and a
+         narrow one means a single slide puts you through the ice. */
+      if (a <= 2.05) return SURF.OFFROAD;
       return SURF.VOID;                        /* a hole in the ice */
     },
     roadAt: function (t, u, px, py, n, nc) {
@@ -412,8 +414,10 @@
       /* the swept ice is distinctly bluer than the snow piled beside it,
          with a hard rim between them — otherwise the road disappears */
       if (a > 1.06) {
-        var s = 240 + ((n >> 5) - 4);
-        return SMK.pack(s, s, 255);
+        /* snow, with drifts piling up further from the swept ice */
+        var deep = SMK.clamp((a - 1.06) / 0.9, 0, 1);
+        var v = 240 + ((n >> 5) - 4) - Math.round(deep * 26);
+        return SMK.pack(v, v + 2, 255);
       }
       if (a > 1.00) return U('#6890c0');       /* rim of the cleared ice */
       var v = 150 + ((n >> 4) - 8) * 3;

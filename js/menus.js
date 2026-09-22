@@ -349,6 +349,8 @@
       labels: ['CLASSIC + MAP', 'WIDE SCREEN'] },
     { key: 'hd', name: 'MODE 7', values: [false, true],
       labels: ['AUTHENTIC', 'HD 2X SAMPLED'] },
+    { key: 'rearView', name: 'LOWER HALF', values: [false, true],
+      labels: ['COURSE MAP', 'REAR VIEW'] },
     { key: 'crt', name: 'SCANLINES', values: [false, true],
       labels: ['OFF', 'ON'] },
     { key: 'sound', name: 'SOUND', values: [true, false],
@@ -358,12 +360,14 @@
   /* two columns of four, so the whole control set fits one panel */
   var HELP = [
     ['STEER', '← →'],
-    ['ACCEL', 'Z'],
+    ['ACCELERATE', 'Z'],
     ['BRAKE', 'X'],
     ['HOP / SLIDE', 'C'],
     ['USE ITEM', 'SHIFT'],
     ['PAUSE', 'ENTER'],
+    ['REAR VIEW', 'R'],
     ['FULLSCREEN', 'F'],
+    ['HD MODE 7', 'H'],
     ['MUTE', 'M']
   ];
 
@@ -371,7 +375,7 @@
     backdrop(f, app.t, 'dark');
     text(f, W / 2, 6, 'OPTIONS', 'menuSel', { align: 'center' });
 
-    panel(f, 10, 18, 236, 90, 'DISPLAY & SOUND');
+    panel(f, 10, 18, 236, 106, 'DISPLAY & SOUND');
     for (var i = 0; i < OPTIONS.length; i++) {
       var o = OPTIONS[i];
       var y = 38 + i * 17;
@@ -381,14 +385,14 @@
       text(f, 238, y, o.labels[app.optionIndex(o)], on ? 'hudY' : 'hudDim', { align: 'right' });
       if (on) text(f, 14, y, '▶', 'menuSel');
     }
-    text(f, W / 2, 112, 'UP/DOWN TO PICK    LEFT/RIGHT TO CHANGE', 'menuDim', { align: 'center' });
+    text(f, W / 2, 128, 'UP/DOWN TO PICK    LEFT/RIGHT TO CHANGE', 'menuDim', { align: 'center' });
 
-    panel(f, 10, 124, 236, 80, 'CONTROLS');
+    panel(f, 10, 140, 236, 66, 'CONTROLS');
     for (var k = 0; k < HELP.length; k++) {
       var col = k < 4 ? 0 : 1;
       var row = k % 4;
       var hx = 20 + col * 114;
-      var hy = 142 + row * 14;
+      var hy = 158 + row * 12;
       text(f, hx, hy, HELP[k][0], 'hudDim');
       text(f, hx + 104, hy, HELP[k][1], 'hud', { align: 'right' });
     }

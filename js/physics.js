@@ -54,7 +54,7 @@
   surfDef(SURF.WATER,   { top: 0.42, grip: 7.5, drag: 2.4, rough: 0.5, splash: true });
   surfDef(SURF.JUMP,    { top: 1.00, grip: GRIP_ROAD, drag: 0, ramp: true });
   surfDef(SURF.LAVA,    { top: 0.30, grip: 6.0, drag: 3.4, burn: true });
-  surfDef(SURF.ICE,     { top: 1.00, grip: 5.4, drag: 0, slick: true });
+  surfDef(SURF.ICE,     { top: 1.00, grip: 8.0, drag: 0, slick: true });
   surfDef(SURF.START,   { top: 1.00, grip: GRIP_ROAD, drag: 0 });
   SMK.SURFACES = SURFACES;
 

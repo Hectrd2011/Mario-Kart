@@ -190,7 +190,7 @@
     /* a fireball volley is three projectiles; without a moment's grace
        one of them would end the bout outright */
     if (kart.popCool > 0) return;
-    kart.popCool = 1.6;
+    kart.popCool = 1.2;
     kart.balloons--;
     this.spawnEffect('fx_poof', kart.x, kart.y, 14);
     if (kart.isPlayer) SMK.audio.sfx('squash');
@@ -728,6 +728,36 @@
   };
 
   /* ------------------------------------------------------------------
+     Rear-view mirror.
+
+     The original let a single player swap the lower half of the screen
+     between the course map and a view out the back, and it is genuinely
+     useful: a red shell you cannot see is a red shell you cannot dodge.
+     It is a second Mode 7 pass with the camera sitting on the kart and
+     facing the other way, which also means the kart itself is at zero
+     depth and never appears in its own mirror.
+     ------------------------------------------------------------------ */
+  R.renderRearView = function (frame, W, H) {
+    var vp = { x: 0, y: VIEW_CLASSIC.h, w: VIEW_CLASSIC.w, h: H - VIEW_CLASSIC.h };
+    var m7 = this.m7, cam = m7.cam, p = this.player;
+    var savedX = cam.x, savedY = cam.y, savedA = cam.angle, savedRoll = cam.roll;
+
+    cam.x = p.x; cam.y = p.y;
+    cam.angle = SMK.wrapAngle(savedA + Math.PI);
+    cam.roll = 0;
+    m7.resize(vp.w, vp.h);
+
+    m7.renderSky(frame, W, vp.x, vp.y, this.sky);
+    var theme = this.track.theme, t = this.time;
+    var warp = theme.warp ? function (row, depth) { return theme.warp(row, depth, t); } : null;
+    m7.renderGround(frame, W, vp.x, vp.y, this.track, warp);
+    this.renderSprites(frame, W, H, vp);
+
+    cam.x = savedX; cam.y = savedY; cam.angle = savedA; cam.roll = savedRoll;
+    m7.resize(VIEW_CLASSIC.w, VIEW_CLASSIC.h);
+  };
+
+  /* ------------------------------------------------------------------
      RENDER
      ------------------------------------------------------------------ */
   R.render = function (frame, W, H) {
@@ -743,6 +773,9 @@
 
     /* everything that stands on the ground */
     this.renderSprites(frame, W, H, vp);
+
+    /* the lower half: course map, or a look out the back */
+    if (this.rearView && this.layout !== 'wide') this.renderRearView(frame, W, H);
 
     /* the white flash from a lightning bolt or the green light */
     if (this.flash > 0) {

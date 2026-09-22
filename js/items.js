@@ -332,7 +332,7 @@
   /* a used panel goes flat for a moment, as the original's did */
   function collectBox(kart, race, box) {
     if (kart.item) return false;
-    box.cooldown = 2.4;
+    box.cooldown = race.battle ? 1.6 : 2.4;
     var it;
     if (kart.ai) {
       /* a CPU racer only ever draws its own character's item */

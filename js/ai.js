@@ -39,6 +39,8 @@
       mistakeCool: 0,
       stuckTime: 0,
       lastProgress: 0,
+      progressRef: 0,
+      progressRefTime: 0,
       recoverTime: 0,
       driftHold: 0
     };
@@ -138,17 +140,27 @@
 
     var want = Math.atan2(ay - kart.y, ax - kart.x);
     var delta = SMK.angleDelta(kart.angle, want);
-    c.steer = SMK.clamp(delta * 2.35, -1, 1);
+
+    /* Steering gain has to come down where grip does.  A hard
+       proportional correction on ice yaws the kart without changing
+       where it is going, so the error never closes and the CPU saws at
+       the wheel until it is barely moving down the road. */
+    var sd = SMK.SURFACES[kart.surface];
+    var gain = (sd && sd.slick) ? 1.45 : 2.35;
+    gain *= 1 - SMK.clamp(Math.abs(kart.slip) / 95, 0, 0.5);
+    c.steer = SMK.clamp(delta * gain, -1, 1);
 
     /* ---- how fast to take it ---- */
     var curve = upcomingCurve(track, kart.nodeIdx, 8);
     var targetSpeed = planSpeed(track, kart.nodeIdx, top, stats(kart).handling, ai.skill);
 
     /* ice: the cornering limit assumes grip that is not there */
-    if (kart.surface === SMK.SURF.ICE) targetSpeed *= 0.88;
-    /* off the road, get back on it — do not also try to hold a lap time */
-    var sd = SMK.SURFACES[kart.surface];
-    if (sd && sd.top < 0.6) targetSpeed = top;
+    if (sd && sd.slick) targetSpeed *= 0.88;
+    /* Off the road, the job is to get back on it.  Flat out is the wrong
+       answer: the run-off is where you have least grip and most need to
+       change direction, and pinning the throttle just carries you
+       further out. */
+    if (sd && sd.top < 0.6) targetSpeed = top * 0.62;
 
     if (sp > targetSpeed * 1.10) { c.brake = true; c.accel = false; }
     else if (sp > targetSpeed) { c.accel = false; }
@@ -160,6 +172,13 @@
     if (ai.driftHold > 0) {
       ai.driftHold -= dt;
       c.drift = true;
+    }
+
+    /* ---- a solid object close ahead needs more than a dodge bias ---- */
+    var block = blockingSolid(kart, race, 78);
+    if (block) {
+      c.steer = block.side >= 0 ? -1 : 1;
+      if (sp > 70) c.accel = false;
     }
 
     /* ---- dodge what is in the way ---- */
@@ -182,15 +201,25 @@
       c.steer = SMK.clamp(SMK.angleDelta(kart.angle, back) * 2.4, -1, 1);
       c.brake = false; c.accel = true;
     }
-    var moved = kart.progress - ai.lastProgress;
-    ai.lastProgress = kart.progress;
-    if (moved < 4 * dt && !kart.isDisabled()) ai.stuckTime += dt;
-    else ai.stuckTime = Math.max(0, ai.stuckTime - dt * 2);
-    if (ai.stuckTime > 1.3) {
-      /* reverse out for a moment */
+    /* Wedged against something?  Measured against a rolling reference
+       rather than a per-frame delta: a kart shuffling back and forth
+       against an obstacle moves plenty every frame and would reset a
+       per-frame detector forever without ever getting anywhere. */
+    if (kart.progress - ai.progressRef > 30 || kart.isDisabled()) {
+      ai.progressRef = kart.progress;
+      ai.progressRefTime = 0;
+      ai.stuckTime = 0;
+    } else {
+      ai.progressRefTime += dt;
+      if (ai.progressRefTime > 1.6) ai.stuckTime += dt;
+    }
+    if (ai.stuckTime > 0.4) {
       c.accel = false; c.brake = true;
-      c.steer = -c.steer;
-      if (ai.stuckTime > 2.2) { ai.stuckTime = 0; SMK.respawnOnTrack(kart, track); }
+      c.steer = ai.stuckTime > 1.0 ? -SMK.sign(c.steer || 1) : -c.steer;
+    }
+    if (ai.progressRefTime > 4.2) {
+      ai.progressRef = kart.progress; ai.progressRefTime = 0; ai.stuckTime = 0;
+      SMK.respawnOnTrack(kart, track);
     }
 
     /* ---- items ---- */
@@ -233,9 +262,20 @@
     var t = ai.target;
     if (!t) { c.accel = false; return c; }
 
-    /* aim slightly ahead of where the target is going */
-    var lead = 0.34;
-    var ax = t.x + t.vx * lead, ay = t.y + t.vy * lead;
+    /* Unarmed, go and get armed.  A CPU that only ever drives at its
+       opponent never crosses an item box, and ramming does not pop a
+       balloon — so a bout between four of them never ends. */
+    var ax, ay;
+    if (!kart.item) {
+      var box = nearestBox(race, kart, 420);
+      if (box) { ax = box.x; ay = box.y; }
+    }
+    if (ax === undefined) {
+      /* aim slightly ahead of where the target is going */
+      var lead = 0.34;
+      ax = t.x + t.vx * lead;
+      ay = t.y + t.vy * lead;
+    }
     var want = Math.atan2(ay - kart.y, ax - kart.x);
     var delta = SMK.angleDelta(kart.angle, want);
     c.steer = SMK.clamp(delta * 2.4, -1, 1);
@@ -261,22 +301,53 @@
 
     /* a comfortable closing speed rather than flat out */
     var dist = SMK.dist(kart.x, kart.y, t.x, t.y);
-    var want2 = dist < 90 ? 62 : 96;
+    var want2 = (!kart.item) ? 104 : (dist < 90 ? 68 : 100);
     if (kart.speed > want2) c.accel = false;
 
     /* fire when lined up */
     if (kart.item && !kart.isDisabled()) {
-      var aimed = Math.abs(delta) < 0.34 && dist < 300;
+      var aimed = Math.abs(delta) < 0.40 && dist < 340;
       var id = kart.item;
-      if (id === 'banana' || id === 'egg') c.item = dist < 130 || race.rnd() < 0.01;
+      if (id === 'banana' || id === 'egg') c.item = dist < 150 || race.rnd() < 0.02;
       else if (id === 'mushroom' || id === 'triple') c.item = aimed && dist > 140;
-      else c.item = aimed || race.rnd() < 0.01;
+      else if (id === 'star' || id === 'boo' || id === 'feather') c.item = race.rnd() < 0.04;
+      else c.item = aimed || race.rnd() < 0.015;
     }
 
     ai.stuckTime = (kart.speed < 6 ? ai.stuckTime + dt : 0);
     if (ai.stuckTime > 1.4) { c.brake = true; c.accel = false; c.steer = -c.steer; }
     if (ai.stuckTime > 2.6) { ai.stuckTime = 0; SMK.respawnOnTrack(kart, race.track); }
     return c;
+  }
+
+  /* the nearest solid prop sitting in the corridor directly ahead */
+  function blockingSolid(kart, race, range) {
+    var fx = Math.cos(kart.angle), fy = Math.sin(kart.angle);
+    var rx = -fy, ry = fx;
+    var best = null, bestF = range;
+    for (var i = 0; i < race.objects.length; i++) {
+      var o = race.objects[i];
+      if (!o.active || !o.art.solid) continue;
+      var dx = o.x - kart.x, dy = o.y - kart.y;
+      var fwd = dx * fx + dy * fy;
+      if (fwd < 2 || fwd > bestF) continue;
+      var side = dx * rx + dy * ry;
+      if (Math.abs(side) > o.art.radius + kart.radius + 4) continue;
+      bestF = fwd;
+      best = { obj: o, fwd: fwd, side: side };
+    }
+    return best;
+  }
+
+  function nearestBox(race, kart, range) {
+    var best = null, bestD = range * range;
+    for (var i = 0; i < race.objects.length; i++) {
+      var o = race.objects[i];
+      if (!o.active || o.art.kind !== 'itembox') continue;
+      var d = SMK.dist2(kart.x, kart.y, o.x, o.y);
+      if (d < bestD) { bestD = d; best = o; }
+    }
+    return best;
   }
 
   /* is anything worth avoiding in the corridor ahead?

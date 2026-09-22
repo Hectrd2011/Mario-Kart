@@ -25,7 +25,7 @@
 
   /* extra keys that are not kart actions */
   var HOTKEYS = {
-    'KeyM': 'mute', 'KeyF': 'fullscreen', 'KeyH': 'hd',
+    'KeyM': 'mute', 'KeyF': 'fullscreen', 'KeyH': 'hd', 'KeyR': 'rear',
     'KeyV': 'view', 'KeyP': 'pause', 'Digit1': 'debug'
   };
 

@@ -31,7 +31,8 @@
     settings: {
       layout: SMK.store.get('layout', 'classic'),
       hd: SMK.store.get('hd', false),
-      crt: SMK.store.get('crt', false)
+      crt: SMK.store.get('crt', false),
+      rearView: SMK.store.get('rearView', false)
     },
     debug: false
   };
@@ -70,6 +71,7 @@
     SMK.store.set(o.key, v);
     if (o.key === 'crt') document.body.classList.toggle('crt', !!v);
     if (o.key === 'layout' && app.race) app.race.layout = v;
+    if (o.key === 'rearView' && app.race) app.race.rearView = v;
     if (o.key === 'hd' && app.race) app.race.hd = v;
   };
 
@@ -96,6 +98,7 @@
     app.race = new SMK.Race(opts);
     app.race.layout = app.settings.layout;
     app.race.hd = app.settings.hd;
+    app.race.rearView = app.settings.rearView;
     app.screen = 'race';
     app.pending = null;
   }
@@ -270,6 +273,12 @@
       app.settings.hd = !app.settings.hd;
       SMK.store.set('hd', app.settings.hd);
       if (app.race) app.race.hd = app.settings.hd;
+    }
+    if (SMK.input.consumeHotkey('rear')) {
+      app.settings.rearView = !app.settings.rearView;
+      SMK.store.set('rearView', app.settings.rearView);
+      if (app.race) app.race.rearView = app.settings.rearView;
+      SMK.audio.sfx('menuMove');
     }
     if (SMK.input.consumeHotkey('view')) {
       app.settings.layout = app.settings.layout === 'classic' ? 'wide' : 'classic';
