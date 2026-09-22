@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>
+ body{background:#4a5a90;margin:0;padding:10px;font:11px monospace;color:#fff}
+ canvas{image-rendering:pixelated;display:block;margin:1px 0 8px;background:#2b3a6b}
+ .lbl{margin-top:4px;color:#ffe}
+</style></head><body>
+<div id="out"></div>
+<script src="../js/util.js"></script>
+<script src="../js/palette.js"></script>
+<script src="../js/pixel.js"></script>
+<script src="../js/font.js"></script>
+<script src="../js/characters.js"></script>
+<script src="../js/art_kart.js"></script>
+<script>
+var out = document.getElementById('out');
+function show(buf, label, zoom) {
+  if (label) { var d=document.createElement('div'); d.className='lbl'; d.textContent=label; out.appendChild(d); }
+  out.appendChild(buf.scaleUp(zoom||3).toCanvas());
+}
+var Q = new URLSearchParams(location.search);
+var MODE = Q.get('mode') || 'all';
+try {
+  if (MODE === 'zoom') {
+    // one character, straight-ahead steering, every heading, big
+    var who = Q.get('who') || 'mario';
+    var ch = SMK.characterById(who);
+    var sheet = SMK.kartArt.bake(ch);
+    var FW = SMK.kartArt.FRAME_W, FH = SMK.kartArt.FRAME_H;
+    var b = new SMK.PixelBuf(FW*9, FH);
+    for (var a=0;a<9;a++) b.blit(sheet.frames[1][a], a*FW, 0);
+    show(b, who.toUpperCase()+' headings 0..8 (rear -> front)', 6);
+    var b2 = new SMK.PixelBuf(FW*9, FH);
+    for (a=9;a<16;a++) b2.blit(sheet.frames[1][a], (a-9)*FW, 0);
+    show(b2, 'headings 9..15 (mirrored half)', 6);
+    var b3 = new SMK.PixelBuf(FW*3, FH);
+    for (var s=0;s<3;s++) b3.blit(sheet.frames[s][0], s*FW, 0);
+    show(b3, 'steer left / centre / right (rear view)', 6);
+  } else {
+    for (var i = 0; i < SMK.characters.length; i++)
+      show(SMK.kartArt.sheetStrip(SMK.characters[i]), SMK.characters[i].name, 3);
+  }
+} catch (e) { document.title='ERR'; console.error(e); }
+</script>
+</body></html>

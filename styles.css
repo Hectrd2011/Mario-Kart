@@ -1,0 +1,86 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { height:100%; }
+body {
+  background:#0a0a12;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, #1b2140 0%, #0a0a12 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 2px, transparent 2px 4px);
+  color:#e8e8f0;
+  font-family:"Trebuchet MS", "Lucida Grande", system-ui, sans-serif;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  -webkit-user-select:none; user-select:none;
+  touch-action:manipulation;
+}
+
+#shell { display:flex; flex-direction:column; align-items:center; gap:14px; }
+
+#bezel {
+  position:relative;
+  padding:10px;
+  border-radius:10px;
+  background:linear-gradient(#3b3f52,#22242f 40%,#15161d);
+  box-shadow:
+    0 0 0 2px #0c0d12,
+    0 18px 50px rgba(0,0,0,.75),
+    inset 0 1px 0 rgba(255,255,255,.14);
+  line-height:0;
+}
+#bezel::after {
+  content:""; position:absolute; inset:10px; pointer-events:none;
+  border-radius:3px;
+  box-shadow: inset 0 0 26px rgba(0,0,0,.55), inset 0 0 2px rgba(0,0,0,.9);
+}
+
+canvas#screen {
+  display:block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background:#000;
+  border-radius:2px;
+}
+
+#scanlines {
+  position:absolute; inset:10px; pointer-events:none; border-radius:2px;
+  background:repeating-linear-gradient(0deg, rgba(0,0,0,.20) 0 1px, rgba(0,0,0,0) 1px 3px);
+  opacity:0; transition:opacity .2s;
+  mix-blend-mode:multiply;
+}
+body.crt #scanlines { opacity:1; }
+
+#legend {
+  display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:center;
+  max-width:760px; font-size:11px; letter-spacing:.04em;
+  color:#8a90aa; text-transform:uppercase;
+}
+#legend b { color:#cfd6f5; font-weight:700; }
+
+/* ---- boot overlay ---- */
+#boot {
+  position:fixed; inset:0; z-index:50;
+  background:rgba(6,7,12,.94);
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+}
+#boot.gone { display:none; }
+#bootinner { max-width:520px; padding:24px; }
+#bootinner h1 {
+  font-size:46px; line-height:.95; letter-spacing:.02em;
+  font-weight:900; font-style:italic;
+  color:#ffd63d;
+  text-shadow: 0 3px 0 #c8410f, 0 6px 0 #7d2408, 0 10px 22px rgba(0,0,0,.6);
+}
+#bootinner h1 span { color:#4fc3ff; text-shadow:0 3px 0 #0b4b8f, 0 6px 0 #062c55, 0 10px 22px rgba(0,0,0,.6); }
+#bootinner p { margin:18px 0 26px; color:#aab; font-size:14px; }
+#bootbtn {
+  font:700 16px/1 "Trebuchet MS", sans-serif; letter-spacing:.12em;
+  padding:14px 34px; border:0; border-radius:999px; cursor:pointer;
+  color:#241500; background:linear-gradient(#ffe066,#ffb300);
+  box-shadow:0 5px 0 #a35b00, 0 10px 24px rgba(0,0,0,.45);
+}
+#bootbtn:active { transform:translateY(4px); box-shadow:0 1px 0 #a35b00; }
+#bootinner small { display:block; margin-top:16px; color:#666d88; font-size:11px; }
+
+body.fs #legend { display:none; }
+body.fs #bezel { padding:0; border-radius:0; box-shadow:none; background:#000; }
+body.fs #bezel::after, body.fs #scanlines { inset:0; }
