@@ -129,7 +129,7 @@
     mapRoad: '#b0b0b8', mapGround: '#309020',
     objects: ['pipe', 'oil'],
     scenery: [{ type: 'tree', spacing: 96, u: 1.68, alternate: true, jitter: 14 },
-              { type: 'fence', spacing: 58, u: 1.40, both: true, skipNear: true }],
+              { type: 'fence', spacing: 74, u: 1.44, both: true, skipNear: true }],
     /* tarmac, a white edge line, then a strip of kerb before the grass */
     surfAt: function (t, u) {
       var a = Math.abs(u);
@@ -177,7 +177,7 @@
     mapRoad: '#a8a898', mapGround: '#288818',
     objects: ['mole', 'oil'],
     scenery: [{ type: 'tree', spacing: 84, u: 1.76, alternate: true, jitter: 18 },
-              { type: 'fence', spacing: 62, u: 1.52, both: true }],
+              { type: 'fence', spacing: 80, u: 1.56, both: true }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.10) return SURF.ROAD;
@@ -222,7 +222,7 @@
     fog: 0.22, fogColor: U('#382058'),
     mapRoad: '#c0a070', mapGround: '#1a0e28',
     objects: ['boo', 'rail'],
-    scenery: [{ type: 'lantern', spacing: 78, u: 1.06, both: true }],
+    scenery: [{ type: 'lantern', spacing: 96, u: 1.16, both: true }],
     /* a plank causeway with nothing at all beside it */
     surfAt: function (t, u) {
       var a = Math.abs(u);
@@ -265,7 +265,7 @@
     fog: 0.18, fogColor: U('#582018'),
     mapRoad: '#807878', mapGround: '#301818',
     objects: ['thwomp', 'firebar'],
-    scenery: [{ type: 'torch', spacing: 64, u: 1.18, both: true }],
+    scenery: [{ type: 'torch', spacing: 78, u: 1.22, both: true }],
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ROAD;

@@ -297,28 +297,28 @@
   }
 
   function torchSprite(phase) {
-    var b = buf(16, 40);
-    b.rect(6, 18, 4, 21, '#584c48');
-    b.rect(6, 18, 2, 21, '#786c68');
-    b.rect(4, 15, 8, 4, '#403838');
+    var b = buf(14, 28);
+    b.rect(5, 13, 4, 15, '#584c48');
+    b.rect(5, 13, 2, 15, '#786c68');
+    b.rect(3, 10, 8, 4, '#403838');
     /* flame, guttering */
-    var h = 9 + (phase % 2) * 2;
-    b.ellipse(8, 15 - h * 0.4, 4, h * 0.55, '#f83000');
-    b.ellipse(8, 15 - h * 0.5, 2.6, h * 0.42, '#f89800');
-    b.ellipse(8, 15 - h * 0.55, 1.4, h * 0.26, '#f8f800');
+    var h = 8 + (phase % 2) * 2;
+    b.ellipse(7, 10 - h * 0.4, 3.6, h * 0.52, '#f83000');
+    b.ellipse(7, 10 - h * 0.5, 2.4, h * 0.40, '#f89800');
+    b.ellipse(7, 10 - h * 0.55, 1.2, h * 0.24, '#f8f800');
     b.outline(PAL.outline, false);
     return b;
   }
 
   function lanternSprite(phase) {
-    var b = buf(18, 42);
-    b.rect(8, 12, 2, 29, '#3c2c20');
-    b.rect(5, 12, 8, 2, '#3c2c20');
+    var b = buf(14, 26);
+    b.rect(6, 9, 2, 17, '#3c2c20');
+    b.rect(4, 9, 6, 2, '#3c2c20');
     /* a cold ghost-light that pulses */
-    var r = 5 + (phase % 2);
-    b.ellipse(9, 9, r, r, '#4c5c88');
-    b.ellipse(9, 9, r - 1.5, r - 1.5, '#a8c8f8');
-    b.ellipse(9, 8, r - 3, r - 3, '#e8f4ff');
+    var r = 4 + (phase % 2);
+    b.ellipse(7, 6, r, r, '#4c5c88');
+    b.ellipse(7, 6, r - 1.3, r - 1.3, '#a8c8f8');
+    b.ellipse(7, 5.4, Math.max(0.8, r - 2.6), Math.max(0.8, r - 2.6), '#e8f4ff');
     b.outline(PAL.outline, false);
     return b;
   }
@@ -687,8 +687,8 @@
     tree:     { frames: 1, make: treeSprite,    worldW: 40, kind: 'decor' },
     pine:     { frames: 1, make: pineSprite,    worldW: 40, kind: 'decor' },
     palm:     { frames: 1, make: palmSprite,    worldW: 52, kind: 'decor' },
-    torch:    { frames: 2, make: torchSprite,   worldW: 20, kind: 'decor', fps: 7 },
-    lantern:  { frames: 2, make: lanternSprite, worldW: 22, kind: 'decor', fps: 3 },
+    torch:    { frames: 2, make: torchSprite,   worldW: 13, kind: 'decor', fps: 7 },
+    lantern:  { frames: 2, make: lanternSprite, worldW: 13, kind: 'decor', fps: 3 },
     fence:    { frames: 1, make: fenceSprite,   worldW: 34, kind: 'decor' },
     rock:     { frames: 1, make: rockSprite,    worldW: 30, kind: 'decor' },
     cactus:   { frames: 1, make: cactusSprite,  worldW: 30, kind: 'decor' },

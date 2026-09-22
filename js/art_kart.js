@@ -778,7 +778,7 @@
       /* enough to read as flashing, not so much that the kart becomes
          a coloured blob — the shape still has to be legible */
       var rows = variant(ch, 'star' + (phase % tints.length), function (buf) {
-        return buf.clone().tint(t, 0.40).brighten(1.10);
+        return buf.clone().tint(t, 0.26).brighten(1.16);
       });
       return rows[steerSlot(steer)][wrapAngle16(angleIndex)];
     },

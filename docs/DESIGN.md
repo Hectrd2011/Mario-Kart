@@ -24,9 +24,11 @@ js/art_ui.js       software blitter, text cache, HUD chrome, title logo
 js/themes.js       the eight course families: surfaces, palettes, horizons
 js/trackgen.js     spline -> Mode 7 texture, surface map, mips, nodes, map
 js/courses.js      twenty courses in four cups
+js/arenas.js       four Battle arenas and the builder that bakes them
 js/mode7.js        the per-scanline ground plane
 js/audio.js        four-voice chiptune engine and the sound effects
 js/input.js        keyboard + gamepad, normalised to one action set
+js/touch.js        on-screen controls for phones and tablets
 js/items.js        roulette, projectiles, effects
 js/physics.js      kart handling, surfaces, collision, lap bookkeeping
 js/ai.js           the seven CPU racers
@@ -139,7 +141,17 @@ Each of these is a judgement call, not an oversight.
   descriptive (documentation and reference study of the genre); no
   assets, tile data or code from any commercial game are used or
   redistributed here.
-- **Battle mode is not implemented.** Grand Prix, Time Trial and VS are.
+- **Battle mode is an adaptation.** The original's was two-player only.
+  Here it is you against three CPUs across four arenas, three balloons
+  each. Arenas skip the spline track generator entirely — `arenas.js`
+  rasterises a floor, wall ring, interior blocks and pits straight into
+  the same texture/surface/mip structure everything downstream expects.
+  In an arena every racer draws from the item boxes rather than carrying
+  their character's special, because half of those specials target "the
+  kart ahead" and in an arena there is no ahead.
+- **On-screen controls** appear on touch devices, and below 2x the
+  canvas takes a fractional scale rather than the integer one — on a
+  phone the nearest integer is 1x, which wastes most of the screen.
 
 ## Headless harnesses
 

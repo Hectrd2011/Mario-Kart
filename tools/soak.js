@@ -31,12 +31,14 @@ function arg(n, d) { const i = process.argv.indexOf('--' + n); if (i < 0) return
     await page.evaluate((v) => { window.__SOAK_SOLO = v; }, solo);
     await page.evaluate(([cid, nl]) => {
       const app = SMK.debug.app;
-      app.chosen.mode = 'vs';
+      const isArena = !!(SMK.arenas && SMK.arenas[cid]);
+      app.chosen.mode = isArena ? 'battle' : 'vs';
       app.chosen.engine = SMK.ENGINE_CLASSES[2];
       app.chosen.character = 'mario';
-      app.race = new SMK.Race({ mode: window.__SOAK_SOLO ? 'tt' : 'vs',
-                                courseId: cid, characterId: 'mario',
-                                engine: SMK.ENGINE_CLASSES[2], laps: nl });
+      app.race = new SMK.Race({
+        mode: isArena ? 'battle' : (window.__SOAK_SOLO ? 'tt' : 'vs'),
+        courseId: cid, characterId: 'mario',
+        engine: SMK.ENGINE_CLASSES[2], laps: nl });
       app.screen = 'race';
       SMK.debug.autopilot(true);
     }, [courseId, laps]);
@@ -53,11 +55,18 @@ function arg(n, d) { const i = process.argv.indexOf('--' + n); if (i < 0) return
           lap: r.player.lap, place: r.player.place, prog: Math.round(r.player.progress),
           spd: Math.round(r.player.speed), coins: r.player.coins,
           finished: r.karts.filter(k => k.finished).length,
+          balloons: r.battle ? r.karts.map(k => k.balloons) : null,
+          pos: r.karts.map(k => Math.round(k.x) + ',' + Math.round(k.y)).join('|'),
           maxSpd: Math.round(Math.max.apply(null, r.karts.map(k => k.speed))),
           offroad: r.karts.filter(k => k.surface === 2 || k.surface === 3).length,
           fell: r.karts.filter(k => k.fallTime > 0 || k.respawnTime > 0).length };
       });
-      if (last && st.prog === last.prog && st.state === 'racing') stalled++;
+      /* An arena has no lap progress to measure, so a stall there means
+         the karts have stopped moving at all — not merely that nobody
+         has popped a balloon in the last few seconds. */
+      const moved = st.prog !== (last && last.prog) ||
+                    (st.pos && st.pos !== (last && last.pos));
+      if (last && !moved && st.state === 'racing') stalled++;
       else stalled = 0;
       last = st;
       if (st.screen === 'results' || st.state === 'results') { done = true; break; }
