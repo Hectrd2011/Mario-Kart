@@ -66,9 +66,8 @@
   /* ---- position, big and leaning like the original's ------------- */
   function drawPlace(frame, W, H, race, x, y) {
     var place = race.player.place;
-    var style = place === 1 ? 'pos' : 'pos';
-    SMK.Text.draw(frame, W, H, x, y, String(place), style);
-    var w = SMK.Text.measure(String(place), style);
+    SMK.Text.draw(frame, W, H, x, y, String(place), 'pos');
+    var w = SMK.Text.measure(String(place), 'pos');
     SMK.Text.draw(frame, W, H, x + w + 2, y + 8, SMK.ordinalSuffix(place), 'posSm');
   }
 

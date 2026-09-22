@@ -416,8 +416,8 @@
       if (a > 1.06) {
         /* snow, with drifts piling up further from the swept ice */
         var deep = SMK.clamp((a - 1.06) / 0.9, 0, 1);
-        var v = 240 + ((n >> 5) - 4) - Math.round(deep * 26);
-        return SMK.pack(v, v + 2, 255);
+        var snow = 240 + ((n >> 5) - 4) - Math.round(deep * 26);
+        return SMK.pack(snow, snow + 2, 255);
       }
       if (a > 1.00) return U('#6890c0');       /* rim of the cleared ice */
       var v = 150 + ((n >> 4) - 8) * 3;

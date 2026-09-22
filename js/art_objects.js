@@ -26,29 +26,42 @@
 
   /* ---------------- pickups ---------------- */
 
-  /* flat "?" panel, as the original painted them on the road rather
-     than floating them in the air */
+  /* Flat square "?" panel, as the original painted them: the SNES had
+     no floating boxes, just yellow tiles on the tarmac you drove over.
+     Drawn pre-squashed to the camera's 23-degree elevation, so a square
+     on the ground reads as a square. */
   function itemPanel(phase) {
-    var w = 36, h = 20, b = buf(w, h);
-    var cx = w / 2, cy = h / 2;
+    var w = 38, h = 18, b = buf(w, h);
     var glow = ['#f8d800', '#fff060', '#f8a800', '#ffffff'][phase % 4];
-    /* a lozenge lying on the tarmac, bevelled so it reads at distance */
-    b.ellipse(cx, cy + 1, 16, 8.0, SMK.shade(glow, -0.62));
-    b.ellipse(cx, cy, 15, 7.0, SMK.shade(glow, -0.25));
-    b.ellipse(cx, cy - 1.2, 13, 5.4, glow);
-    b.ellipse(cx, cy - 2.6, 9.5, 3.0, SMK.shade(glow, 0.42));
-    /* a chunky question mark */
-    var q = ['.#####.',
-             '##...##',
-             '.....##',
-             '..####.',
-             '..##...',
-             '.......',
-             '..##...'];
+    var edge = SMK.shade(glow, -0.62);
+    var lip = SMK.shade(glow, -0.28);
+    var lit = SMK.shade(glow, 0.40);
+
+    /* the tile, with a bevelled rim so it sits on the road */
+    b.rect(1, 1, w - 2, h - 2, edge);
+    b.rect(2, 2, w - 4, h - 4, lip);
+    b.rect(3, 3, w - 6, h - 6, glow);
+    b.hline(3, 3, w - 6, lit);
+    b.hline(3, 4, w - 6, lit);
+    b.hline(3, h - 4, w - 6, edge);
+    b.vline(3, 3, h - 6, lit);
+    b.vline(w - 4, 3, h - 6, edge);
+    /* clipped corners: a square tile seen in perspective */
+    b.px(1, 1, 0); b.px(w - 2, 1, 0); b.px(1, h - 2, 0); b.px(w - 2, h - 2, 0);
+
+    /* a chunky question mark, squat to match the foreshortening */
+    var q = ['.####.',
+             '##..##',
+             '....##',
+             '..###.',
+             '..##..',
+             '......',
+             '..##..'];
+    var qx = Math.round(w / 2 - 3), qy = 5;
     for (var r = 0; r < q.length; r++) {
       for (var c = 0; c < q[r].length; c++) {
         if (q[r].charAt(c) !== '#') continue;
-        b.px(Math.round(cx - 3.5 + c), Math.round(cy - 4 + r), PAL.black);
+        b.px(qx + c, qy + Math.round(r * 0.92), PAL.black);
       }
     }
     b.outline(PAL.outline, false);
@@ -658,7 +671,7 @@
        kind           what the race layer does on contact
      ------------------------------------------------------------------ */
   var DEFS = {
-    itembox:  { frames: 4, make: itemPanel,   worldW: 36, flat: true, radius: 14, kind: 'itembox', fps: 9 },
+    itembox:  { frames: 4, make: itemPanel,   worldW: 34, flat: true, radius: 14, kind: 'itembox', fps: 9 },
     coin:     { frames: 6, make: coinSprite,  worldW: 13, flat: true, radius: 8, kind: 'coin', fps: 11 },
     pipe:     { frames: 1, make: pipeSprite,  worldW: 30, radius: 15, solid: true, kind: 'solid' },
     thwomp:   { frames: 2, make: thwompSprite, worldW: 36, radius: 16, solid: true, kind: 'thwomp', fps: 1.4 },
