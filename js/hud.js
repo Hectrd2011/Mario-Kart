@@ -206,9 +206,11 @@
       var ry = vp.h;
       SMK.fillRect(frame, W, H, 0, ry, W, 1, '#485880');
       SMK.fillRect(frame, W, H, 0, ry + 1, W, 1, '#182440');
-      SMK.ditherRect(frame, W, H, 0, ry + 2, W, 11, '#101828');
-      text(frame, W, H, 6, ry + 4, 'REAR VIEW', 'hudDim');
-      text(frame, W, H, W - 6, ry + 4, race.course.name, 'hudDim', { align: 'right' });
+      /* a solid bar, not a dither: text over a checkerboard is unreadable */
+      SMK.fillRect(frame, W, H, 0, ry + 2, W, 10, '#101828');
+      SMK.fillRect(frame, W, H, 0, ry + 11, W, 1, '#2c3a60');
+      text(frame, W, H, 5, ry + 3, 'REAR VIEW', 'hudDim');
+      text(frame, W, H, W - 5, ry + 3, race.course.name, 'hudDim', { align: 'right' });
     } else if (classic) {
       var py = vp.h;
       var ph = H - py;

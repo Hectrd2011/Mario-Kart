@@ -373,30 +373,32 @@
 
   function options(app, f) {
     backdrop(f, app.t, 'dark');
-    text(f, W / 2, 6, 'OPTIONS', 'menuSel', { align: 'center' });
+    text(f, W / 2, 4, 'OPTIONS', 'menuSel', { align: 'center' });
 
-    panel(f, 10, 18, 236, 106, 'DISPLAY & SOUND');
+    panel(f, 10, 14, 236, 104, 'DISPLAY & SOUND');
     for (var i = 0; i < OPTIONS.length; i++) {
       var o = OPTIONS[i];
-      var y = 38 + i * 17;
+      var y = 32 + i * 17;
       var on = app.sel.option === i;
       if (on) rect(f, 14, y - 4, 228, 15, '#384a80');
       text(f, 20, y, o.name, on ? 'menuSel' : 'menu');
       text(f, 238, y, o.labels[app.optionIndex(o)], on ? 'hudY' : 'hudDim', { align: 'right' });
-      if (on) text(f, 14, y, '▶', 'menuSel');
+      if (on) text(f, 14, y, '\u25b6', 'menuSel');
     }
-    text(f, W / 2, 128, 'UP/DOWN TO PICK    LEFT/RIGHT TO CHANGE', 'menuDim', { align: 'center' });
+    text(f, W / 2, 122, 'UP/DOWN TO PICK    LEFT/RIGHT TO CHANGE', 'menuDim', { align: 'center' });
 
-    panel(f, 10, 140, 236, 66, 'CONTROLS');
+    /* two columns of five: ten bindings in one panel, none stacked */
+    panel(f, 10, 134, 236, 76, 'CONTROLS');
+    var rows = Math.ceil(HELP.length / 2);
     for (var k = 0; k < HELP.length; k++) {
-      var col = k < 4 ? 0 : 1;
-      var row = k % 4;
+      var col = Math.floor(k / rows);
+      var row = k % rows;
       var hx = 20 + col * 114;
-      var hy = 158 + row * 12;
+      var hy = 150 + row * 12;
       text(f, hx, hy, HELP[k][0], 'hudDim');
-      text(f, hx + 104, hy, HELP[k][1], 'hud', { align: 'right' });
+      text(f, hx + 102, hy, HELP[k][1], 'hud', { align: 'right' });
     }
-    text(f, W / 2, H - 11, 'ESC BACK', 'menuDim', { align: 'center' });
+    text(f, W / 2, H - 9, 'ESC BACK', 'menuDim', { align: 'center' });
 
     var moved = false;
     if (SMK.input.pressed.accel) { app.sel.option = (app.sel.option + OPTIONS.length - 1) % OPTIONS.length; moved = true; }
