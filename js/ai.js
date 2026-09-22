@@ -265,16 +265,19 @@
     /* Unarmed, go and get armed.  A CPU that only ever drives at its
        opponent never crosses an item box, and ramming does not pop a
        balloon — so a bout between four of them never ends. */
+    var dist = SMK.dist(kart.x, kart.y, t.x, t.y);
     var ax, ay;
     if (!kart.item) {
       var box = nearestBox(race, kart, 420);
       if (box) { ax = box.x; ay = box.y; }
     }
     if (ax === undefined) {
-      /* aim slightly ahead of where the target is going */
-      var lead = 0.34;
-      ax = t.x + t.vx * lead;
-      ay = t.y + t.vy * lead;
+      /* Lead the target by the shell's actual time of flight, so the
+         kart is pointing where the shot has to go rather than at where
+         the target happens to be standing. */
+      var tof = SMK.clamp(dist / 196, 0, 1.6);
+      ax = t.x + t.vx * tof;
+      ay = t.y + t.vy * tof;
     }
     var want = Math.atan2(ay - kart.y, ax - kart.x);
     var delta = SMK.angleDelta(kart.angle, want);
@@ -300,18 +303,21 @@
     }
 
     /* a comfortable closing speed rather than flat out */
-    var dist = SMK.dist(kart.x, kart.y, t.x, t.y);
     var want2 = (!kart.item) ? 104 : (dist < 90 ? 68 : 100);
     if (kart.speed > want2) c.accel = false;
 
-    /* fire when lined up */
+    /* Fire on predicted miss distance, not on a fixed cone.  A cone of
+       a fixed angle is a hundred units wide at the far end of an arena,
+       so a CPU gated on one throws every shell it picks up and hits
+       almost nothing. */
     if (kart.item && !kart.isDisabled()) {
-      var aimed = Math.abs(delta) < 0.40 && dist < 340;
+      var miss = Math.abs(Math.sin(delta)) * dist;
+      var lined = miss < 26 && dist < 420 && Math.abs(delta) < 1.0;
       var id = kart.item;
       if (id === 'banana' || id === 'egg') c.item = dist < 150 || race.rnd() < 0.02;
-      else if (id === 'mushroom' || id === 'triple') c.item = aimed && dist > 140;
-      else if (id === 'star' || id === 'boo' || id === 'feather') c.item = race.rnd() < 0.04;
-      else c.item = aimed || race.rnd() < 0.015;
+      else if (id === 'mushroom' || id === 'triple') c.item = lined && dist > 150;
+      else if (id === 'star' || id === 'boo' || id === 'feather') c.item = race.rnd() < 0.05;
+      else c.item = lined;
     }
 
     ai.stuckTime = (kart.speed < 6 ? ai.stuckTime + dt : 0);

@@ -49,6 +49,17 @@
     ]
   };
 
+  /* The arena draw.  Everyone pulls from this, CPUs included: half the
+     character specials are meaningless in a bout (a poison mushroom
+     aimed at "the kart ahead", a banana nobody drives over), and a
+     lightning bolt that touched all three opponents at once would end
+     the bout on the spot.  Weighted toward things that can actually pop
+     a balloon. */
+  var BATTLE_WEIGHTS = [
+    ['greenShell', 28], ['redShell', 24], ['banana', 14], ['star', 12],
+    ['mushroom', 10], ['triple', 6], ['boo', 4], ['feather', 2]
+  ];
+
   function bucket(place, total) {
     if (place <= 1) return 'lead';
     if (place >= Math.max(5, Math.ceil(total * 0.62))) return 'back';
@@ -89,11 +100,24 @@
   var EGG_SPEED = 160;
   var FIRE_SPEED = 170;
 
-  /* the kart one place ahead of `kart` — a red shell's target */
+  /* A red shell's target: the kart one place ahead.  An arena has no
+     "ahead" — progress is frozen there — so the nearest opponent still
+     carrying balloons stands in, or the shell would fly straight on
+     and the poison mushroom would do nothing at all. */
   function kartAhead(race, kart) {
-    var best = null;
-    for (var i = 0; i < race.karts.length; i++) {
-      var k = race.karts[i];
+    var best = null, i, k;
+    if (race.battle) {
+      var bestD = Infinity;
+      for (i = 0; i < race.karts.length; i++) {
+        k = race.karts[i];
+        if (k === kart || k.out) continue;
+        var d = SMK.dist2(kart.x, kart.y, k.x, k.y);
+        if (d < bestD) { bestD = d; best = k; }
+      }
+      return best;
+    }
+    for (i = 0; i < race.karts.length; i++) {
+      k = race.karts[i];
       if (k === kart || k.finished) continue;
       if (k.progress <= kart.progress) continue;
       if (!best || k.progress < best.progress) best = k;
@@ -334,7 +358,9 @@
     if (kart.item) return false;
     box.cooldown = race.battle ? 1.6 : 2.4;
     var it;
-    if (kart.ai) {
+    if (race.battle) {
+      it = pickWeighted(BATTLE_WEIGHTS, race.rnd);
+    } else if (kart.ai) {
       /* a CPU racer only ever draws its own character's item */
       it = kart.char.special;
     } else {
