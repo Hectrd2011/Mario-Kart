@@ -231,6 +231,34 @@
     return track;
   };
 
+  /* ------------------------------------------------------------------
+     A cheap preview: nodes, length and course map only, skipping the
+     million-texel texture and surface bake.  The course-select screen
+     uses this so stepping through twenty courses stays instant.
+     ------------------------------------------------------------------ */
+  SMK.buildTrackPreview = function (course) {
+    var theme = SMK.themes[course.theme];
+    var rs = resample(course.path, NODE_STEP);
+    var dense = frame(rs.pts, rs.total);
+    var nodes = [];
+    for (var i = 0; i < dense.length; i++) {
+      var d = dense[i];
+      nodes.push({
+        x: d.x, y: d.y, tx: d.tx, ty: d.ty, nx: d.nx, ny: d.ny,
+        s: d.s, t: d.t, hw: widthAt(course, d.t), index: i
+      });
+    }
+    var track = {
+      size: SIZE, theme: theme, course: course,
+      nodes: nodes, length: rs.total,
+      laps: course.laps || 5,
+      startNode: nodes[Math.round((course.startAt || 0) * nodes.length) % nodes.length],
+      preview: true
+    };
+    track.map = buildMap(track);
+    return track;
+  };
+
   function nodeAtT(track, t) {
     t = t - Math.floor(t);
     var n = track.nodes.length;
@@ -276,12 +304,14 @@
   function patchColor(type, t, u, px, py, n, i, j, w, h) {
     switch (type) {
       case 'boost': {
-        /* a chevron dash panel, pointing the way round */
+        /* three chevrons pointing the way round, on a dark base */
         var fy = j / h;                       /* 0 back .. 1 front */
         var fx = Math.abs(i / w - 0.5) * 2;
-        var band = Math.floor((fy * 3 - fx * 0.9 + 3) % 1 * 3);
-        var cols = ['#f8f800', '#f88800', '#f8f8f8'];
-        return SMK.u32(cols[band % 3]);
+        var band = fy * 3.0 - fx * 0.55;
+        var bi = Math.floor(band), frac = band - bi;
+        if (frac > 0.60) return SMK.u32('#242838');
+        var cols = ['#f8f800', '#f8b000', '#f8f8f8'];
+        return SMK.u32(cols[((bi % 3) + 3) % 3]);
       }
       case 'oil':
         return SMK.u32(n > 150 ? '#282830' : '#101018');

@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>
+ body{background:#6b7fb8;margin:0;padding:12px;font:10px monospace;color:#fff}
+ .row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+ .cell{background:#2b3a6b;padding:3px;text-align:center}
+ canvas{image-rendering:pixelated;display:block}
+</style></head><body>
+<div id="out"></div>
+<script src="../js/util.js"></script><script src="../js/palette.js"></script>
+<script src="../js/pixel.js"></script><script src="../js/font.js"></script>
+<script src="../js/characters.js"></script><script src="../js/art_kart.js"></script>
+<script src="../js/art_objects.js"></script>
+<script>
+var out=document.getElementById('out');
+function row(){var d=document.createElement('div');d.className='row';out.appendChild(d);return d;}
+try{
+  var r = row();
+  SMK.objArt.allNames().forEach(function(n){
+    var o = SMK.objArt.get(n);
+    for (var i=0;i<o.bufs.length;i++){
+      var c=document.createElement('div');c.className='cell';
+      c.appendChild(o.bufs[i].scaleUp(4).toCanvas());
+      var l=document.createElement('div'); l.textContent=n+(o.bufs.length>1?'.'+i:''); c.appendChild(l);
+      r.appendChild(c);
+    }
+  });
+  var r2 = row();
+  [['lights0',0],['lights1',0],['lights2',0],['lights3',0],['lap',2],['flag',0],['wrongway',0],[null,0]].forEach(function(p){
+    var l = SMK.objArt.lakitu(p[0], p[1], 0);
+    var c=document.createElement('div');c.className='cell';
+    c.appendChild(l.buf.scaleUp(3).toCanvas());
+    var lb=document.createElement('div'); lb.textContent=String(p[0]); c.appendChild(lb);
+    r2.appendChild(c);
+  });
+}catch(e){document.title='ERR';console.error(e);}
+</script></body></html>

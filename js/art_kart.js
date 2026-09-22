@@ -734,20 +734,24 @@
     return sheet;
   }
 
-  /* pre-tinted copies for the star / flash states, built on demand */
+  /* pre-tinted copies for the star / squash states, built on demand.
+     These stay as PixelBufs because the game blits in software. */
   function variant(ch, key, make) {
     var sheet = bake(ch);
     if (!sheet[key]) {
       var out = [];
       for (var s = 0; s < STEERS.length; s++) {
         var row = [];
-        for (var a = 0; a < ANGLES; a++) row.push(make(sheet.frames[s][a]).toCanvas());
+        for (var a = 0; a < ANGLES; a++) row.push(make(sheet.frames[s][a]));
         out.push(row);
       }
       sheet[key] = out;
     }
     return sheet[key];
   }
+
+  function wrapAngle16(a) { return ((a % ANGLES) + ANGLES) % ANGLES; }
+  function steerSlot(steer) { return steer < -0.33 ? 0 : (steer > 0.33 ? 2 : 1); }
 
   SMK.kartArt = {
     FRAME_W: FW,
@@ -757,30 +761,32 @@
     ANGLES: ANGLES,
     bake: bake,
 
-    /* canvas for a heading (0..15) and steer (-1..1) */
-    canvas: function (ch, angleIndex, steer) {
-      var sheet = bake(ch);
-      var s = steer < -0.33 ? 0 : (steer > 0.33 ? 2 : 1);
-      return sheet.canvases[s][((angleIndex % ANGLES) + ANGLES) % ANGLES];
+    /* the normal sprite for a heading (0..15) and steer (-1..1) */
+    frame: function (ch, angleIndex, steer) {
+      return bake(ch).frames[steerSlot(steer)][wrapAngle16(angleIndex)];
     },
 
-    starCanvas: function (ch, angleIndex, steer, phase) {
-      var key = 'star' + phase;
+    /* canvas of the same, for menus that want a plain image */
+    canvas: function (ch, angleIndex, steer) {
+      return bake(ch).canvases[steerSlot(steer)][wrapAngle16(angleIndex)];
+    },
+
+    /* star power: the whole kart flashes through four colours */
+    starFrame: function (ch, angleIndex, steer, phase) {
       var tints = ['#ffffff', '#ffe040', '#40e0ff', '#ff70c0'];
       var t = tints[phase % tints.length];
-      var rows = variant(ch, key, function (buf) {
+      var rows = variant(ch, 'star' + (phase % tints.length), function (buf) {
         return buf.clone().tint(t, 0.62).brighten(1.15);
       });
-      var s = steer < -0.33 ? 0 : (steer > 0.33 ? 2 : 1);
-      return rows[s][((angleIndex % ANGLES) + ANGLES) % ANGLES];
+      return rows[steerSlot(steer)][wrapAngle16(angleIndex)];
     },
 
-    /* flattened by lightning or a Thwomp */
-    squashCanvas: function (ch, angleIndex, amount) {
-      var key = 'squash' + Math.round(amount * 4);
-      var k = SMK.clamp(amount, 0, 1);
-      var rows = variant(ch, key, function (buf) {
-        var h = Math.max(4, Math.round(FH * (1 - 0.72 * k)));
+    /* flattened by lightning or a Thwomp: squat and spread */
+    squashFrame: function (ch, angleIndex, amount) {
+      var q = Math.max(1, Math.min(4, Math.round(amount * 4)));
+      var k = q / 4;
+      var rows = variant(ch, 'squash' + q, function (buf) {
+        var h = Math.max(4, Math.round(FH * (1 - 0.66 * k)));
         var out = new SMK.PixelBuf(FW, FH);
         var wgrow = 1 + 0.30 * k;
         for (var y = 0; y < h; y++) {
@@ -794,12 +800,7 @@
         }
         return out;
       });
-      return rows[1][((angleIndex % ANGLES) + ANGLES) % ANGLES];
-    },
-
-    /* shrunk by a poison mushroom — plain integer-ish downscale */
-    shrinkCanvas: function (ch, angleIndex, steer, k) {
-      return SMK.kartArt.canvas(ch, angleIndex, steer);
+      return rows[1][wrapAngle16(angleIndex)];
     },
 
     /* debug: one long strip of every frame */
