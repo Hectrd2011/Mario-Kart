@@ -107,6 +107,10 @@ across the boards and Rainbow Road band correctly.
 - Lakitu runs the starting lights, holds up the lap boards, waves the
   chequered flag, shows the wrong-way sign and fishes you out of the
   void.
+- The lower half swaps between the course map and a rear-view mirror
+  (`R`), as the original's did. The mirror is a second Mode 7 pass with
+  the camera on the kart facing the other way, which also means the kart
+  sits at zero depth and never appears in its own mirror.
 - You start at the back of the grid for the opening race of a cup, and
   from the championship standings after that.
 - Time Trial hands you three mushrooms.
@@ -167,6 +171,25 @@ node tools/shot.js "tools/preview_track.html?mode=maps" out.png --full
 ```
 
 `soak.js` hands the player's kart to the AI and reports lap times,
-stalls, off-road counts, falls and page errors — that is what caught the
-AI braking for every bend in sight, and the acceleration taper that
-capped real top speed ten percent short.
+stalls, off-road counts, falls and page errors. `verify.js` checks the
+things a screenshot cannot show — that the slide engages and pays out,
+that the item button fires, that the music scheduler is creating voices.
+`gpflow.js` plays a whole cup through to the trophy ceremony.
+
+Between them they caught most of the real bugs in this project: the AI
+braking for every bend in sight; an acceleration taper that capped real
+top speed ten percent short; a scanline at the horizon written by
+neither the sky nor the ground pass; a Bowser fireball volley knocking a
+kart clean out of a battle in one shot; ice with so little grip that the
+AI's steering became a feedback loop and the whole field crawled; and
+CPUs in an arena throwing fifty-three items to pop two balloons.
+
+## Shipping it
+
+```
+node tools/bundle.js              # -> dist/super-kart-grand-prix.html
+node tools/bundle.js --artifact   # same, minus the document wrapper
+```
+
+The game has no dependencies and loads no images, so it collapses into a
+single 365KB HTML file that runs from anywhere.
