@@ -26,6 +26,13 @@ files, any static server will do:
 npx http-server . && open http://localhost:8080
 ```
 
+Or build the whole game into one self-contained HTML file you can mail,
+host anywhere, or open from a USB stick:
+
+```
+node tools/bundle.js          # -> dist/super-kart-grand-prix.html
+```
+
 ## Controls
 
 |  |  |
