@@ -23,21 +23,30 @@
   var VIEW_CLASSIC = { x: 0, y: 0, w: 256, h: 112 };
   var VIEW_WIDE = { x: 0, y: 0, w: 256, h: 224 };
 
-  /* ---- shadow, baked once and scaled per sprite ---- */
-  var shadowBuf = null;
-  function shadow() {
-    if (shadowBuf) return shadowBuf;
-    var b = new SMK.PixelBuf(32, 14);
-    /* a 50% dither reads as a soft shadow without any alpha blending */
-    for (var y = 0; y < 14; y++) {
-      for (var x = 0; x < 32; x++) {
-        var dx = (x - 15.5) / 15.5, dy = (y - 6.5) / 6.5;
-        if (dx * dx + dy * dy > 1) continue;
-        if (((x ^ y) & 1) === 0) b.px(x, y, '#101018');
+  /* ---- shadow ------------------------------------------------------
+     Laid straight into the framebuffer instead of blitted from a baked
+     bitmap.  A baked 50% dither stretched over a sprite that is close
+     to the camera turns into fat black bars; a checker written in
+     screen space stays a checker at every size.  Darkening whatever is
+     underneath also beats stamping flat black onto snow or lava. */
+  function shadowAt(frame, W, clip, cx, cy, rx, ry) {
+    if (rx < 1.2 || ry < 0.6) return;
+    var x0 = Math.max(Math.ceil(clip.clipX0), Math.ceil(cx - rx));
+    var x1 = Math.min(Math.ceil(clip.clipX1) - 1, Math.floor(cx + rx));
+    var y0 = Math.max(Math.ceil(clip.clipY0), Math.ceil(cy - ry));
+    var y1 = Math.min(Math.ceil(clip.clipY1) - 1, Math.floor(cy + ry));
+    for (var y = y0; y <= y1; y++) {
+      var dy = (y + 0.5 - cy) / ry;
+      if (dy < -1 || dy > 1) continue;
+      var span = Math.sqrt(1 - dy * dy) * rx;
+      var ax = Math.max(x0, Math.ceil(cx - span));
+      var bx = Math.min(x1, Math.floor(cx + span));
+      var row = y * W;
+      for (var x = ax; x <= bx; x++) {
+        if ((x ^ y) & 1) continue;
+        frame[row + x] = SMK.scaleU32(frame[row + x], 0.45);
       }
     }
-    shadowBuf = b;
-    return b;
   }
 
   /* ------------------------------------------------------------------ */
@@ -822,7 +831,6 @@
 
     list.sort(function (a, b) { return b.d - a.d; });
 
-    var sh = shadow();
     /* every sprite in the race is clipped to the road viewport */
     this.clip = { clipY0: vp.y, clipY1: vp.y + vp.h, clipX0: vp.x, clipX1: vp.x + vp.w };
     for (i = 0; i < list.length; i++) {
@@ -830,9 +838,9 @@
       p = it.p;
       if (p.x < -80 || p.x > vp.w + 80) continue;
 
-      if (it.kart) this.drawKart(frame, W, H, vp, it.kart, p, sh);
-      else if (it.obj) this.drawProp(frame, W, H, vp, it.obj, p, sh);
-      else if (it.proj) this.drawProjectile(frame, W, H, vp, it.proj, p, sh);
+      if (it.kart) this.drawKart(frame, W, H, vp, it.kart, p);
+      else if (it.obj) this.drawProp(frame, W, H, vp, it.obj, p);
+      else if (it.proj) this.drawProjectile(frame, W, H, vp, it.proj, p);
       else if (it.fx) this.drawEffect(frame, W, H, vp, it.fx, p);
     }
   };
@@ -849,10 +857,14 @@
   function spriteSize(art, p, worldW) {
     var w = (worldW || art.worldW) * p.scale;
     var h = w * (art.h / art.w);
+    /* Something lying on the tarmac is seen at the same shallow angle
+       as the tarmac, so it has to be squashed the way the road is —
+       otherwise a coin at your front bumper stands up like a hoop. */
+    if (art.flat) h *= SMK.clamp(CAM_HEIGHT * 1.2 / Math.max(1, p.depth), art.flatMin || 0.40, 0.90);
     return { w: w, h: h };
   }
 
-  R.drawKart = function (frame, W, H, vp, k, p, sh) {
+  R.drawKart = function (frame, W, H, vp, k, p) {
     var A = SMK.kartArt;
     /* heading relative to the camera, quantised to the 16 baked frames */
     var rel = SMK.wrapAngle(k.angle - this.camAngle);
@@ -881,8 +893,8 @@
     if (k.fallTime <= 0) {
       var lift = SMK.clamp(1 - k.z / 90, 0.25, 1);
       var shw = w * 0.78 * lift;
-      this.blitC(frame, W, H, sh, vp.x + p.x - shw / 2,
-                 vp.y + p.y - shw * 0.12, shw, shw * 0.30, {});
+      shadowAt(frame, W, this.clip, vp.x + p.x, vp.y + p.y + shw * 0.03,
+               shw * 0.5, shw * 0.16);
     }
 
     var opt = {};
@@ -917,7 +929,7 @@
     }
   };
 
-  R.drawProp = function (frame, W, H, vp, o, p, sh) {
+  R.drawProp = function (frame, W, H, vp, o, p) {
     var art = o.art;
     var frameIdx = Math.min(o.frame | 0, art.bufs.length - 1);
     var src = art.bufs[frameIdx];
@@ -950,14 +962,14 @@
       }
       if (!art.flat && o.z <= 0.5 && art.kind !== 'boo') {
         var shw = s.w * 0.6;
-        this.blitC(frame, W, H, sh, vp.x + p.x - shw / 2,
-                   vp.y + p.y - shw * 0.1, shw, shw * 0.28, {});
+        shadowAt(frame, W, this.clip, vp.x + p.x, vp.y + p.y + shw * 0.04,
+                 shw * 0.5, shw * 0.15);
       }
     }
     this.blitC(frame, W, H, src, x, y, s.w, s.h, opt);
   };
 
-  R.drawProjectile = function (frame, W, H, vp, pr, p, sh) {
+  R.drawProjectile = function (frame, W, H, vp, pr, p) {
     var art = SMK.objArt.get(pr.art);
     if (!art) return;
     var fi = art.fps ? Math.floor(pr.phase * art.fps) % art.frameCount : 0;
@@ -966,8 +978,8 @@
     var y = vp.y + p.y - s.h * (pr.type === 'banana' ? 0.62 : 0.8);
     if (pr.z <= 3) {
       var shw = s.w * 0.55;
-      this.blitC(frame, W, H, sh, vp.x + p.x - shw / 2,
-                 vp.y + p.y - shw * 0.1, shw, shw * 0.28, {});
+      shadowAt(frame, W, this.clip, vp.x + p.x, vp.y + p.y + shw * 0.04,
+               shw * 0.5, shw * 0.15);
     }
     this.blitC(frame, W, H, art.bufs[fi], vp.x + p.x - s.w / 2, y, s.w, s.h, {});
   };
@@ -977,8 +989,17 @@
     var fi = Math.min(art.frameCount - 1, Math.floor(e.t / e.dur * art.frameCount));
     var s = spriteSize(art, p);
     if (s.w < 1) return;
+    /* A particle is a tile, not an object.  Let one scale freely and a
+       drift spark that pops next to the camera swells into a screen-
+       filling orange slab; the SNES never had that problem because its
+       particles were fixed-size sprites. */
+    var cap = art.worldW * 1.4;
+    if (s.w > cap) { s.h *= cap / s.w; s.w = cap; }
+    /* dust and smoke are stippled rather than solid: an opaque cream
+       disc parked on the tarmac reads as a hole in the road */
+    var eo = art.soft ? { stipple: true } : {};
     this.blitC(frame, W, H, art.bufs[fi],
-               vp.x + p.x - s.w / 2, vp.y + p.y - s.h * 0.75, s.w, s.h, {});
+               vp.x + p.x - s.w / 2, vp.y + p.y - s.h * 0.75, s.w, s.h, eo);
   };
 
   /* ---- helpers the HUD and menus want --------------------------- */

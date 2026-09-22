@@ -30,8 +30,11 @@
      no floating boxes, just yellow tiles on the tarmac you drove over.
      Drawn pre-squashed to the camera's 23-degree elevation, so a square
      on the ground reads as a square. */
+  /* The ? panel is a tile painted on the road, so it is authored flat
+     on, seen from straight above; the renderer lays it into the road
+     plane and foreshortens it the same way it foreshortens the road. */
   function itemPanel(phase) {
-    var w = 38, h = 18, b = buf(w, h);
+    var w = 36, h = 36, b = buf(w, h);
     var glow = ['#f8d800', '#fff060', '#f8a800', '#ffffff'][phase % 4];
     var edge = SMK.shade(glow, -0.62);
     var lip = SMK.shade(glow, -0.28);
@@ -40,28 +43,31 @@
     /* the tile, with a bevelled rim so it sits on the road */
     b.rect(1, 1, w - 2, h - 2, edge);
     b.rect(2, 2, w - 4, h - 4, lip);
-    b.rect(3, 3, w - 6, h - 6, glow);
-    b.hline(3, 3, w - 6, lit);
-    b.hline(3, 4, w - 6, lit);
-    b.hline(3, h - 4, w - 6, edge);
-    b.vline(3, 3, h - 6, lit);
-    b.vline(w - 4, 3, h - 6, edge);
-    /* clipped corners: a square tile seen in perspective */
+    b.rect(4, 4, w - 8, h - 8, glow);
+    b.hline(4, 4, w - 8, lit);
+    b.hline(4, 5, w - 8, lit);
+    b.hline(4, h - 5, w - 8, edge);
+    b.vline(4, 4, h - 8, lit);
+    b.vline(5, 4, h - 8, lit);
+    b.vline(w - 5, 4, h - 8, edge);
+    /* clipped corners: a square tile, not a rounded one */
     b.px(1, 1, 0); b.px(w - 2, 1, 0); b.px(1, h - 2, 0); b.px(w - 2, h - 2, 0);
 
-    /* a chunky question mark, squat to match the foreshortening */
+    /* a chunky question mark filling the face */
     var q = ['.####.',
              '##..##',
-             '....##',
-             '..###.',
+             '##..##',
+             '...##.',
+             '..##..',
              '..##..',
              '......',
+             '..##..',
              '..##..'];
-    var qx = Math.round(w / 2 - 3), qy = 5;
+    var qx = Math.round(w / 2 - 6), qy = 8;
     for (var r = 0; r < q.length; r++) {
       for (var c = 0; c < q[r].length; c++) {
         if (q[r].charAt(c) !== '#') continue;
-        b.px(qx + c, qy + Math.round(r * 0.92), PAL.black);
+        b.rect(qx + c * 2, qy + r * 2, 2, 2, PAL.black);
       }
     }
     b.outline(PAL.outline, false);
@@ -202,33 +208,46 @@
     return b;
   }
 
+  /* A block of ice, drawn as a block: the camera sits above the road,
+     so you see the lit top face as well as the front.  Shading it flat
+     made it read as a pane of glass standing on the lake. */
+  /* A block of ice, drawn as a block: the camera sits above the road,
+     so a shallow lit top face sells it as solid where flat shading
+     made it read as a pane of glass standing on the lake. */
   function iceBlockSprite() {
     var b = buf(28, 28);
-    var i1 = '#b8e8ff', i2 = '#e8f8ff', i3 = '#6098c8';
-    b.rect(4, 6, 20, 20, i1);
-    b.rect(4, 6, 20, 3, i2);
-    b.rect(4, 23, 20, 3, i3);
-    b.rect(4, 6, 3, 20, i2);
-    b.rect(21, 6, 3, 20, i3);
+    var face = '#a8dcf8', side = '#7cb8e0', deep = '#5890c0';
+    /* top face, foreshortened to the camera's depression angle */
+    b.poly([[4, 12], [24, 12], [21, 7], [7, 7]], '#d0f0ff');
+    b.poly([[7, 7], [21, 7], [20, 9], [8, 9]], '#f0fcff');
+    /* front face */
+    b.rect(4, 12, 20, 14, face);
+    b.rect(4, 12, 20, 1, '#c4e8fc');
+    b.rect(4, 23, 20, 3, side);
+    b.rect(4, 25, 20, 1, deep);
+    /* the right-hand quarter falls away from the light */
+    b.rect(19, 12, 5, 14, side);
+    b.rect(19, 23, 5, 3, deep);
     /* a denser frozen core so it is not just a pane of glass */
-    b.ellipse(14, 16, 6, 6, '#8cc8e8');
-    b.ellipse(13, 14, 4, 3.4, '#b8e4fc');
+    b.ellipse(13, 19, 5, 4.2, '#8cc8e8');
+    b.ellipse(12, 18, 3, 2.4, '#b8e4fc');
     /* internal fractures */
-    b.line(9, 10, 15, 19, i2);
-    b.line(17, 9, 13, 16, i2);
-    b.line(11, 20, 19, 14, i3);
-    /* specular glint */
-    b.rect(7, 8, 4, 2, PAL.white);
-    b.rect(7, 10, 2, 2, PAL.white);
+    b.line(8, 15, 13, 22, '#d8f0ff');
+    b.line(16, 14, 13, 19, '#d8f0ff');
+    b.line(10, 23, 18, 17, side);
+    /* one specular chip, near the top corner */
+    b.rect(7, 13, 3, 1, PAL.white);
+    b.rect(7, 14, 1, 1, PAL.white);
     b.outline(PAL.outline, false);
     return b;
   }
 
+  /* also authored flat on: the renderer lays it into the road plane */
   function puddleSprite() {
-    var b = buf(40, 18);
-    b.ellipse(20, 11, 18, 6, '#4c2810');
-    b.ellipse(20, 10, 16, 4.6, '#301808');
-    b.ellipse(14, 8.6, 5, 1.6, '#603418');
+    var b = buf(40, 32);
+    b.ellipse(20, 17, 18, 13, '#4c2810');
+    b.ellipse(20, 16, 15.5, 11, '#301808');
+    b.ellipse(14, 12, 5, 3.4, '#603418');
     b.outline(PAL.outline, false);
     return b;
   }
@@ -672,29 +691,32 @@
      ------------------------------------------------------------------ */
   var DEFS = {
     itembox:  { frames: 4, make: itemPanel,   worldW: 34, flat: true, radius: 14, kind: 'itembox', fps: 9 },
-    coin:     { frames: 6, make: coinSprite,  worldW: 13, flat: true, radius: 8, kind: 'coin', fps: 11 },
-    pipe:     { frames: 1, make: pipeSprite,  worldW: 30, radius: 15, solid: true, kind: 'solid' },
+    /* flatMin: a coin squashed all the way into the road plane reads
+       as a dash of paint, so it keeps more of its height than the road
+       strictly allows */
+    coin:     { frames: 6, make: coinSprite,  worldW: 15, flat: true, flatMin: 0.62, radius: 8, kind: 'coin', fps: 11 },
+    pipe:     { frames: 1, make: pipeSprite,  worldW: 26, radius: 15, solid: true, kind: 'solid' },
     thwomp:   { frames: 2, make: thwompSprite, worldW: 36, radius: 16, solid: true, kind: 'thwomp', fps: 1.4 },
-    boo:      { frames: 4, make: booSprite,   worldW: 28, radius: 13, kind: 'boo', fps: 5 },
-    mole:     { frames: 2, make: moleSprite,  worldW: 24, radius: 10, kind: 'mole', fps: 1.1 },
-    cheep:    { frames: 2, make: cheepSprite, worldW: 26, radius: 11, kind: 'bump', fps: 4 },
-    iceblock: { frames: 1, make: iceBlockSprite, worldW: 28, radius: 13, solid: true, kind: 'solid' },
+    boo:      { frames: 4, make: booSprite,   worldW: 22, radius: 13, kind: 'boo', fps: 5 },
+    mole:     { frames: 2, make: moleSprite,  worldW: 15, radius: 10, kind: 'mole', fps: 1.1 },
+    cheep:    { frames: 2, make: cheepSprite, worldW: 18, radius: 11, kind: 'bump', fps: 4 },
+    iceblock: { frames: 1, make: iceBlockSprite, worldW: 24, radius: 13, solid: true, kind: 'solid' },
     puddle:   { frames: 1, make: puddleSprite, worldW: 42, flat: true, radius: 18, kind: 'slow' },
-    firebar:  { frames: 4, make: fireballSprite, worldW: 18, radius: 9, kind: 'burn', fps: 12 },
+    firebar:  { frames: 4, make: fireballSprite, worldW: 14, radius: 9, kind: 'burn', fps: 12 },
 
-    i_mushroom: { frames: 1, make: function () { return mushroomSprite(false); }, worldW: 22, radius: 10, kind: 'item' },
-    i_poison:   { frames: 1, make: function () { return mushroomSprite(true); }, worldW: 22, radius: 10, kind: 'item' },
-    i_triple:   { frames: 1, make: tripleMushroomSprite, worldW: 28, radius: 11, kind: 'item' },
-    i_star:     { frames: 4, make: starSprite, worldW: 24, radius: 11, kind: 'item', fps: 12 },
-    i_banana:   { frames: 1, make: bananaSprite, worldW: 22, radius: 10, kind: 'item' },
-    i_greenShell: { frames: 1, make: function () { return shellSprite(false); }, worldW: 22, radius: 10, kind: 'item' },
-    i_redShell: { frames: 1, make: function () { return shellSprite(true); }, worldW: 22, radius: 10, kind: 'item' },
-    i_feather:  { frames: 1, make: featherSprite, worldW: 20, radius: 9, kind: 'item' },
-    i_lightning: { frames: 1, make: lightningSprite, worldW: 20, radius: 9, kind: 'item' },
-    i_egg:      { frames: 1, make: eggSprite, worldW: 20, radius: 10, kind: 'item' },
-    i_boo:      { frames: 1, make: ghostItemSprite, worldW: 28, radius: 12, kind: 'item' },
-    i_coin:     { frames: 1, make: function () { return coinSprite(0); }, worldW: 14, radius: 7, kind: 'item' },
-    i_fireball: { frames: 4, make: fireballSprite, worldW: 18, radius: 9, kind: 'item', fps: 12 },
+    i_mushroom: { frames: 1, make: function () { return mushroomSprite(false); }, worldW: 15, radius: 10, kind: 'item' },
+    i_poison:   { frames: 1, make: function () { return mushroomSprite(true); }, worldW: 15, radius: 10, kind: 'item' },
+    i_triple:   { frames: 1, make: tripleMushroomSprite, worldW: 19, radius: 11, kind: 'item' },
+    i_star:     { frames: 4, make: starSprite, worldW: 20, radius: 11, kind: 'item', fps: 12 },
+    i_banana:   { frames: 1, make: bananaSprite, worldW: 13, radius: 10, kind: 'item' },
+    i_greenShell: { frames: 1, make: function () { return shellSprite(false); }, worldW: 15, radius: 10, kind: 'item' },
+    i_redShell: { frames: 1, make: function () { return shellSprite(true); }, worldW: 15, radius: 10, kind: 'item' },
+    i_feather:  { frames: 1, make: featherSprite, worldW: 14, radius: 9, kind: 'item' },
+    i_lightning: { frames: 1, make: lightningSprite, worldW: 14, radius: 9, kind: 'item' },
+    i_egg:      { frames: 1, make: eggSprite, worldW: 14, radius: 10, kind: 'item' },
+    i_boo:      { frames: 1, make: ghostItemSprite, worldW: 20, radius: 12, kind: 'item' },
+    i_coin:     { frames: 1, make: function () { return coinSprite(0); }, worldW: 10, radius: 7, kind: 'item' },
+    i_fireball: { frames: 4, make: fireballSprite, worldW: 13, radius: 9, kind: 'item', fps: 12 },
 
     /* scenery: decoration only, never collides */
     tree:     { frames: 1, make: treeSprite,    worldW: 40, kind: 'decor' },
@@ -712,10 +734,10 @@
     balloons3: { frames: 4, make: balloonsOf(3), worldW: 27, kind: 'decor', fps: 5 },
     balloon:   { frames: 3, make: balloonSprite, worldW: 12, kind: 'decor' },
 
-    fx_smoke: { frames: 5, make: smokePuff, worldW: 20, kind: 'fx' },
+    fx_smoke: { frames: 5, make: smokePuff, worldW: 15, soft: true, kind: 'fx' },
     fx_spark: { frames: 4, make: sparkSprite, worldW: 14, kind: 'fx' },
-    fx_splash: { frames: 4, make: splashSprite, worldW: 24, kind: 'fx' },
-    fx_poof:  { frames: 5, make: poofSprite, worldW: 20, kind: 'fx' }
+    fx_splash: { frames: 4, make: splashSprite, worldW: 18, soft: true, kind: 'fx' },
+    fx_poof:  { frames: 5, make: poofSprite, worldW: 16, soft: true, kind: 'fx' }
   };
 
   var cache = {};
@@ -735,6 +757,7 @@
       w: bufs[0].w, h: bufs[0].h,
       worldW: d.worldW, worldH: d.worldH || (d.worldW * bufs[0].h / bufs[0].w),
       radius: d.radius || 0, solid: !!d.solid, flat: !!d.flat,
+      flatMin: d.flatMin || 0, soft: !!d.soft,
       kind: d.kind, fps: d.fps || 0, frameCount: d.frames
     };
     return c;

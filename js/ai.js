@@ -311,13 +311,22 @@
        so a CPU gated on one throws every shell it picks up and hits
        almost nothing. */
     if (kart.item && !kart.isDisabled()) {
+      ai.holdTime = (ai.holdTime || 0) + dt;
       var miss = Math.abs(Math.sin(delta)) * dist;
       var lined = miss < 26 && dist < 420 && Math.abs(delta) < 1.0;
       var id = kart.item;
-      if (id === 'banana' || id === 'egg') c.item = dist < 150 || race.rnd() < 0.02;
-      else if (id === 'mushroom' || id === 'triple') c.item = lined && dist > 150;
-      else if (id === 'star' || id === 'boo' || id === 'feather') c.item = race.rnd() < 0.05;
-      else c.item = lined;
+      /* An item never spent is an item never replaced.  A CPU holding
+         a triple mushroom for a straight it will never find keeps its
+         hands full, stops crossing item boxes, and so never picks up a
+         shell either — four of them deadlock into a bout that ends
+         nil-all on the clock.  So everything goes stale. */
+      var stale = ai.holdTime > 2.6;
+      if (id === 'banana' || id === 'egg') c.item = dist < 150 || stale;
+      else if (id === 'mushroom' || id === 'triple') c.item = dist > 90 || stale;
+      else if (id === 'star' || id === 'boo' || id === 'feather') c.item = race.rnd() < 0.06 || stale;
+      else c.item = lined || (ai.holdTime > 4.5 && Math.abs(delta) < 0.7);
+    } else {
+      ai.holdTime = 0;
     }
 
     ai.stuckTime = (kart.speed < 6 ? ai.stuckTime + dt : 0);
