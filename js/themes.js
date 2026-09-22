@@ -217,6 +217,7 @@
   THEMES.ghost = {
     id: 'ghost', name: 'GHOST VALLEY',
     music: 'ghost',
+    voidBeyond: true,
     voidColor: U('#180c28'),
     fog: 0.22, fogColor: U('#382058'),
     mapRoad: '#c0a070', mapGround: '#1a0e28',
@@ -226,7 +227,9 @@
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ROAD;
-      if (a <= 1.10) return SURF.WALL;         /* low kerb rail       */
+      /* the rail has to be thick enough that a kart at full speed
+         cannot cross it between two collision probes */
+      if (a <= 1.24) return SURF.WALL;
       return SURF.VOID;
     },
     roadAt: function (t, u, px, py, n, nc) {
@@ -391,6 +394,7 @@
   THEMES.vanilla = {
     id: 'vanilla', name: 'VANILLA LAKE',
     music: 'vanilla',
+    voidBeyond: true,
     voidColor: U('#3060a8'),
     fog: 0.14, fogColor: U('#d8e8f8'),
     mapRoad: '#e0f0f8', mapGround: '#3060a8',
@@ -399,7 +403,8 @@
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ICE;
-      if (a <= 1.32) return SURF.OFFROAD;      /* packed snow bank */
+      /* a generous snow bank: on ice you need somewhere to be wrong */
+      if (a <= 1.62) return SURF.OFFROAD;
       return SURF.VOID;                        /* a hole in the ice */
     },
     roadAt: function (t, u, px, py, n, nc) {
@@ -433,6 +438,7 @@
   THEMES.rainbow = {
     id: 'rainbow', name: 'RAINBOW ROAD',
     music: 'rainbow',
+    voidBeyond: true,
     voidColor: U('#000000'),
     fog: 0.0,
     mapRoad: '#f0f0f8', mapGround: '#000000',

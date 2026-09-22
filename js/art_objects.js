@@ -376,6 +376,38 @@
     return b;
   }
 
+  /* the balloons a kart is still carrying in Battle mode */
+  function balloonsSprite(count, phase) {
+    var w = 8 + count * 9;
+    var b = buf(w, 24);
+    var cols = ['#f04040', '#40b0f8', '#f8d840'];
+    var tie = w / 2;
+    for (var i = 0; i < count; i++) {
+      var x = 5 + i * 9;
+      var lift = [0, 1, 2, 1][(phase + i) % 4];
+      var y = 9 - lift;
+      b.line(x, y + 5, tie, 23, '#c8c8d8');
+      b.ellipse(x, y, 4.2, 5.0, cols[i % 3]);
+      b.ellipse(x - 1.2, y - 1.6, 1.6, 1.8, SMK.shade(cols[i % 3], 0.45));
+      b.ellipse(x, y + 4.6, 1.0, 1.0, SMK.shade(cols[i % 3], -0.4));
+    }
+    b.outline(PAL.outline, false);
+    return b;
+  }
+  function balloonsOf(n) { return function (phase) { return balloonsSprite(n, phase); }; }
+
+  /* one balloon, for the HUD count */
+  function balloonSprite(idx) {
+    var b = buf(12, 16);
+    var col = ['#f04040', '#40b0f8', '#f8d840'][idx % 3];
+    b.ellipse(6, 7, 4.6, 5.4, col);
+    b.ellipse(4.6, 5, 1.8, 2.0, SMK.shade(col, 0.45));
+    b.ellipse(6, 12, 1.1, 1.1, SMK.shade(col, -0.4));
+    b.vline(6, 13, 3, '#c8c8d8');
+    b.outline(PAL.outline, false);
+    return b;
+  }
+
   /* ---------------- items ---------------- */
 
   function mushroomSprite(poison) {
@@ -661,6 +693,11 @@
     rock:     { frames: 1, make: rockSprite,    worldW: 30, kind: 'decor' },
     cactus:   { frames: 1, make: cactusSprite,  worldW: 30, kind: 'decor' },
     gantry:   { frames: 1, make: gantrySprite,  worldW: 168, kind: 'decor' },
+
+    balloons1: { frames: 4, make: balloonsOf(1), worldW: 11, kind: 'decor', fps: 5 },
+    balloons2: { frames: 4, make: balloonsOf(2), worldW: 19, kind: 'decor', fps: 5 },
+    balloons3: { frames: 4, make: balloonsOf(3), worldW: 27, kind: 'decor', fps: 5 },
+    balloon:   { frames: 3, make: balloonSprite, worldW: 12, kind: 'decor' },
 
     fx_smoke: { frames: 5, make: smokePuff, worldW: 20, kind: 'fx' },
     fx_spark: { frames: 4, make: sparkSprite, worldW: 14, kind: 'fx' },

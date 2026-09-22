@@ -109,7 +109,8 @@
   var MODES = [
     { id: 'gp', name: 'GRAND PRIX', blurb: 'FIVE RACES, FOUR CUPS, EIGHT DRIVERS' },
     { id: 'tt', name: 'TIME TRIAL', blurb: 'ALONE AGAINST THE CLOCK' },
-    { id: 'vs', name: 'VS RACE', blurb: 'ONE RACE, PICK ANY COURSE' }
+    { id: 'vs', name: 'VS RACE', blurb: 'ONE RACE, PICK ANY COURSE' },
+    { id: 'battle', name: 'BATTLE', blurb: 'FOUR KARTS, THREE BALLOONS EACH' }
   ];
 
   /* ---------------- title ---------------- */
@@ -145,20 +146,21 @@
   /* ---------------- mode select ---------------- */
   function mode(app, f) {
     backdrop(f, app.t, null);
-    panel(f, 28, 42, 200, 118, 'SELECT MODE');
+    panel(f, 28, 36, 200, 130, 'SELECT MODE');
     for (var i = 0; i < MODES.length; i++) {
       var sel = app.sel.mode === i;
-      var y = 66 + i * 22;
+      var y = 58 + i * 22;
       if (sel) rect(f, 38, y - 3, 180, 17, '#384a80');
       text(f, 48, y + 1, MODES[i].name, sel ? 'menuSel' : 'menu');
       if (sel) text(f, 40, y + 1, '▶', 'menuSel');
     }
-    text(f, W / 2, 138, MODES[app.sel.mode].blurb, 'menuDim', { align: 'center' });
+    text(f, W / 2, 150, MODES[app.sel.mode].blurb, 'menuDim', { align: 'center' });
     text(f, W / 2, H - 22, 'ENTER SELECT     ESC BACK', 'menuDim', { align: 'center' });
 
     if (navPick(app, 'mode', MODES.length)) {
       app.chosen.mode = MODES[app.sel.mode].id;
-      app.go(app.chosen.mode === 'gp' ? 'engine' : 'engine');
+      /* an arena bout has no engine class to choose */
+      app.go(app.chosen.mode === 'battle' ? 'chars' : 'engine');
     }
     if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('title'); }
   }
@@ -243,9 +245,13 @@
     if (SMK.input.pressed.start) {
       SMK.audio.sfx('menuPick');
       app.chosen.character = cur.id;
-      app.go(app.chosen.mode === 'gp' ? 'cup' : 'course');
+      app.go(app.chosen.mode === 'gp' ? 'cup'
+           : (app.chosen.mode === 'battle' ? 'arena' : 'course'));
     }
-    if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('engine'); }
+    if (SMK.input.pressed.back) {
+      SMK.audio.sfx('menuBack');
+      app.go(app.chosen.mode === 'battle' ? 'mode' : 'engine');
+    }
   }
 
   /* ---------------- cup select ---------------- */
@@ -334,6 +340,58 @@
     if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('chars'); }
   }
 
+  /* ---------------- arena select ---------------- */
+  function arena(app, f) {
+    backdrop(f, app.t, 'dark');
+    text(f, W / 2, 6, 'BATTLE COURSE', 'menuSel', { align: 'center' });
+
+    var ids = SMK.arenaList;
+    var sel = app.sel.arena % ids.length;
+    var def = SMK.arenas[ids[sel]];
+
+    panel(f, 10, 18, 108, 186, 'ARENA');
+    for (var i = 0; i < ids.length; i++) {
+      var d = SMK.arenas[ids[i]];
+      var y = 38 + i * 20;
+      var on = i === sel;
+      if (on) rect(f, 14, y - 4, 100, 17, '#384a80');
+      text(f, 18, y, d.name.replace('BATTLE COURSE ', 'COURSE '), on ? 'menuSel' : 'menu');
+    }
+    text(f, 64, 130, SMK.themes[def.theme].name, 'hudY', { align: 'center' });
+    text(f, 64, 150, '3 BALLOONS', 'hudDim', { align: 'center' });
+    text(f, 64, 162, '4 KARTS', 'hudDim', { align: 'center' });
+
+    panel(f, 124, 18, 124, 186, 'PREVIEW');
+    var track = app.previewArena(ids[sel]);
+    if (track) {
+      var m = track.map;
+      var mx = Math.round(186 - m.w / 2), my = 44;
+      SMK.blit(f, W, H, SMK.ui.mapPanel(m.w + 4, m.h + 4), mx - 2, my - 2);
+      SMK.blit(f, W, H, m.buf, mx, my);
+    }
+    /* the course's own note, wrapped by hand to the panel width */
+    var words = (def.notes || '').toUpperCase().split(' ');
+    var line = '', ly = 152;
+    for (var w = 0; w < words.length; w++) {
+      var test = line ? line + ' ' + words[w] : words[w];
+      if (SMK.Text.measure(test, 'hudDim') > 112) {
+        text(f, 186, ly, line, 'hudDim', { align: 'center' });
+        ly += 9; line = words[w];
+        if (ly > 190) { line = ''; break; }
+      } else line = test;
+    }
+    if (line) text(f, 186, ly, line, 'hudDim', { align: 'center' });
+
+    text(f, W / 2, H - 11, 'ENTER START   ESC BACK', 'menuDim', { align: 'center' });
+
+    var moved = false;
+    if (SMK.input.pressed.accel || SMK.input.pressed.left) { app.sel.arena = (sel + ids.length - 1) % ids.length; moved = true; }
+    if (SMK.input.pressed.brake || SMK.input.pressed.right) { app.sel.arena = (sel + 1) % ids.length; moved = true; }
+    if (moved) SMK.audio.sfx('menuMove');
+    if (SMK.input.pressed.start) { SMK.audio.sfx('menuPick'); app.startBattle(ids[app.sel.arena % ids.length]); }
+    if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('chars'); }
+  }
+
   /* ---------------- race results ---------------- */
   function results(app, f) {
     var race = app.race;
@@ -355,7 +413,12 @@
          the short name rather than letting the columns collide */
       var nm = k.char.name.length > 11 ? k.char.shortName : k.char.name;
       text(f, 64, y, nm, me ? 'hud' : 'hudDim');
-      text(f, 196, y, SMK.formatTime(k.finishTime), me ? 'hudY' : 'hudDim', { align: 'right' });
+      if (race.battle) {
+        text(f, 196, y, k.balloons + ' BALLOON' + (k.balloons === 1 ? '' : 'S'),
+             me ? 'hudY' : 'hudDim', { align: 'right' });
+      } else {
+        text(f, 196, y, SMK.formatTime(k.finishTime), me ? 'hudY' : 'hudDim', { align: 'right' });
+      }
       if (app.chosen.mode === 'gp') {
         var pts = SMK.GP_POINTS[i] || 0;
         text(f, 236, y, '+' + pts, pts ? (me ? 'hudG' : 'hudDim') : 'menuDim', { align: 'right' });
@@ -494,7 +557,7 @@
   SMK.menus = {
     screens: {
       title: title, mode: mode, engine: engine, chars: chars,
-      cup: cup, course: course, results: results,
+      cup: cup, course: course, arena: arena, results: results,
       standings: standings, ceremony: ceremony, loading: loading
     },
     backdrop: backdrop,

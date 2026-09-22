@@ -27,9 +27,9 @@
       skill: skill,
       speedScale: 1,
       /* a preferred side of the road, so they do not drive nose to tail */
-      lineBias: (rnd() * 2 - 1) * 0.30,
+      lineBias: (rnd() * 2 - 1) * 0.24,
       aggression: 0.45 + rnd() * 0.5,
-      itemTimer: 4 + rnd() * 6,
+      itemTimer: 7 + rnd() * 8,
       reaction: 0.10 + rnd() * 0.12,
       dodge: 0,
       dodgeTime: 0,
@@ -101,6 +101,8 @@
     var c = CONTROL;
     c.steer = 0; c.accel = true; c.brake = false; c.drift = false; c.item = false;
 
+    if (race.battle) return battleUpdate(kart, race, dt, c);
+
     if (race.state !== 'racing' && race.state !== 'finishing') {
       /* hold on the grid, but roll the throttle in on GO */
       c.accel = race.state === 'go';
@@ -116,7 +118,14 @@
     /* look further ahead the faster we are going */
     var lookNodes = Math.round(4 + spFrac * 11);
     var aim = nodeAt(track, kart.nodeIdx + lookNodes);
-    var aimU = SMK.clamp(aim.lineU + ai.lineBias + ai.dodge, -0.78, 0.78);
+    /* Never aim closer to the edge than the kart is wide.  On a narrow
+       course with nothing beyond the road, an aim point that looks fine
+       as a fraction of the width still puts half the kart over the
+       drop. */
+    var margin = (kart.radius + 5) / Math.max(12, aim.hw);
+    var edge = SMK.clamp(1 - margin, 0.25, 0.80);
+    if (track.theme.voidBeyond) edge *= 0.82;
+    var aimU = SMK.clamp(aim.lineU + ai.lineBias + ai.dodge, -edge, edge);
     var ax = aim.x + aim.nx * aimU * aim.hw;
     var ay = aim.y + aim.ny * aimU * aim.hw;
 
@@ -128,6 +137,8 @@
     var curve = upcomingCurve(track, kart.nodeIdx, 8);
     var targetSpeed = planSpeed(track, kart.nodeIdx, top, stats(kart).handling, ai.skill);
 
+    /* ice: the cornering limit assumes grip that is not there */
+    if (kart.surface === SMK.SURF.ICE) targetSpeed *= 0.88;
     /* off the road, get back on it — do not also try to hold a lap time */
     var sd = SMK.SURFACES[kart.surface];
     if (sd && sd.top < 0.6) targetSpeed = top;
@@ -150,7 +161,7 @@
       ai.dodgeTime = ai.reaction;
       var threat = scanAhead(kart, race, 120 + sp * 0.55);
       if (threat !== 0) {
-        ai.dodge = SMK.clamp(ai.dodge - threat * 0.55, -0.72, 0.72);
+        ai.dodge = SMK.clamp(ai.dodge - threat * 0.55, -edge, edge);
       } else {
         ai.dodge *= 0.78;
       }
@@ -181,12 +192,83 @@
       /* the original armed its CPUs on a timer with their own item */
       kart.item = kart.char.special;
       kart.itemCount = SMK.Items.defs[kart.char.special].count;
-      ai.itemTimer = 7 + race.rnd() * 9;
+      ai.itemTimer = 11 + race.rnd() * 11;
     }
     if (kart.item && !kart.isDisabled()) {
       if (shouldUseItem(kart, race)) c.item = true;
     }
 
+    return c;
+  }
+
+  /* ------------------------------------------------------------------
+     Battle mode: there is no racing line to follow, so a CPU picks the
+     nearest opponent still carrying balloons, drives at it, and backs
+     off when it is about to drive into a wall or a pit instead.
+     ------------------------------------------------------------------ */
+  function battleUpdate(kart, race, dt, c) {
+    var ai = kart.ai;
+    if (race.state !== 'racing' || kart.out) { c.accel = race.state === 'racing'; return c; }
+
+    /* pick a target, and stick with it for a while */
+    ai.targetTimer = (ai.targetTimer || 0) - dt;
+    if (!ai.target || ai.target.out || ai.targetTimer <= 0) {
+      var best = null, bestD = 1e18;
+      for (var i = 0; i < race.karts.length; i++) {
+        var k = race.karts[i];
+        if (k === kart || k.out) continue;
+        var d = SMK.dist2(kart.x, kart.y, k.x, k.y);
+        if (d < bestD) { bestD = d; best = k; }
+      }
+      ai.target = best;
+      ai.targetTimer = 1.6 + race.rnd() * 1.8;
+    }
+    var t = ai.target;
+    if (!t) { c.accel = false; return c; }
+
+    /* aim slightly ahead of where the target is going */
+    var lead = 0.34;
+    var ax = t.x + t.vx * lead, ay = t.y + t.vy * lead;
+    var want = Math.atan2(ay - kart.y, ax - kart.x);
+    var delta = SMK.angleDelta(kart.angle, want);
+    c.steer = SMK.clamp(delta * 2.4, -1, 1);
+
+    /* look where we are going: probe the surface ahead and veer off
+       anything that would end the bout early */
+    var fx = Math.cos(kart.angle), fy = Math.sin(kart.angle);
+    var probe = 40 + Math.abs(kart.speed) * 0.42;
+    var sAhead = SMK.sampleSurface(race.track, kart.x + fx * probe, kart.y + fy * probe);
+    var danger = (sAhead === SMK.SURF.VOID || sAhead === SMK.SURF.WALL ||
+                  sAhead === SMK.SURF.LAVA);
+    if (danger) {
+      /* try both shoulders and turn toward the clearer one */
+      var lx = kart.x + Math.cos(kart.angle - 0.8) * probe;
+      var ly = kart.y + Math.sin(kart.angle - 0.8) * probe;
+      var rx2 = kart.x + Math.cos(kart.angle + 0.8) * probe;
+      var ry2 = kart.y + Math.sin(kart.angle + 0.8) * probe;
+      var lOK = SMK.sampleSurface(race.track, lx, ly) === SMK.SURF.ROAD;
+      var rOK = SMK.sampleSurface(race.track, rx2, ry2) === SMK.SURF.ROAD;
+      c.steer = lOK && !rOK ? -1 : (rOK && !lOK ? 1 : (race.rnd() < 0.5 ? -1 : 1));
+      c.brake = Math.abs(kart.speed) > 60;
+    }
+
+    /* a comfortable closing speed rather than flat out */
+    var dist = SMK.dist(kart.x, kart.y, t.x, t.y);
+    var want2 = dist < 90 ? 62 : 96;
+    if (kart.speed > want2) c.accel = false;
+
+    /* fire when lined up */
+    if (kart.item && !kart.isDisabled()) {
+      var aimed = Math.abs(delta) < 0.34 && dist < 300;
+      var id = kart.item;
+      if (id === 'banana' || id === 'egg') c.item = dist < 130 || race.rnd() < 0.01;
+      else if (id === 'mushroom' || id === 'triple') c.item = aimed && dist > 140;
+      else c.item = aimed || race.rnd() < 0.01;
+    }
+
+    ai.stuckTime = (kart.speed < 6 ? ai.stuckTime + dt : 0);
+    if (ai.stuckTime > 1.4) { c.brake = true; c.accel = false; c.steer = -c.steer; }
+    if (ai.stuckTime > 2.6) { ai.stuckTime = 0; SMK.respawnOnTrack(kart, race.track); }
     return c;
   }
 

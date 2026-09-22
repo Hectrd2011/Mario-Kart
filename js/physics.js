@@ -54,7 +54,7 @@
   surfDef(SURF.WATER,   { top: 0.42, grip: 7.5, drag: 2.4, rough: 0.5, splash: true });
   surfDef(SURF.JUMP,    { top: 1.00, grip: GRIP_ROAD, drag: 0, ramp: true });
   surfDef(SURF.LAVA,    { top: 0.30, grip: 6.0, drag: 3.4, burn: true });
-  surfDef(SURF.ICE,     { top: 1.00, grip: 3.0, drag: 0, slick: true });
+  surfDef(SURF.ICE,     { top: 1.00, grip: 5.4, drag: 0, slick: true });
   surfDef(SURF.START,   { top: 1.00, grip: GRIP_ROAD, drag: 0 });
   SMK.SURFACES = SURFACES;
 
@@ -118,6 +118,8 @@
 
     this.radius = 11;
     this.wobble = 0;
+    this.balloons = 3;         /* Battle mode only */
+    this.out = false;
   }
   SMK.Kart = Kart;
 
@@ -147,9 +149,11 @@
 
   /* ---- put a kart back on the road after a fall ------------------- */
   function respawnOnTrack(kart, track) {
-    var n = track.nodes[kart.nodeIdx];
-    /* aim for the racing line, nudged toward the centre */
-    var off = n.hw * SMK.clamp(n.lineU * 0.5, -0.5, 0.5);
+    /* a couple of nodes further on, and on the centreline rather than
+       the racing line — dropping a kart back on the edge it just fell
+       off is how you get a respawn loop */
+    var n = track.nodes[(kart.nodeIdx + 2) % track.nodes.length];
+    var off = n.hw * SMK.clamp(n.lineU * 0.2, -0.2, 0.2);
     kart.x = n.x + n.nx * off;
     kart.y = n.y + n.ny * off;
     kart.angle = Math.atan2(n.ty, n.tx);
@@ -205,7 +209,9 @@
     this.vz = -30;
     this.drifting = false;
     this.boostTime = 0; this.starTime = 0;
-    scatterCoins(this, race, 2);
+    /* going over the edge costs you time; in an arena it does not also
+       cost you a balloon */
+    if (!(race && race.battle)) scatterCoins(this, race, 2);
     if (this.isPlayer) SMK.audio.sfx('fall');
   };
 
@@ -213,7 +219,10 @@
     this.boostTime = Math.max(this.boostTime, t);
   };
 
+  /* Every way of being hit funnels through here, which makes it the one
+     place Battle mode has to differ: there you lose a balloon, not coins. */
   function scatterCoins(kart, race, n) {
+    if (race && race.battle) { race.popBalloon(kart); return; }
     var lost = Math.min(kart.coins, n);
     kart.coins -= lost;
     if (race && race.spawnLooseCoins) race.spawnLooseCoins(kart, lost);
@@ -504,6 +513,10 @@
     var idx = SMK.nearestNode(track, kart.x, kart.y, kart.nodeIdx);
     kart.nodeIdx = idx;
     var node = track.nodes[idx];
+
+    /* an arena has a ring of nodes only so the map works; driving round
+       it is not a lap, and counting it as one would end the bout */
+    if (race.battle) return;
 
     kart.prevLapS = kart.lapS;
     kart.lapS = node.s;

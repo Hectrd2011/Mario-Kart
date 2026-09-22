@@ -111,7 +111,10 @@
       /* name */
       text(frame, W, H, x + 22, ty, k.char.shortName, sel ? 'hud' : 'hudDim');
       /* lap or finishing time */
-      if (k.finished) {
+      if (race.battle) {
+        text(frame, W, H, x + 124, ty, k.out ? 'OUT' : (k.balloons + ' BAL'),
+             k.out ? 'menuDim' : (sel ? 'hudY' : 'hudDim'), { align: 'right' });
+      } else if (k.finished) {
         text(frame, W, H, x + 124, ty, SMK.formatTime(k.finishTime), sel ? 'hudY' : 'hudDim', { align: 'right' });
       } else {
         text(frame, W, H, x + 124, ty, 'L' + SMK.clamp(k.lap + 1, 1, race.laps), sel ? 'hud' : 'hudDim', { align: 'right' });
@@ -154,17 +157,30 @@
 
     /* ---- overlays on the road ---- */
     drawItemWindow(frame, W, H, race, 4, 3);
-    drawCoins(frame, W, H, race, 5, 36);
+    if (!race.battle) drawCoins(frame, W, H, race, 5, 36);
 
-    /* lap and clock, top right */
-    var lapTxt = 'LAP ' + race.lapDisplay() + '/' + race.laps;
-    text(frame, W, H, vp.w - 4, 4, lapTxt, 'hud', { align: 'right' });
-    text(frame, W, H, vp.w - 4, 13, SMK.formatTime(race.time), 'hudY', { align: 'right' });
+    if (race.battle) {
+      /* the balloons you have left, drawn as balloons */
+      var ba = SMK.objArt.get('balloon');
+      var bx = vp.w - 6;
+      for (var bi = 2; bi >= 0; bi--) {
+        var have = bi < race.player.balloons;
+        SMK.blitScaled(frame, W, H, ba.bufs[bi % ba.frameCount], bx - 12, 4, 11, 15,
+                       have ? {} : { darken: 0.30, stipple: true });
+        bx -= 13;
+      }
+      text(frame, W, H, vp.w - 4, 22, SMK.formatTime(race.time), 'hudY', { align: 'right' });
+    } else {
+      /* lap and clock, top right */
+      var lapTxt = 'LAP ' + race.lapDisplay() + '/' + race.laps;
+      text(frame, W, H, vp.w - 4, 4, lapTxt, 'hud', { align: 'right' });
+      text(frame, W, H, vp.w - 4, 13, SMK.formatTime(race.time), 'hudY', { align: 'right' });
 
-    /* fastest lap so far, small, under the clock */
-    if (race.player.lapTimes.length) {
-      var fastest = Math.min.apply(null, race.player.lapTimes);
-      text(frame, W, H, vp.w - 4, 22, SMK.formatTime(fastest), 'hudDim', { align: 'right' });
+      /* fastest lap so far, small, under the clock */
+      if (race.player.lapTimes.length) {
+        var fastest = Math.min.apply(null, race.player.lapTimes);
+        text(frame, W, H, vp.w - 4, 22, SMK.formatTime(fastest), 'hudDim', { align: 'right' });
+      }
     }
 
     /* position, bottom left of the road view */
@@ -197,7 +213,7 @@
 
       /* course name across the top of the panel */
       text(frame, W, H, 6, py + 5, race.course.name, 'hud');
-      text(frame, W, H, W - 6, py + 5, race.engine.name, 'hudDim', { align: 'right' });
+      text(frame, W, H, W - 6, py + 5, race.battle ? 'BATTLE' : race.engine.name, 'hudDim', { align: 'right' });
 
       var map = race.track.map;
       var mapCx = 8 + map.w / 2 + 2;

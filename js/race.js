@@ -50,10 +50,19 @@
     this.engine = this.opt.engine || SMK.ENGINE_CLASSES[2];
     this.rnd = SMK.rng(this.opt.seed || ((Date.now() & 0x7fffffff) || 1));
 
-    var course = SMK.courseById(this.opt.courseId || 'mc1');
-    this.course = course;
-    this.track = SMK.buildTrack(course);
-    this.laps = this.opt.laps || this.track.laps;
+    this.battle = this.mode === 'battle';
+    var course;
+    if (this.battle) {
+      course = SMK.arenas[this.opt.courseId] || SMK.arenas.bt1;
+      this.course = course;
+      this.track = SMK.buildArena(course);
+      this.laps = 1;
+    } else {
+      course = SMK.courseById(this.opt.courseId || 'mc1');
+      this.course = course;
+      this.track = SMK.buildTrack(course);
+      this.laps = this.opt.laps || this.track.laps;
+    }
 
     this.m7 = new SMK.Mode7(VIEW_CLASSIC.w, VIEW_CLASSIC.h);
     this.m7.fogStrength = this.track.theme.fog || 0;
@@ -104,6 +113,17 @@
 
     if (this.mode === 'tt') {
       order = [playerId];
+    } else if (this.battle) {
+      /* four karts: you and three others, drawn from the rest of the roster */
+      order.push(playerId);
+      var pool = [];
+      for (var q = 0; q < roster.length; q++)
+        if (roster[q].id !== playerId) pool.push(roster[q].id);
+      for (var z = pool.length - 1; z > 0; z--) {
+        var j2 = Math.floor(this.rnd() * (z + 1));
+        var tmp = pool[z]; pool[z] = pool[j2]; pool[j2] = tmp;
+      }
+      order = order.concat(pool.slice(0, 3));
     } else {
       /* the player, then everyone else */
       order.push(playerId);
@@ -141,7 +161,8 @@
       slots.push(this.player);
     }
     this.gridSlots = slots;
-    SMK.placeOnGrid(this.karts, this.track, slots);
+    if (this.battle) this.placeInArena();
+    else SMK.placeOnGrid(this.karts, this.track, slots);
 
     /* Time Trial hands you three mushrooms, as the original did */
     if (this.mode === 'tt') {
@@ -150,8 +171,70 @@
     }
   };
 
+  /* ---- battle ------------------------------------------------------ */
+  R.placeInArena = function () {
+    var spawns = SMK.arenaSpawns(this.course);
+    for (var i = 0; i < this.karts.length; i++) {
+      var k = this.karts[i];
+      var s = spawns[i % spawns.length];
+      k.x = s.x; k.y = s.y; k.angle = s.angle;
+      k.vx = 0; k.vy = 0; k.speed = 0; k.slip = 0; k.z = 0; k.vz = 0;
+      k.balloons = 3; k.out = false; k.finished = false;
+      k.coins = 0; k.lap = 0; k.started = true;
+      k.item = null; k.itemCount = 0;
+      k.nodeIdx = SMK.nearestNode(this.track, k.x, k.y, -1);
+      k.place = i + 1;
+    }
+  };
+
+  R.popBalloon = function (kart) {
+    if (!this.battle || kart.out) return;
+    /* a fireball volley is three projectiles; without a moment's grace
+       one of them would end the bout outright */
+    if (kart.popCool > 0) return;
+    kart.popCool = 1.6;
+    kart.balloons--;
+    this.spawnEffect('fx_poof', kart.x, kart.y, 14);
+    if (kart.isPlayer) SMK.audio.sfx('squash');
+    if (kart.balloons <= 0) {
+      kart.balloons = 0;
+      kart.out = true;
+      kart.finished = true;
+      kart.finishTime = this.time;
+      this.spawnEffect('fx_poof', kart.x, kart.y, 20);
+      if (kart.isPlayer) SMK.audio.sfx('lose');
+    }
+    this.checkBattleOver();
+  };
+
+  R.checkBattleOver = function () {
+    if (!this.battle || this.state === 'results' || this.state === 'finishing') return;
+    var alive = [];
+    for (var i = 0; i < this.karts.length; i++)
+      if (!this.karts[i].out) alive.push(this.karts[i]);
+    if (alive.length <= 1) {
+      this.battleWinner = alive[0] || null;
+      if (this.battleWinner) {
+        this.battleWinner.finished = true;
+        this.battleWinner.finishTime = this.time;
+      }
+      this.banner = { text: (this.battleWinner && this.battleWinner.isPlayer) ? 'YOU WIN!' : 'GAME OVER',
+                      time: 3.0, style: 'bigY' };
+      SMK.audio.sfx((this.battleWinner && this.battleWinner.isPlayer) ? 'finish' : 'lose');
+      this.setState('finishing');
+    }
+  };
+
   /* ---- props ------------------------------------------------------ */
   R.buildObjects = function () {
+    if (this.battle) {
+      var boxes = SMK.arenaBoxes(this.course);
+      for (var b = 0; b < boxes.length; b++) {
+        var o = this.addObjectAt('itembox', boxes[b].x, boxes[b].y);
+        if (o) o.respawn = 3.2;
+      }
+      return;
+    }
     this.buildScenery();
     var list = this.course.objects || [];
     for (var i = 0; i < list.length; i++) {
@@ -216,6 +299,21 @@
       spec: spec || {},
       /* per-type state */
       up: true, timer: this.rnd() * 3, drift: this.rnd() * SMK.TAU
+    };
+    this.objects.push(o);
+    return o;
+  };
+
+  /* place a prop at a world position rather than along a centreline */
+  R.addObjectAt = function (type, wx, wy) {
+    var art = SMK.objArt.get(type);
+    if (!art) return null;
+    var o = {
+      type: type, art: art, x: wx, y: wy, z: 0,
+      baseX: wx, baseY: wy,
+      node: this.track.nodes[SMK.nearestNode(this.track, wx, wy, -1)],
+      u: 0, active: true, cooldown: 0, phase: this.rnd() * 6, frame: 0,
+      angle: 0, spec: {}, up: true, timer: this.rnd() * 3, drift: this.rnd() * SMK.TAU
     };
     this.objects.push(o);
     return o;
@@ -381,14 +479,14 @@
                         this.state !== 'results');
 
     /* ---- final-lap music lift ---- */
-    if (p.lap === this.laps - 1 && !this.finalLapAnnounced && this.state === 'racing') {
+    if (!this.battle && p.lap === this.laps - 1 && !this.finalLapAnnounced && this.state === 'racing') {
       this.finalLapAnnounced = true;
       this.banner = { text: 'FINAL LAP', time: 2.0, style: 'bigY' };
       SMK.audio.setMusicRate(1.14);
     }
 
     /* ---- wrong way sign ---- */
-    if (p.wrongWayTime > 0.8 && this.state === 'racing') {
+    if (!this.battle && p.wrongWayTime > 0.8 && this.state === 'racing') {
       this.lakituBoard = 'wrongway';
       this.lakituTime = Math.max(this.lakituTime, 0.3);
     }
@@ -542,7 +640,14 @@
 
   /* ---- standings -------------------------------------------------- */
   R.updatePlaces = function () {
+    var battle = this.battle;
     var sorted = this.karts.slice().sort(function (a, b) {
+      if (battle) {
+        /* still in it beats knocked out; then balloons; then who lasted */
+        if (a.out !== b.out) return a.out ? 1 : -1;
+        if (a.balloons !== b.balloons) return b.balloons - a.balloons;
+        return b.finishTime - a.finishTime;
+      }
       if (a.finished !== b.finished) return a.finished ? -1 : 1;
       if (a.finished && b.finished) return a.finishTime - b.finishTime;
       return b.progress - a.progress;
@@ -575,6 +680,14 @@
   };
 
   R.finishRace = function () {
+    if (this.battle) {
+      this.updatePlaces();
+      this.resultOrder = this.order.slice();
+      this.setState('results');
+      SMK.audio.stopEngine();
+      SMK.audio.playMusic('results');
+      return;
+    }
     /* anyone still out there gets an estimated time so the order is stable */
     this.updatePlaces();
     for (var i = 0; i < this.karts.length; i++) {
@@ -748,6 +861,18 @@
     if (k.wobble) sy += k.wobble * SMK.clamp(p.scale, 0, 2);
 
     this.blitC(frame, W, H, src, sx, sy, w, h, opt);
+
+    /* the balloons a kart is still carrying, bobbing above it */
+    if (this.battle && k.balloons > 0) {
+      var ba = SMK.objArt.get('balloons' + SMK.clamp(k.balloons, 1, 3));
+      if (ba) {
+        var bfi = Math.floor(this.time * 5) % ba.frameCount;
+        var bsrc = ba.bufs[bfi];
+        var bw = ba.worldW * p.scale;
+        var bh = bw * (bsrc.h / bsrc.w);
+        if (bw > 2) this.blitC(frame, W, H, bsrc, vp.x + p.x - bw / 2, sy - bh * 0.72, bw, bh, {});
+      }
+    }
 
     /* Lakitu dangling the player back over the road */
     if (k.respawnTime > 0) {

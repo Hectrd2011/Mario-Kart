@@ -26,7 +26,7 @@
     race: null,
     gp: null,
     pending: null,
-    sel: { mode: 0, engine: 2, charRow: 0, charCol: 0, cup: 0, course: 0 },
+    sel: { mode: 0, engine: 2, charRow: 0, charCol: 0, cup: 0, course: 0, arena: 0 },
     chosen: { mode: 'gp', engine: null, character: 'mario' },
     settings: {
       layout: SMK.store.get('layout', 'classic'),
@@ -88,6 +88,28 @@
       layout: app.settings.layout,
       hd: app.settings.hd
     });
+  };
+
+  app.startBattle = function (arenaId) {
+    beginRace({
+      mode: 'battle',
+      courseId: arenaId,
+      characterId: app.chosen.character,
+      engine: SMK.ENGINE_CLASSES[2],
+      layout: app.settings.layout,
+      hd: app.settings.hd
+    });
+  };
+
+  var arenaPreviewCache = {};
+  app.previewArena = function (id) {
+    var t = arenaPreviewCache[id];
+    if (!t) {
+      var def = SMK.arenas[id];
+      if (!def) return null;
+      t = arenaPreviewCache[id] = SMK.buildArenaPreview(def);
+    }
+    return t;
   };
 
   app.startGrandPrix = function (cup) {
