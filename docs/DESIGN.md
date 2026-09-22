@@ -83,6 +83,30 @@ visits almost exactly the texels the road covers, and hands every theme
 a clean `(t, u)` pair — which is what lets kerbs stripe, planks run
 across the boards and Rainbow Road band correctly.
 
+**Sprites in a ground plane.** A billboard hung in a Mode 7 world has
+two jobs that pull against each other. Anything standing up — a kart, a
+Thwomp, a pine — is drawn upright and anchored at its contact point.
+Anything lying down — a coin, a ? panel, a mud puddle — has to be
+squashed by the camera's depression angle, or it stands up off the road
+like a hoop the moment you get close to it. Those sprites are therefore
+authored flat on, seen from straight above, and the renderer supplies
+the perspective; coins keep a floor under the squash, because a coin
+flattened as hard as the road really demands reads as a dash of paint.
+
+Two related scale rules fell out of the same sweep. Particles are
+tiles, not objects: a drift spark that pops beside the camera is capped
+rather than allowed to swell into a screen-filling slab, which is a
+problem the SNES never had because its particles were fixed-size
+sprites. And every prop is sized against the kart's 20 world units —
+sizing them by eye gave Donut Plains a Monty Mole the size of a bear.
+
+**Shadows.** A baked dither scaled per sprite turns into fat black bars
+under anything close to the camera, so shadows are rasterised straight
+into the framebuffer instead: an ellipse, a checker in *screen* space
+(so it stays a fine checker at any size), darkening what is underneath
+rather than stamping black. That last part matters on snow and lava,
+where a flat black smudge reads as a hole.
+
 ## Faithful to the original
 
 - 256x224 internal resolution, integer-upscaled.

@@ -44,7 +44,7 @@
       var row = y * W;
       for (var x = ax; x <= bx; x++) {
         if ((x ^ y) & 1) continue;
-        frame[row + x] = SMK.scaleU32(frame[row + x], 0.45);
+        frame[row + x] = SMK.scaleU32(frame[row + x], 0.58);
       }
     }
   }
@@ -809,7 +809,11 @@
     /* ---- props ---- */
     for (i = 0; i < this.objects.length; i++) {
       var o = this.objects[i];
-      if (!o.active && o.art.kind !== 'itembox') continue;
+      /* A ? panel that has been taken is gone until it respawns, the
+         way it is on the SNES.  Leaving a dimmed ghost of it behind
+         put a dark slab on the road under anyone who had just driven
+         through one. */
+      if (!o.active) continue;
       p = m7.project(o.x, o.y, o.z);
       if (!p) continue;
       list.push({ d: p.depth, obj: o, p: p });
@@ -938,7 +942,6 @@
 
     /* a used item panel shows as a dim ghost until it comes back */
     var opt = {};
-    if (!o.active && art.kind === 'itembox') { opt.stipple = true; opt.darken = 0.55; }
     if (p.depth > 300) opt.darken = Math.min(opt.darken || 1, SMK.clamp(1 - (p.depth - 300) / 3200, 0.80, 1));
 
     var x = vp.x + p.x - s.w / 2;
