@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<style>
+ body{background:#1a1d2c;margin:0;padding:10px;font:11px monospace;color:#dde}
+ canvas{image-rendering:pixelated;display:block;margin:2px 0 8px}
+ .row{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
+ .lbl{margin:6px 0 2px;color:#ffe}
+ .t{font:10px monospace;color:#9ab}
+</style></head><body>
+<div id="out"></div>
+<script src="../js/util.js"></script>
+<script src="../js/palette.js"></script>
+<script src="../js/pixel.js"></script>
+<script src="../js/font.js"></script>
+<script src="../js/characters.js"></script>
+<script src="../js/art_kart.js"></script>
+<script src="../js/themes.js"></script>
+<script src="../js/trackgen.js"></script>
+<script src="../js/courses.js"></script>
+<script src="../js/mode7.js"></script>
+<script>
+var out = document.getElementById('out');
+function el(tag, cls, txt){var d=document.createElement(tag); if(cls)d.className=cls; if(txt)d.textContent=txt; out.appendChild(d); return d;}
+function addCanvas(cv, parent){ (parent||out).appendChild(cv); return cv; }
+
+function u32ToCanvas(data, w, h, zoom) {
+  var buf = new SMK.PixelBuf(w, h);
+  buf.data.set(data);
+  return (zoom && zoom !== 1 ? buf.scaleUp(zoom) : buf).toCanvas();
+}
+
+var Q = new URLSearchParams(location.search);
+if ((Q.get('mode')||'') === 'maps') {
+  var grid = el('div','row');
+  var all = SMK.allCourseIds();
+  for (var gi=0; gi<all.length; gi++) {
+    var cs = SMK.courseById(all[gi]);
+    var tk = SMK.buildTrack(cs);
+    var cell = document.createElement('div');
+    cell.style.width='210px';
+    var lab = document.createElement('div'); lab.className='t';
+    lab.textContent = cs.name+' L='+tk.length.toFixed(0);
+    cell.appendChild(lab);
+    cell.appendChild(tk.map.buf.scaleUp(2).toCanvas());
+    grid.appendChild(cell);
+  }
+  throw {skip:true};
+}
+var ids = (Q.get('course') || 'mc1').split(',');
+var MODE = Q.get('mode') || 'both';
+
+try {
+for (var ci = 0; ci < ids.length; ci++) {
+  var course = SMK.courseById(ids[ci]);
+  if (!course) { el('div','lbl','?? unknown course '+ids[ci]); continue; }
+  var t0 = performance.now();
+  var track = SMK.buildTrack(course);
+  var bakeMs = (performance.now()-t0).toFixed(0);
+
+  el('div','lbl', course.name + '  [' + course.theme + ']  len=' + track.length.toFixed(0)
+     + '  nodes=' + track.nodes.length + '  bake=' + bakeMs + 'ms');
+  var row = el('div','row');
+
+  if (MODE !== 'view') {
+    // whole track texture, quarter size
+    var q = 256, small = new Uint32Array(q*q);
+    for (var y=0;y<q;y++) for (var x=0;x<q;x++) small[y*q+x] = track.texture[(y*4)*1024 + x*4];
+    addCanvas(u32ToCanvas(small, q, q, 1), row);
+    // surface map, colour-coded
+    var SC = {0:'#000000',1:'#909098',2:'#309020',3:'#604020',4:'#c0c0d0',5:'#f8f800',
+              6:'#181820',7:'#3090e0',8:'#f8a000',9:'#f83000',10:'#d0f0ff',11:'#ffffff'};
+    var sbuf = new SMK.PixelBuf(q,q);
+    for (y=0;y<q;y++) for (x=0;x<q;x++) sbuf.px(x,y, SC[track.surface[(y*4)*1024 + x*4]] || '#ff00ff');
+    addCanvas(sbuf.toCanvas(), row);
+    // course map
+    addCanvas(track.map.buf.scaleUp(2).toCanvas(), row);
+  }
+
+  if (MODE !== 'tex') {
+    // a Mode 7 view from the start line, classic 256x112 viewport
+    var VW=256, VH=112;
+    var m7 = new SMK.Mode7(VW, VH);
+    var sn = track.startNode;
+    var ang = track.startAngle;
+    var cam = m7.cam;
+    cam.x = sn.x - Math.cos(ang)*120;
+    cam.y = sn.y - Math.sin(ang)*120;
+    cam.angle = ang; cam.height = 42; cam.horizon = 40; cam.focal = 160;
+    m7.fogStrength = track.theme.fog || 0;
+    if (track.theme.fogColor) m7.fogColor = track.theme.fogColor;
+
+    var frame = new Uint32Array(VW*VH);
+    m7.renderSky(frame, VW, 0, 0, SMK.themeSky(track.theme));
+    m7.renderGround(frame, VW, 0, 0, track, null);
+    var vc = u32ToCanvas(frame, VW, VH, 2);
+    addCanvas(vc, row);
+
+    // and a view from a third of the way round, to see a corner
+    var n2 = track.nodes[Math.floor(track.nodes.length*0.33)];
+    var a2 = Math.atan2(n2.ty, n2.tx);
+    cam.x = n2.x - Math.cos(a2)*120; cam.y = n2.y - Math.sin(a2)*120; cam.angle = a2;
+    var f2 = new Uint32Array(VW*VH);
+    m7.renderSky(f2, VW, 0, 0, SMK.themeSky(track.theme));
+    m7.renderGround(f2, VW, 0, 0, track, null);
+    addCanvas(u32ToCanvas(f2, VW, VH, 2), row);
+  }
+}
+} catch(e) { if (e && e.skip) { /* maps mode done */ } else { document.title='ERR'; console.error(e); el('div','lbl','ERROR: '+(e.stack||e)); } }
+</script>
+</body></html>
