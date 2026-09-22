@@ -196,10 +196,15 @@
 
   R.popBalloon = function (kart) {
     if (!this.battle || kart.out) return;
-    /* a fireball volley is three projectiles; without a moment's grace
-       one of them would end the bout outright */
+    /* Once the bout is decided the karts keep rolling under the
+       results banner, and the winner was cheerfully driving into a
+       hole and finishing the bout on nought balloons. */
+    if (this.state === 'finishing' || this.state === 'results') return;
+    /* A fireball volley is three projectiles and a pile-up can land
+       several hits inside a second; without a moment's grace one
+       exchange would take all three balloons at once. */
     if (kart.popCool > 0) return;
-    kart.popCool = 1.2;
+    kart.popCool = 2.0;
     kart.balloons--;
     this.spawnEffect('fx_poof', kart.x, kart.y, 14);
     if (kart.isPlayer) SMK.audio.sfx('squash');

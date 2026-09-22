@@ -106,6 +106,7 @@
     this.wrongWayTime = 0;
     this.burnCool = 0;
     this.hitCool = 0;
+    this.popCool = 0;
 
     /* items */
     this.item = null;
@@ -209,9 +210,12 @@
     this.vz = -30;
     this.drifting = false;
     this.boostTime = 0; this.starTime = 0;
-    /* going over the edge costs you time; in an arena it does not also
-       cost you a balloon */
-    if (!(race && race.battle)) scatterCoins(this, race, 2);
+    /* Going over the edge costs you coins in a race and a balloon in
+       an arena, which is how the original charged for it — and also
+       the only thing that makes a bout on a pit arena ever end: four
+       CPUs circling five holes will not otherwise run each other out
+       of balloons. */
+    scatterCoins(this, race, 2);
     if (this.isPlayer) SMK.audio.sfx('fall');
   };
 
@@ -247,6 +251,7 @@
     this.invisTime = Math.max(0, this.invisTime - dt);
     this.burnCool = Math.max(0, this.burnCool - dt);
     this.hitCool = Math.max(0, this.hitCool - dt);
+    this.popCool = Math.max(0, this.popCool - dt);
     this.rollTime = Math.max(0, this.rollTime - dt);
 
     /* ---- falling / respawn take over completely ---- */

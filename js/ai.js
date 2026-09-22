@@ -285,11 +285,25 @@
 
     /* look where we are going: probe the surface ahead and veer off
        anything that would end the bout early */
+    /* An arena is small enough that something is nearly always within
+       a long probe's reach.  Look far ahead and brake for it and the
+       CPUs spend the whole bout crawling along the walls at a quarter
+       speed, too slow to close on anyone and too slow to dodge. */
     var fx = Math.cos(kart.angle), fy = Math.sin(kart.angle);
-    var probe = 40 + Math.abs(kart.speed) * 0.42;
-    var sAhead = SMK.sampleSurface(race.track, kart.x + fx * probe, kart.y + fy * probe);
-    var danger = (sAhead === SMK.SURF.VOID || sAhead === SMK.SURF.WALL ||
-                  sAhead === SMK.SURF.LAVA);
+    /* Two probes, because the two hazards are not the same hazard.  A
+       wall is a bump, so it wants a short look-ahead or the CPU spends
+       the bout crawling the perimeter.  A pit costs a balloon, so it
+       wants a long one — a single short probe is why four CPUs could
+       empty each other's balloons into the holes on Battle Course 3 in
+       fourteen seconds. */
+    var near = 30 + Math.abs(kart.speed) * 0.26;
+    var far = 46 + Math.abs(kart.speed) * 0.62;
+    var sNear = SMK.sampleSurface(race.track, kart.x + fx * near, kart.y + fy * near);
+    var sFar = SMK.sampleSurface(race.track, kart.x + fx * far, kart.y + fy * far);
+    var fatalFar = (sFar === SMK.SURF.VOID || sFar === SMK.SURF.LAVA);
+    var probe = fatalFar ? far : near;
+    var danger = fatalFar || sNear === SMK.SURF.VOID || sNear === SMK.SURF.WALL ||
+                 sNear === SMK.SURF.LAVA;
     if (danger) {
       /* try both shoulders and turn toward the clearer one */
       var lx = kart.x + Math.cos(kart.angle - 0.8) * probe;
@@ -299,7 +313,7 @@
       var lOK = SMK.sampleSurface(race.track, lx, ly) === SMK.SURF.ROAD;
       var rOK = SMK.sampleSurface(race.track, rx2, ry2) === SMK.SURF.ROAD;
       c.steer = lOK && !rOK ? -1 : (rOK && !lOK ? 1 : (race.rnd() < 0.5 ? -1 : 1));
-      c.brake = Math.abs(kart.speed) > 60;
+      c.brake = Math.abs(kart.speed) > 92;
     }
 
     /* a comfortable closing speed rather than flat out */
@@ -313,7 +327,11 @@
     if (kart.item && !kart.isDisabled()) {
       ai.holdTime = (ai.holdTime || 0) + dt;
       var miss = Math.abs(Math.sin(delta)) * dist;
-      var lined = miss < 26 && dist < 420 && Math.abs(delta) < 1.0;
+      /* Range matters more than the cone.  A shell takes the better
+         part of two seconds to cross an arena, by which time the kart
+         it was aimed at has been somewhere else for a while — so close
+         first, then shoot. */
+      var lined = miss < 26 && dist < 220 && Math.abs(delta) < 1.0;
       var id = kart.item;
       /* An item never spent is an item never replaced.  A CPU holding
          a triple mushroom for a straight it will never find keeps its
@@ -329,9 +347,32 @@
       ai.holdTime = 0;
     }
 
-    ai.stuckTime = (kart.speed < 6 ? ai.stuckTime + dt : 0);
-    if (ai.stuckTime > 1.4) { c.brake = true; c.accel = false; c.steer = -c.steer; }
-    if (ai.stuckTime > 2.6) { ai.stuckTime = 0; SMK.respawnOnTrack(kart, race.track); }
+    /* Wedged is not the same as stopped: a kart grinding along a wall
+       at a third of its speed is going nowhere and would never trip a
+       speed threshold, so this watches how far it has actually got.
+       Recovery is a fixed burst of reverse rather than a state the
+       kart can sit in — judging progress while it is reversing is how
+       a CPU ends up backing round an arena for the whole bout. */
+    ai.wedgeT = (ai.wedgeT || 0) + dt;
+    if (ai.wedgeX === undefined) { ai.wedgeX = kart.x; ai.wedgeY = kart.y; }
+    if (ai.recover > 0) {
+      ai.recover -= dt;
+      ai.wedgeT = 0; ai.wedgeX = kart.x; ai.wedgeY = kart.y;
+      c.accel = false; c.brake = true; c.steer = ai.recoverSteer;
+      return c;
+    }
+    if (ai.wedgeT > 1.5) {
+      var moved = SMK.dist(kart.x, kart.y, ai.wedgeX, ai.wedgeY);
+      ai.wedgeT = 0; ai.wedgeX = kart.x; ai.wedgeY = kart.y;
+      if (moved < 42) {
+        ai.wedges = (ai.wedges || 0) + 1;
+        ai.recover = 0.9;
+        ai.recoverSteer = race.rnd() < 0.5 ? -1 : 1;
+        if (ai.wedges >= 3) { ai.wedges = 0; SMK.respawnOnTrack(kart, race.track); }
+      } else {
+        ai.wedges = 0;
+      }
+    }
     return c;
   }
 

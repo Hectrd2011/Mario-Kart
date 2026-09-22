@@ -28,7 +28,18 @@ function arg(n,d){const i=process.argv.indexOf('--'+n);if(i<0)return d;return pr
     };
     SMK.debug.autopilot(true);
   }, arena);
-  await p.waitForTimeout(secs*1000);
+  const trace=[];
+  for (let e=0;e<secs;e+=15){
+    await p.waitForTimeout(15000);
+    trace.push(await p.evaluate(()=>{
+      const r=SMK.debug.app.race;
+      return {t:Math.round(r.time), bal:r.karts.map(k=>k.balloons).join(''),
+        item:r.karts.map(k=>k.item?k.item.slice(0,3):'-').join(','),
+        proj:r.projectiles.length,
+        d:r.karts.map(k=>Math.round(Math.hypot(k.x-r.karts[0].x,k.y-r.karts[0].y))).join(','),
+        spd:r.karts.map(k=>Math.round(k.speed)).join(',')};
+    }));
+  }
   const out=await p.evaluate(()=>{
     const r=SMK.debug.app.race, P=window.PROBE;
     return {probe:P, balloons:r.karts.map(k=>k.balloons), items:r.karts.map(k=>k.item),
@@ -36,6 +47,6 @@ function arg(n,d){const i=process.argv.indexOf('--'+n);if(i<0)return d;return pr
       boxesActive:r.objects.filter(o=>o.art.kind==='itembox'&&o.active).length,
       t:Math.round(r.time)};
   });
-  console.log(JSON.stringify({arena,out,logs:logs.slice(0,4)},null,1));
+  console.log(JSON.stringify({arena,trace,out:{balloons:out.balloons,pop:out.probe.pop},logs:logs.slice(0,4)},null,1));
   await b.close();
 })().catch(e=>{console.error(e);process.exit(1);});

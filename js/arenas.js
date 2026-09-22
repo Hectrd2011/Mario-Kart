@@ -46,11 +46,14 @@
       half: 235, shape: 'rect',
       notes: 'Boards with the planking missing in four places. Mind the gaps.',
       walls: [],
-      pits: [{ x: -0.46, y: -0.46, r: 0.19, kind: 'void' },
-             { x: 0.46, y: -0.46, r: 0.19, kind: 'void' },
-             { x: -0.46, y: 0.46, r: 0.19, kind: 'void' },
-             { x: 0.46, y: 0.46, r: 0.19, kind: 'void' },
-             { x: 0, y: 0, r: 0.22, kind: 'void' }],
+      /* the gaps were wide enough that the lanes between them were
+         barely wider than a kart, and a bout turned into four racers
+         falling through the floor rather than fighting */
+      pits: [{ x: -0.46, y: -0.46, r: 0.15, kind: 'void' },
+             { x: 0.46, y: -0.46, r: 0.15, kind: 'void' },
+             { x: -0.46, y: 0.46, r: 0.15, kind: 'void' },
+             { x: 0.46, y: 0.46, r: 0.15, kind: 'void' },
+             { x: 0, y: 0, r: 0.17, kind: 'void' }],
       boxes: [[0, -0.66], [0, 0.66], [-0.66, 0], [0.66, 0], [0, -0.30], [0, 0.30]],
       spawns: [[-0.74, -0.10], [0.74, -0.10], [-0.10, 0.74], [-0.10, -0.74]]
     },

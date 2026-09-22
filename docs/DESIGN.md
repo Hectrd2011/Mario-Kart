@@ -190,9 +190,21 @@ handling were tuned:
 node tools/shot.js <page> <out.png> [--w --h --full --wait --eval]
 node tools/play.js <outdir> --script menus|race [--seconds N]
 node tools/soak.js <outdir> --course mc1,gv2 [--laps N] [--solo]
+node tools/battleprobe.js --arena bt1 --secs 90   # traces a whole bout
 node tools/shot.js tools/preview_sprites.html out.png --mode zoom&who=bowser
 node tools/shot.js "tools/preview_track.html?mode=maps" out.png --full
 ```
+
+`battleprobe.js` exists because a Battle bout that does not end tells
+you nothing about *why*. It samples balloons, items in hand, live
+projectiles, separations and speeds every fifteen seconds, and that
+trace is what caught the real bug: balloon counts freezing at exactly
+one lost per kart and never moving again, with forty-five registered
+hits behind them. The post-hit grace timer was being set and never
+ticked down, so a kart became permanently invulnerable the moment it
+lost its first balloon. Every AI symptom above it — CPUs hoarding
+items, crawling the walls, grinding into each other — was real, but
+none of them was the reason bouts ran to the clock.
 
 `soak.js` hands the player's kart to the AI and reports lap times,
 stalls, off-road counts, falls and page errors. `verify.js` checks the
