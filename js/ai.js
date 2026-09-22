@@ -80,13 +80,17 @@
   function planSpeed(track, i, top, handling, skill) {
     var limit = top;
     var maxTurn = SMK.TUNING.MAX_TURN * handling;
+    /* The turn-rate limit is what the kart can steer, not what it can
+       hold: the grip model still lets it slide wide of the line.  Leave
+       real margin, and more of it where running wide means falling. */
+    var safety = 0.74 + 0.15 * skill;
+    if (track.theme && track.theme.voidBeyond) safety *= 0.88;
     for (var k = 1; k <= 16; k++) {
       var nd = nodeAt(track, i + k);
       var c = Math.abs(nd.curve || 0);
       if (c < 0.02) continue;
       var radius = NODE_ARC / c;
-      /* run a little under the limit; better racers run closer to it */
-      var vlim = maxTurn * radius * (0.80 + 0.16 * skill);
+      var vlim = maxTurn * radius * safety;
       if (vlim >= top) continue;
       var d = k * 11;                       /* NODE_STEP */
       var allowed = Math.sqrt(vlim * vlim + 2 * BRAKE_EFF * d);

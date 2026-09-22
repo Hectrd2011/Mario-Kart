@@ -110,7 +110,8 @@
     { id: 'gp', name: 'GRAND PRIX', blurb: 'FIVE RACES, FOUR CUPS, EIGHT DRIVERS' },
     { id: 'tt', name: 'TIME TRIAL', blurb: 'ALONE AGAINST THE CLOCK' },
     { id: 'vs', name: 'VS RACE', blurb: 'ONE RACE, PICK ANY COURSE' },
-    { id: 'battle', name: 'BATTLE', blurb: 'FOUR KARTS, THREE BALLOONS EACH' }
+    { id: 'battle', name: 'BATTLE', blurb: 'FOUR KARTS, THREE BALLOONS EACH' },
+    { id: 'options', name: 'OPTIONS', blurb: 'DISPLAY, SOUND AND CONTROLS' }
   ];
 
   /* ---------------- title ---------------- */
@@ -146,21 +147,23 @@
   /* ---------------- mode select ---------------- */
   function mode(app, f) {
     backdrop(f, app.t, null);
-    panel(f, 28, 36, 200, 130, 'SELECT MODE');
+    panel(f, 28, 30, 200, 142, 'SELECT MODE');
     for (var i = 0; i < MODES.length; i++) {
       var sel = app.sel.mode === i;
-      var y = 58 + i * 22;
+      var y = 50 + i * 21;
       if (sel) rect(f, 38, y - 3, 180, 17, '#384a80');
       text(f, 48, y + 1, MODES[i].name, sel ? 'menuSel' : 'menu');
       if (sel) text(f, 40, y + 1, '▶', 'menuSel');
     }
-    text(f, W / 2, 150, MODES[app.sel.mode].blurb, 'menuDim', { align: 'center' });
+    text(f, W / 2, 152, MODES[app.sel.mode].blurb, 'menuDim', { align: 'center' });
     text(f, W / 2, H - 22, 'ENTER SELECT     ESC BACK', 'menuDim', { align: 'center' });
 
     if (navPick(app, 'mode', MODES.length)) {
-      app.chosen.mode = MODES[app.sel.mode].id;
+      var picked = MODES[app.sel.mode].id;
+      if (picked === 'options') { app.go('options'); return; }
+      app.chosen.mode = picked;
       /* an arena bout has no engine class to choose */
-      app.go(app.chosen.mode === 'battle' ? 'chars' : 'engine');
+      app.go(picked === 'battle' ? 'chars' : 'engine');
     }
     if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('title'); }
   }
@@ -338,6 +341,66 @@
     if (moved) SMK.audio.sfx('menuMove');
     if (SMK.input.pressed.start) { SMK.audio.sfx('menuPick'); app.startSingle(ids[app.sel.course % ids.length]); }
     if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('chars'); }
+  }
+
+  /* ---------------- options ---------------- */
+  var OPTIONS = [
+    { key: 'layout', name: 'VIEW', values: ['classic', 'wide'],
+      labels: ['CLASSIC + MAP', 'WIDE SCREEN'] },
+    { key: 'hd', name: 'MODE 7', values: [false, true],
+      labels: ['AUTHENTIC', 'HD 2X SAMPLED'] },
+    { key: 'crt', name: 'SCANLINES', values: [false, true],
+      labels: ['OFF', 'ON'] },
+    { key: 'sound', name: 'SOUND', values: [true, false],
+      labels: ['ON', 'MUTED'] }
+  ];
+
+  /* two columns of four, so the whole control set fits one panel */
+  var HELP = [
+    ['STEER', '← →'],
+    ['ACCEL', 'Z'],
+    ['BRAKE', 'X'],
+    ['HOP / SLIDE', 'C'],
+    ['USE ITEM', 'SHIFT'],
+    ['PAUSE', 'ENTER'],
+    ['FULLSCREEN', 'F'],
+    ['MUTE', 'M']
+  ];
+
+  function options(app, f) {
+    backdrop(f, app.t, 'dark');
+    text(f, W / 2, 6, 'OPTIONS', 'menuSel', { align: 'center' });
+
+    panel(f, 10, 18, 236, 90, 'DISPLAY & SOUND');
+    for (var i = 0; i < OPTIONS.length; i++) {
+      var o = OPTIONS[i];
+      var y = 38 + i * 17;
+      var on = app.sel.option === i;
+      if (on) rect(f, 14, y - 4, 228, 15, '#384a80');
+      text(f, 20, y, o.name, on ? 'menuSel' : 'menu');
+      text(f, 238, y, o.labels[app.optionIndex(o)], on ? 'hudY' : 'hudDim', { align: 'right' });
+      if (on) text(f, 14, y, '▶', 'menuSel');
+    }
+    text(f, W / 2, 112, 'UP/DOWN TO PICK    LEFT/RIGHT TO CHANGE', 'menuDim', { align: 'center' });
+
+    panel(f, 10, 124, 236, 80, 'CONTROLS');
+    for (var k = 0; k < HELP.length; k++) {
+      var col = k < 4 ? 0 : 1;
+      var row = k % 4;
+      var hx = 20 + col * 114;
+      var hy = 142 + row * 14;
+      text(f, hx, hy, HELP[k][0], 'hudDim');
+      text(f, hx + 104, hy, HELP[k][1], 'hud', { align: 'right' });
+    }
+    text(f, W / 2, H - 11, 'ESC BACK', 'menuDim', { align: 'center' });
+
+    var moved = false;
+    if (SMK.input.pressed.accel) { app.sel.option = (app.sel.option + OPTIONS.length - 1) % OPTIONS.length; moved = true; }
+    if (SMK.input.pressed.brake) { app.sel.option = (app.sel.option + 1) % OPTIONS.length; moved = true; }
+    if (SMK.input.pressed.left) { app.cycleOption(OPTIONS[app.sel.option], -1); moved = true; }
+    if (SMK.input.pressed.right || SMK.input.pressed.start) { app.cycleOption(OPTIONS[app.sel.option], 1); moved = true; }
+    if (moved) SMK.audio.sfx('menuMove');
+    if (SMK.input.pressed.back) { SMK.audio.sfx('menuBack'); app.go('mode'); }
   }
 
   /* ---------------- arena select ---------------- */
@@ -557,7 +620,7 @@
   SMK.menus = {
     screens: {
       title: title, mode: mode, engine: engine, chars: chars,
-      cup: cup, course: course, arena: arena, results: results,
+      cup: cup, course: course, arena: arena, options: options, results: results,
       standings: standings, ceremony: ceremony, loading: loading
     },
     backdrop: backdrop,

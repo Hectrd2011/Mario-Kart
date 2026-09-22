@@ -376,8 +376,11 @@
     cam.x = this.camX;
     cam.y = this.camY;
     cam.angle = this.camAngle;
-    /* rise with the kart on a jump so it does not leave the frame */
-    cam.height = CAM_HEIGHT + p.z * 0.55;
+    /* Rise with the kart on a jump so it does not leave the frame — but
+       never follow it down.  A falling kart's z goes sharply negative,
+       and a camera that tracked it would drop below the ground plane
+       and invert the whole view. */
+    cam.height = CAM_HEIGHT + Math.max(0, p.z) * 0.55;
     cam.horizon = (this.layout === 'wide' ? HORIZON + 56 : HORIZON) + p.wobble * 0.8
                   + (this.shake > 0 ? (this.rnd() - 0.5) * this.shake * 4 : 0);
     cam.focal = 160;

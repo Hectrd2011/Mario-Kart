@@ -26,7 +26,7 @@
     race: null,
     gp: null,
     pending: null,
-    sel: { mode: 0, engine: 2, charRow: 0, charCol: 0, cup: 0, course: 0, arena: 0 },
+    sel: { mode: 0, engine: 2, charRow: 0, charCol: 0, cup: 0, course: 0, arena: 0, option: 0 },
     chosen: { mode: 'gp', engine: null, character: 'mario' },
     settings: {
       layout: SMK.store.get('layout', 'classic'),
@@ -50,6 +50,27 @@
     } else if (screen !== 'race') {
       SMK.audio.playMusic('title');
     }
+  };
+
+  /* ---- options ------------------------------------------------- */
+  function optionValue(o) {
+    if (o.key === 'sound') return !SMK.audio.muted;
+    return app.settings[o.key];
+  }
+  app.optionIndex = function (o) {
+    var v = optionValue(o);
+    var i = o.values.indexOf(v);
+    return i < 0 ? 0 : i;
+  };
+  app.cycleOption = function (o, dir) {
+    var i = (app.optionIndex(o) + dir + o.values.length) % o.values.length;
+    var v = o.values[i];
+    if (o.key === 'sound') { SMK.audio.setMute(!v); return; }
+    app.settings[o.key] = v;
+    SMK.store.set(o.key, v);
+    if (o.key === 'crt') document.body.classList.toggle('crt', !!v);
+    if (o.key === 'layout' && app.race) app.race.layout = v;
+    if (o.key === 'hd' && app.race) app.race.hd = v;
   };
 
   /* ---- preview tracks for the course-select screen ---- */
