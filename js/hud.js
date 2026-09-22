@@ -170,12 +170,18 @@
     /* position, bottom left of the road view */
     drawPlace(frame, W, H, race, 5, vp.y + vp.h - 28);
 
-    /* speed readout is not authentic, but the boost state is worth showing */
-    if (race.player.boostTime > 0) {
-      text(frame, W, H, vp.w - 4, vp.y + vp.h - 12, 'BOOST', 'hudG', { align: 'right' });
-    }
+    /* state flags, stacked so they cannot overlap each other */
+    var flagY = vp.y + vp.h - 12;
     if (race.player.starTime > 0) {
-      text(frame, W, H, vp.w - 4, vp.y + vp.h - 12, 'STAR', 'hudY', { align: 'right' });
+      text(frame, W, H, vp.w - 4, flagY, 'STAR', 'hudY', { align: 'right' });
+      flagY -= 9;
+    }
+    if (race.player.boostTime > 0) {
+      text(frame, W, H, vp.w - 4, flagY, 'BOOST', 'hudG', { align: 'right' });
+      flagY -= 9;
+    }
+    if (race.player.shrinkTime > 0) {
+      text(frame, W, H, vp.w - 4, flagY, 'SHRUNK', 'hudR', { align: 'right' });
     }
 
     drawLakitu(frame, W, H, race, vp);

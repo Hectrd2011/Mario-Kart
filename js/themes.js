@@ -260,14 +260,17 @@
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ROAD;
-      if (a <= 1.16) return SURF.WALL;
+      if (a <= 1.30) return SURF.WALL;
       return SURF.LAVA;
     },
     roadAt: function (t, u, px, py, n, nc) {
       var a = Math.abs(u);
       if (a > 1.0) {
-        /* battlement wall, alternating blocks */
-        return ((Math.floor(t * 0.09) & 1)) ? U('#585058') : U('#403840');
+        /* battlement wall: alternating blocks with a lit coping course */
+        var lit = a < 1.08;
+        var blk = (Math.floor(t * 0.09) & 1);
+        if (lit) return blk ? U('#786c78') : U('#605460');
+        return blk ? U('#504850') : U('#383038');
       }
       /* flagstones: a grid of mortar lines in track space */
       var bx = Math.floor(t * 0.0625) & 1;
@@ -385,18 +388,26 @@
     surfAt: function (t, u) {
       var a = Math.abs(u);
       if (a <= 1.0) return SURF.ICE;
-      if (a <= 1.30) return SURF.OFFROAD;      /* packed snow bank */
+      if (a <= 1.32) return SURF.OFFROAD;      /* packed snow bank */
       return SURF.VOID;                        /* a hole in the ice */
     },
     roadAt: function (t, u, px, py, n, nc) {
       var a = Math.abs(u);
-      if (a > 1.0) { var s = 244 + ((n >> 5) - 4); return SMK.pack(s, s, 255); }
-      var v = 216 + ((n >> 4) - 8) * 2;
-      return SMK.pack(v, v + 18, 255);
+      /* the swept ice is distinctly bluer than the snow piled beside it,
+         with a hard rim between them — otherwise the road disappears */
+      if (a > 1.06) {
+        var s = 240 + ((n >> 5) - 4);
+        return SMK.pack(s, s, 255);
+      }
+      if (a > 1.00) return U('#6890c0');       /* rim of the cleared ice */
+      var v = 150 + ((n >> 4) - 8) * 3;
+      /* faint swept streaks along the direction of travel */
+      if ((Math.floor(t * 0.08) & 3) === 0) v += 14;
+      return SMK.pack(v + 18, v + 40, 248);
     },
     groundAt: function (px, py, n, nc) {
       var band = (nc >> 6) & 1;
-      return SMK.pack(40 + (n >> 6) * 2, band ? 112 : 96, 176 + ((n >> 5) - 4) * 3);
+      return SMK.pack(28 + (n >> 6) * 2, band ? 92 : 78, 160 + ((n >> 5) - 4) * 3);
     },
     sky: function () {
       var b = skyGradient(skyBuf(), '#6890d8', '#e0f0ff', 10);

@@ -146,7 +146,9 @@
       weightClass: 'feather',
       stats: { topSpeed: 0.935, accel: 1.12, handling: 1.26, weight: 0.72, driftGrip: 1.15 },
       special: 'poison',
-      kart: kartPal('#f8f8f8', '#b8b8c8', '#ffffff', '#3868e0', '#586070'),
+      /* a blue kart, not a white one: his cap is already white and the
+         two merged into a single unreadable blob at speed */
+      kart: kartPal('#2848c8', '#142c80', '#7898f8', '#f8f8f8', '#48547c'),
       mapColor: '#f0f0f8',
       driver: {
         type: 'toad',

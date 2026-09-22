@@ -299,7 +299,7 @@
     var cur = SMK.courseById(ids[sel]);
 
     /* the list, windowed around the selection */
-    panel(f, 8, 18, 132, 196, 'COURSE');
+    panel(f, 8, 18, 132, 186, 'COURSE');
     var first = SMK.clamp(sel - 4, 0, Math.max(0, ids.length - 10));
     for (var i = 0; i < 10 && first + i < ids.length; i++) {
       var ci = first + i;
@@ -311,7 +311,7 @@
     }
 
     /* preview: the course map and its notes */
-    panel(f, 146, 18, 102, 196, 'PREVIEW');
+    panel(f, 146, 18, 102, 186, 'PREVIEW');
     var track = app.previewTrack(cur.id);
     if (track) {
       var m = track.map;
@@ -324,7 +324,7 @@
       text(f, 197, my + m.h + 30, 'BEST', 'hudDim', { align: 'center' });
       text(f, 197, my + m.h + 40, best === null ? '--' : SMK.formatTime(best), 'hudY', { align: 'center' });
     }
-    text(f, W / 2, H - 12, 'ENTER START   ESC BACK', 'menuDim', { align: 'center' });
+    text(f, W / 2, H - 11, 'ENTER START   ESC BACK', 'menuDim', { align: 'center' });
 
     var moved = false;
     if (SMK.input.pressed.accel || SMK.input.pressed.left) { app.sel.course = (sel + ids.length - 1) % ids.length; moved = true; }
@@ -351,11 +351,14 @@
       text(f, 22, y, SMK.ordinal(i + 1), me ? 'hudY' : 'hudDim');
       rect(f, 52, y + 1, 7, 7, '#101018');
       rect(f, 53, y + 2, 5, 5, k.char.mapColor);
-      text(f, 64, y, k.char.name, me ? 'hud' : 'hudDim');
-      text(f, 182, y, SMK.formatTime(k.finishTime), me ? 'hudY' : 'hudDim', { align: 'right' });
+      /* 'DONKEY KONG JR' does not fit beside a lap time; fall back to
+         the short name rather than letting the columns collide */
+      var nm = k.char.name.length > 11 ? k.char.shortName : k.char.name;
+      text(f, 64, y, nm, me ? 'hud' : 'hudDim');
+      text(f, 196, y, SMK.formatTime(k.finishTime), me ? 'hudY' : 'hudDim', { align: 'right' });
       if (app.chosen.mode === 'gp') {
         var pts = SMK.GP_POINTS[i] || 0;
-        text(f, 234, y, '+' + pts, pts ? (me ? 'hudG' : 'hudDim') : 'menuDim', { align: 'right' });
+        text(f, 236, y, '+' + pts, pts ? (me ? 'hudG' : 'hudDim') : 'menuDim', { align: 'right' });
       }
     }
 
@@ -395,7 +398,8 @@
       text(f, 38, y, String(i + 1), me ? 'hudY' : 'hudDim');
       rect(f, 52, y + 1, 7, 7, '#101018');
       rect(f, 53, y + 2, 5, 5, ch.mapColor);
-      text(f, 64, y, ch.name, me ? 'hud' : 'hudDim');
+      var snm = ch.name.length > 12 ? ch.shortName : ch.name;
+      text(f, 64, y, snm, me ? 'hud' : 'hudDim');
       text(f, 218, y, String(r.points), me ? 'hudY' : 'hudDim', { align: 'right' });
     }
 
@@ -440,15 +444,16 @@
       /* the winner's kart bounces */
       var bob = pd.i === 0 ? Math.round(Math.abs(Math.sin(app.t * 4)) * -4) : 0;
       portrait(f, ch, pd.x, baseY - pd.h + bob, 1.25, 8);
-      text(f, pd.x, baseY + 4, ch.shortName, 'hud', { align: 'center' });
-      text(f, pd.x, baseY + 14, String(r.points) + ' PTS', 'hudDim', { align: 'center' });
+      text(f, pd.x, baseY + 5, ch.shortName, 'hud', { align: 'center' });
+      text(f, pd.x, baseY + 15, String(r.points) + ' PTS', 'hudDim', { align: 'center' });
     }
 
     var mine = -1;
     for (var m = 0; m < rows.length; m++) if (rows[m].id === app.chosen.character) mine = m;
-    text(f, W / 2, 192, 'YOU FINISHED ' + SMK.ordinal(mine + 1), mine === 0 ? 'hudG' : 'hud', { align: 'center' });
+    dith(f, 0, 196, W, 26, '#101828');
+    text(f, W / 2, 199, 'YOU FINISHED ' + SMK.ordinal(mine + 1), mine === 0 ? 'hudG' : 'hud', { align: 'center' });
     if ((Math.floor(app.t * 2) & 1) === 0)
-      text(f, W / 2, 206, 'PRESS START', 'menuSel', { align: 'center' });
+      text(f, W / 2, 210, 'PRESS START', 'menuSel', { align: 'center' });
 
     if (SMK.input.pressed.start || SMK.input.pressed.accel) {
       SMK.audio.sfx('menuPick');

@@ -512,7 +512,7 @@
     fx_smoke: { frames: 5, make: smokePuff, worldW: 20, kind: 'fx' },
     fx_spark: { frames: 4, make: sparkSprite, worldW: 14, kind: 'fx' },
     fx_splash: { frames: 4, make: splashSprite, worldW: 24, kind: 'fx' },
-    fx_poof:  { frames: 5, make: poofSprite, worldW: 28, kind: 'fx' }
+    fx_poof:  { frames: 5, make: poofSprite, worldW: 20, kind: 'fx' }
   };
 
   var cache = {};

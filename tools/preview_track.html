@@ -86,7 +86,7 @@ for (var ci = 0; ci < ids.length; ci++) {
     cam.y = sn.y - Math.sin(ang)*120;
     cam.angle = ang; cam.height = 42; cam.horizon = 40; cam.focal = 160;
     m7.fogStrength = track.theme.fog || 0;
-    if (track.theme.fogColor) m7.fogColor = track.theme.fogColor;
+    m7.fogColor = track.theme.fogColor !== undefined ? track.theme.fogColor : track.theme.voidColor;
 
     var frame = new Uint32Array(VW*VH);
     m7.renderSky(frame, VW, 0, 0, SMK.themeSky(track.theme));

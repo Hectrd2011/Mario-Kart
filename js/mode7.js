@@ -76,6 +76,12 @@
     this.supersample = false;
     this.fogStrength = 0.0;
     this.fogColor = SMK.u32('#8090c0');
+    /* A Mode 7 plane is infinite, so the rows nearest the horizon
+       sample a line thousands of units long — which wanders back across
+       the far side of a 1024-unit track and paints a band of unrelated
+       texels along the skyline.  Fade the ground out before that, which
+       also reads as distance haze. */
+    this.maxDepth = 1250;
   }
   SMK.Mode7 = Mode7;
   var M = Mode7.prototype;
@@ -121,7 +127,12 @@
      It scrolls with the camera heading and is clipped to the horizon. */
   M.renderSky = function (dst, dstW, originX, originY, bg, groundFallback) {
     var c = this.cam;
-    var hz = Math.floor(c.horizon);
+    /* The sky owns rows [0, ceil(horizon)) and the ground owns
+       [ceil(horizon), H).  Get this boundary wrong by one and that
+       scanline is written by neither pass: it keeps whatever the
+       previous frame left there and shows as a dashed line of stale
+       pixels along the skyline. */
+    var hz = Math.ceil(c.horizon);
     var rows = Math.min(hz, this.h);
     if (rows <= 0) return;
 
@@ -175,13 +186,18 @@
     var depthScale = c.height * c.focal;
     var hz = c.horizon;
     var ss = this.supersample;
+    var maxD = this.maxDepth;
+    var far0 = maxD * 0.42;
 
-    var y0 = Math.max(0, Math.ceil(hz + 0.0001));
+    /* exactly where renderSky stops — see the note there */
+    var y0 = Math.max(0, Math.ceil(hz));
     var rollK = c.roll;
 
     for (var y = y0; y < H; y++) {
+      /* the row straddling the vanishing line has dy ~ 0, which would
+         divide by zero; floor it and let the haze cover that row */
       var dy = y - hz;
-      if (dy <= 0) continue;
+      if (dy < 0.35) dy = 0.35;
       var z = depthScale / dy;
 
       /* half the ground span covered by this row */
@@ -215,12 +231,24 @@
       var mip = mips[lvl], mdata = mip.data, msize = mip.size, mmask = msize - 1;
       var mscale = msize / texSize;
 
-      /* per-row fog, strongest at the horizon */
+      /* per-row haze: the theme's own fog, plus a hard ramp to opaque
+         as we approach the draw distance */
       var fog = 0;
       if (fogK > 0) {
         fog = fogK * (1 - dy / (H - hz));
         if (fog < 0) fog = 0;
         if (fog > fogK) fog = fogK;
+      }
+      if (z > far0) {
+        var hazeT = (z - far0) / (maxD - far0);
+        if (hazeT > 1) hazeT = 1;
+        if (hazeT > fog) fog = hazeT;
+      }
+      if (fog >= 0.995) {
+        /* past the draw distance: nothing out there worth sampling */
+        var trowF = (originY + y) * dstW + originX;
+        for (var xf = 0; xf < W; xf++) dst[trowF + xf] = fogCol;
+        continue;
       }
 
       var trow = (originY + y) * dstW + originX;

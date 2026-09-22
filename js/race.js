@@ -57,7 +57,10 @@
 
     this.m7 = new SMK.Mode7(VIEW_CLASSIC.w, VIEW_CLASSIC.h);
     this.m7.fogStrength = this.track.theme.fog || 0;
-    if (this.track.theme.fogColor) this.m7.fogColor = this.track.theme.fogColor;
+    /* the colour the ground fades into at the draw distance: the theme's
+       own haze if it has one, otherwise whatever lies beyond the track */
+    this.m7.fogColor = this.track.theme.fogColor !== undefined
+      ? this.track.theme.fogColor : this.track.theme.voidColor;
     this.sky = SMK.themeSky(this.track.theme);
 
     this.karts = [];
@@ -386,7 +389,7 @@
           /* slams down, sits, grinds back up */
           o.timer -= dt;
           if (o.timer <= 0) { o.up = !o.up; o.timer = o.up ? 1.5 : 1.1; }
-          var tgt = o.up ? 46 : 0;
+          var tgt = o.up ? 30 : 0;
           o.z = SMK.approach(o.z, tgt, o.up ? 3.2 : 16, dt);
           o.frame = o.z < 8 ? 1 : 0;
           break;
