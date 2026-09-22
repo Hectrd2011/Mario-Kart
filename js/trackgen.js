@@ -237,7 +237,6 @@
      uses this so stepping through twenty courses stays instant.
      ------------------------------------------------------------------ */
   SMK.buildTrackPreview = function (course) {
-    var theme = SMK.themes[course.theme];
     var rs = resample(course.path, NODE_STEP);
     var dense = frame(rs.pts, rs.total);
     var nodes = [];
@@ -249,7 +248,7 @@
       });
     }
     var track = {
-      size: SIZE, theme: theme, course: course,
+      size: SIZE, theme: SMK.themes[course.theme], course: course,
       nodes: nodes, length: rs.total,
       laps: course.laps || 5,
       startNode: nodes[Math.round((course.startAt || 0) * nodes.length) % nodes.length],
@@ -269,7 +268,7 @@
 
   /* ---- start / finish: a checkered band right across the road ---- */
   function stampStartLine(track, course) {
-    var theme = track.theme, tex = track.texture, surf = track.surface;
+    var tex = track.texture, surf = track.surface;
     var t0 = course.startAt || 0;
     var nd = nodeAtT(track, t0);
     var hw = nd.hw;

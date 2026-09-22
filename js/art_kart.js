@@ -271,7 +271,7 @@
 
   /* rasterise one ellipsoid through `region` */
   function shadeEllipsoid(buf, o, region, slots) {
-    var rx = o.rx, ry = o.ry, rz = o.rz, ca = o.ca, sa = o.sa;
+    var rx = o.rx, ry = o.ry, ca = o.ca, sa = o.sa;
     var px0 = Math.floor(o.cx - rx), px1 = Math.ceil(o.cx + rx);
     var py0 = Math.floor(o.cy - ry * 1.15), py1 = Math.ceil(o.cy + ry * 1.15);
     for (var py = py0; py <= py1; py++) {

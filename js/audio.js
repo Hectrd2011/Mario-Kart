@@ -395,7 +395,6 @@
     rate: 1
   };
   var LOOKAHEAD = 0.18, SCHED_STEP = 0.05;
-  var schedTimer = null;
 
   function stepDur(song) { return (60 / song.bpm) / 4 / seq.rate; }
 
@@ -477,9 +476,6 @@
     engine.gain.gain.setTargetAtTime(alive ? (0.035 + 0.05 * load) : 0, t, 0.08);
   }
 
-  /* ---- star-power loop, a quick rising arpeggio ---- */
-  var starTimer = null;
-
   /* ------------------------------------------------------------------
      SFX
      ------------------------------------------------------------------ */
@@ -554,14 +550,14 @@
       if (ready) return true;
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return false;
-      try { ctx = new AC(); } catch (e) { return false; }
+      try { ctx = new AC(); } catch { return false; }
       master = ctx.createGain(); master.gain.value = 0.85;
       musicGain = ctx.createGain(); musicGain.gain.value = 0.85;
       sfxGain = ctx.createGain(); sfxGain.gain.value = 1.0;
       musicGain.connect(master); sfxGain.connect(master);
       master.connect(ctx.destination);
       ready = true;
-      schedTimer = setInterval(pump, SCHED_STEP * 1000);
+      setInterval(pump, SCHED_STEP * 1000);
       return true;
     },
 

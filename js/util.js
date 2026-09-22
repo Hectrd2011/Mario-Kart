@@ -117,10 +117,10 @@ SMK.store = {
     try {
       var raw = window.localStorage.getItem('smk.' + key);
       return raw === null ? fallback : JSON.parse(raw);
-    } catch (e) { return fallback; }
+    } catch { return fallback; }
   },
   set: function (key, value) {
     try { window.localStorage.setItem('smk.' + key, JSON.stringify(value)); }
-    catch (e) { /* ignore */ }
+    catch { /* storage may be blocked; carry on */ }
   }
 };

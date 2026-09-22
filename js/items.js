@@ -105,7 +105,6 @@
   function use(kart, race) {
     if (!kart.item) return false;
     var id = kart.item;
-    var def = ITEMS[id];
     var fx = Math.cos(kart.angle), fy = Math.sin(kart.angle);
 
     switch (id) {
@@ -182,13 +181,11 @@
       }
 
       case 'lightning': {
-        var n = 0;
         for (var j = 0; j < race.karts.length; j++) {
           var k = race.karts[j];
           if (k === kart || k.starTime > 0 || k.invisTime > 0) continue;
           k.shrinkTime = 7.5;
           k.squash(race);
-          n++;
         }
         SMK.audio.sfx('lightning');
         race.flash = 0.5;

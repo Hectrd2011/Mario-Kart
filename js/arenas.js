@@ -120,9 +120,9 @@
     }
 
     for (var y = 0; y < SIZE; y++) {
-      var row = y * SIZE, ny = (y & 255) << 8;
+      var row = y * SIZE;
       for (var x = 0; x < SIZE; x++) {
-        var ni = ny | (x & 255);
+        /* the arena floor gets its grain from the fbm pass below */
         var n = 128, nc = 128;
         var idx = row + x;
         var dx = x - CX, dy = y - CY;

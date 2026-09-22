@@ -236,7 +236,6 @@
   Kart.prototype.update = function (race, dt, c) {
     var track = race.track;
     var stats = this.char.stats;
-    var i;
 
     /* ---- timers ---- */
     this.spinTime = Math.max(0, this.spinTime - dt);

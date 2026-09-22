@@ -13,8 +13,6 @@
 
 (function (SMK) {
 
-  var T = null;   /* SMK.Text, resolved lazily */
-
   function text(frame, W, H, x, y, s, style, opt) {
     SMK.Text.draw(frame, W, H, x, y, s, style, opt);
   }
@@ -151,7 +149,6 @@
 
   /* ------------------------------------------------------------------ */
   function draw(frame, W, H, race) {
-    T = SMK.Text;
     var vp = race.viewport();
     var classic = race.layout !== 'wide';
 

@@ -16,8 +16,6 @@
 
 (function (SMK) {
 
-  var SURF = SMK.SURF;
-
   var CAM_DIST = 120;        /* how far behind the kart the camera sits */
   var CAM_HEIGHT = 42;
   var HORIZON = 40;          /* vanishing row within the viewport      */

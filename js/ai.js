@@ -21,8 +21,11 @@
 
   function makeAI(kart, race, rank) {
     var rnd = race.rnd;
-    /* rank 0 is the strongest of the field */
-    var skill = 1.0 - rank * 0.016 - rnd() * 0.02;
+    /* Skill is drawn fresh each race rather than from grid position.
+       Seeding it from the grid looks sensible until you remember that a
+       cup seeds the grid from the standings: the leader would then get
+       the best driver every round and run away with the championship. */
+    var skill = 0.92 + rnd() * 0.16;
     kart.ai = {
       skill: skill,
       speedScale: 1,
