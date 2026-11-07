@@ -103,7 +103,18 @@ KNOWN_KEYS = {
     "has_country_flag", "has_global_flag", "country_exists", "has_war_with", "has_war", "has_idea",
     "has_completed_focus", "has_character", "has_government", "has_stability", "has_war_support", "has_opinion",
     "is_in_faction", "is_in_faction_with", "is_faction_leader", "is_owned_by", "is_controlled_by", "has_equipment",
-    "always", "original_tag", "FROM", "ROOT", "PREV",
+    "always", "original_tag", "FROM", "ROOT", "PREV", "enable", "abort", "ai_strategy",
+    # state history
+    "state", "manpower", "resources", "state_category", "impassable", "owner", "victory_points", "buildings",
+    "infrastructure", "industrial_complex", "arms_factory", "dockyard", "naval_base", "air_base", "supply_node",
+    "anti_air_building", "radar_station", "nuclear_reactor", "synthetic_refinery", "fuel_silo", "rocket_site",
+    "floating_harbor", "coastal_bunker", "bunker", "add_core_of", "add_extra_state_shared_building_slots",
+    "provinces", "local_supplies", "buildings_max_level_factor", "oil", "aluminium", "rubber", "tungsten", "steel",
+    "chromium",
+    # armies
+    "division_template", "regiments", "support", "units", "division", "location", "start_experience_factor",
+    "start_equipment_factor", "instant_effect", "infantry", "motorized", "mechanized", "artillery_brigade",
+    "motorized_artillery_brigade", "engineer", "recon", "artillery", "anti_air", "set_province_controller",
 }
 
 
@@ -123,8 +134,11 @@ def main():
         blob[rel] = text
         if not braces_balanced(strip_comments(text)):
             err(f"{rel}: unbalanced braces")
-    if not os.path.exists(os.path.join(ROOT, "descriptor.mod")):
+    has_map = os.path.isdir(os.path.join(ROOT, "history", "states"))
+    if has_map and not os.path.exists(os.path.join(ROOT, "descriptor.mod")):
         err("descriptor.mod missing")
+    if not has_map:
+        warn("map layer not built (run SETUP): states, capitals and armies not checked")
 
     # ---------------------------------------------------------- localisation
     loc = {}
@@ -180,6 +194,7 @@ def main():
     # ---------------------------------------------------------- references
     for rel, text in blob.items():
         t = strip_comments(text)
+        t_keys = re.sub(r'set_technology = \{[^}]*\}', '', t)
         for m in re.findall(r'(?:add_ideas|idea|remove_idea|add_idea|has_idea|remove_ideas) = (\w+)', t):
             if m not in ideas and m not in VANILLA_IDEAS:
                 err(f"{rel}: unknown idea {m}")
@@ -214,7 +229,9 @@ def main():
         for m in re.findall(r'(?:country_exists|tag|original_tag|target|has_war_with|give_military_access|is_owned_by|is_controlled_by|is_core_of|add_claim_by|is_in_faction_with) = ([A-Z]{3})\b', t):
             if m not in tags:
                 err(f"{rel}: unknown tag {m}")
-        for k in scan_keys(t):
+        for k in scan_keys(t_keys):
+            if k.isdigit() or k.startswith("landmark_"):
+                continue
             if k in KNOWN_KEYS or k in tags or k.startswith(("md_", "GFX_")) or k in ideas or k in traits \
                     or k in effects or k in decisions or k in cats or k in chars or re.match(r'^[A-Z]{3}$', k) \
                     or k in KNOWN_MODIFIERS or k.startswith(("USA_", "RUS_", "PRC_")) or k == "HTS_TRANSITIONAL":
@@ -278,6 +295,59 @@ def main():
         need_loc(m[1], "party rename")
     for m in re.findall(r'"(MD_BM_\w+|MD_BOOKMARK_\w+)"', all_text):
         need_loc(m, "bookmark")
+
+    # ---------------------------------------------------------- map layer
+    state_files = [k for k in blob if k.startswith("history/states/")]
+    if state_files:
+        owner_of, provs_of = {}, {}
+        seen_prov = {}
+        for k in state_files:
+            t = blob[k]
+            sid = re.search(r'\bid = (\d+)', t).group(1)
+            o = re.search(r'\bowner = (\w+)', t)
+            if not o:
+                err(f"{k}: state without owner")
+                continue
+            owner_of[sid] = o.group(1)
+            pv = re.search(r'provinces = \{([^}]*)\}', t)
+            for p in (pv.group(1).split() if pv else []):
+                if p in seen_prov:
+                    err(f"province {p} in two states ({seen_prov[p]} and {sid})")
+                seen_prov[p] = sid
+                provs_of[p] = sid
+            if o.group(1) not in tags:
+                err(f"{k}: owner {o.group(1)} has no country definition")
+        hist_dir = [k for k in blob if k.startswith("history/countries/")]
+        owners = set(owner_of.values())
+        for k in hist_dir:
+            tag = os.path.basename(k)[:3]
+            cap = re.search(r'^capital = (\d+)', blob[k], re.M)
+            if tag in owners:
+                if not cap:
+                    err(f"{k}: country owns states but has no capital")
+                elif owner_of.get(cap.group(1)) != tag:
+                    err(f"{k}: capital {cap.group(1)} not owned by {tag}")
+            oob = re.search(r'^oob = "(\w+)"', blob[k], re.M)
+            if oob and f"history/units/{oob.group(1)}.txt" not in blob:
+                err(f"{k}: missing OOB {oob.group(1)}")
+        controlled = {}
+        on = blob.get("common/on_actions/md_on_actions.txt", "")
+        for tag, body in re.findall(r'(\b[A-Z]{3}) = \{ (set_province_controller[^}]*)\}', on):
+            for p in re.findall(r'\d+', body):
+                controlled[p] = tag
+        for k in blob:
+            if k.startswith("history/units/"):
+                tag = os.path.basename(k)[3:6]
+                for ploc in re.findall(r'location = (\d+)', blob[k]):
+                    st = provs_of.get(ploc)
+                    holder = controlled.get(ploc, owner_of.get(st))
+                    if holder != tag:
+                        err(f"{k}: division at province {ploc} held by {holder}")
+                names = set(re.findall(r'division_template = "([^"]+)"', blob[k]))
+                defined = set(re.findall(r'division_template = \{\s*name = "([^"]+)"', blob[k]))
+                for n in names - defined:
+                    err(f"{k}: undefined template {n}")
+        print(f"map: {len(owner_of)} states, {len(owners)} countries with land, {len(controlled)} occupied provinces")
 
     # ---------------------------------------------------------- files on disk
     art_built = os.path.isdir(os.path.join(ROOT, "gfx"))

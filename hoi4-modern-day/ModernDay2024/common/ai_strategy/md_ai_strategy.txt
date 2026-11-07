@@ -1,0 +1,158 @@
+md_ai_rus_war = {
+	allowed = { original_tag = RUS }
+	enable = { has_war_with = UKR }
+	abort = { NOT = { has_war_with = UKR } }
+	ai_strategy = { type = conquer id = "UKR" value = 200 }
+	ai_strategy = { type = front_unit_request id = "UKR" value = 60 }
+}
+
+md_ai_ukr_war = {
+	allowed = { original_tag = UKR }
+	enable = { has_war_with = RUS }
+	abort = { NOT = { has_war_with = RUS } }
+	ai_strategy = { type = antagonize id = "RUS" value = 200 }
+	ai_strategy = { type = front_unit_request id = "RUS" value = 80 }
+}
+
+md_ai_rus_friends = {
+	allowed = { original_tag = RUS }
+	enable = { always = yes }
+	abort = { always = no }
+	ai_strategy = { type = befriend id = "BLR" value = 150 }
+	ai_strategy = { type = befriend id = "PRK" value = 100 }
+	ai_strategy = { type = befriend id = "PER" value = 80 }
+	ai_strategy = { type = befriend id = "PRC" value = 120 }
+	ai_strategy = { type = antagonize id = "USA" value = 30 }
+}
+
+md_ai_prc_taiwan = {
+	allowed = { original_tag = PRC }
+	enable = { country_exists = ROC }
+	abort = { NOT = { country_exists = ROC } }
+	ai_strategy = { type = antagonize id = "ROC" value = 150 }
+	ai_strategy = { type = befriend id = "RUS" value = 100 }
+	ai_strategy = { type = befriend id = "PRK" value = 80 }
+	ai_strategy = { type = befriend id = "PAK" value = 80 }
+}
+
+md_ai_usa_partners = {
+	allowed = { original_tag = USA }
+	enable = { always = yes }
+	abort = { always = no }
+	ai_strategy = { type = befriend id = "JAP" value = 120 }
+	ai_strategy = { type = befriend id = "KOR" value = 120 }
+	ai_strategy = { type = befriend id = "ISR" value = 100 }
+	ai_strategy = { type = befriend id = "PHI" value = 80 }
+	ai_strategy = { type = befriend id = "ROC" value = 80 }
+	ai_strategy = { type = befriend id = "AST" value = 100 }
+	ai_strategy = { type = antagonize id = "PER" value = 60 }
+	ai_strategy = { type = antagonize id = "PRK" value = 60 }
+}
+
+md_ai_usa_aid_ukraine = {
+	allowed = { original_tag = USA }
+	enable = { NOT = { has_country_flag = md_usa_trump_era } country_exists = UKR UKR = { has_war_with = RUS } }
+	abort = { OR = { has_country_flag = md_usa_trump_era NOT = { country_exists = UKR } } }
+	ai_strategy = { type = support id = "UKR" value = 100 }
+}
+
+md_ai_isr_iran = {
+	allowed = { original_tag = ISR }
+	enable = { country_exists = PER }
+	abort = { NOT = { country_exists = PER } }
+	ai_strategy = { type = antagonize id = "PER" value = 150 }
+	ai_strategy = { type = befriend id = "USA" value = 150 }
+}
+
+md_ai_per_axis = {
+	allowed = { original_tag = PER }
+	enable = { always = yes }
+	abort = { always = no }
+	ai_strategy = { type = antagonize id = "ISR" value = 150 }
+	ai_strategy = { type = antagonize id = "USA" value = 80 }
+	ai_strategy = { type = support id = "YEM" value = 60 }
+	ai_strategy = { type = befriend id = "RUS" value = 80 }
+}
+
+md_ai_sud_war = {
+	allowed = { original_tag = SUD }
+	enable = { has_war_with = RSF }
+	abort = { NOT = { has_war_with = RSF } }
+	ai_strategy = { type = conquer id = "RSF" value = 200 }
+}
+
+md_ai_rsf_war = {
+	allowed = { original_tag = RSF }
+	enable = { has_war_with = SUD }
+	abort = { NOT = { has_war_with = SUD } }
+	ai_strategy = { type = conquer id = "SUD" value = 200 }
+}
+
+md_ai_hts_war = {
+	allowed = { original_tag = HTS }
+	enable = { has_war_with = SYR }
+	abort = { NOT = { has_war_with = SYR } }
+	ai_strategy = { type = conquer id = "SYR" value = 250 }
+}
+
+md_ai_ind_pak = {
+	allowed = { original_tag = IND }
+	enable = { country_exists = PAK }
+	abort = { NOT = { country_exists = PAK } }
+	ai_strategy = { type = antagonize id = "PAK" value = 60 }
+	ai_strategy = { type = befriend id = "USA" value = 50 }
+}
+
+md_ai_pak_ind = {
+	allowed = { original_tag = PAK }
+	enable = { country_exists = IND }
+	abort = { NOT = { country_exists = IND } }
+	ai_strategy = { type = antagonize id = "IND" value = 60 }
+	ai_strategy = { type = befriend id = "PRC" value = 80 }
+}
+
+md_ai_prk_kor = {
+	allowed = { original_tag = PRK }
+	enable = { country_exists = KOR }
+	abort = { NOT = { country_exists = KOR } }
+	ai_strategy = { type = antagonize id = "KOR" value = 100 }
+	ai_strategy = { type = befriend id = "RUS" value = 80 }
+}
+
+md_ai_kor_prk = {
+	allowed = { original_tag = KOR }
+	enable = { country_exists = PRK }
+	abort = { NOT = { country_exists = PRK } }
+	ai_strategy = { type = antagonize id = "PRK" value = 100 }
+}
+
+md_ai_europe_support_ukraine = {
+	allowed = { original_tag = ENG }
+	enable = { country_exists = UKR UKR = { has_war_with = RUS } }
+	abort = { NOT = { country_exists = UKR } }
+	ai_strategy = { type = support id = "UKR" value = 100 }
+	ai_strategy = { type = antagonize id = "RUS" value = 60 }
+}
+
+md_ai_fra_support_ukraine = {
+	allowed = { original_tag = FRA }
+	enable = { country_exists = UKR UKR = { has_war_with = RUS } }
+	abort = { NOT = { country_exists = UKR } }
+	ai_strategy = { type = support id = "UKR" value = 80 }
+	ai_strategy = { type = antagonize id = "RUS" value = 50 }
+}
+
+md_ai_ger_support_ukraine = {
+	allowed = { original_tag = GER }
+	enable = { country_exists = UKR UKR = { has_war_with = RUS } }
+	abort = { NOT = { country_exists = UKR } }
+	ai_strategy = { type = support id = "UKR" value = 80 }
+}
+
+md_ai_pol_russia = {
+	allowed = { original_tag = POL }
+	enable = { country_exists = RUS }
+	abort = { always = no }
+	ai_strategy = { type = antagonize id = "RUS" value = 100 }
+	ai_strategy = { type = support id = "UKR" value = 80 }
+}

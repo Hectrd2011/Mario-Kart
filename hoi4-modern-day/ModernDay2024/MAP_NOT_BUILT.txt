@@ -1,0 +1,2 @@
+This copy of the mod has no 2024 map yet.
+Run SETUP (see README.md): it reads your own HOI4 install, builds the map and installs the mod.

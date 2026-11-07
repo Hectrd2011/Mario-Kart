@@ -1,0 +1,222 @@
+"""2024 economic and demographic baselines (rounded, from public estimates).
+
+TAG  population(millions)  GDP-PPP($bn)  military spending($bn)  dockyards  income(H/UM/LM/L)
+These drive factory counts, state populations and infrastructure on the map.
+"""
+
+_TABLE = """
+USA 340 29200 997 24 H
+CAN 41 2500 29 2 H
+MEX 130 3300 11 1 UM
+GUA 18 210 0.6 0 UM
+BLZ 0.4 4 0.1 0 UM
+HON 10.6 80 0.5 0 LM
+ELS 6.3 75 0.4 0 UM
+NIC 7.0 55 0.1 0 LM
+COS 5.2 140 0 0 UM
+PAN 4.5 180 0 0 H
+CUB 11 140 1 0 UM
+HAI 11.7 35 0 0 L
+DOM 11.3 300 1 0 UM
+JAM 2.8 35 0.2 0 UM
+BHM 0.4 16 0.1 0 H
+TRI 1.5 50 0.2 0 H
+BRA 212 4700 23 2 UM
+ARG 46 1350 4 1 UM
+CHL 20 650 6 1 H
+COL 53 1100 11 1 UM
+VEN 28 250 1 0 UM
+ECU 18 280 2 0 UM
+PRU 34 600 3 1 UM
+BOL 12.4 130 0.7 0 LM
+PAR 6.9 120 0.4 0 UM
+URG 3.4 120 1.2 0 H
+GUY 0.8 50 0.1 0 H
+SUR 0.6 12 0.1 0 UM
+ENG 69 4100 82 6 H
+IRE 5.3 800 1.4 0 H
+FRA 68 4300 65 5 H
+BEL 11.8 850 8 0 H
+HOL 18 1400 17 2 H
+LUX 0.67 110 0.8 0 H
+GER 84 5700 88 3 H
+SWI 9 900 7 0 H
+AUS 9.2 700 5 0 H
+ITA 59 3400 38 4 H
+SPR 48 2600 22 3 H
+POR 10.6 500 4 1 H
+MLT 0.55 35 0.1 0 H
+DEN 6 500 9 1 H
+NOR 5.6 550 11 2 H
+SWE 10.6 750 12 1 H
+FIN 5.6 340 7 1 H
+ICE 0.4 30 0 0 H
+POL 37 1800 38 1 H
+CZE 10.9 600 7 0 H
+SLO 5.4 250 3 0 H
+HUN 9.6 450 4 0 H
+SLV 2.1 110 1 0 H
+CRO 3.8 180 1.6 1 H
+BOS 3.2 70 0.3 0 UM
+SER 6.6 190 2 0 UM
+MNT 0.62 18 0.1 0 UM
+KOS 1.6 30 0.1 0 UM
+ALB 2.8 55 0.5 0 UM
+MAC 1.8 45 0.3 0 UM
+GRE 10.4 450 8 2 H
+CYP 1.3 50 0.5 0 H
+ROM 19 850 8 0 H
+BUL 6.4 240 2 0 UM
+MOL 2.4 45 0.1 0 UM
+EST 1.37 65 1.5 0 H
+LAT 1.87 80 1.4 0 H
+LIT 2.9 150 2.3 0 H
+RUS 144 6900 149 8 UM
+UKR 37 600 65 1 LM
+BLR 9.1 260 1.5 0 UM
+GEO 3.7 95 0.5 0 UM
+ARM 3.0 65 1.5 0 UM
+AZR 10.2 200 3.5 0 UM
+KAZ 20 700 2 0 UM
+UZB 37 400 2 0 LM
+TMS 7.2 140 0.5 0 UM
+KYR 7.2 50 0.2 0 LM
+TAJ 10.3 55 0.2 0 LM
+TUR 86 3400 25 4 UM
+ISR 10 550 46 1 H
+PAL 5.5 30 0 0 LM
+LEB 5.8 70 0.6 0 LM
+SYR 20 60 1 0 L
+HTS 4 10 0.2 0 L
+RJV 4 20 0.5 0 L
+JOR 11.4 120 2 0 UM
+IRQ 46 600 6 0 UM
+PER 91 1700 10 1 UM
+SAU 34 2400 80 1 H
+YEM 22 50 1 0 L
+ADN 10 30 1 0 L
+OMA 5.3 200 7 0 H
+UAE 10.7 900 24 1 H
+QAT 3 350 10 0 H
+KUW 4.9 250 8 0 H
+BAH 1.6 100 1.5 0 H
+AFG 42 90 0.5 0 L
+EGY 114 2200 4 1 LM
+LBA 5 90 1 0 UM
+HAF 2.3 50 1 0 UM
+TUN 12.3 160 1.2 0 LM
+ALG 46 750 21 1 UM
+MOR 37 380 6 0 LM
+ETH 130 400 1.5 0 L
+ERI 3.7 10 0.4 0 L
+DJI 1.1 8 0.1 0 LM
+SOM 15 30 0.2 0 L
+SML 5.7 8 0.1 0 L
+KEN 56 380 1.3 0 LM
+UGA 49 150 1 0 L
+TZA 68 250 1 0 LM
+RWA 14 45 0.3 0 L
+BDI 13.7 13 0.1 0 L
+DRC 110 180 0.8 0 L
+COG 6.2 30 0.3 0 LM
+GAB 2.5 45 0.3 0 UM
+CMR 29 150 0.5 0 LM
+CAF 5.9 6 0.1 0 L
+CHA 19 45 0.4 0 L
+SUD 34 140 2 0 L
+RSF 14 40 1 0 L
+SSD 11.5 12 0.2 0 L
+NGA 230 1400 3 1 LM
+NIG 27 40 0.5 0 L
+MLI 23 65 0.8 0 L
+BFA 23 65 0.8 0 L
+SEN 18.5 80 0.5 0 LM
+GAM 2.8 7 0 0 L
+GNB 2.2 6 0 0 L
+GUI 14.5 60 0.4 0 L
+SIE 8.6 18 0.1 0 L
+LIB 5.5 11 0 0 L
+CIV 31 200 0.8 0 LM
+GHA 34 260 0.3 0 LM
+TOG 9.5 30 0.2 0 L
+BEN 14 60 0.2 0 LM
+MAU 5 35 0.3 0 LM
+EQG 1.8 30 0.2 0 UM
+ANG 37 300 1.3 0 LM
+ZAM 21 90 0.4 0 LM
+ZIM 16.6 50 0.3 0 LM
+MZB 34 55 0.2 0 L
+MLW 21 40 0.1 0 L
+NMB 3 30 0.4 0 UM
+BOT 2.5 50 0.6 0 UM
+SAF 63 1000 3 1 UM
+LES 2.3 7 0 0 LM
+SWZ 1.2 13 0.1 0 LM
+MAD 31 60 0.1 0 L
+MRT 1.3 40 0.1 0 UM
+IND 1450 16000 86 5 LM
+PAK 250 1600 10 1 LM
+BAN 174 1700 4 1 LM
+SRL 22 320 1.5 0 LM
+NEP 30 160 0.5 0 LM
+BHU 0.8 12 0 0 LM
+PRC 1410 37000 314 30 UM
+ROC 23.4 1900 17 3 H
+JAP 124 6500 55 10 H
+KOR 52 3000 48 12 H
+PRK 26 40 4 1 L
+MON 3.5 60 0.1 0 UM
+VIE 101 1700 7 1 LM
+LAO 7.7 70 0.1 0 LM
+CAM 17.6 100 0.8 0 LM
+SIA 72 1600 6 1 UM
+BRM 54 280 3 0 LM
+MAL 35 1300 4 1 UM
+SGP 6 800 13 1 H
+INS 283 4700 9 2 UM
+PHI 116 1400 4 1 LM
+TLS 1.4 6 0 0 LM
+BRU 0.46 35 0.4 0 H
+AST 27 1800 33 2 H
+NZL 5.3 270 2.6 0 H
+PNG 10.3 45 0.1 0 LM
+FIJ 0.93 15 0.1 0 UM
+SOL 0.8 2 0 0 LM
+"""
+
+ECON = {}
+for line in _TABLE.strip().splitlines():
+    tag, pop, gdp, mil, dock, inc = line.split()
+    ECON[tag] = dict(pop=float(pop) * 1e6, gdp=float(gdp), milex=float(mil), docks=int(dock), income=inc)
+
+# extra weight for economies whose military industry outstrips their budget
+MIL_INDUSTRY_BONUS = {"RUS": 35, "PRC": 30, "UKR": 6, "TUR": 6, "PER": 6, "PRK": 6, "IND": 4, "KOR": 3, "PAK": 2, "ISR": 2, "EGY": 1}
+
+
+def factories(tag):
+    e = ECON[tag]
+    civ = max(1, round(e["gdp"] / 200))
+    mil = round(e["milex"] / 15) + MIL_INDUSTRY_BONUS.get(tag, 0)
+    if e["milex"] >= 0.8 and mil == 0:
+        mil = 1
+    return civ, mil, e["docks"]
+
+
+INFRA = {"H": 5, "UM": 4, "LM": 3, "L": 2}
+
+# Division counts (20-width) on 6 November 2024
+DIVISIONS = {
+    "USA": 48, "PRC": 90, "RUS": 110, "UKR": 95, "IND": 60, "PAK": 30, "PRK": 50, "KOR": 26, "TUR": 30, "PER": 32,
+    "EGY": 26, "ISR": 20, "FRA": 16, "ENG": 12, "GER": 14, "ITA": 14, "POL": 18, "JAP": 16, "BRA": 18, "SAU": 14,
+    "ROC": 14, "VIE": 24, "INS": 18, "SIA": 14, "ALG": 12, "MOR": 10, "IRQ": 14, "SYR": 14, "HTS": 6, "RJV": 5,
+    "MEX": 12, "COL": 10, "ARG": 6, "AST": 6, "CAN": 6, "SPR": 10, "GRE": 10, "ROM": 8, "BLR": 6, "AZR": 6,
+    "ARM": 4, "ETH": 14, "SUD": 12, "RSF": 10, "BRM": 16, "AFG": 10, "BAN": 10, "PHI": 8, "MAL": 5, "SWE": 5,
+    "FIN": 8, "NOR": 4, "UAE": 4, "YEM": 10, "ADN": 6, "JOR": 5, "KAZ": 5, "UZB": 5, "VEN": 6, "CUB": 5, "NGA": 10,
+    "SAF": 5, "LBA": 4, "HAF": 6, "ERI": 6, "SER": 4, "HUN": 3, "CZE": 3, "HOL": 3, "BEL": 2, "POR": 3,
+}
+
+
+def divisions(tag, tier):
+    if tag in DIVISIONS:
+        return DIVISIONS[tag]
+    return {1: 40, 2: 8, 3: 4, 4: 2}[tier]

@@ -1,14 +1,11 @@
 """Render every texture the mod needs and write the .gfx sprite files."""
 import os
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 from data.countries import COUNTRIES
 from data import decisions as DEC
 from data import events as EV
 from data.model import ascii_id
-from art import portraits, icons, flags
-from art.common import save_dds, font_path, FLAG_SVG, svg_to_image
 
 IDEOLOGY_SUFFIXES = ("", "_democratic", "_communism", "_fascism", "_neutrality")
 
@@ -24,6 +21,9 @@ def _cid(tag, p):
 def write_gfx(out, ideas, focus_icons, dec_icons, pics, render=True):
     root = out.root
     if render:
+        global portraits, icons, flags, save_dds
+        from art import portraits, icons, flags
+        from art.common import save_dds
         from art.common import vendor_glyphs
         used = [d["glyph"] for d in ideas.values()] + [g for g, _, _ in focus_icons.values()] + \
                [g for g, _ in dec_icons.values()] + [EV.PICTURES[p][0] for p in pics]
@@ -47,7 +47,7 @@ def write_gfx(out, ideas, focus_icons, dec_icons, pics, render=True):
                 people.append((cid, p.look))
         for cid, look in people:
             if render:
-                img = portraits.render(look, c.iso if c.tag not in flags.CUSTOM else c.iso, cid)
+                img = portraits.render(look, c.iso, cid)
                 dds(img, f"gfx/leaders/{c.tag}/md_{cid}.dds")
                 dds(portraits.small(img), f"gfx/interface/ideas/md_leaders/{cid}.dds")
             n += 1
@@ -139,6 +139,8 @@ def write_gfx(out, ideas, focus_icons, dec_icons, pics, render=True):
 
 
 def thumbnail(path):
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+    from art.common import font_path, FLAG_SVG, svg_to_image
     W, H = 512, 512
     img = Image.new("RGBA", (W, H), (14, 16, 22, 255))
     tags = ["US", "CN", "RU", "UA", "GB", "FR", "DE", "IN", "IL", "IR", "JP", "KR", "TW", "TR", "BR", "SA"]

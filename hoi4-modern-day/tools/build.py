@@ -46,9 +46,8 @@ def all_ideas():
 
 # ------------------------------------------------------------------ descriptor
 def write_descriptor(out, has_map):
-    replace = ["common/bookmarks", "common/national_focus", "common/ai_strategy_plans", "history/countries"]
-    if has_map:
-        replace.append("history/states")
+    replace = ["common/bookmarks", "common/national_focus", "common/ai_strategy", "common/ai_strategy_plans",
+               "history/countries", "history/states"]
     body = [
         'version="1.0.0"',
         'tags={\n\t"Alternative History"\n\t"Events"\n\t"Gameplay"\n\t"Historical"\n\t"National Focuses"\n}',
@@ -295,8 +294,6 @@ def write_events(out):
     for e in EV.EVENTS:
         ns = e.id.split(".")[0]
         by_ns.setdefault(ns, []).append(e)
-    for e in DEC.DIP_EVENTS:
-        pass
     for ns, evs in by_ns.items():
         blocks = [f"add_namespace = {ns}"]
         for e in evs:
@@ -367,7 +364,6 @@ def write_decisions(out):
     loc, icons = [], {}
     cats = []
     for cid, (name, desc, pic, allowed) in DEC.CATEGORIES.items():
-        b = [f"{cid} = {{", f"\ticon = GFX_decision_category_{cid}" if False else "\ticon = generic_decision"]
         b = [f"{cid} = {{"]
         if allowed:
             b.append("\tallowed = {\n" + pretty(allowed, 2) + "\n\t}")
@@ -512,14 +508,21 @@ def main():
     if os.path.isdir(MOD_ROOT):
         keep_art = args.no_art
         for entry in os.listdir(MOD_ROOT):
-            if keep_art and entry == "gfx":
+            if keep_art and entry in ("gfx", "thumbnail.png"):
                 continue
             p = os.path.join(MOD_ROOT, entry)
             shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
     out = Out(MOD_ROOT)
 
     new_tags = md.new_tags([c.tag for c in COUNTRIES])
-    write_descriptor(out, md.has_states)
+    if md.has_states:
+        write_descriptor(out, True)
+    else:
+        out.write("MAP_NOT_BUILT.txt", "This copy of the mod has no 2024 map yet.\n"
+                  "Run SETUP (see README.md): it reads your own HOI4 install, builds the map and installs the mod.\n")
+        launcher = os.path.join(os.path.dirname(MOD_ROOT), f"{MOD_NAME}.mod")
+        if os.path.exists(launcher):
+            os.remove(launcher)
     write_defines(out)
     write_country_defs(out, new_tags)
     for c in COUNTRIES:
@@ -544,6 +547,8 @@ def main():
     loc["misc"] = list(THREATS.items()) + md.localisation()
     write_on_actions(out, md)
     write_scripted_effects(out, md)
+    from data import ai
+    ai.write(out)
     write_localisation(out, loc)
 
     from gen import gfx
