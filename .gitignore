@@ -6,3 +6,4 @@ node_modules/
 __pycache__/
 *.pyc
 hoi4-modern-day/tools/vanilla/
+hoi4-modern-day/tools/vendor/photos/
