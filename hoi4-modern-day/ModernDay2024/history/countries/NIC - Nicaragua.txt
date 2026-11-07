@@ -1,0 +1,20 @@
+# Nicaragua: 6 November 2024
+set_research_slots = 1
+set_stability = 0.55
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 10 communism = 75 fascism = 0 neutrality = 15 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_western_sanctions_light
+}
+
+recruit_character = NIC_daniel_ortega

@@ -1,0 +1,20 @@
+# United Arab Emirates: 6 November 2024
+set_research_slots = 2
+set_stability = 0.85
+set_war_support = 0.20
+set_convoys = 30
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 0 communism = 0 fascism = 0 neutrality = 100 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_uae_global_hub
+}
+
+recruit_character = UAE_mohamed_bin_zayed

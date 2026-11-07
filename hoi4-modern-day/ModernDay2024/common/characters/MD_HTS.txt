@@ -1,0 +1,18 @@
+characters = {
+	HTS_ahmed_al_sharaa_hts = {
+		name = HTS_ahmed_al_sharaa_hts
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HTS/md_HTS_ahmed_al_sharaa_hts.dds"
+				small = "gfx/interface/ideas/md_leaders/HTS_ahmed_al_sharaa_hts.dds"
+			}
+		}
+		country_leader = {
+			desc = "HTS_ahmed_al_sharaa_hts_desc"
+			ideology = oligarchism
+			traits = { md_insurgent_commander }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

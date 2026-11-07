@@ -1,0 +1,18 @@
+characters = {
+	CHA_mahamat_deby = {
+		name = CHA_mahamat_deby
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CHA/md_CHA_mahamat_deby.dds"
+				small = "gfx/interface/ideas/md_leaders/CHA_mahamat_deby.dds"
+			}
+		}
+		country_leader = {
+			desc = "CHA_mahamat_deby_desc"
+			ideology = despotism
+			traits = { md_military_ruler }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

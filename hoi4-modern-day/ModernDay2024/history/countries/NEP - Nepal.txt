@@ -1,0 +1,21 @@
+# Nepal: 6 November 2024
+set_research_slots = 1
+set_stability = 0.45
+set_war_support = 0.10
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.11.20"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 80 communism = 12 fascism = 4 neutrality = 4 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = NEP_k_p_sharma_oli

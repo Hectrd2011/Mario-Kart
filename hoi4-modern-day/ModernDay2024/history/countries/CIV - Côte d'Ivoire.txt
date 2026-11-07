@@ -1,0 +1,21 @@
+# Côte d'Ivoire: 6 November 2024
+set_research_slots = 1
+set_stability = 0.60
+set_war_support = 0.15
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2020.10.31"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 85 communism = 0 fascism = 0 neutrality = 15 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = CIV_alassane_ouattara

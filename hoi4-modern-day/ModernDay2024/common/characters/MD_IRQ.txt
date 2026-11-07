@@ -1,0 +1,18 @@
+characters = {
+	IRQ_mohammed_shia_al_sudani = {
+		name = IRQ_mohammed_shia_al_sudani
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/IRQ/md_IRQ_mohammed_shia_al_sudani.dds"
+				small = "gfx/interface/ideas/md_leaders/IRQ_mohammed_shia_al_sudani.dds"
+			}
+		}
+		country_leader = {
+			desc = "IRQ_mohammed_shia_al_sudani_desc"
+			ideology = conservatism
+			traits = { md_balancer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

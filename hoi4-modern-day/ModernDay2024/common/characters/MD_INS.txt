@@ -1,0 +1,18 @@
+characters = {
+	INS_prabowo_subianto = {
+		name = INS_prabowo_subianto
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/INS/md_INS_prabowo_subianto.dds"
+				small = "gfx/interface/ideas/md_leaders/INS_prabowo_subianto.dds"
+			}
+		}
+		country_leader = {
+			desc = "INS_prabowo_subianto_desc"
+			ideology = conservatism
+			traits = { md_defense_hawk md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

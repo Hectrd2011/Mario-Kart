@@ -1,0 +1,114 @@
+characters = {
+	FRA_emmanuel_macron = {
+		name = FRA_emmanuel_macron
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FRA/md_FRA_emmanuel_macron.dds"
+				small = "gfx/interface/ideas/md_leaders/FRA_emmanuel_macron.dds"
+			}
+		}
+		country_leader = {
+			desc = "FRA_emmanuel_macron_desc"
+			ideology = liberalism
+			traits = { md_jupiterian md_eu_federalist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	FRA_marine_le_pen = {
+		name = FRA_marine_le_pen
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FRA/md_FRA_marine_le_pen.dds"
+				small = "gfx/interface/ideas/md_leaders/FRA_marine_le_pen.dds"
+			}
+		}
+		country_leader = {
+			desc = "FRA_marine_le_pen_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	FRA_jordan_bardella = {
+		name = FRA_jordan_bardella
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FRA/md_FRA_jordan_bardella.dds"
+				small = "gfx/interface/ideas/md_leaders/FRA_jordan_bardella.dds"
+			}
+		}
+		country_leader = {
+			desc = "FRA_jordan_bardella_desc"
+			ideology = fascism
+			traits = { md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	FRA_jean_luc_melenchon = {
+		name = FRA_jean_luc_melenchon
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FRA/md_FRA_jean_luc_melenchon.dds"
+				small = "gfx/interface/ideas/md_leaders/FRA_jean_luc_melenchon.dds"
+			}
+		}
+		country_leader = {
+			desc = "FRA_jean_luc_melenchon_desc"
+			ideology = marxism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	FRA_michel_barnier = {
+		name = FRA_michel_barnier
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/FRA_michel_barnier.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_michel_barnier_adv
+			allowed = { original_tag = FRA }
+			traits = { md_adv_negotiator }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	FRA_jean_noel_barrot = {
+		name = FRA_jean_noel_barrot
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/FRA_jean_noel_barrot.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_jean_noel_barrot_adv
+			allowed = { original_tag = FRA }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	FRA_sebastien_lecornu = {
+		name = FRA_sebastien_lecornu
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/FRA_sebastien_lecornu.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_sebastien_lecornu_adv
+			allowed = { original_tag = FRA }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

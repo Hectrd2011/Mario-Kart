@@ -1,0 +1,22 @@
+# Romania: 6 November 2024
+set_research_slots = 3
+set_stability = 0.50
+set_war_support = 0.25
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2019.11.24"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 70 communism = 1 fascism = 27 neutrality = 2 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = ROM_klaus_iohannis
+recruit_character = ROM_calin_georgescu

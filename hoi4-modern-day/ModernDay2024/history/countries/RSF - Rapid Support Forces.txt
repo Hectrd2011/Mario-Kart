@@ -1,0 +1,20 @@
+# Rapid Support Forces: 6 November 2024
+set_research_slots = 1
+set_stability = 0.30
+set_war_support = 0.60
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 0 communism = 0 fascism = 0 neutrality = 100 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	extensive_conscription
+	export_focus
+	md_sud_civil_war
+}
+
+recruit_character = RSF_mohamed_hamdan_dagalo

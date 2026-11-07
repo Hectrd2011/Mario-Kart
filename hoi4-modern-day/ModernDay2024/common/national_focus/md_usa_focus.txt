@@ -1,0 +1,1709 @@
+focus_tree = {
+	id = md_usa_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = USA
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = USA_lame_duck_session
+		icon = GFX_md_timer_sand_politics_us
+		x = 2
+		y = 0
+		cost = 3
+		available = {
+			NOT = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		bypass = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_authorize_atacms
+		icon = GFX_md_rocket_launch_military_us
+		x = 0
+		y = 1
+		cost = 2
+		prerequisite = { focus = USA_lame_duck_session }
+		available = {
+			NOT = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		bypass = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					add_timed_idea = {
+						idea = md_ukr_long_range_strikes
+						days = 365
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					add_war_support = 0.03
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_rush_aid
+		icon = GFX_md_package_variant_closed_military_us
+		x = 2
+		y = 1
+		cost = 3
+		prerequisite = { focus = USA_lame_duck_session }
+		available = {
+			NOT = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		bypass = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 20000
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 1500
+						producer = USA
+					}
+				}
+			}
+			add_political_power = -25
+		}
+	}
+
+	focus = {
+		id = USA_sanction_shadow_fleet
+		icon = GFX_md_oil_economy_us
+		x = 4
+		y = 1
+		cost = 3
+		prerequisite = { focus = USA_lame_duck_session }
+		available = {
+			NOT = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		bypass = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					add_timed_idea = {
+						idea = md_rus_oil_sanctions
+						days = 540
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_farewell_address
+		icon = GFX_md_microphone_variant_politics_us
+		x = 2
+		y = 2
+		cost = 2
+		prerequisite = { focus = USA_authorize_atacms focus = USA_rush_aid focus = USA_sanction_shadow_fleet }
+		available = {
+			NOT = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		bypass = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = USA_second_inauguration
+		icon = GFX_md_flag_politics_us
+		x = 19
+		y = 0
+		cost = 1
+		available = {
+			has_country_flag = md_usa_trump_era
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = USA_day_one_orders
+		icon = GFX_md_draw_pen_politics_us
+		x = 19
+		y = 1
+		cost = 3
+		prerequisite = { focus = USA_second_inauguration }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = USA_doge
+		icon = GFX_md_content_cut_economy_us
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_day_one_orders }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_doge
+		}
+	}
+
+	focus = {
+		id = USA_cut_federal_workforce
+		icon = GFX_md_account_multiple_minus_economy_us
+		x = 7
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_doge }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.03
+		}
+	}
+
+	focus = {
+		id = USA_close_usaid
+		icon = GFX_md_cash_remove_diplomacy_us
+		x = 9
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_doge }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = USA_big_beautiful_bill
+		icon = GFX_md_gavel_economy_us
+		x = 8
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_cut_federal_workforce }
+		prerequisite = { focus = USA_close_usaid }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+			if = {
+				limit = {
+					has_idea = md_usa_doge
+				}
+				remove_ideas = md_usa_doge
+			}
+		}
+	}
+
+	focus = {
+		id = USA_secure_border
+		icon = GFX_md_wall_politics_us
+		x = 11
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_day_one_orders }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = USA_remain_in_mexico
+		icon = GFX_md_passport_politics_us
+		x = 11
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_secure_border }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					country_exists = MEX
+				}
+				add_opinion_modifier = {
+					target = MEX
+					modifier = md_opinion_pressure
+				}
+				MEX = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_mass_deportations
+		icon = GFX_md_airplane_takeoff_politics_us
+		x = 11
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_remain_in_mexico }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = -0.02
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.02
+			}
+		}
+	}
+
+	focus = {
+		id = USA_finish_the_wall
+		icon = GFX_md_wall_economy_us
+		x = 12
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_mass_deportations }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_border_lockdown
+		}
+	}
+
+	focus = {
+		id = USA_america_first_trade
+		icon = GFX_md_cash_multiple_economy_us
+		x = 15
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_day_one_orders }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_tariffs_on_china
+		icon = GFX_md_currency_cny_economy_us
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_america_first_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_tariffs
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_tariffs
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_tariffs_on_neighbors
+		icon = GFX_md_truck_economy_us
+		x = 16
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_america_first_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = CAN
+				}
+				add_opinion_modifier = {
+					target = CAN
+					modifier = md_opinion_tariffs
+				}
+				CAN = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_tariffs
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = MEX
+				}
+				add_opinion_modifier = {
+					target = MEX
+					modifier = md_opinion_tariffs
+				}
+				MEX = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_tariffs
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_liberation_day
+		icon = GFX_md_flag_variant_economy_us
+		x = 15
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_tariffs_on_china }
+		prerequisite = { focus = USA_tariffs_on_neighbors }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_tariff_wall
+			add_stability = -0.03
+			set_global_flag = md_liberation_day
+		}
+	}
+
+	focus = {
+		id = USA_reciprocal_trade_deals
+		icon = GFX_md_handshake_economy_us
+		x = 14
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_liberation_day }
+		mutually_exclusive = { focus = USA_trade_war_escalation }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_usa_tariff_wall
+				add_idea = md_usa_trade_deals
+			}
+			if = {
+				limit = {
+					country_exists = JAP
+				}
+				add_opinion_modifier = {
+					target = JAP
+					modifier = md_opinion_trade_deal
+				}
+				JAP = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = md_opinion_trade_deal
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = KOR
+				}
+				add_opinion_modifier = {
+					target = KOR
+					modifier = md_opinion_trade_deal
+				}
+				KOR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_trade_war_escalation
+		icon = GFX_md_trending_up_crisis_us
+		x = 16
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_liberation_day }
+		mutually_exclusive = { focus = USA_reciprocal_trade_deals }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_usa_tariff_wall
+				add_idea = md_usa_trade_war
+			}
+		}
+	}
+
+	focus = {
+		id = USA_reshore_manufacturing
+		icon = GFX_md_factory_economy_us
+		x = 15
+		y = 6
+		cost = 10
+		prerequisite = { focus = USA_reciprocal_trade_deals focus = USA_trade_war_escalation }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_golden_age
+		icon = GFX_md_star_four_points_economy_us
+		x = 15
+		y = 7
+		cost = 10
+		prerequisite = { focus = USA_reshore_manufacturing }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = USA_energy_dominance
+		icon = GFX_md_lightning_bolt_energy_us
+		x = 19
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_day_one_orders }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_drill_baby_drill
+		icon = GFX_md_oil_energy_us
+		x = 18
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_energy_dominance }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_energy_dominance
+		}
+	}
+
+	focus = {
+		id = USA_nuclear_renaissance
+		icon = GFX_md_atom_energy_us
+		x = 18
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_drill_baby_drill }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_ai_action_plan
+		icon = GFX_md_brain_tech_us
+		x = 20
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_energy_dominance }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = USA_stargate
+		icon = GFX_md_server_tech_us
+		x = 20
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_ai_action_plan }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = USA_stargate_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = USA_win_ai_race
+		icon = GFX_md_robot_tech_us
+		x = 19
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_stargate }
+		prerequisite = { focus = USA_nuclear_renaissance }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_ai_supremacy
+		}
+	}
+
+	focus = {
+		id = USA_america_first_foreign
+		icon = GFX_md_earth_diplomacy_us
+		x = 27
+		y = 1
+		cost = 10
+		prerequisite = { focus = USA_second_inauguration }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_make_nato_pay
+		icon = GFX_md_shield_diplomacy_us
+		x = 22
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_america_first_foreign }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.01
+		}
+	}
+
+	focus = {
+		id = USA_five_percent_pledge
+		icon = GFX_md_chart_line_diplomacy_us
+		x = 21
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_make_nato_pay }
+		mutually_exclusive = { focus = USA_question_article_five }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					NOT = {
+						tag = ROOT
+					}
+				}
+				add_timed_idea = {
+					idea = md_nato_spending_surge
+					days = 1095
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_burden_shared
+		icon = GFX_md_handshake_diplomacy_us
+		x = 21
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_five_percent_pledge }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_question_article_five
+		icon = GFX_md_help_circle_crisis_us
+		x = 23
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_make_nato_pay }
+		mutually_exclusive = { focus = USA_five_percent_pledge }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+		}
+	}
+
+	focus = {
+		id = USA_leave_nato
+		icon = GFX_md_earth_off_crisis_us
+		x = 23
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_question_article_five }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 0 }
+		completion_reward = {
+			leave_faction = yes
+			add_ideas = md_usa_isolationism
+		}
+	}
+
+	focus = {
+		id = USA_end_ukraine_war
+		icon = GFX_md_peace_diplomacy_us
+		x = 25
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_america_first_foreign }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_pressure_kyiv
+		icon = GFX_md_hand_back_left_diplomacy_us
+		x = 24
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_end_ukraine_war }
+		mutually_exclusive = { focus = USA_pressure_moscow }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					if = {
+						limit = {
+							has_idea = md_ukr_western_aid
+						}
+						remove_ideas = md_ukr_western_aid
+						add_timed_idea = {
+							idea = md_ukr_aid_paused
+							days = 60
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				add_opinion_modifier = {
+					target = RUS
+					modifier = md_opinion_rapprochement
+				}
+				RUS = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_rapprochement
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_pressure
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_pressure_moscow
+		icon = GFX_md_hand_back_right_diplomacy_us
+		x = 26
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_end_ukraine_war }
+		mutually_exclusive = { focus = USA_pressure_kyiv }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					add_timed_idea = {
+						idea = md_rus_oil_sanctions
+						days = 365
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_minerals_deal
+		icon = GFX_md_diamond_stone_economy_us
+		x = 25
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_pressure_kyiv focus = USA_pressure_moscow }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_trade_deal
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_peace_summit
+		icon = GFX_md_handshake_diplomacy_us
+		x = 25
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_minerals_deal }
+		available = {
+			RUS = {
+				has_war_with = UKR
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					country_event = {
+						id = md_war.10
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_middle_east_deals
+		icon = GFX_md_star_crescent_diplomacy_us
+		x = 28
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_america_first_foreign }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_gaza_ceasefire
+		icon = GFX_md_hand_peace_diplomacy_us
+		x = 27
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_middle_east_deals }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ISR
+				}
+				ISR = {
+					country_event = {
+						id = md_isr.10
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_abraham_accords_ii
+		icon = GFX_md_handshake_outline_diplomacy_us
+		x = 27
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_gaza_ceasefire }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SAU
+				}
+				add_opinion_modifier = {
+					target = SAU
+					modifier = md_opinion_rapprochement
+				}
+				SAU = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_rapprochement
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ISR
+				}
+				add_opinion_modifier = {
+					target = ISR
+					modifier = md_opinion_rapprochement
+				}
+				ISR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_rapprochement
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SAU
+				}
+				SAU = {
+					country_event = {
+						id = md_isr.20
+						days = 3
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_maximum_pressure_iran
+		icon = GFX_md_cash_remove_diplomacy_us
+		x = 29
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_middle_east_deals }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				add_opinion_modifier = {
+					target = PER
+					modifier = md_opinion_pressure
+				}
+				PER = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				PER = {
+					add_stability = -0.03
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_operation_midnight_hammer
+		icon = GFX_md_bomb_military_us
+		x = 29
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_maximum_pressure_iran }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				PER = {
+					add_timed_idea = {
+						idea = md_per_nuclear_setback
+						days = 730
+					}
+					if = {
+						limit = {
+							has_idea = md_per_nuclear_threshold
+						}
+						remove_ideas = md_per_nuclear_threshold
+					}
+				}
+			}
+			add_named_threat = {
+				threat = 3
+				name = md_threat_iran_strikes
+			}
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = USA_new_middle_east
+		icon = GFX_md_earth_arrow_right_diplomacy_us
+		x = 28
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_abraham_accords_ii }
+		prerequisite = { focus = USA_operation_midnight_hammer }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = USA_contain_china
+		icon = GFX_md_currency_cny_diplomacy_us
+		x = 31
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_america_first_foreign }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = USA_arm_taiwan
+		icon = GFX_md_shield_military_us
+		x = 30
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_contain_china }
+		mutually_exclusive = { focus = USA_grand_bargain }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ROC
+				}
+				ROC = {
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 1500
+						producer = USA
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ROC
+				}
+				add_opinion_modifier = {
+					target = ROC
+					modifier = md_opinion_aid
+				}
+				ROC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_pressure
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_first_island_chain
+		icon = GFX_md_map_marker_military_us
+		x = 30
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_arm_taiwan }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					country_exists = PHI
+				}
+				add_opinion_modifier = {
+					target = PHI
+					modifier = md_opinion_aid
+				}
+				PHI = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = JAP
+				}
+				add_opinion_modifier = {
+					target = JAP
+					modifier = md_opinion_aid
+				}
+				JAP = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_grand_bargain
+		icon = GFX_md_handshake_diplomacy_us
+		x = 32
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_contain_china }
+		mutually_exclusive = { focus = USA_arm_taiwan }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_trade_deal
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_trade_truce_beijing
+		icon = GFX_md_currency_cny_economy_us
+		x = 32
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_grand_bargain }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_usa_trade_war
+				}
+				remove_ideas = md_usa_trade_war
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_gulf_of_america
+		icon = GFX_md_map_politics_us
+		x = 34
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_america_first_foreign }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.02
+			add_stability = 0.01
+		}
+	}
+
+	focus = {
+		id = USA_panama_canal
+		icon = GFX_md_ferry_diplomacy_us
+		x = 34
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_gulf_of_america }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PAN
+				}
+				PAN = {
+					country_event = {
+						id = md_usa.30
+						days = 2
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_greenland_offer
+		icon = GFX_md_map_marker_diplomacy_us
+		x = 34
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_panama_canal }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = DEN
+				}
+				DEN = {
+					country_event = {
+						id = md_usa.31
+						days = 2
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_fifty_first_state
+		icon = GFX_md_flag_variant_crisis_us
+		x = 34
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_greenland_offer }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 0.2 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = CAN
+				}
+				CAN = {
+					country_event = {
+						id = md_usa.32
+						days = 2
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = CAN
+				}
+				add_opinion_modifier = {
+					target = CAN
+					modifier = md_opinion_threatened
+				}
+				CAN = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_threatened
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = USA_peace_through_strength
+		icon = GFX_md_shield_star_military_us
+		x = 37
+		y = 1
+		cost = 10
+		prerequisite = { focus = USA_second_inauguration }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = USA_department_of_war
+		icon = GFX_md_sword_cross_military_us
+		x = 36
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_peace_through_strength }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_department_of_war
+		}
+	}
+
+	focus = {
+		id = USA_golden_dome
+		icon = GFX_md_shield_star_military_us
+		x = 38
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_peace_through_strength }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_golden_dome
+		}
+	}
+
+	focus = {
+		id = USA_shipbuilding_revival
+		icon = GFX_md_ship_wheel_military_us
+		x = 36
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_department_of_war }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = USA_space_force
+		icon = GFX_md_satellite_variant_tech_us
+		x = 38
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_golden_dome }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = USA_drone_dominance
+		icon = GFX_md_quadcopter_military_us
+		x = 36
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_shipbuilding_revival }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = USA_hypersonics
+		icon = GFX_md_rocket_launch_tech_us
+		x = 38
+		y = 4
+		cost = 10
+		prerequisite = { focus = USA_space_force }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = USA_hypersonic_bonus
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = USA_arsenal_of_freedom
+		icon = GFX_md_factory_military_us
+		x = 37
+		y = 5
+		cost = 10
+		prerequisite = { focus = USA_drone_dominance }
+		prerequisite = { focus = USA_hypersonics }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_usa_arsenal_of_freedom
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,18 @@
+characters = {
+	PRU_dina_boluarte = {
+		name = PRU_dina_boluarte
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PRU/md_PRU_dina_boluarte.dds"
+				small = "gfx/interface/ideas/md_leaders/PRU_dina_boluarte.dds"
+			}
+		}
+		country_leader = {
+			desc = "PRU_dina_boluarte_desc"
+			ideology = liberalism
+			traits = { md_unpopular_incumbent }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

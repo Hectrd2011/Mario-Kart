@@ -1,0 +1,20 @@
+# Bangladesh: 6 November 2024
+set_research_slots = 1
+set_stability = 0.40
+set_war_support = 0.20
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	elections_allowed = no
+}
+set_popularities = { democratic = 70 communism = 2 fascism = 8 neutrality = 20 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_ban_july_revolution
+}
+
+recruit_character = BAN_muhammad_yunus

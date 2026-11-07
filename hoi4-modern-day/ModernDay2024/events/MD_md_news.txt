@@ -1,0 +1,49 @@
+add_namespace = md_news
+
+news_event = {
+	id = md_news.1
+	title = md_news.1.t
+	desc = md_news.1.d
+	picture = GFX_md_event_news_election
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = md_news.1.a
+	}
+}
+
+news_event = {
+	id = md_news.10
+	title = md_news.10.t
+	desc = md_news.10.d
+	picture = GFX_md_event_news_peace
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = md_news.10.a
+	}
+}
+
+news_event = {
+	id = md_news.30
+	title = md_news.30.t
+	desc = md_news.30.d
+	picture = GFX_md_event_news_war
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = md_news.30.a
+	}
+}
+
+news_event = {
+	id = md_news.20
+	title = md_news.20.t
+	desc = md_news.20.d
+	picture = GFX_md_event_news_war
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = md_news.20.a
+	}
+}

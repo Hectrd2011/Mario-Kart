@@ -1,0 +1,18 @@
+characters = {
+	KEN_william_ruto = {
+		name = KEN_william_ruto
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KEN/md_KEN_william_ruto.dds"
+				small = "gfx/interface/ideas/md_leaders/KEN_william_ruto.dds"
+			}
+		}
+		country_leader = {
+			desc = "KEN_william_ruto_desc"
+			ideology = conservatism
+			traits = { md_hustler }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

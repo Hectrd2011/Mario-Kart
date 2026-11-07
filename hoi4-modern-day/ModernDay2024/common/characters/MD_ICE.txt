@@ -1,0 +1,34 @@
+characters = {
+	ICE_bjarni_benediktsson = {
+		name = ICE_bjarni_benediktsson
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ICE/md_ICE_bjarni_benediktsson.dds"
+				small = "gfx/interface/ideas/md_leaders/ICE_bjarni_benediktsson.dds"
+			}
+		}
+		country_leader = {
+			desc = "ICE_bjarni_benediktsson_desc"
+			ideology = conservatism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ICE_kristrun_frostadottir = {
+		name = ICE_kristrun_frostadottir
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ICE/md_ICE_kristrun_frostadottir.dds"
+				small = "gfx/interface/ideas/md_leaders/ICE_kristrun_frostadottir.dds"
+			}
+		}
+		country_leader = {
+			desc = "ICE_kristrun_frostadottir_desc"
+			ideology = socialism
+			traits = { md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

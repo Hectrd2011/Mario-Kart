@@ -1,0 +1,34 @@
+characters = {
+	HAI_garry_conille = {
+		name = HAI_garry_conille
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HAI/md_HAI_garry_conille.dds"
+				small = "gfx/interface/ideas/md_leaders/HAI_garry_conille.dds"
+			}
+		}
+		country_leader = {
+			desc = "HAI_garry_conille_desc"
+			ideology = liberalism
+			traits = { md_interim_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	HAI_alix_didier_fils_aime = {
+		name = HAI_alix_didier_fils_aime
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HAI/md_HAI_alix_didier_fils_aime.dds"
+				small = "gfx/interface/ideas/md_leaders/HAI_alix_didier_fils_aime.dds"
+			}
+		}
+		country_leader = {
+			desc = "HAI_alix_didier_fils_aime_desc"
+			ideology = liberalism
+			traits = { md_interim_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

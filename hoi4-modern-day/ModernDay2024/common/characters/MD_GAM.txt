@@ -1,0 +1,18 @@
+characters = {
+	GAM_adama_barrow = {
+		name = GAM_adama_barrow
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GAM/md_GAM_adama_barrow.dds"
+				small = "gfx/interface/ideas/md_leaders/GAM_adama_barrow.dds"
+			}
+		}
+		country_leader = {
+			desc = "GAM_adama_barrow_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

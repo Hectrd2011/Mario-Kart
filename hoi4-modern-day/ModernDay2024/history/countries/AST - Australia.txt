@@ -1,0 +1,23 @@
+# Australia: 6 November 2024
+set_research_slots = 4
+set_stability = 0.65
+set_war_support = 0.20
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.5.21"
+	election_frequency = 36
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 2 fascism = 5 neutrality = 1 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_ast_aukus
+	md_ast_mining_boom
+}
+
+recruit_character = AST_anthony_albanese

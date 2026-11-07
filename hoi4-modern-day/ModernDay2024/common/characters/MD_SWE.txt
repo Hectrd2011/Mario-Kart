@@ -1,0 +1,18 @@
+characters = {
+	SWE_ulf_kristersson = {
+		name = SWE_ulf_kristersson
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SWE/md_SWE_ulf_kristersson.dds"
+				small = "gfx/interface/ideas/md_leaders/SWE_ulf_kristersson.dds"
+			}
+		}
+		country_leader = {
+			desc = "SWE_ulf_kristersson_desc"
+			ideology = conservatism
+			traits = { md_atlanticist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

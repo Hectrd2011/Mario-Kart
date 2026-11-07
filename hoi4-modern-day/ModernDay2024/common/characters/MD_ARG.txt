@@ -1,0 +1,18 @@
+characters = {
+	ARG_javier_milei = {
+		name = ARG_javier_milei
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ARG/md_ARG_javier_milei.dds"
+				small = "gfx/interface/ideas/md_leaders/ARG_javier_milei.dds"
+			}
+		}
+		country_leader = {
+			desc = "ARG_javier_milei_desc"
+			ideology = conservatism
+			traits = { md_libertarian_shock md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

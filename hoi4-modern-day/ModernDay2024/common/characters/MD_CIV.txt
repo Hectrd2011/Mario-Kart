@@ -1,0 +1,18 @@
+characters = {
+	CIV_alassane_ouattara = {
+		name = CIV_alassane_ouattara
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CIV/md_CIV_alassane_ouattara.dds"
+				small = "gfx/interface/ideas/md_leaders/CIV_alassane_ouattara.dds"
+			}
+		}
+		country_leader = {
+			desc = "CIV_alassane_ouattara_desc"
+			ideology = liberalism
+			traits = { md_economist md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

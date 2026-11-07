@@ -1,0 +1,18 @@
+characters = {
+	COL_gustavo_petro = {
+		name = COL_gustavo_petro
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/COL/md_COL_gustavo_petro.dds"
+				small = "gfx/interface/ideas/md_leaders/COL_gustavo_petro.dds"
+			}
+		}
+		country_leader = {
+			desc = "COL_gustavo_petro_desc"
+			ideology = socialism
+			traits = { md_reformer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

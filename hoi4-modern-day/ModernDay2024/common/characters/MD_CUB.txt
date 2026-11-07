@@ -1,0 +1,18 @@
+characters = {
+	CUB_miguel_diaz_canel = {
+		name = CUB_miguel_diaz_canel
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CUB/md_CUB_miguel_diaz_canel.dds"
+				small = "gfx/interface/ideas/md_leaders/CUB_miguel_diaz_canel.dds"
+			}
+		}
+		country_leader = {
+			desc = "CUB_miguel_diaz_canel_desc"
+			ideology = leninism
+			traits = { md_party_apparatchik }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

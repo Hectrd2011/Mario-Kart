@@ -1,0 +1,34 @@
+characters = {
+	LIT_ingrida_simonyte = {
+		name = LIT_ingrida_simonyte
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LIT/md_LIT_ingrida_simonyte.dds"
+				small = "gfx/interface/ideas/md_leaders/LIT_ingrida_simonyte.dds"
+			}
+		}
+		country_leader = {
+			desc = "LIT_ingrida_simonyte_desc"
+			ideology = conservatism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	LIT_gintautas_paluckas = {
+		name = LIT_gintautas_paluckas
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LIT/md_LIT_gintautas_paluckas.dds"
+				small = "gfx/interface/ideas/md_leaders/LIT_gintautas_paluckas.dds"
+			}
+		}
+		country_leader = {
+			desc = "LIT_gintautas_paluckas_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	AFG_hibatullah_akhundzada = {
+		name = AFG_hibatullah_akhundzada
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AFG/md_AFG_hibatullah_akhundzada.dds"
+				small = "gfx/interface/ideas/md_leaders/AFG_hibatullah_akhundzada.dds"
+			}
+		}
+		country_leader = {
+			desc = "AFG_hibatullah_akhundzada_desc"
+			ideology = despotism
+			traits = { md_supreme_leader md_recluse }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

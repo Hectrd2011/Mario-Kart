@@ -1,0 +1,18 @@
+characters = {
+	DOM_luis_abinader = {
+		name = DOM_luis_abinader
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/DOM/md_DOM_luis_abinader.dds"
+				small = "gfx/interface/ideas/md_leaders/DOM_luis_abinader.dds"
+			}
+		}
+		country_leader = {
+			desc = "DOM_luis_abinader_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

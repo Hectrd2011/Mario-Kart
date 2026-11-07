@@ -1,0 +1,30 @@
+add_namespace = md_ind
+
+country_event = {
+	id = md_ind.1
+	title = md_ind.1.t
+	desc = md_ind.1.d
+	picture = GFX_md_event_missiles
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_completed_focus = IND_operation_sindoor
+		}
+		country_exists = PAK
+		NOT = {
+			has_war_with = PAK
+		}
+	}
+	option = {
+		name = md_ind.1.a
+		add_war_support = 0.05
+		army_experience = 10
+		PAK = {
+			add_war_support = 0.05
+		}
+		add_named_threat = {
+			threat = 2
+			name = md_threat_sindoor
+		}
+	}
+}

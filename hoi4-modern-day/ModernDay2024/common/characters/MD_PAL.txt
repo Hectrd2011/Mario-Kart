@@ -1,0 +1,18 @@
+characters = {
+	PAL_mahmoud_abbas = {
+		name = PAL_mahmoud_abbas
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PAL/md_PAL_mahmoud_abbas.dds"
+				small = "gfx/interface/ideas/md_leaders/PAL_mahmoud_abbas.dds"
+			}
+		}
+		country_leader = {
+			desc = "PAL_mahmoud_abbas_desc"
+			ideology = oligarchism
+			traits = { md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

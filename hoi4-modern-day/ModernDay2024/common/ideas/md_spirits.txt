@@ -1,0 +1,2030 @@
+ideas = {
+	country = {
+		md_nuclear_triad = {
+			picture = md_nuclear_triad
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.5
+				war_support_factor = 0.05
+				nuclear_production_factor = 0.25
+			}
+		}
+		md_nuclear_deterrent = {
+			picture = md_nuclear_deterrent
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.3
+				nuclear_production_factor = 0.15
+			}
+		}
+		md_western_sanctions_light = {
+			picture = md_western_sanctions_light
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.25
+				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		md_rus_sanctions_light = {
+			picture = md_rus_sanctions_light
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.2
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		md_multi_vector = {
+			picture = md_multi_vector
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.2
+				opinion_gain_monthly_factor = 0.15
+				drift_defence_factor = 0.1
+			}
+		}
+		md_petro_state_spirit = {
+			picture = md_petro_state_spirit
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.03
+				research_speed_factor = -0.05
+			}
+		}
+		md_neutral_tradition = {
+			picture = md_neutral_tradition
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.2
+				war_support_factor = -0.1
+				enemy_justify_war_goal_time = 0.2
+			}
+		}
+		md_armed_neutrality = {
+			picture = md_armed_neutrality
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.25
+				army_core_defence_factor = 0.15
+				conscription = 0.01
+			}
+		}
+		md_no_standing_army = {
+			picture = md_no_standing_army
+			allowed = { always = no }
+			modifier = {
+				conscription_factor = -0.5
+				war_support_factor = -0.2
+				stability_factor = 0.05
+			}
+		}
+		md_gang_violence = {
+			picture = md_gang_violence
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_sahel_insurgency = {
+			picture = md_sahel_insurgency
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.12
+				war_support_factor = 0.05
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		md_aes_alliance = {
+			picture = md_aes_alliance
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.1
+				trade_opinion_factor = -0.1
+				army_core_defence_factor = 0.05
+			}
+		}
+		md_wagner_africa_corps = {
+			picture = md_wagner_africa_corps
+			allowed = { always = no }
+			modifier = {
+				army_defence_factor = 0.05
+				local_resources_factor = -0.1
+				stability_factor = 0.03
+			}
+		}
+		md_lithium_triangle = {
+			picture = md_lithium_triangle
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.1
+				trade_opinion_factor = 0.1
+			}
+		}
+		md_energy_blackouts = {
+			picture = md_energy_blackouts
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.1
+				stability_factor = -0.05
+			}
+		}
+		md_free_active = {
+			picture = md_free_active
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.1
+				trade_opinion_factor = 0.15
+			}
+		}
+		md_usa_polarized_nation = {
+			picture = md_usa_polarized_nation
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.1
+			}
+		}
+		md_usa_reserve_currency = {
+			picture = md_usa_reserve_currency
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+				trade_opinion_factor = 0.25
+				research_speed_factor = 0.05
+			}
+		}
+		md_usa_arsenal = {
+			picture = md_usa_arsenal
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_speed_arms_factory_factor = 0.1
+				experience_gain_army = 0.02
+			}
+		}
+		md_usa_transition = {
+			picture = md_usa_transition
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.25
+			}
+		}
+		md_can_housing_crisis = {
+			picture = md_can_housing_crisis
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_can_resource_superpower = {
+			picture = md_can_resource_superpower
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.15
+			}
+		}
+		md_mex_cartel_violence = {
+			picture = md_mex_cartel_violence
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		md_mex_nearshoring = {
+			picture = md_mex_nearshoring
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				trade_opinion_factor = 0.1
+			}
+		}
+		md_slv_state_of_exception = {
+			picture = md_slv_state_of_exception
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.1
+				democratic_drift = -0.02
+			}
+		}
+		md_cub_embargo = {
+			picture = md_cub_embargo
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.4
+				consumer_goods_factor = 0.08
+			}
+		}
+		md_hai_gang_rule = {
+			picture = md_hai_gang_rule
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.25
+				production_speed_buildings_factor = -0.3
+				political_power_factor = -0.3
+			}
+		}
+		md_pan_canal = {
+			picture = md_pan_canal
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.3
+				consumer_goods_factor = -0.03
+			}
+		}
+		md_bra_brics_founder = {
+			picture = md_bra_brics_founder
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.1
+				opinion_gain_monthly_factor = 0.1
+			}
+		}
+		md_bra_amazon_stewardship = {
+			picture = md_bra_amazon_stewardship
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.03
+				local_resources_factor = -0.05
+			}
+		}
+		md_arg_chainsaw_austerity = {
+			picture = md_arg_chainsaw_austerity
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = -0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_arg_inflation = {
+			picture = md_arg_inflation
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+		md_col_armed_groups = {
+			picture = md_col_armed_groups
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.06
+			}
+		}
+		md_ven_oil_collapse = {
+			picture = md_ven_oil_collapse
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = -0.25
+				consumer_goods_factor = 0.1
+			}
+		}
+		md_guy_oil_boom = {
+			picture = md_guy_oil_boom
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.25
+				production_speed_buildings_factor = 0.15
+			}
+		}
+		md_eng_fiscal_black_hole = {
+			picture = md_eng_fiscal_black_hole
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+				political_power_factor = -0.05
+			}
+		}
+		md_eng_city_of_london = {
+			picture = md_eng_city_of_london
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				research_speed_factor = 0.03
+			}
+		}
+		md_ire_tech_haven = {
+			picture = md_ire_tech_haven
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		md_fra_hung_parliament = {
+			picture = md_fra_hung_parliament
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+				political_power_factor = -0.15
+			}
+		}
+		md_fra_force_de_frappe = {
+			picture = md_fra_force_de_frappe
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.3
+				nuclear_production_factor = 0.15
+				war_support_factor = 0.03
+			}
+		}
+		md_fra_francafrique_retreat = {
+			picture = md_fra_francafrique_retreat
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.03
+			}
+		}
+		md_ger_debt_brake = {
+			picture = md_ger_debt_brake
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_speed_buildings_factor = -0.1
+			}
+		}
+		md_ger_energy_shock = {
+			picture = md_ger_energy_shock
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = -0.05
+			}
+		}
+		md_ger_zeitenwende = {
+			picture = md_ger_zeitenwende
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				army_org_factor = 0.03
+			}
+		}
+		md_swiss_banking = {
+			picture = md_swiss_banking
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+				trade_opinion_factor = 0.2
+			}
+		}
+		md_ita_public_debt = {
+			picture = md_ita_public_debt
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_ita_migration_pact = {
+			picture = md_ita_migration_pact
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = -0.03
+			}
+		}
+		md_spr_valencia_floods = {
+			picture = md_spr_valencia_floods
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		md_hol_chip_machines = {
+			picture = md_hol_chip_machines
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.08
+			}
+		}
+		md_den_greenland_question = {
+			picture = md_den_greenland_question
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.03
+			}
+		}
+		md_nor_sovereign_wealth = {
+			picture = md_nor_sovereign_wealth
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.06
+				stability_factor = 0.05
+			}
+		}
+		md_swe_arms_industry = {
+			picture = md_swe_arms_industry
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.08
+				research_speed_factor = 0.03
+			}
+		}
+		md_fin_total_defence = {
+			picture = md_fin_total_defence
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.2
+				conscription = 0.015
+				war_support_factor = 0.05
+			}
+		}
+		md_pol_eastern_shield = {
+			picture = md_pol_eastern_shield
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				conscription = 0.005
+			}
+		}
+		md_pol_cohabitation = {
+			picture = md_pol_cohabitation
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.1
+			}
+		}
+		md_cze_ammo_initiative = {
+			picture = md_cze_ammo_initiative
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				trade_opinion_factor = 0.1
+			}
+		}
+		md_hun_eu_funds_frozen = {
+			picture = md_hun_eu_funds_frozen
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		md_bos_dayton_deadlock = {
+			picture = md_bos_dayton_deadlock
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = -0.2
+				stability_factor = -0.05
+			}
+		}
+		md_ser_kosovo_question = {
+			picture = md_ser_kosovo_question
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.05
+			}
+		}
+		md_kos_partial_recognition = {
+			picture = md_kos_partial_recognition
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.1
+			}
+		}
+		md_cyp_divided_island = {
+			picture = md_cyp_divided_island
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.03
+			}
+		}
+		md_mol_transnistria = {
+			picture = md_mol_transnistria
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+			}
+		}
+		md_e_estonia = {
+			picture = md_e_estonia
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+		md_rus_war_economy = {
+			picture = md_rus_war_economy
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.2
+				industrial_capacity_factory = 0.1
+				consumer_goods_factor = 0.05
+			}
+		}
+		md_rus_sanctions = {
+			picture = md_rus_sanctions
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.4
+				research_speed_factor = -0.1
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		md_rus_partial_mobilization = {
+			picture = md_rus_partial_mobilization
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.01
+				army_morale_factor = -0.05
+			}
+		}
+		md_rus_power_vertical = {
+			picture = md_rus_power_vertical
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.08
+				democratic_drift = -0.03
+				political_power_gain = 0.15
+			}
+		}
+		md_ukr_total_defense = {
+			picture = md_ukr_total_defense
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.2
+				war_support_factor = 0.15
+				consumer_goods_factor = 0.05
+			}
+		}
+		md_ukr_western_aid = {
+			picture = md_ukr_western_aid
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+		md_ukr_drone_warfare = {
+			picture = md_ukr_drone_warfare
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.08
+				research_speed_factor = 0.05
+			}
+		}
+		md_ukr_martial_law = {
+			picture = md_ukr_martial_law
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_blr_union_state = {
+			picture = md_blr_union_state
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				drift_defence_factor = 0.1
+			}
+		}
+		md_geo_disputed_election = {
+			picture = md_geo_disputed_election
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.12
+			}
+		}
+		md_arm_westward_pivot = {
+			picture = md_arm_westward_pivot
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = -0.05
+				trade_opinion_factor = 0.05
+			}
+		}
+		md_tur_inflation = {
+			picture = md_tur_inflation
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+		md_tur_defense_industry = {
+			picture = md_tur_defense_industry
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				research_speed_factor = 0.03
+			}
+		}
+		md_tur_bosporus = {
+			picture = md_tur_bosporus
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.1
+			}
+		}
+		md_isr_iron_dome = {
+			picture = md_isr_iron_dome
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.1
+				industry_repair_factor = 0.3
+			}
+		}
+		md_isr_multi_front_war = {
+			picture = md_isr_multi_front_war
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.1
+				consumer_goods_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+		md_isr_hostage_crisis = {
+			picture = md_isr_hostage_crisis
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.08
+			}
+		}
+		md_isr_tech_nation = {
+			picture = md_isr_tech_nation
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.08
+				encryption_factor = 0.25
+				decryption_factor = 0.25
+			}
+		}
+		md_pal_occupation = {
+			picture = md_pal_occupation
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.15
+				production_speed_buildings_factor = -0.25
+			}
+		}
+		md_leb_hezbollah_state_within = {
+			picture = md_leb_hezbollah_state_within
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = 0.05
+			}
+		}
+		md_leb_economic_collapse = {
+			picture = md_leb_economic_collapse
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.1
+			}
+		}
+		md_syr_hollow_army = {
+			picture = md_syr_hollow_army
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = -0.2
+				army_morale_factor = -0.2
+				army_defence_factor = -0.15
+			}
+		}
+		md_syr_captagon_economy = {
+			picture = md_syr_captagon_economy
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+				trade_opinion_factor = -0.15
+			}
+		}
+		md_irq_militias = {
+			picture = md_irq_militias
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = 0.05
+			}
+		}
+		md_per_maximum_pressure = {
+			picture = md_per_maximum_pressure
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.35
+				consumer_goods_factor = 0.08
+			}
+		}
+		md_per_axis_of_resistance = {
+			picture = md_per_axis_of_resistance
+			allowed = { always = no }
+			modifier = {
+				send_volunteers_tension = -0.5
+				war_support_factor = 0.05
+			}
+		}
+		md_per_nuclear_threshold = {
+			picture = md_per_nuclear_threshold
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.03
+			}
+		}
+		md_per_irgc = {
+			picture = md_per_irgc
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.01
+				stability_factor = 0.03
+			}
+		}
+		md_sau_vision_2030 = {
+			picture = md_sau_vision_2030
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		md_sau_opec_swing = {
+			picture = md_sau_opec_swing
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.2
+				trade_opinion_factor = 0.15
+			}
+		}
+		md_yem_red_sea_campaign = {
+			picture = md_yem_red_sea_campaign
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.1
+				army_core_defence_factor = 0.15
+			}
+		}
+		md_uae_global_hub = {
+			picture = md_uae_global_hub
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.25
+				consumer_goods_factor = -0.05
+			}
+		}
+		md_qat_lng_giant = {
+			picture = md_qat_lng_giant
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.2
+				consumer_goods_factor = -0.05
+			}
+		}
+		md_afg_international_isolation = {
+			picture = md_afg_international_isolation
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.4
+				research_speed_factor = -0.2
+			}
+		}
+		md_egy_debt_crisis = {
+			picture = md_egy_debt_crisis
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+		md_egy_suez_revenue_loss = {
+			picture = md_egy_suez_revenue_loss
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_lba_divided_country = {
+			picture = md_lba_divided_country
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.08
+			}
+		}
+		md_eth_ethnic_insurgencies = {
+			picture = md_eth_ethnic_insurgencies
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+			}
+		}
+		md_dji_bases = {
+			picture = md_dji_bases
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		md_som_al_shabaab = {
+			picture = md_som_al_shabaab
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.15
+			}
+		}
+		md_sml_unrecognized = {
+			picture = md_sml_unrecognized
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.2
+				stability_factor = 0.05
+			}
+		}
+		md_ken_gen_z_protests = {
+			picture = md_ken_gen_z_protests
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+			}
+		}
+		md_drc_eastern_war = {
+			picture = md_drc_eastern_war
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.15
+			}
+		}
+		md_drc_critical_minerals = {
+			picture = md_drc_critical_minerals
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.2
+			}
+		}
+		md_cmr_anglophone_crisis = {
+			picture = md_cmr_anglophone_crisis
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.07
+			}
+		}
+		md_sud_civil_war = {
+			picture = md_sud_civil_war
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = 0.1
+				production_speed_buildings_factor = -0.25
+			}
+		}
+		md_nga_insurgency = {
+			picture = md_nga_insurgency
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.08
+			}
+		}
+		md_moz_post_election_unrest = {
+			picture = md_moz_post_election_unrest
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.1
+			}
+		}
+		md_moz_cabo_delgado = {
+			picture = md_moz_cabo_delgado
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				local_resources_factor = -0.1
+			}
+		}
+		md_saf_loadshedding = {
+			picture = md_saf_loadshedding
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		md_ind_demographic_dividend = {
+			picture = md_ind_demographic_dividend
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.1
+				conscription = 0.005
+			}
+		}
+		md_ind_strategic_autonomy = {
+			picture = md_ind_strategic_autonomy
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.15
+				trade_opinion_factor = 0.15
+			}
+		}
+		md_ind_make_in_india = {
+			picture = md_ind_make_in_india
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+		md_pak_establishment = {
+			picture = md_pak_establishment
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.03
+				democratic_drift = -0.02
+			}
+		}
+		md_pak_imf_program = {
+			picture = md_pak_imf_program
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+				political_power_factor = -0.05
+			}
+		}
+		md_ban_july_revolution = {
+			picture = md_ban_july_revolution
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_prc_worlds_factory = {
+			picture = md_prc_worlds_factory
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.15
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		md_prc_property_slump = {
+			picture = md_prc_property_slump
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.03
+				stability_factor = -0.03
+			}
+		}
+		md_prc_great_firewall = {
+			picture = md_prc_great_firewall
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				drift_defence_factor = 0.25
+			}
+		}
+		md_prc_pla_modernization = {
+			picture = md_prc_pla_modernization
+			allowed = { always = no }
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				research_speed_factor = 0.05
+			}
+		}
+		md_roc_silicon_shield = {
+			picture = md_roc_silicon_shield
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.1
+				enemy_justify_war_goal_time = 0.25
+			}
+		}
+		md_roc_porcupine = {
+			picture = md_roc_porcupine
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.15
+			}
+		}
+		md_jap_ageing_society = {
+			picture = md_jap_ageing_society
+			allowed = { always = no }
+			modifier = {
+				monthly_population = -0.1
+				conscription_factor = -0.1
+			}
+		}
+		md_jap_defense_buildup = {
+			picture = md_jap_defense_buildup
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.08
+				production_speed_dockyard_factor = 0.08
+			}
+		}
+		md_jap_article_9 = {
+			picture = md_jap_article_9
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = -0.15
+				justify_war_goal_time = 0.5
+			}
+		}
+		md_kor_chaebol_economy = {
+			picture = md_kor_chaebol_economy
+			allowed = { always = no }
+			modifier = {
+				industrial_capacity_factory = 0.08
+				research_speed_factor = 0.05
+			}
+		}
+		md_kor_k_defense = {
+			picture = md_kor_k_defense
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		md_kor_low_birthrate = {
+			picture = md_kor_low_birthrate
+			allowed = { always = no }
+			modifier = {
+				monthly_population = -0.15
+			}
+		}
+		md_prk_songun = {
+			picture = md_prk_songun
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.05
+				consumer_goods_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}
+		md_prk_juche_autarky = {
+			picture = md_prk_juche_autarky
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = -0.4
+				research_speed_factor = -0.1
+			}
+		}
+		md_prk_nuclear_arsenal = {
+			picture = md_prk_nuclear_arsenal
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.5
+				nuclear_production_factor = 0.25
+			}
+		}
+		md_vie_bamboo_diplomacy = {
+			picture = md_vie_bamboo_diplomacy
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				drift_defence_factor = 0.1
+			}
+		}
+		md_vie_export_boom = {
+			picture = md_vie_export_boom
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+		md_brm_spring_revolution = {
+			picture = md_brm_spring_revolution
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.2
+				army_morale_factor = -0.1
+			}
+		}
+		md_sgp_entrepot = {
+			picture = md_sgp_entrepot
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.25
+				consumer_goods_factor = -0.06
+			}
+		}
+		md_ins_nickel_downstreaming = {
+			picture = md_ins_nickel_downstreaming
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.1
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		md_phi_south_china_sea_standoff = {
+			picture = md_phi_south_china_sea_standoff
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.05
+			}
+		}
+		md_ast_aukus = {
+			picture = md_ast_aukus
+			allowed = { always = no }
+			modifier = {
+				production_speed_dockyard_factor = 0.1
+				research_speed_factor = 0.03
+			}
+		}
+		md_ast_mining_boom = {
+			picture = md_ast_mining_boom
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.15
+			}
+		}
+		md_gen_anti_corruption = {
+			picture = md_gen_anti_corruption
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.1
+			}
+		}
+		md_gen_professional_army = {
+			picture = md_gen_professional_army
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				army_morale_factor = 0.05
+			}
+		}
+		md_gen_air_defense = {
+			picture = md_gen_air_defense
+			allowed = { always = no }
+			modifier = {
+				industry_repair_factor = 0.2
+				army_core_defence_factor = 0.05
+			}
+		}
+		md_gen_drone_program = {
+			picture = md_gen_drone_program
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.04
+				production_speed_arms_factory_factor = 0.04
+			}
+		}
+		md_gen_digital_economy = {
+			picture = md_gen_digital_economy
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+		md_gen_green_transition = {
+			picture = md_gen_green_transition
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				stability_factor = 0.02
+			}
+		}
+		md_gen_resource_extraction = {
+			picture = md_gen_resource_extraction
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.2
+				stability_factor = -0.02
+			}
+		}
+		md_gen_western_partner = {
+			picture = md_gen_western_partner
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				research_speed_factor = 0.03
+			}
+		}
+		md_gen_brics_partner = {
+			picture = md_gen_brics_partner
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				production_speed_industrial_complex_factor = 0.05
+			}
+		}
+		md_gen_non_aligned = {
+			picture = md_gen_non_aligned
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.2
+				stability_factor = 0.03
+			}
+		}
+		md_gen_strong_institutions = {
+			picture = md_gen_strong_institutions
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		md_gen_consolidated_power = {
+			picture = md_gen_consolidated_power
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				democratic_drift = -0.02
+				stability_factor = 0.02
+			}
+		}
+		md_gen_education_reform = {
+			picture = md_gen_education_reform
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.04
+			}
+		}
+		md_gen_healthcare = {
+			picture = md_gen_healthcare
+			allowed = { always = no }
+			modifier = {
+				monthly_population = 0.05
+				stability_factor = 0.03
+			}
+		}
+		md_leb_weakened_hezbollah = {
+			picture = md_leb_weakened_hezbollah
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.03
+			}
+		}
+		md_ceasefire_line = {
+			picture = md_ceasefire_line
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = -0.05
+				stability_factor = 0.05
+			}
+		}
+		md_gaza_truce = {
+			picture = md_gaza_truce
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.06
+				war_support_factor = -0.03
+			}
+		}
+		md_syr_regime_collapse = {
+			picture = md_syr_regime_collapse
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = -0.4
+				army_defence_factor = -0.3
+				army_morale_factor = -0.3
+			}
+		}
+		md_hts_lightning_offensive = {
+			picture = md_hts_lightning_offensive
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.3
+				army_speed_factor = 0.2
+			}
+		}
+		md_syr_transition = {
+			picture = md_syr_transition
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_dec_stimulus = {
+			picture = md_dec_stimulus
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = 0.02
+			}
+		}
+		md_dec_austerity = {
+			picture = md_dec_austerity
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.04
+				stability_factor = -0.05
+			}
+		}
+		md_dec_defense_spending = {
+			picture = md_dec_defense_spending
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_dec_offensive = {
+			picture = md_dec_offensive
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.1
+				army_org_factor = -0.05
+			}
+		}
+		md_dec_grid_strikes = {
+			picture = md_dec_grid_strikes
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.08
+				stability_factor = -0.03
+			}
+		}
+		md_dec_patriots = {
+			picture = md_dec_patriots
+			allowed = { always = no }
+			modifier = {
+				industry_repair_factor = 0.25
+			}
+		}
+		md_usa_doge = {
+			picture = md_usa_doge
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.04
+				political_power_factor = 0.1
+				stability_factor = -0.04
+			}
+		}
+		md_usa_border_lockdown = {
+			picture = md_usa_border_lockdown
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = -0.05
+			}
+		}
+		md_usa_tariff_wall = {
+			picture = md_usa_tariff_wall
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				consumer_goods_factor = 0.04
+				trade_opinion_factor = -0.2
+			}
+		}
+		md_usa_trade_deals = {
+			picture = md_usa_trade_deals
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.08
+				trade_opinion_factor = 0.05
+			}
+		}
+		md_usa_trade_war = {
+			picture = md_usa_trade_war
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.12
+				consumer_goods_factor = 0.06
+				trade_opinion_factor = -0.35
+				stability_factor = -0.05
+			}
+		}
+		md_usa_energy_dominance = {
+			picture = md_usa_energy_dominance
+			allowed = { always = no }
+			modifier = {
+				local_resources_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		md_usa_ai_supremacy = {
+			picture = md_usa_ai_supremacy
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.1
+			}
+		}
+		md_usa_golden_dome = {
+			picture = md_usa_golden_dome
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.25
+				industry_repair_factor = 0.25
+			}
+		}
+		md_usa_department_of_war = {
+			picture = md_usa_department_of_war
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				war_support_factor = 0.05
+				experience_gain_army = 0.02
+			}
+		}
+		md_usa_arsenal_of_freedom = {
+			picture = md_usa_arsenal_of_freedom
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+		md_usa_isolationism = {
+			picture = md_usa_isolationism
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.03
+				war_support_factor = -0.1
+				trade_opinion_factor = -0.15
+			}
+		}
+		md_ukr_long_range_strikes = {
+			picture = md_ukr_long_range_strikes
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.05
+			}
+		}
+		md_rus_oil_sanctions = {
+			picture = md_rus_oil_sanctions
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = 0.04
+				political_power_factor = -0.05
+			}
+		}
+		md_per_nuclear_setback = {
+			picture = md_per_nuclear_setback
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+		md_nato_spending_surge = {
+			picture = md_nato_spending_surge
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.08
+				consumer_goods_factor = 0.02
+			}
+		}
+		md_ukr_aid_paused = {
+			picture = md_ukr_aid_paused
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = -0.05
+				production_speed_arms_factory_factor = -0.1
+			}
+		}
+		md_rus_glide_bombs = {
+			picture = md_rus_glide_bombs
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.05
+			}
+		}
+		md_rus_geran_production = {
+			picture = md_rus_geran_production
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.05
+				army_attack_factor = 0.03
+			}
+		}
+		md_rus_donbas_offensive = {
+			picture = md_rus_donbas_offensive
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.1
+				army_org_factor = -0.05
+			}
+		}
+		md_rus_general_mobilization = {
+			picture = md_rus_general_mobilization
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.02
+				stability_factor = -0.08
+			}
+		}
+		md_rus_volunteer_army = {
+			picture = md_rus_volunteer_army
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.008
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_rus_fortress_russia = {
+			picture = md_rus_fortress_russia
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.08
+				war_support_factor = 0.08
+				drift_defence_factor = 0.3
+			}
+		}
+		md_rus_high_key_rate = {
+			picture = md_rus_high_key_rate
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_speed_buildings_factor = -0.08
+			}
+		}
+		md_rus_cheap_credit = {
+			picture = md_rus_cheap_credit
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = 0.05
+				stability_factor = -0.04
+			}
+		}
+		md_rus_sanctions_proof = {
+			picture = md_rus_sanctions_proof
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		md_rus_attrition = {
+			picture = md_rus_attrition
+			allowed = { always = no }
+			modifier = {
+				army_defence_factor = 0.1
+				war_support_factor = 0.05
+			}
+		}
+		md_rus_strategic_deterrence = {
+			picture = md_rus_strategic_deterrence
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.3
+				lend_lease_tension = 0.5
+			}
+		}
+		md_prk_troops_in_kursk = {
+			picture = md_prk_troops_in_kursk
+			allowed = { always = no }
+			modifier = {
+				experience_gain_army = 0.05
+				conscription = -0.003
+			}
+		}
+		md_ukr_fuel_shortage = {
+			picture = md_ukr_fuel_shortage
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+		md_rus_bombers_destroyed = {
+			picture = md_rus_bombers_destroyed
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = -0.03
+			}
+		}
+		md_ukr_fortified_donbas = {
+			picture = md_ukr_fortified_donbas
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.12
+			}
+		}
+		md_ukr_corps_system = {
+			picture = md_ukr_corps_system
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.08
+				planning_speed = 0.15
+			}
+		}
+		md_ukr_drone_line = {
+			picture = md_ukr_drone_line
+			allowed = { always = no }
+			modifier = {
+				army_defence_factor = 0.1
+				army_attack_factor = 0.03
+			}
+		}
+		md_ukr_mobilization_reform = {
+			picture = md_ukr_mobilization_reform
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.015
+				stability_factor = -0.05
+			}
+		}
+		md_ukr_contract_18_24 = {
+			picture = md_ukr_contract_18_24
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.006
+			}
+		}
+		md_ukr_liberation_offensive = {
+			picture = md_ukr_liberation_offensive
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.12
+				army_morale_factor = 0.05
+			}
+		}
+		md_ukr_eu_candidate = {
+			picture = md_ukr_eu_candidate
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.15
+				stability_factor = 0.03
+			}
+		}
+		md_ukr_arsenal = {
+			picture = md_ukr_arsenal
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+		md_ukr_security_guarantees = {
+			picture = md_ukr_security_guarantees
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.5
+				stability_factor = 0.05
+			}
+		}
+		md_ukr_clean_government = {
+			picture = md_ukr_clean_government
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = 0.03
+			}
+		}
+		md_prc_new_productive_forces = {
+			picture = md_prc_new_productive_forces
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				research_speed_factor = 0.05
+			}
+		}
+		md_prc_chip_self_reliance = {
+			picture = md_prc_chip_self_reliance
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.08
+			}
+		}
+		md_prc_ai_plus = {
+			picture = md_prc_ai_plus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.07
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		md_prc_stimulus = {
+			picture = md_prc_stimulus
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.03
+				stability_factor = 0.03
+			}
+		}
+		md_prc_common_prosperity = {
+			picture = md_prc_common_prosperity
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_prc_blue_water_navy = {
+			picture = md_prc_blue_water_navy
+			allowed = { always = no }
+			modifier = {
+				production_speed_dockyard_factor = 0.15
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+		md_prc_strait_pressure = {
+			picture = md_prc_strait_pressure
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.05
+			}
+		}
+		md_prc_rare_earth_leverage = {
+			picture = md_prc_rare_earth_leverage
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.1
+				local_resources_factor = 0.1
+			}
+		}
+		md_prc_nuclear_expansion = {
+			picture = md_prc_nuclear_expansion
+			allowed = { always = no }
+			modifier = {
+				nuclear_production_factor = 0.25
+				enemy_justify_war_goal_time = 0.3
+			}
+		}
+		md_roc_whole_of_society = {
+			picture = md_roc_whole_of_society
+			allowed = { always = no }
+			modifier = {
+				army_core_defence_factor = 0.1
+				war_support_factor = 0.05
+			}
+		}
+		md_roc_t_dome = {
+			picture = md_roc_t_dome
+			allowed = { always = no }
+			modifier = {
+				industry_repair_factor = 0.3
+				enemy_justify_war_goal_time = 0.1
+			}
+		}
+		md_eng_gb_energy = {
+			picture = md_eng_gb_energy
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				local_resources_factor = 0.05
+			}
+		}
+		md_eng_planning_reform = {
+			picture = md_eng_planning_reform
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				stability_factor = 0.02
+			}
+		}
+		md_eng_defence_review = {
+			picture = md_eng_defence_review
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				production_speed_arms_factory_factor = 0.08
+			}
+		}
+		md_eng_eu_reset = {
+			picture = md_eng_eu_reset
+			allowed = { always = no }
+			modifier = {
+				trade_opinion_factor = 0.1
+				stability_factor = 0.02
+			}
+		}
+		md_eng_border_security_command = {
+			picture = md_eng_border_security_command
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.04
+			}
+		}
+		md_ger_infrastructure_fund = {
+			picture = md_ger_infrastructure_fund
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				production_speed_infrastructure_factor = 0.25
+			}
+		}
+		md_ger_bundeswehr_reborn = {
+			picture = md_ger_bundeswehr_reborn
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				production_speed_arms_factory_factor = 0.15
+			}
+		}
+		md_ger_military_service = {
+			picture = md_ger_military_service
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.01
+			}
+		}
+		md_ger_migration_turnaround = {
+			picture = md_ger_migration_turnaround
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.03
+				monthly_population = -0.03
+			}
+		}
+		md_ger_firewall = {
+			picture = md_ger_firewall
+			allowed = { always = no }
+			modifier = {
+				drift_defence_factor = 0.2
+			}
+		}
+		md_fra_european_umbrella = {
+			picture = md_fra_european_umbrella
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.2
+				opinion_gain_monthly_factor = 0.1
+			}
+		}
+		md_fra_war_economy = {
+			picture = md_fra_war_economy
+			allowed = { always = no }
+			modifier = {
+				production_speed_arms_factory_factor = 0.12
+			}
+		}
+		md_fra_nuclear_renaissance = {
+			picture = md_fra_nuclear_renaissance
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				local_resources_factor = 0.05
+			}
+		}
+		md_fra_stable_government = {
+			picture = md_fra_stable_government
+			allowed = { always = no }
+			modifier = {
+				political_power_factor = 0.05
+			}
+		}
+		md_isr_gaza_operations = {
+			picture = md_isr_gaza_operations
+			allowed = { always = no }
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+		md_isr_iron_beam = {
+			picture = md_isr_iron_beam
+			allowed = { always = no }
+			modifier = {
+				industry_repair_factor = 0.2
+				army_core_defence_factor = 0.05
+			}
+		}
+		md_isr_haredi_draft = {
+			picture = md_isr_haredi_draft
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.008
+				stability_factor = -0.03
+			}
+		}
+		md_isr_national_unity = {
+			picture = md_isr_national_unity
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.08
+			}
+		}
+		md_isr_judicial_overhaul = {
+			picture = md_isr_judicial_overhaul
+			allowed = { always = no }
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.06
+			}
+		}
+		md_per_rearmed_axis = {
+			picture = md_per_rearmed_axis
+			allowed = { always = no }
+			modifier = {
+				send_volunteers_tension = -0.5
+				war_support_factor = 0.05
+			}
+		}
+		md_per_resistance_economy = {
+			picture = md_per_resistance_economy
+			allowed = { always = no }
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				consumer_goods_factor = -0.03
+			}
+		}
+		md_per_nuclear_weapon = {
+			picture = md_per_nuclear_weapon
+			allowed = { always = no }
+			modifier = {
+				enemy_justify_war_goal_time = 0.5
+				nuclear_production_factor = 0.5
+			}
+		}
+		md_per_sanctions_relief = {
+			picture = md_per_sanctions_relief
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.04
+				trade_opinion_factor = 0.2
+			}
+		}
+		md_per_hijab_enforcement = {
+			picture = md_per_hijab_enforcement
+			allowed = { always = no }
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = 0.1
+			}
+		}
+		md_per_social_opening = {
+			picture = md_per_social_opening
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.05
+				democratic_drift = 0.02
+			}
+		}
+		md_ind_viksit_bharat = {
+			picture = md_ind_viksit_bharat
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.08
+				stability_factor = 0.03
+			}
+		}
+		md_ind_semiconductor_mission = {
+			picture = md_ind_semiconductor_mission
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.06
+			}
+		}
+		md_ind_agnipath = {
+			picture = md_ind_agnipath
+			allowed = { always = no }
+			modifier = {
+				conscription = 0.005
+				army_org_factor = -0.02
+			}
+		}
+		md_jap_counterstrike = {
+			picture = md_jap_counterstrike
+			allowed = { always = no }
+			modifier = {
+				army_attack_factor = 0.05
+				enemy_justify_war_goal_time = 0.2
+			}
+		}
+		md_jap_rapidus = {
+			picture = md_jap_rapidus
+			allowed = { always = no }
+			modifier = {
+				research_speed_factor = 0.06
+			}
+		}
+		md_kor_democratic_resilience = {
+			picture = md_kor_democratic_resilience
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.06
+				drift_defence_factor = 0.15
+			}
+		}
+		md_tur_steel_dome = {
+			picture = md_tur_steel_dome
+			allowed = { always = no }
+			modifier = {
+				industry_repair_factor = 0.2
+			}
+		}
+		md_tur_orthodox_economics = {
+			picture = md_tur_orthodox_economics
+			allowed = { always = no }
+			modifier = {
+				consumer_goods_factor = -0.02
+				stability_factor = 0.02
+			}
+		}
+		md_pol_largest_army = {
+			picture = md_pol_largest_army
+			allowed = { always = no }
+			modifier = {
+				army_org_factor = 0.05
+				conscription = 0.008
+			}
+		}
+		md_sau_giga_projects = {
+			picture = md_sau_giga_projects
+			allowed = { always = no }
+			modifier = {
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		md_can_elbows_up = {
+			picture = md_can_elbows_up
+			allowed = { always = no }
+			modifier = {
+				stability_factor = 0.06
+				war_support_factor = 0.05
+			}
+		}
+		md_bra_neoindustrialization = {
+			picture = md_bra_neoindustrialization
+			allowed = { always = no }
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+	}
+}

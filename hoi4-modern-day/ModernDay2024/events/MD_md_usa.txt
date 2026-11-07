@@ -1,0 +1,162 @@
+add_namespace = md_usa
+
+country_event = {
+	id = md_usa.1
+	title = md_usa.1.t
+	desc = md_usa.1.d
+	picture = GFX_md_event_inauguration
+	is_triggered_only = yes
+	option = {
+		name = md_usa.1.a
+		if = {
+			limit = {
+				has_character = USA_joe_biden
+			}
+			retire_character = USA_joe_biden
+		}
+		recruit_character = USA_donald_trump
+		promote_character = USA_donald_trump
+		set_party_name = {
+			ideology = democratic
+			long_name = USA_democratic_party_donald_trump_long
+			name = USA_democratic_party_donald_trump
+		}
+		set_country_flag = md_usa_trump_era
+		if = {
+			limit = {
+				has_idea = md_usa_transition
+			}
+			remove_ideas = md_usa_transition
+		}
+		md_usa_swap_cabinet = yes
+		news_event = {
+			id = md_news.1
+			days = 0
+		}
+	}
+}
+
+country_event = {
+	id = md_usa.30
+	title = md_usa.30.t
+	desc = md_usa.30.d
+	picture = GFX_md_event_ship
+	is_triggered_only = yes
+	option = {
+		name = md_usa.30.a
+		ai_chance = { factor = 70 }
+		add_opinion_modifier = {
+			target = USA
+			modifier = md_opinion_rapprochement
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_rapprochement
+			}
+		}
+		give_military_access = USA
+	}
+	option = {
+		name = md_usa.30.b
+		ai_chance = { factor = 30 }
+		add_stability = 0.05
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_pressure
+			}
+		}
+	}
+}
+
+country_event = {
+	id = md_usa.31
+	title = md_usa.31.t
+	desc = md_usa.31.d
+	picture = GFX_md_event_map
+	is_triggered_only = yes
+	option = {
+		name = md_usa.31.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.03
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_threatened
+			}
+			country_event = {
+				id = md_usa.33
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = md_usa.31.b
+		ai_chance = { factor = 0 }
+		md_cede_greenland = yes
+		USA = {
+			country_event = {
+				id = md_usa.34
+				days = 1
+			}
+		}
+		add_political_power = 200
+		add_stability = -0.1
+	}
+}
+
+country_event = {
+	id = md_usa.32
+	title = md_usa.32.t
+	desc = md_usa.32.d
+	picture = GFX_md_event_map
+	is_triggered_only = yes
+	option = {
+		name = md_usa.32.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.05
+		add_war_support = 0.05
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_threatened
+			}
+		}
+	}
+	option = {
+		name = md_usa.32.b
+		ai_chance = { factor = 0 }
+		USA = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = md_usa.33
+	title = md_usa.33.t
+	desc = md_usa.33.d
+	picture = GFX_md_event_map
+	is_triggered_only = yes
+	option = {
+		name = md_usa.33.a
+		add_political_power = -25
+	}
+}
+
+country_event = {
+	id = md_usa.34
+	title = md_usa.34.t
+	desc = md_usa.34.d
+	picture = GFX_md_event_map
+	is_triggered_only = yes
+	option = {
+		name = md_usa.34.a
+		add_stability = 0.05
+		add_war_support = 0.05
+	}
+}

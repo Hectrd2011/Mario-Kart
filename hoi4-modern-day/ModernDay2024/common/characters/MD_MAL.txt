@@ -1,0 +1,18 @@
+characters = {
+	MAL_anwar_ibrahim = {
+		name = MAL_anwar_ibrahim
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MAL/md_MAL_anwar_ibrahim.dds"
+				small = "gfx/interface/ideas/md_leaders/MAL_anwar_ibrahim.dds"
+			}
+		}
+		country_leader = {
+			desc = "MAL_anwar_ibrahim_desc"
+			ideology = liberalism
+			traits = { md_reformer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

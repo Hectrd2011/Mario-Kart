@@ -1,0 +1,18 @@
+characters = {
+	CRO_andrej_plenkovic = {
+		name = CRO_andrej_plenkovic
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CRO/md_CRO_andrej_plenkovic.dds"
+				small = "gfx/interface/ideas/md_leaders/CRO_andrej_plenkovic.dds"
+			}
+		}
+		country_leader = {
+			desc = "CRO_andrej_plenkovic_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

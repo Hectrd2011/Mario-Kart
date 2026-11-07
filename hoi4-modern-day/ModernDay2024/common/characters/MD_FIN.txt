@@ -1,0 +1,18 @@
+characters = {
+	FIN_petteri_orpo = {
+		name = FIN_petteri_orpo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FIN/md_FIN_petteri_orpo.dds"
+				small = "gfx/interface/ideas/md_leaders/FIN_petteri_orpo.dds"
+			}
+		}
+		country_leader = {
+			desc = "FIN_petteri_orpo_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

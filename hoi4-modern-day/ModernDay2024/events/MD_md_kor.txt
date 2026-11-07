@@ -1,0 +1,104 @@
+add_namespace = md_kor
+
+country_event = {
+	id = md_kor.1
+	title = md_kor.1.t
+	desc = md_kor.1.d
+	picture = GFX_md_event_korea
+	is_triggered_only = yes
+	option = {
+		name = md_kor.1.a
+		ai_chance = { factor = 95 }
+		add_stability = -0.15
+		country_event = {
+			id = md_kor.2
+			hours = 6
+		}
+	}
+	option = {
+		name = md_kor.1.b
+		ai_chance = { factor = 5 }
+		set_country_flag = md_kor_martial_law_over
+		add_political_power = -50
+	}
+}
+
+country_event = {
+	id = md_kor.2
+	title = md_kor.2.t
+	desc = md_kor.2.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_kor.2.a
+		add_stability = 0.05
+		country_event = {
+			id = md_kor.3
+			days = 11
+		}
+	}
+}
+
+country_event = {
+	id = md_kor.3
+	title = md_kor.3.t
+	desc = md_kor.3.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_kor.3.a
+		if = {
+			limit = {
+				has_character = KOR_yoon_suk_yeol
+			}
+			retire_character = KOR_yoon_suk_yeol
+		}
+		recruit_character = KOR_han_duck_soo
+		promote_character = KOR_han_duck_soo
+		country_event = {
+			id = md_kor.4
+			days = 111
+		}
+	}
+}
+
+country_event = {
+	id = md_kor.4
+	title = md_kor.4.t
+	desc = md_kor.4.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_kor.4.a
+		country_event = {
+			id = md_kor.5
+			days = 60
+		}
+	}
+}
+
+country_event = {
+	id = md_kor.5
+	title = md_kor.5.t
+	desc = md_kor.5.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_kor.5.a
+		if = {
+			limit = {
+				has_character = KOR_han_duck_soo
+			}
+			retire_character = KOR_han_duck_soo
+		}
+		recruit_character = KOR_lee_jae_myung
+		promote_character = KOR_lee_jae_myung
+		set_party_name = {
+			ideology = democratic
+			long_name = KOR_democratic_party_lee_jae_myung_long
+			name = KOR_democratic_party_lee_jae_myung
+		}
+		set_country_flag = md_kor_martial_law_over
+		add_stability = 0.08
+	}
+}

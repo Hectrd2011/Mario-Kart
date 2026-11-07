@@ -1,0 +1,18 @@
+characters = {
+	ETH_abiy_ahmed = {
+		name = ETH_abiy_ahmed
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ETH/md_ETH_abiy_ahmed.dds"
+				small = "gfx/interface/ideas/md_leaders/ETH_abiy_ahmed.dds"
+			}
+		}
+		country_leader = {
+			desc = "ETH_abiy_ahmed_desc"
+			ideology = liberalism
+			traits = { md_reformer md_war_president }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

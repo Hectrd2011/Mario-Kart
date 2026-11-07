@@ -1,0 +1,426 @@
+focus_tree = {
+	id = md_fra_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = FRA
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = FRA_cohabitation_crisis
+		icon = GFX_md_scale_balance_politics_fr
+		x = 10
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = FRA_budget_49_3
+		icon = GFX_md_gavel_politics_fr
+		x = 9
+		y = 1
+		cost = 10
+		prerequisite = { focus = FRA_cohabitation_crisis }
+		mutually_exclusive = { focus = FRA_compromise_budget }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = -0.03
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = FRA_compromise_budget
+		icon = GFX_md_handshake_politics_fr
+		x = 11
+		y = 1
+		cost = 10
+		prerequisite = { focus = FRA_cohabitation_crisis }
+		mutually_exclusive = { focus = FRA_budget_49_3 }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.02
+			add_political_power = -25
+		}
+	}
+
+	focus = {
+		id = FRA_working_majority
+		icon = GFX_md_account_group_politics_fr
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_budget_49_3 focus = FRA_compromise_budget }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_fra_hung_parliament
+				add_idea = md_fra_stable_government
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_strategic_autonomy
+		icon = GFX_md_shield_star_diplomacy_fr
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = FRA_cohabitation_crisis }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = FRA_nuclear_umbrella
+		icon = GFX_md_radioactive_nuclear_fr
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_strategic_autonomy }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_fra_european_umbrella
+		}
+	}
+
+	focus = {
+		id = FRA_economie_de_guerre
+		icon = GFX_md_factory_military_fr
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_strategic_autonomy }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_fra_war_economy
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_weimar_triangle
+		icon = GFX_md_account_group_diplomacy_fr
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = FRA_nuclear_umbrella }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = GER
+				}
+				add_opinion_modifier = {
+					target = GER
+					modifier = md_opinion_trade_deal
+				}
+				GER = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = POL
+				}
+				add_opinion_modifier = {
+					target = POL
+					modifier = md_opinion_trade_deal
+				}
+				POL = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_coalition_of_willing
+		icon = GFX_md_flag_variant_diplomacy_fr
+		x = 5
+		y = 3
+		cost = 10
+		prerequisite = { focus = FRA_economie_de_guerre }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = md_opinion_aid
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_rafale_exports
+		icon = GFX_md_airplane_military_fr
+		x = 4
+		y = 4
+		cost = 10
+		prerequisite = { focus = FRA_weimar_triangle }
+		prerequisite = { focus = FRA_coalition_of_willing }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = IND
+				}
+				add_opinion_modifier = {
+					target = IND
+					modifier = md_opinion_trade_deal
+				}
+				IND = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = INS
+				}
+				add_opinion_modifier = {
+					target = INS
+					modifier = md_opinion_trade_deal
+				}
+				INS = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_recognize_palestine
+		icon = GFX_md_flag_variant_diplomacy_fr
+		x = 15
+		y = 1
+		cost = 10
+		prerequisite = { focus = FRA_cohabitation_crisis }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ISR
+				}
+				add_opinion_modifier = {
+					target = ISR
+					modifier = md_opinion_pressure
+				}
+				ISR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PAL
+				}
+				add_opinion_modifier = {
+					target = PAL
+					modifier = md_opinion_aid
+				}
+				PAL = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_africa_withdrawal
+		icon = GFX_md_airplane_takeoff_diplomacy_fr
+		x = 15
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_recognize_palestine }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_fra_francafrique_retreat
+				}
+				remove_ideas = md_fra_francafrique_retreat
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = FRA_indo_pacific
+		icon = GFX_md_ship_wheel_military_fr
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = FRA_africa_withdrawal }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			navy_experience = 20
+		}
+	}
+
+	focus = {
+		id = FRA_choose_france
+		icon = GFX_md_office_building_economy_fr
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = FRA_cohabitation_crisis }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_epr2
+		icon = GFX_md_atom_energy_fr
+		x = 18
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_choose_france }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_fra_nuclear_renaissance
+		}
+	}
+
+	focus = {
+		id = FRA_ai_summit
+		icon = GFX_md_brain_tech_fr
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = FRA_choose_france }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = FRA_grandeur
+		icon = GFX_md_star_four_points_politics_fr
+		x = 10
+		y = 5
+		cost = 10
+		prerequisite = { focus = FRA_working_majority }
+		prerequisite = { focus = FRA_rafale_exports }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+
+}

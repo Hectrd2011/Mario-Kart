@@ -1,0 +1,18 @@
+characters = {
+	HUN_viktor_orban = {
+		name = HUN_viktor_orban
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HUN/md_HUN_viktor_orban.dds"
+				small = "gfx/interface/ideas/md_leaders/HUN_viktor_orban.dds"
+			}
+		}
+		country_leader = {
+			desc = "HUN_viktor_orban_desc"
+			ideology = conservatism
+			traits = { md_illiberal_democrat md_eurosceptic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,50 @@
+add_namespace = md_dip
+
+country_event = {
+	id = md_dip.1
+	title = md_dip.1.t
+	desc = md_dip.1.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_dip.1.a
+		ai_chance = { factor = 70 }
+		add_to_faction = FROM
+		FROM = {
+			country_event = md_dip.2
+		}
+	}
+	option = {
+		name = md_dip.1.b
+		ai_chance = { factor = 30 }
+		FROM = {
+			country_event = md_dip.3
+		}
+	}
+}
+
+country_event = {
+	id = md_dip.2
+	title = md_dip.2.t
+	desc = md_dip.2.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_dip.2.a
+		ai_chance = { factor = 1 }
+		add_stability = 0.05
+	}
+}
+
+country_event = {
+	id = md_dip.3
+	title = md_dip.3.t
+	desc = md_dip.3.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_dip.3.a
+		ai_chance = { factor = 1 }
+		add_political_power = -50
+	}
+}

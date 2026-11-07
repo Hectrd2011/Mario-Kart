@@ -1,0 +1,18 @@
+characters = {
+	PRK_kim_jong_un = {
+		name = PRK_kim_jong_un
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PRK/md_PRK_kim_jong_un.dds"
+				small = "gfx/interface/ideas/md_leaders/PRK_kim_jong_un.dds"
+			}
+		}
+		country_leader = {
+			desc = "PRK_kim_jong_un_desc"
+			ideology = stalinism
+			traits = { md_dynast md_supreme_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

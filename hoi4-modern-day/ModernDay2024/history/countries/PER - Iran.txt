@@ -1,0 +1,26 @@
+# Iran: 6 November 2024
+set_research_slots = 3
+set_stability = 0.40
+set_war_support = 0.45
+set_convoys = 120
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 15 communism = 2 fascism = 3 neutrality = 80 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_conscription
+	export_focus
+	md_per_maximum_pressure
+	md_per_axis_of_resistance
+	md_per_nuclear_threshold
+	md_per_irgc
+}
+
+recruit_character = PER_ali_khamenei
+recruit_character = PER_masoud_pezeshkian
+recruit_character = PER_abbas_araghchi
+recruit_character = PER_hossein_salami

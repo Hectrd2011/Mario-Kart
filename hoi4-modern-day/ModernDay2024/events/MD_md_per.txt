@@ -1,0 +1,24 @@
+add_namespace = md_per
+
+country_event = {
+	id = md_per.1
+	title = md_per.1.t
+	desc = md_per.1.d
+	picture = GFX_md_event_iran
+	is_triggered_only = yes
+	option = {
+		name = md_per.1.a
+		ai_chance = { factor = 90 }
+		add_war_support = 0.05
+		add_stability = -0.03
+		add_named_threat = {
+			threat = 2
+			name = md_threat_true_promise
+		}
+	}
+	option = {
+		name = md_per.1.b
+		ai_chance = { factor = 10 }
+		add_stability = -0.06
+	}
+}

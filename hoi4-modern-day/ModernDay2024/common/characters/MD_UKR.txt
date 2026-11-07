@@ -1,0 +1,82 @@
+characters = {
+	UKR_volodymyr_zelensky = {
+		name = UKR_volodymyr_zelensky
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UKR/md_UKR_volodymyr_zelensky.dds"
+				small = "gfx/interface/ideas/md_leaders/UKR_volodymyr_zelensky.dds"
+			}
+		}
+		country_leader = {
+			desc = "UKR_volodymyr_zelensky_desc"
+			ideology = liberalism
+			traits = { md_war_president md_charismatic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	UKR_andriy_yermak = {
+		name = UKR_andriy_yermak
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/UKR_andriy_yermak.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = UKR_andriy_yermak_adv
+			allowed = { original_tag = UKR }
+			traits = { md_adv_party_whip }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UKR_andrii_sybiha = {
+		name = UKR_andrii_sybiha
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/UKR_andrii_sybiha.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = UKR_andrii_sybiha_adv
+			allowed = { original_tag = UKR }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UKR_rustem_umerov = {
+		name = UKR_rustem_umerov
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/UKR_rustem_umerov.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = UKR_rustem_umerov_adv
+			allowed = { original_tag = UKR }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	UKR_oleksandr_syrskyi = {
+		name = UKR_oleksandr_syrskyi
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/UKR_oleksandr_syrskyi.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = UKR_oleksandr_syrskyi_adv
+			allowed = { original_tag = UKR }
+			traits = { md_adv_general_staff }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

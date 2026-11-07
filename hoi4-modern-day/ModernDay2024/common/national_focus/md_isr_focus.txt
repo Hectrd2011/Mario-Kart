@@ -1,0 +1,396 @@
+focus_tree = {
+	id = md_isr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = ISR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = ISR_iron_swords
+		icon = GFX_md_sword_cross_military_il
+		x = 10
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = ISR_philadelphi
+		icon = GFX_md_map_marker_military_il
+		x = 3
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_isr_gaza_operations
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_hostage_deal
+		icon = GFX_md_hand_peace_diplomacy_il
+		x = 2
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_philadelphi }
+		mutually_exclusive = { focus = ISR_total_victory }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_isr_hostage_crisis
+				}
+				remove_ideas = md_isr_hostage_crisis
+			}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = ISR_total_victory
+		icon = GFX_md_flag_variant_military_il
+		x = 4
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_philadelphi }
+		mutually_exclusive = { focus = ISR_hostage_deal }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = md_isr_gaza_operations
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_day_after
+		icon = GFX_md_home_city_politics_il
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = ISR_hostage_deal focus = ISR_total_victory }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = ISR_northern_arrows
+		icon = GFX_md_rocket_launch_military_il
+		x = 7
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = LEB
+				}
+				LEB = {
+					add_stability = -0.03
+				}
+			}
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = ISR_lebanon_ceasefire
+		icon = GFX_md_hand_peace_diplomacy_il
+		x = 7
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_northern_arrows }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = ISR_syrian_buffer
+		icon = GFX_md_map_military_il
+		x = 7
+		y = 3
+		cost = 10
+		prerequisite = { focus = ISR_lebanon_ceasefire }
+		available = {
+			OR = {
+				NOT = {
+					country_exists = SYR
+				}
+				has_global_flag = md_assad_fallen
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_command_power = 25
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = ISR_days_of_repentance
+		icon = GFX_md_airplane_military_il
+		x = 12
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				PER = {
+					add_stability = -0.02
+				}
+			}
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = ISR_strike_houthis
+		icon = GFX_md_anchor_military_il
+		x = 14
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_days_of_repentance }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			air_experience = 15
+		}
+	}
+
+	focus = {
+		id = ISR_rising_lion
+		icon = GFX_md_bomb_military_il
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_days_of_repentance }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				PER = {
+					add_timed_idea = {
+						idea = md_per_nuclear_setback
+						days = 540
+					}
+					if = {
+						limit = {
+							has_idea = md_per_nuclear_threshold
+						}
+						remove_ideas = md_per_nuclear_threshold
+					}
+					add_stability = -0.05
+				}
+			}
+			add_named_threat = {
+				threat = 4
+				name = md_threat_iran_strikes
+			}
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = ISR_iron_beam
+		icon = GFX_md_flash_tech_il
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = ISR_rising_lion }
+		prerequisite = { focus = ISR_lebanon_ceasefire }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_isr_iron_beam
+		}
+	}
+
+	focus = {
+		id = ISR_abraham_accords
+		icon = GFX_md_handshake_outline_diplomacy_il
+		x = 17
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UAE
+				}
+				add_opinion_modifier = {
+					target = UAE
+					modifier = md_opinion_trade_deal
+				}
+				UAE = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = MOR
+				}
+				add_opinion_modifier = {
+					target = MOR
+					modifier = md_opinion_trade_deal
+				}
+				MOR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_saudi_normalization
+		icon = GFX_md_star_crescent_diplomacy_il
+		x = 17
+		y = 3
+		cost = 10
+		prerequisite = { focus = ISR_abraham_accords }
+		prerequisite = { focus = ISR_hostage_deal }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SAU
+				}
+				SAU = {
+					country_event = {
+						id = md_isr.20
+						days = 2
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ISR_national_unity
+		icon = GFX_md_account_group_politics_il
+		x = 20
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		mutually_exclusive = { focus = ISR_judicial_overhaul }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_isr_national_unity
+		}
+	}
+
+	focus = {
+		id = ISR_judicial_overhaul
+		icon = GFX_md_gavel_politics_il
+		x = 22
+		y = 1
+		cost = 10
+		prerequisite = { focus = ISR_iron_swords }
+		mutually_exclusive = { focus = ISR_national_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_isr_judicial_overhaul
+		}
+	}
+
+	focus = {
+		id = ISR_haredi_draft
+		icon = GFX_md_account_multiple_plus_military_il
+		x = 21
+		y = 2
+		cost = 10
+		prerequisite = { focus = ISR_national_unity focus = ISR_judicial_overhaul }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_isr_haredi_draft
+		}
+	}
+
+	focus = {
+		id = ISR_defence_industry
+		icon = GFX_md_factory_military_il
+		x = 21
+		y = 3
+		cost = 10
+		prerequisite = { focus = ISR_haredi_draft }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = GER
+				}
+				add_opinion_modifier = {
+					target = GER
+					modifier = md_opinion_trade_deal
+				}
+				GER = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+}

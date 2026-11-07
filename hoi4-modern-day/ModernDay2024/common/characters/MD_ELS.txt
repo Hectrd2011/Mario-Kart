@@ -1,0 +1,18 @@
+characters = {
+	ELS_nayib_bukele = {
+		name = ELS_nayib_bukele
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ELS/md_ELS_nayib_bukele.dds"
+				small = "gfx/interface/ideas/md_leaders/ELS_nayib_bukele.dds"
+			}
+		}
+		country_leader = {
+			desc = "ELS_nayib_bukele_desc"
+			ideology = conservatism
+			traits = { md_strongman md_crypto_president }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

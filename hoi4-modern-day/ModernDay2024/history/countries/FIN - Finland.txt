@@ -1,0 +1,22 @@
+# Finland: 6 November 2024
+set_research_slots = 3
+set_stability = 0.75
+set_war_support = 0.45
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.4.2"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 80 communism = 2 fascism = 17 neutrality = 1 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_fin_total_defence
+}
+
+recruit_character = FIN_petteri_orpo

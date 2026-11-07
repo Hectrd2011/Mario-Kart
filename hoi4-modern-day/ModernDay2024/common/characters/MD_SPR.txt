@@ -1,0 +1,18 @@
+characters = {
+	SPR_pedro_sanchez = {
+		name = SPR_pedro_sanchez
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SPR/md_SPR_pedro_sanchez.dds"
+				small = "gfx/interface/ideas/md_leaders/SPR_pedro_sanchez.dds"
+			}
+		}
+		country_leader = {
+			desc = "SPR_pedro_sanchez_desc"
+			ideology = socialism
+			traits = { md_coalition_builder md_survivor }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

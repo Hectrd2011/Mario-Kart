@@ -1,0 +1,18 @@
+characters = {
+	BRM_min_aung_hlaing = {
+		name = BRM_min_aung_hlaing
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BRM/md_BRM_min_aung_hlaing.dds"
+				small = "gfx/interface/ideas/md_leaders/BRM_min_aung_hlaing.dds"
+			}
+		}
+		country_leader = {
+			desc = "BRM_min_aung_hlaing_desc"
+			ideology = despotism
+			traits = { md_military_ruler md_war_president }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

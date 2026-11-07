@@ -1,0 +1,18 @@
+characters = {
+	OMA_haitham_bin_tariq = {
+		name = OMA_haitham_bin_tariq
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/OMA/md_OMA_haitham_bin_tariq.dds"
+				small = "gfx/interface/ideas/md_leaders/OMA_haitham_bin_tariq.dds"
+			}
+		}
+		country_leader = {
+			desc = "OMA_haitham_bin_tariq_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_mediator }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

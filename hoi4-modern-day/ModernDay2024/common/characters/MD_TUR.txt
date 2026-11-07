@@ -1,0 +1,18 @@
+characters = {
+	TUR_recep_tayyip_erdogan = {
+		name = TUR_recep_tayyip_erdogan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TUR/md_TUR_recep_tayyip_erdogan.dds"
+				small = "gfx/interface/ideas/md_leaders/TUR_recep_tayyip_erdogan.dds"
+			}
+		}
+		country_leader = {
+			desc = "TUR_recep_tayyip_erdogan_desc"
+			ideology = conservatism
+			traits = { md_strongman md_balancer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

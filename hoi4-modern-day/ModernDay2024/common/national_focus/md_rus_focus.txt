@@ -1,0 +1,1051 @@
+focus_tree = {
+	id = md_rus_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = RUS
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = RUS_victory_smo
+		icon = GFX_md_flag_military_ru
+		x = 12
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.03
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = RUS_total_war_economy
+		icon = GFX_md_factory_military_ru
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = RUS_victory_smo }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_glide_bombs
+		icon = GFX_md_bomb_military_ru
+		x = 2
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_total_war_economy }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_glide_bombs
+		}
+	}
+
+	focus = {
+		id = RUS_geran_drones
+		icon = GFX_md_quadcopter_military_ru
+		x = 4
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_total_war_economy }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_geran_production
+		}
+	}
+
+	focus = {
+		id = RUS_contract_soldiers
+		icon = GFX_md_account_group_military_ru
+		x = 6
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_total_war_economy }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_manpower = 150000
+		}
+	}
+
+	focus = {
+		id = RUS_kursk_counteroffensive
+		icon = GFX_md_sword_cross_military_ru
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_glide_bombs }
+		available = {
+			has_war_with = UKR
+		}
+		bypass = {
+			NOT = {
+				has_war_with = UKR
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_rus_donbas_offensive
+				days = 120
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_north_korean_troops
+		icon = GFX_md_handshake_diplomacy_ru
+		x = 6
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_contract_soldiers }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_manpower = 15000
+			army_experience = 15
+			if = {
+				limit = {
+					country_exists = PRK
+				}
+				PRK = {
+					add_timed_idea = {
+						idea = md_prk_troops_in_kursk
+						days = 365
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PRK
+				}
+				add_opinion_modifier = {
+					target = PRK
+					modifier = md_opinion_alliance
+				}
+				PRK = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_take_pokrovsk
+		icon = GFX_md_map_marker_military_ru
+		x = 3
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_kursk_counteroffensive }
+		prerequisite = { focus = RUS_geran_drones }
+		available = {
+			has_war_with = UKR
+		}
+		bypass = {
+			NOT = {
+				has_war_with = UKR
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_rus_donbas_offensive
+				days = 180
+			}
+			add_command_power = 25
+		}
+	}
+
+	focus = {
+		id = RUS_second_mobilization
+		icon = GFX_md_account_multiple_plus_military_ru
+		x = 6
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_north_korean_troops }
+		mutually_exclusive = { focus = RUS_volunteer_army }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 0.3 }
+		completion_reward = {
+			add_ideas = md_rus_general_mobilization
+			add_manpower = 300000
+		}
+	}
+
+	focus = {
+		id = RUS_volunteer_army
+		icon = GFX_md_cash_multiple_economy_ru
+		x = 8
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_north_korean_troops }
+		mutually_exclusive = { focus = RUS_second_mobilization }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_rus_partial_mobilization
+				add_idea = md_rus_volunteer_army
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_liberate_donbas
+		icon = GFX_md_flag_variant_military_ru
+		x = 3
+		y = 5
+		cost = 10
+		prerequisite = { focus = RUS_take_pokrovsk }
+		available = {
+			has_war_with = UKR
+		}
+		bypass = {
+			NOT = {
+				has_war_with = UKR
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_rus_donbas_offensive
+				days = 240
+			}
+			army_experience = 50
+		}
+	}
+
+	focus = {
+		id = RUS_secure_land_bridge
+		icon = GFX_md_bridge_military_ru
+		x = 3
+		y = 6
+		cost = 10
+		prerequisite = { focus = RUS_liberate_donbas }
+		available = {
+			has_war_with = UKR
+		}
+		bypass = {
+			NOT = {
+				has_war_with = UKR
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_command_power = 50
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = RUS_novorossiya
+		icon = GFX_md_anchor_crisis_ru
+		x = 3
+		y = 7
+		cost = 10
+		prerequisite = { focus = RUS_secure_land_bridge }
+		available = {
+			has_war_with = UKR
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 0.5 }
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_owned_by = UKR
+					is_coastal = yes
+				}
+				add_claim_by = ROOT
+			}
+			add_named_threat = {
+				threat = 5
+				name = md_threat_novorossiya
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_strengthen_vertical
+		icon = GFX_md_domain_politics_ru
+		x = 11
+		y = 1
+		cost = 10
+		prerequisite = { focus = RUS_victory_smo }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = RUS_purge_mod
+		icon = GFX_md_handcuffs_politics_ru
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_strengthen_vertical }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = RUS_patriotic_education
+		icon = GFX_md_school_society_ru
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_strengthen_vertical }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = RUS_time_of_heroes
+		icon = GFX_md_medal_politics_ru
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_purge_mod }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = RUS_foreign_agents
+		icon = GFX_md_eye_intel_ru
+		x = 12
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_patriotic_education }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.03
+			}
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = RUS_fortress_russia
+		icon = GFX_md_castle_politics_ru
+		x = 11
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_time_of_heroes }
+		prerequisite = { focus = RUS_foreign_agents }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_fortress_russia
+		}
+	}
+
+	focus = {
+		id = RUS_pivot_east
+		icon = GFX_md_compass_economy_ru
+		x = 16
+		y = 1
+		cost = 10
+		prerequisite = { focus = RUS_victory_smo }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_alliance
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = IND
+				}
+				add_opinion_modifier = {
+					target = IND
+					modifier = md_opinion_trade_deal
+				}
+				IND = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_power_of_siberia_2
+		icon = GFX_md_gas_station_energy_ru
+		x = 15
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_pivot_east }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_shadow_fleet
+		icon = GFX_md_ferry_economy_ru
+		x = 17
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_pivot_east }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_rus_oil_sanctions
+				}
+				remove_ideas = md_rus_oil_sanctions
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = RUS_import_substitution
+		icon = GFX_md_cogs_economy_ru
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_power_of_siberia_2 }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_key_rate
+		icon = GFX_md_bank_economy_ru
+		x = 17
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_shadow_fleet }
+		mutually_exclusive = { focus = RUS_cheap_credit }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_high_key_rate
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = RUS_cheap_credit
+		icon = GFX_md_cash_multiple_economy_ru
+		x = 19
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_shadow_fleet }
+		mutually_exclusive = { focus = RUS_key_rate }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_cheap_credit
+		}
+	}
+
+	focus = {
+		id = RUS_sanctions_proof
+		icon = GFX_md_shield_economy_ru
+		x = 16
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_import_substitution }
+		prerequisite = { focus = RUS_key_rate focus = RUS_cheap_credit }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_rus_sanctions
+				add_idea = md_rus_sanctions_proof
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_northern_sea_route
+		icon = GFX_md_ship_wheel_economy_ru
+		x = 16
+		y = 5
+		cost = 10
+		prerequisite = { focus = RUS_sanctions_proof }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_multipolar_world
+		icon = GFX_md_earth_diplomacy_ru
+		x = 23
+		y = 1
+		cost = 10
+		prerequisite = { focus = RUS_victory_smo }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = RUS_brics_kazan
+		icon = GFX_md_earth_diplomacy_ru
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_multipolar_world }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_trade_deal
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = IND
+				}
+				add_opinion_modifier = {
+					target = IND
+					modifier = md_opinion_trade_deal
+				}
+				IND = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = BRA
+				}
+				add_opinion_modifier = {
+					target = BRA
+					modifier = md_opinion_trade_deal
+				}
+				BRA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_dprk_treaty
+		icon = GFX_md_handshake_diplomacy_ru
+		x = 22
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_multipolar_world }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PRK
+				}
+				PRK = {
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1000
+						producer = PRK
+					}
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 2000
+				producer = ROOT
+			}
+			if = {
+				limit = {
+					country_exists = PRK
+				}
+				add_opinion_modifier = {
+					target = PRK
+					modifier = md_opinion_alliance
+				}
+				PRK = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_iran_partnership
+		icon = GFX_md_handshake_outline_diplomacy_ru
+		x = 24
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_multipolar_world }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PER
+				}
+				add_opinion_modifier = {
+					target = PER
+					modifier = md_opinion_alliance
+				}
+				PER = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_africa_corps
+		icon = GFX_md_account_group_diplomacy_ru
+		x = 26
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_multipolar_world }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = MLI
+				}
+				MLI = {
+					if = {
+						limit = {
+							country_exists = RUS
+						}
+						add_opinion_modifier = {
+							target = RUS
+							modifier = md_opinion_alliance
+						}
+						RUS = {
+							add_opinion_modifier = {
+								target = ROOT
+								modifier = md_opinion_alliance
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = CAF
+				}
+				CAF = {
+					if = {
+						limit = {
+							country_exists = RUS
+						}
+						add_opinion_modifier = {
+							target = RUS
+							modifier = md_opinion_alliance
+						}
+						RUS = {
+							add_opinion_modifier = {
+								target = ROOT
+								modifier = md_opinion_alliance
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = BFA
+				}
+				BFA = {
+					if = {
+						limit = {
+							country_exists = RUS
+						}
+						add_opinion_modifier = {
+							target = RUS
+							modifier = md_opinion_alliance
+						}
+						RUS = {
+							add_opinion_modifier = {
+								target = ROOT
+								modifier = md_opinion_alliance
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_union_state
+		icon = GFX_md_handshake_politics_ru
+		x = 20
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_brics_kazan }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = BLR
+				}
+				add_opinion_modifier = {
+					target = BLR
+					modifier = md_opinion_alliance
+				}
+				BLR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = BLR
+				}
+				BLR = {
+					give_military_access = RUS
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_negotiate_with_trump
+		icon = GFX_md_phone_diplomacy_ru
+		x = 23
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_dprk_treaty }
+		prerequisite = { focus = RUS_iran_partnership }
+		mutually_exclusive = { focus = RUS_grind_on }
+		available = {
+			USA = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_rapprochement
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_rapprochement
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_istanbul_talks
+		icon = GFX_md_hand_peace_diplomacy_ru
+		x = 23
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_negotiate_with_trump }
+		available = {
+			has_war_with = UKR
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					country_event = {
+						id = md_war.11
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_grind_on
+		icon = GFX_md_timer_sand_military_ru
+		x = 25
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_dprk_treaty }
+		prerequisite = { focus = RUS_iran_partnership }
+		mutually_exclusive = { focus = RUS_negotiate_with_trump }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = RUS_war_of_attrition
+		icon = GFX_md_shield_military_ru
+		x = 25
+		y = 4
+		cost = 10
+		prerequisite = { focus = RUS_grind_on }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_attrition
+		}
+	}
+
+	focus = {
+		id = RUS_nuclear_doctrine
+		icon = GFX_md_radioactive_nuclear_ru
+		x = 30
+		y = 1
+		cost = 10
+		prerequisite = { focus = RUS_victory_smo }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_named_threat = {
+				threat = 2
+				name = md_threat_nuclear_doctrine
+			}
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = RUS_oreshnik
+		icon = GFX_md_rocket_launch_nuclear_ru
+		x = 29
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_nuclear_doctrine }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_oreshnik_bonus
+				bonus = 1.0
+				uses = 1
+				category = rocketry
+			}
+			add_named_threat = {
+				threat = 2
+				name = md_threat_oreshnik
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_sarmat
+		icon = GFX_md_rocket_nuclear_ru
+		x = 31
+		y = 2
+		cost = 10
+		prerequisite = { focus = RUS_nuclear_doctrine }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = RUS_sarmat_bonus
+				bonus = 1.0
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+
+	focus = {
+		id = RUS_escalation_dominance
+		icon = GFX_md_radioactive_nuclear_ru
+		x = 30
+		y = 3
+		cost = 10
+		prerequisite = { focus = RUS_oreshnik }
+		prerequisite = { focus = RUS_sarmat }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_rus_strategic_deterrence
+		}
+	}
+
+}

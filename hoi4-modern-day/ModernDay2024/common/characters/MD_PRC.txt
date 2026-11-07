@@ -1,0 +1,82 @@
+characters = {
+	PRC_xi_jinping = {
+		name = PRC_xi_jinping
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PRC/md_PRC_xi_jinping.dds"
+				small = "gfx/interface/ideas/md_leaders/PRC_xi_jinping.dds"
+			}
+		}
+		country_leader = {
+			desc = "PRC_xi_jinping_desc"
+			ideology = leninism
+			traits = { md_core_leader md_party_apparatchik }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	PRC_li_qiang = {
+		name = PRC_li_qiang
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PRC_li_qiang.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PRC_li_qiang_adv
+			allowed = { original_tag = PRC }
+			traits = { md_adv_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PRC_wang_yi = {
+		name = PRC_wang_yi
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PRC_wang_yi.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PRC_wang_yi_adv
+			allowed = { original_tag = PRC }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PRC_dong_jun = {
+		name = PRC_dong_jun
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PRC_dong_jun.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PRC_dong_jun_adv
+			allowed = { original_tag = PRC }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PRC_cai_qi = {
+		name = PRC_cai_qi
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PRC_cai_qi.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PRC_cai_qi_adv
+			allowed = { original_tag = PRC }
+			traits = { md_adv_party_whip }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

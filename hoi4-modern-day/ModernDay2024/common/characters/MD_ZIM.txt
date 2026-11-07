@@ -1,0 +1,18 @@
+characters = {
+	ZIM_emmerson_mnangagwa = {
+		name = ZIM_emmerson_mnangagwa
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ZIM/md_ZIM_emmerson_mnangagwa.dds"
+				small = "gfx/interface/ideas/md_leaders/ZIM_emmerson_mnangagwa.dds"
+			}
+		}
+		country_leader = {
+			desc = "ZIM_emmerson_mnangagwa_desc"
+			ideology = despotism
+			traits = { md_strongman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

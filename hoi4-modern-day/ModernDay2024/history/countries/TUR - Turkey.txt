@@ -1,0 +1,24 @@
+# Turkey: 6 November 2024
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.35
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.5.28"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 80 communism = 2 fascism = 10 neutrality = 8 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_tur_inflation
+	md_tur_defense_industry
+	md_tur_bosporus
+}
+
+recruit_character = TUR_recep_tayyip_erdogan

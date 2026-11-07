@@ -1,0 +1,34 @@
+characters = {
+	SYR_bashar_al_assad = {
+		name = SYR_bashar_al_assad
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SYR/md_SYR_bashar_al_assad.dds"
+				small = "gfx/interface/ideas/md_leaders/SYR_bashar_al_assad.dds"
+			}
+		}
+		country_leader = {
+			desc = "SYR_bashar_al_assad_desc"
+			ideology = despotism
+			traits = { md_strongman md_hollow_regime }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	SYR_ahmed_al_sharaa = {
+		name = SYR_ahmed_al_sharaa
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SYR/md_SYR_ahmed_al_sharaa.dds"
+				small = "gfx/interface/ideas/md_leaders/SYR_ahmed_al_sharaa.dds"
+			}
+		}
+		country_leader = {
+			desc = "SYR_ahmed_al_sharaa_desc"
+			ideology = oligarchism
+			traits = { md_insurgent_commander }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

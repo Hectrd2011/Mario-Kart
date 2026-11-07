@@ -1,0 +1,56 @@
+opinion_modifiers = {
+	md_opinion_western_alignment = {
+		value = 30
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_brics_alignment = {
+		value = 30
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_trade_deal = {
+		value = 25
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_aid = {
+		value = 30
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_pressure = {
+		value = -30
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_tariffs = {
+		value = -25
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_rapprochement = {
+		value = 25
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_threatened = {
+		value = -50
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+	md_opinion_alliance = {
+		value = 50
+		decay = 1
+		min_trust = -100
+		max_trust = 100
+	}
+}

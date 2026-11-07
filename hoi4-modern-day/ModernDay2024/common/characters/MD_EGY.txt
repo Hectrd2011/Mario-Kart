@@ -1,0 +1,18 @@
+characters = {
+	EGY_abdel_fattah_el_sisi = {
+		name = EGY_abdel_fattah_el_sisi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/EGY/md_EGY_abdel_fattah_el_sisi.dds"
+				small = "gfx/interface/ideas/md_leaders/EGY_abdel_fattah_el_sisi.dds"
+			}
+		}
+		country_leader = {
+			desc = "EGY_abdel_fattah_el_sisi_desc"
+			ideology = despotism
+			traits = { md_strongman md_military_ruler }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

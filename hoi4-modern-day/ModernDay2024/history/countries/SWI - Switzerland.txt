@@ -1,0 +1,23 @@
+# Switzerland: 6 November 2024
+set_research_slots = 4
+set_stability = 0.85
+set_war_support = 0.10
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.10.22"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 97 communism = 1 fascism = 1 neutrality = 1 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_armed_neutrality
+	md_swiss_banking
+}
+
+recruit_character = SWI_viola_amherd

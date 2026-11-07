@@ -1,0 +1,18 @@
+characters = {
+	ANG_joao_lourenco = {
+		name = ANG_joao_lourenco
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ANG/md_ANG_joao_lourenco.dds"
+				small = "gfx/interface/ideas/md_leaders/ANG_joao_lourenco.dds"
+			}
+		}
+		country_leader = {
+			desc = "ANG_joao_lourenco_desc"
+			ideology = oligarchism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

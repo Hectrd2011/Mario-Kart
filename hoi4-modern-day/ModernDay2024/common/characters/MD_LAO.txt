@@ -1,0 +1,18 @@
+characters = {
+	LAO_thongloun_sisoulith = {
+		name = LAO_thongloun_sisoulith
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LAO/md_LAO_thongloun_sisoulith.dds"
+				small = "gfx/interface/ideas/md_leaders/LAO_thongloun_sisoulith.dds"
+			}
+		}
+		country_leader = {
+			desc = "LAO_thongloun_sisoulith_desc"
+			ideology = leninism
+			traits = { md_party_apparatchik }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

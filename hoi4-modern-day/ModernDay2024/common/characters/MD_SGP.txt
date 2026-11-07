@@ -1,0 +1,18 @@
+characters = {
+	SGP_lawrence_wong = {
+		name = SGP_lawrence_wong
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SGP/md_SGP_lawrence_wong.dds"
+				small = "gfx/interface/ideas/md_leaders/SGP_lawrence_wong.dds"
+			}
+		}
+		country_leader = {
+			desc = "SGP_lawrence_wong_desc"
+			ideology = conservatism
+			traits = { md_technocrat }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

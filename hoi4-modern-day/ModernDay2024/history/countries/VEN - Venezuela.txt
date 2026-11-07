@@ -1,0 +1,22 @@
+# Venezuela: 6 November 2024
+set_research_slots = 2
+set_stability = 0.25
+set_war_support = 0.30
+set_convoys = 30
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 25 communism = 60 fascism = 0 neutrality = 15 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_western_sanctions_light
+	md_ven_oil_collapse
+}
+
+recruit_character = VEN_nicolas_maduro
+recruit_character = VEN_maria_corina_machado

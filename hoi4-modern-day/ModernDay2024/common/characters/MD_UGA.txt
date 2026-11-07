@@ -1,0 +1,18 @@
+characters = {
+	UGA_yoweri_museveni = {
+		name = UGA_yoweri_museveni
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UGA/md_UGA_yoweri_museveni.dds"
+				small = "gfx/interface/ideas/md_leaders/UGA_yoweri_museveni.dds"
+			}
+		}
+		country_leader = {
+			desc = "UGA_yoweri_museveni_desc"
+			ideology = despotism
+			traits = { md_elder_statesman md_strongman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

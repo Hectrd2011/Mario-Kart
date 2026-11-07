@@ -1,0 +1,26 @@
+# India: 6 November 2024
+set_research_slots = 4
+set_stability = 0.65
+set_war_support = 0.35
+set_convoys = 120
+add_nuclear_bombs = 2
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.6.4"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 3 fascism = 3 neutrality = 2 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_ind_demographic_dividend
+	md_ind_strategic_autonomy
+	md_nuclear_deterrent
+	md_ind_make_in_india
+}
+
+recruit_character = IND_narendra_modi

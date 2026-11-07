@@ -1,0 +1,18 @@
+characters = {
+	MON_luvsannamsrain_oyun_erdene = {
+		name = MON_luvsannamsrain_oyun_erdene
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MON/md_MON_luvsannamsrain_oyun_erdene.dds"
+				small = "gfx/interface/ideas/md_leaders/MON_luvsannamsrain_oyun_erdene.dds"
+			}
+		}
+		country_leader = {
+			desc = "MON_luvsannamsrain_oyun_erdene_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

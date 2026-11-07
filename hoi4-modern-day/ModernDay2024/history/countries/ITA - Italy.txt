@@ -1,0 +1,23 @@
+# Italy: 6 November 2024
+set_research_slots = 4
+set_stability = 0.60
+set_war_support = 0.20
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.9.25"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 80 communism = 3 fascism = 15 neutrality = 2 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_ita_public_debt
+	md_ita_migration_pact
+}
+
+recruit_character = ITA_giorgia_meloni

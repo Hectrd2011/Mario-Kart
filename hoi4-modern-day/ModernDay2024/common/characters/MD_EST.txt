@@ -1,0 +1,18 @@
+characters = {
+	EST_kristen_michal = {
+		name = EST_kristen_michal
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/EST/md_EST_kristen_michal.dds"
+				small = "gfx/interface/ideas/md_leaders/EST_kristen_michal.dds"
+			}
+		}
+		country_leader = {
+			desc = "EST_kristen_michal_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	NOR_jonas_gahr_stre = {
+		name = NOR_jonas_gahr_stre
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NOR/md_NOR_jonas_gahr_stre.dds"
+				small = "gfx/interface/ideas/md_leaders/NOR_jonas_gahr_stre.dds"
+			}
+		}
+		country_leader = {
+			desc = "NOR_jonas_gahr_stre_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

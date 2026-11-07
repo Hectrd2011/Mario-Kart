@@ -1,0 +1,18 @@
+characters = {
+	LES_sam_matekane = {
+		name = LES_sam_matekane
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LES/md_LES_sam_matekane.dds"
+				small = "gfx/interface/ideas/md_leaders/LES_sam_matekane.dds"
+			}
+		}
+		country_leader = {
+			desc = "LES_sam_matekane_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

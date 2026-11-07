@@ -1,0 +1,50 @@
+characters = {
+	ROM_klaus_iohannis = {
+		name = ROM_klaus_iohannis
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/md_ROM_klaus_iohannis.dds"
+				small = "gfx/interface/ideas/md_leaders/ROM_klaus_iohannis.dds"
+			}
+		}
+		country_leader = {
+			desc = "ROM_klaus_iohannis_desc"
+			ideology = conservatism
+			traits = { md_lame_duck md_atlanticist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ROM_calin_georgescu = {
+		name = ROM_calin_georgescu
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/md_ROM_calin_georgescu.dds"
+				small = "gfx/interface/ideas/md_leaders/ROM_calin_georgescu.dds"
+			}
+		}
+		country_leader = {
+			desc = "ROM_calin_georgescu_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ROM_nicusor_dan = {
+		name = ROM_nicusor_dan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ROM/md_ROM_nicusor_dan.dds"
+				small = "gfx/interface/ideas/md_leaders/ROM_nicusor_dan.dds"
+			}
+		}
+		country_leader = {
+			desc = "ROM_nicusor_dan_desc"
+			ideology = liberalism
+			traits = { md_anti_corruption }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

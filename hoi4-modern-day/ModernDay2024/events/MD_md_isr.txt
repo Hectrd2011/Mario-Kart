@@ -1,0 +1,163 @@
+add_namespace = md_isr
+
+country_event = {
+	id = md_isr.1
+	title = md_isr.1.t
+	desc = md_isr.1.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_isr.1.a
+		ai_chance = { factor = 90 }
+		add_stability = 0.03
+		LEB = {
+			country_event = md_isr.2
+		}
+	}
+	option = {
+		name = md_isr.1.b
+		ai_chance = { factor = 10 }
+		add_war_support = 0.03
+		add_stability = -0.03
+	}
+}
+
+country_event = {
+	id = md_isr.2
+	title = md_isr.2.t
+	desc = md_isr.2.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_isr.2.a
+		add_stability = 0.05
+		if = {
+			limit = {
+				has_idea = md_leb_hezbollah_state_within
+			}
+			remove_ideas = md_leb_hezbollah_state_within
+			add_ideas = md_leb_weakened_hezbollah
+		}
+	}
+}
+
+country_event = {
+	id = md_isr.10
+	title = md_isr.10.t
+	desc = md_isr.10.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_isr.10.a
+		ai_chance = { factor = 70 }
+		md_gaza_ceasefire = yes
+	}
+	option = {
+		name = md_isr.10.b
+		ai_chance = { factor = 30 }
+		add_war_support = 0.05
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_pressure
+			}
+		}
+	}
+}
+
+country_event = {
+	id = md_isr.11
+	title = md_isr.11.t
+	desc = md_isr.11.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_global_flag = md_gaza_ceasefire
+		}
+	}
+	option = {
+		name = md_isr.11.a
+		ai_chance = { factor = 80 }
+		md_gaza_ceasefire = yes
+	}
+	option = {
+		name = md_isr.11.b
+		ai_chance = { factor = 20 }
+		add_war_support = 0.03
+	}
+}
+
+country_event = {
+	id = md_isr.20
+	title = md_isr.20.t
+	desc = md_isr.20.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_isr.20.a
+		ai_chance = { factor = 30 }
+		add_opinion_modifier = {
+			target = ISR
+			modifier = md_opinion_rapprochement
+		}
+		ISR = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_rapprochement
+			}
+			add_stability = 0.05
+		}
+		add_stability = -0.03
+	}
+	option = {
+		name = md_isr.20.b
+		ai_chance = { factor = 70 }
+		add_stability = 0.02
+	}
+}
+
+country_event = {
+	id = md_isr.30
+	title = md_isr.30.t
+	desc = md_isr.30.d
+	picture = GFX_md_event_israel
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_completed_focus = ISR_rising_lion
+		}
+	}
+	option = {
+		name = md_isr.30.a
+		ai_chance = { factor = 90 }
+		if = {
+			limit = {
+				country_exists = PER
+			}
+			PER = {
+				add_timed_idea = {
+					idea = md_per_nuclear_setback
+					days = 540
+				}
+				country_event = {
+					id = md_per.1
+					days = 0
+				}
+			}
+		}
+		add_named_threat = {
+			threat = 4
+			name = md_threat_iran_strikes
+		}
+		news_event = {
+			id = md_news.30
+			days = 1
+		}
+	}
+	option = {
+		name = md_isr.30.b
+		ai_chance = { factor = 10 }
+		add_war_support = -0.02
+	}
+}

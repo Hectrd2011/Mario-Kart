@@ -1,0 +1,34 @@
+characters = {
+	HOL_dick_schoof = {
+		name = HOL_dick_schoof
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/md_HOL_dick_schoof.dds"
+				small = "gfx/interface/ideas/md_leaders/HOL_dick_schoof.dds"
+			}
+		}
+		country_leader = {
+			desc = "HOL_dick_schoof_desc"
+			ideology = conservatism
+			traits = { md_technocrat }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	HOL_geert_wilders = {
+		name = HOL_geert_wilders
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/md_HOL_geert_wilders.dds"
+				small = "gfx/interface/ideas/md_leaders/HOL_geert_wilders.dds"
+			}
+		}
+		country_leader = {
+			desc = "HOL_geert_wilders_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

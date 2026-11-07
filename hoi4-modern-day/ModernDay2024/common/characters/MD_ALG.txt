@@ -1,0 +1,18 @@
+characters = {
+	ALG_abdelmadjid_tebboune = {
+		name = ALG_abdelmadjid_tebboune
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ALG/md_ALG_abdelmadjid_tebboune.dds"
+				small = "gfx/interface/ideas/md_leaders/ALG_abdelmadjid_tebboune.dds"
+			}
+		}
+		country_leader = {
+			desc = "ALG_abdelmadjid_tebboune_desc"
+			ideology = oligarchism
+			traits = { md_military_backed }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

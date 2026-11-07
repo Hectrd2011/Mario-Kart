@@ -1,0 +1,21 @@
+# Sierra Leone: 6 November 2024
+set_research_slots = 1
+set_stability = 0.50
+set_war_support = 0.10
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.6.24"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 0 fascism = 0 neutrality = 8 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = SIE_julius_maada_bio

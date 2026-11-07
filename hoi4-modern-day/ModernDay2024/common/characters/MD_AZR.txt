@@ -1,0 +1,18 @@
+characters = {
+	AZR_ilham_aliyev = {
+		name = AZR_ilham_aliyev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AZR/md_AZR_ilham_aliyev.dds"
+				small = "gfx/interface/ideas/md_leaders/AZR_ilham_aliyev.dds"
+			}
+		}
+		country_leader = {
+			desc = "AZR_ilham_aliyev_desc"
+			ideology = despotism
+			traits = { md_strongman md_petro_state }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

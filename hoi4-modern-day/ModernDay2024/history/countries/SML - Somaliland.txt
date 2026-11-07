@@ -1,0 +1,22 @@
+# Somaliland: 6 November 2024
+set_research_slots = 1
+set_stability = 0.55
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2017.11.13"
+	election_frequency = 84
+	elections_allowed = yes
+}
+set_popularities = { democratic = 96 communism = 0 fascism = 0 neutrality = 4 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_sml_unrecognized
+}
+
+recruit_character = SML_muse_bihi_abdi

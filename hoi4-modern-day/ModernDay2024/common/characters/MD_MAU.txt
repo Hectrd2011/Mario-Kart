@@ -1,0 +1,18 @@
+characters = {
+	MAU_mohamed_ould_ghazouani = {
+		name = MAU_mohamed_ould_ghazouani
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MAU/md_MAU_mohamed_ould_ghazouani.dds"
+				small = "gfx/interface/ideas/md_leaders/MAU_mohamed_ould_ghazouani.dds"
+			}
+		}
+		country_leader = {
+			desc = "MAU_mohamed_ould_ghazouani_desc"
+			ideology = oligarchism
+			traits = { md_military_backed }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

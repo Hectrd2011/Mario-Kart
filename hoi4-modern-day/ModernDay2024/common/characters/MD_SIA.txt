@@ -1,0 +1,18 @@
+characters = {
+	SIA_paetongtarn_shinawatra = {
+		name = SIA_paetongtarn_shinawatra
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SIA/md_SIA_paetongtarn_shinawatra.dds"
+				small = "gfx/interface/ideas/md_leaders/SIA_paetongtarn_shinawatra.dds"
+			}
+		}
+		country_leader = {
+			desc = "SIA_paetongtarn_shinawatra_desc"
+			ideology = liberalism
+			traits = { md_young_leader md_dynast }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

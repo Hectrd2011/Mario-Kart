@@ -1,0 +1,23 @@
+# South Africa: 6 November 2024
+set_research_slots = 3
+set_stability = 0.50
+set_war_support = 0.10
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.5.29"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 88 communism = 6 fascism = 2 neutrality = 4 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_saf_loadshedding
+	md_bra_brics_founder
+}
+
+recruit_character = SAF_cyril_ramaphosa

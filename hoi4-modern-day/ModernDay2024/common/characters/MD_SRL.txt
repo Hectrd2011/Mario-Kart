@@ -1,0 +1,18 @@
+characters = {
+	SRL_anura_kumara_dissanayake = {
+		name = SRL_anura_kumara_dissanayake
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SRL/md_SRL_anura_kumara_dissanayake.dds"
+				small = "gfx/interface/ideas/md_leaders/SRL_anura_kumara_dissanayake.dds"
+			}
+		}
+		country_leader = {
+			desc = "SRL_anura_kumara_dissanayake_desc"
+			ideology = socialism
+			traits = { md_anti_corruption }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

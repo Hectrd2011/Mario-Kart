@@ -1,0 +1,71 @@
+md_ukraine_ceasefire = {
+	if = {
+		limit = { country_exists = UKR country_exists = RUS }
+		UKR = {
+			every_owned_state = {
+				limit = { is_controlled_by = RUS }
+				RUS = { transfer_state = PREV }
+			}
+		}
+		RUS = { white_peace = UKR }
+		RUS = { add_timed_idea = { idea = md_ceasefire_line days = 730 } }
+		UKR = { add_timed_idea = { idea = md_ceasefire_line days = 730 } }
+	}
+	set_global_flag = md_ukraine_ceasefire
+	news_event = { id = md_news.10 days = 1 }
+}
+
+md_gaza_ceasefire = {
+	if = {
+		limit = { NOT = { has_global_flag = md_gaza_ceasefire } }
+		set_global_flag = md_gaza_ceasefire
+		if = {
+			limit = { country_exists = ISR }
+			ISR = {
+				if = { limit = { has_idea = md_isr_hostage_crisis } remove_ideas = md_isr_hostage_crisis }
+				add_timed_idea = { idea = md_gaza_truce days = 365 }
+			}
+		}
+	}
+}
+
+md_syria_offensive = {
+	if = {
+		limit = { country_exists = HTS country_exists = SYR }
+		HTS = {
+			add_timed_idea = { idea = md_hts_lightning_offensive days = 30 }
+			declare_war_on = { target = SYR type = annex_everything }
+		}
+		SYR = { add_timed_idea = { idea = md_syr_regime_collapse days = 60 } }
+	}
+}
+
+md_assad_falls = {
+	set_global_flag = md_assad_fallen
+	if = {
+		limit = { country_exists = HTS }
+		HTS = {
+			annex_country = { target = SYR transfer_troops = no }
+			set_cosmetic_tag = HTS_TRANSITIONAL
+			add_ideas = md_syr_transition
+		}
+	}
+	news_event = { id = md_news.20 days = 1 }
+}
+
+md_usa_swap_cabinet = {
+	if = { limit = { has_character = USA_antony_blinken } retire_character = USA_antony_blinken }
+	if = { limit = { has_character = USA_lloyd_austin } retire_character = USA_lloyd_austin }
+	if = { limit = { has_character = USA_jake_sullivan } retire_character = USA_jake_sullivan }
+	if = { limit = { has_character = USA_janet_yellen } retire_character = USA_janet_yellen }
+	recruit_character = USA_marco_rubio
+	recruit_character = USA_pete_hegseth
+	recruit_character = USA_elon_musk
+	recruit_character = USA_scott_bessent
+	recruit_character = USA_tom_homan
+	recruit_character = USA_susie_wiles
+}
+
+md_cede_greenland = {
+	custom_effect_tooltip = md_tt_greenland
+}

@@ -1,0 +1,18 @@
+characters = {
+	ITA_giorgia_meloni = {
+		name = ITA_giorgia_meloni
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ITA/md_ITA_giorgia_meloni.dds"
+				small = "gfx/interface/ideas/md_leaders/ITA_giorgia_meloni.dds"
+			}
+		}
+		country_leader = {
+			desc = "ITA_giorgia_meloni_desc"
+			ideology = conservatism
+			traits = { md_atlanticist md_charismatic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

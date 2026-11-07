@@ -1,0 +1,18 @@
+characters = {
+	RSF_mohamed_hamdan_dagalo = {
+		name = RSF_mohamed_hamdan_dagalo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RSF/md_RSF_mohamed_hamdan_dagalo.dds"
+				small = "gfx/interface/ideas/md_leaders/RSF_mohamed_hamdan_dagalo.dds"
+			}
+		}
+		country_leader = {
+			desc = "RSF_mohamed_hamdan_dagalo_desc"
+			ideology = despotism
+			traits = { md_insurgent_commander }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

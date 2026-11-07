@@ -1,0 +1,18 @@
+characters = {
+	QAT_tamim_bin_hamad_al_thani = {
+		name = QAT_tamim_bin_hamad_al_thani
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QAT/md_QAT_tamim_bin_hamad_al_thani.dds"
+				small = "gfx/interface/ideas/md_leaders/QAT_tamim_bin_hamad_al_thani.dds"
+			}
+		}
+		country_leader = {
+			desc = "QAT_tamim_bin_hamad_al_thani_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_mediator }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

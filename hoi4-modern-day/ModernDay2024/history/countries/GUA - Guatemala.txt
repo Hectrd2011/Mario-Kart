@@ -1,0 +1,22 @@
+# Guatemala: 6 November 2024
+set_research_slots = 2
+set_stability = 0.45
+set_war_support = 0.15
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.6.25"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 82 communism = 2 fascism = 4 neutrality = 12 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_gang_violence
+}
+
+recruit_character = GUA_bernardo_arevalo

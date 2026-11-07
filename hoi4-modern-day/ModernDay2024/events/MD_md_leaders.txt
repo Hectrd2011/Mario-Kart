@@ -1,0 +1,312 @@
+add_namespace = md_leaders
+
+country_event = {
+	id = md_leaders.1
+	title = md_leaders.1.t
+	desc = md_leaders.1.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.1.a
+		if = {
+			limit = {
+				has_character = MRT_pravind_jugnauth
+			}
+			retire_character = MRT_pravind_jugnauth
+		}
+		recruit_character = MRT_navin_ramgoolam
+		promote_character = MRT_navin_ramgoolam
+		set_party_name = {
+			ideology = democratic
+			long_name = MRT_democratic_party_navin_ramgoolam_long
+			name = MRT_democratic_party_navin_ramgoolam
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.2
+	title = md_leaders.2.t
+	desc = md_leaders.2.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.2.a
+		if = {
+			limit = {
+				has_character = LIT_ingrida_simonyte
+			}
+			retire_character = LIT_ingrida_simonyte
+		}
+		recruit_character = LIT_gintautas_paluckas
+		promote_character = LIT_gintautas_paluckas
+		set_party_name = {
+			ideology = democratic
+			long_name = LIT_democratic_party_gintautas_paluckas_long
+			name = LIT_democratic_party_gintautas_paluckas
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.3
+	title = md_leaders.3.t
+	desc = md_leaders.3.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.3.a
+		if = {
+			limit = {
+				has_character = SML_muse_bihi_abdi
+			}
+			retire_character = SML_muse_bihi_abdi
+		}
+		recruit_character = SML_abdirahman_irro
+		promote_character = SML_abdirahman_irro
+		set_party_name = {
+			ideology = democratic
+			long_name = SML_democratic_party_abdirahman_irro_long
+			name = SML_democratic_party_abdirahman_irro
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.4
+	title = md_leaders.4.t
+	desc = md_leaders.4.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.4.a
+		if = {
+			limit = {
+				has_character = ICE_bjarni_benediktsson
+			}
+			retire_character = ICE_bjarni_benediktsson
+		}
+		recruit_character = ICE_kristrun_frostadottir
+		promote_character = ICE_kristrun_frostadottir
+		set_party_name = {
+			ideology = democratic
+			long_name = ICE_democratic_party_kristrun_frostadottir_long
+			name = ICE_democratic_party_kristrun_frostadottir
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.5
+	title = md_leaders.5.t
+	desc = md_leaders.5.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.5.a
+		if = {
+			limit = {
+				has_character = GHA_nana_akufo_addo
+			}
+			retire_character = GHA_nana_akufo_addo
+		}
+		recruit_character = GHA_john_mahama
+		promote_character = GHA_john_mahama
+		set_party_name = {
+			ideology = democratic
+			long_name = GHA_democratic_party_john_mahama_long
+			name = GHA_democratic_party_john_mahama
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.6
+	title = md_leaders.6.t
+	desc = md_leaders.6.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.6.a
+		if = {
+			limit = {
+				has_character = LEB_najib_mikati
+			}
+			retire_character = LEB_najib_mikati
+		}
+		recruit_character = LEB_joseph_aoun
+		promote_character = LEB_joseph_aoun
+	}
+}
+
+country_event = {
+	id = md_leaders.7
+	title = md_leaders.7.t
+	desc = md_leaders.7.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.7.a
+		if = {
+			limit = {
+				has_character = MZB_filipe_nyusi
+			}
+			retire_character = MZB_filipe_nyusi
+		}
+		recruit_character = MZB_daniel_chapo
+		promote_character = MZB_daniel_chapo
+	}
+}
+
+country_event = {
+	id = md_leaders.8
+	title = md_leaders.8.t
+	desc = md_leaders.8.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.8.a
+		if = {
+			limit = {
+				has_character = BUL_dimitar_glavchev
+			}
+			retire_character = BUL_dimitar_glavchev
+		}
+		recruit_character = BUL_rosen_zhelyazkov
+		promote_character = BUL_rosen_zhelyazkov
+		set_party_name = {
+			ideology = democratic
+			long_name = BUL_democratic_party_rosen_zhelyazkov_long
+			name = BUL_democratic_party_rosen_zhelyazkov
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.9
+	title = md_leaders.9.t
+	desc = md_leaders.9.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.9.a
+		if = {
+			limit = {
+				has_character = IRE_simon_harris
+			}
+			retire_character = IRE_simon_harris
+		}
+		recruit_character = IRE_micheal_martin
+		promote_character = IRE_micheal_martin
+		set_party_name = {
+			ideology = democratic
+			long_name = IRE_democratic_party_micheal_martin_long
+			name = IRE_democratic_party_micheal_martin
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.10
+	title = md_leaders.10.t
+	desc = md_leaders.10.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.10.a
+		if = {
+			limit = {
+				has_character = BEL_alexander_de_croo
+			}
+			retire_character = BEL_alexander_de_croo
+		}
+		recruit_character = BEL_bart_de_wever
+		promote_character = BEL_bart_de_wever
+		set_party_name = {
+			ideology = democratic
+			long_name = BEL_democratic_party_bart_de_wever_long
+			name = BEL_democratic_party_bart_de_wever
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.11
+	title = md_leaders.11.t
+	desc = md_leaders.11.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.11.a
+		if = {
+			limit = {
+				has_character = URG_luis_lacalle_pou
+			}
+			retire_character = URG_luis_lacalle_pou
+		}
+		recruit_character = URG_yamandu_orsi
+		promote_character = URG_yamandu_orsi
+		set_party_name = {
+			ideology = democratic
+			long_name = URG_democratic_party_yamandu_orsi_long
+			name = URG_democratic_party_yamandu_orsi
+		}
+	}
+}
+
+country_event = {
+	id = md_leaders.12
+	title = md_leaders.12.t
+	desc = md_leaders.12.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.12.a
+		if = {
+			limit = {
+				has_character = AUS_karl_nehammer
+			}
+			retire_character = AUS_karl_nehammer
+		}
+		recruit_character = AUS_christian_stocker
+		promote_character = AUS_christian_stocker
+	}
+}
+
+country_event = {
+	id = md_leaders.13
+	title = md_leaders.13.t
+	desc = md_leaders.13.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.13.a
+		if = {
+			limit = {
+				has_character = NMB_nangolo_mbumba
+			}
+			retire_character = NMB_nangolo_mbumba
+		}
+		recruit_character = NMB_netumbo_nandi_ndaitwah
+		promote_character = NMB_netumbo_nandi_ndaitwah
+	}
+}
+
+country_event = {
+	id = md_leaders.14
+	title = md_leaders.14.t
+	desc = md_leaders.14.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_leaders.14.a
+		if = {
+			limit = {
+				has_character = JAP_shigeru_ishiba
+			}
+			retire_character = JAP_shigeru_ishiba
+		}
+		recruit_character = JAP_sanae_takaichi
+		promote_character = JAP_sanae_takaichi
+	}
+}

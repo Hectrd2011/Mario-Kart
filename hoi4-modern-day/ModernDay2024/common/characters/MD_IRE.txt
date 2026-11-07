@@ -1,0 +1,34 @@
+characters = {
+	IRE_simon_harris = {
+		name = IRE_simon_harris
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/IRE/md_IRE_simon_harris.dds"
+				small = "gfx/interface/ideas/md_leaders/IRE_simon_harris.dds"
+			}
+		}
+		country_leader = {
+			desc = "IRE_simon_harris_desc"
+			ideology = conservatism
+			traits = { md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	IRE_micheal_martin = {
+		name = IRE_micheal_martin
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/IRE/md_IRE_micheal_martin.dds"
+				small = "gfx/interface/ideas/md_leaders/IRE_micheal_martin.dds"
+			}
+		}
+		country_leader = {
+			desc = "IRE_micheal_martin_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

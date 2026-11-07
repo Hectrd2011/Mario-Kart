@@ -1,0 +1,18 @@
+characters = {
+	MEX_claudia_sheinbaum = {
+		name = MEX_claudia_sheinbaum
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MEX/md_MEX_claudia_sheinbaum.dds"
+				small = "gfx/interface/ideas/md_leaders/MEX_claudia_sheinbaum.dds"
+			}
+		}
+		country_leader = {
+			desc = "MEX_claudia_sheinbaum_desc"
+			ideology = socialism
+			traits = { md_technocrat md_reformer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

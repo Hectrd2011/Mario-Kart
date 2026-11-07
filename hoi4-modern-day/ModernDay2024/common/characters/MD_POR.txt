@@ -1,0 +1,18 @@
+characters = {
+	POR_luis_montenegro = {
+		name = POR_luis_montenegro
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POR/md_POR_luis_montenegro.dds"
+				small = "gfx/interface/ideas/md_leaders/POR_luis_montenegro.dds"
+			}
+		}
+		country_leader = {
+			desc = "POR_luis_montenegro_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	DRC_felix_tshisekedi = {
+		name = DRC_felix_tshisekedi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/DRC/md_DRC_felix_tshisekedi.dds"
+				small = "gfx/interface/ideas/md_leaders/DRC_felix_tshisekedi.dds"
+			}
+		}
+		country_leader = {
+			desc = "DRC_felix_tshisekedi_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

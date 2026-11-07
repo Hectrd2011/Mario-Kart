@@ -1,0 +1,18 @@
+characters = {
+	SIE_julius_maada_bio = {
+		name = SIE_julius_maada_bio
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SIE/md_SIE_julius_maada_bio.dds"
+				small = "gfx/interface/ideas/md_leaders/SIE_julius_maada_bio.dds"
+			}
+		}
+		country_leader = {
+			desc = "SIE_julius_maada_bio_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

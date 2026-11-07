@@ -1,0 +1,18 @@
+characters = {
+	GEO_irakli_kobakhidze = {
+		name = GEO_irakli_kobakhidze
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GEO/md_GEO_irakli_kobakhidze.dds"
+				small = "gfx/interface/ideas/md_leaders/GEO_irakli_kobakhidze.dds"
+			}
+		}
+		country_leader = {
+			desc = "GEO_irakli_kobakhidze_desc"
+			ideology = conservatism
+			traits = { md_balancer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

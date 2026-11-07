@@ -1,0 +1,18 @@
+characters = {
+	SSD_salva_kiir = {
+		name = SSD_salva_kiir
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SSD/md_SSD_salva_kiir.dds"
+				small = "gfx/interface/ideas/md_leaders/SSD_salva_kiir.dds"
+			}
+		}
+		country_leader = {
+			desc = "SSD_salva_kiir_desc"
+			ideology = despotism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

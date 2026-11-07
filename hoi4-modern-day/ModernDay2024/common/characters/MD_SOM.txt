@@ -1,0 +1,18 @@
+characters = {
+	SOM_hassan_sheikh_mohamud = {
+		name = SOM_hassan_sheikh_mohamud
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOM/md_SOM_hassan_sheikh_mohamud.dds"
+				small = "gfx/interface/ideas/md_leaders/SOM_hassan_sheikh_mohamud.dds"
+			}
+		}
+		country_leader = {
+			desc = "SOM_hassan_sheikh_mohamud_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

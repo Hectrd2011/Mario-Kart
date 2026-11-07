@@ -1,0 +1,70 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_md_event_ceasefire"
+		texturefile = "gfx/event_pictures/md/ceasefire.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_deal"
+		texturefile = "gfx/event_pictures/md/deal.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_election"
+		texturefile = "gfx/event_pictures/md/election.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_germany"
+		texturefile = "gfx/event_pictures/md/germany.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_inauguration"
+		texturefile = "gfx/event_pictures/md/inauguration.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_iran"
+		texturefile = "gfx/event_pictures/md/iran.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_israel"
+		texturefile = "gfx/event_pictures/md/israel.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_korea"
+		texturefile = "gfx/event_pictures/md/korea.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_map"
+		texturefile = "gfx/event_pictures/md/map.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_missiles"
+		texturefile = "gfx/event_pictures/md/missiles.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_news_election"
+		texturefile = "gfx/event_pictures/md/news_election.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_news_peace"
+		texturefile = "gfx/event_pictures/md/news_peace.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_news_war"
+		texturefile = "gfx/event_pictures/md/news_war.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_parliament"
+		texturefile = "gfx/event_pictures/md/parliament.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_protest"
+		texturefile = "gfx/event_pictures/md/protest.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_ship"
+		texturefile = "gfx/event_pictures/md/ship.dds"
+	}
+	spriteType = {
+		name = "GFX_md_event_syria"
+		texturefile = "gfx/event_pictures/md/syria.dds"
+	}
+}

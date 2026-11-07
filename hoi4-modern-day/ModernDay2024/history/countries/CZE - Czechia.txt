@@ -1,0 +1,22 @@
+# Czechia: 6 November 2024
+set_research_slots = 3
+set_stability = 0.60
+set_war_support = 0.20
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2021.10.9"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 82 communism = 4 fascism = 6 neutrality = 8 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_cze_ammo_initiative
+}
+
+recruit_character = CZE_petr_fiala

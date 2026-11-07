@@ -1,0 +1,18 @@
+characters = {
+	SAU_mohammed_bin_salman = {
+		name = SAU_mohammed_bin_salman
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SAU/md_SAU_mohammed_bin_salman.dds"
+				small = "gfx/interface/ideas/md_leaders/SAU_mohammed_bin_salman.dds"
+			}
+		}
+		country_leader = {
+			desc = "SAU_mohammed_bin_salman_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_vision_2030 }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

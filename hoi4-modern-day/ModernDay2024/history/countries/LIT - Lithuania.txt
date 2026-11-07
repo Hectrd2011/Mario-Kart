@@ -1,0 +1,21 @@
+# Lithuania: 6 November 2024
+set_research_slots = 2
+set_stability = 0.60
+set_war_support = 0.45
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.10.13"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 2 fascism = 4 neutrality = 2 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+}
+
+recruit_character = LIT_ingrida_simonyte

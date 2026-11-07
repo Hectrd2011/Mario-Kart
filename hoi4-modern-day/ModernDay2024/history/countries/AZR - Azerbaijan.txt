@@ -1,0 +1,20 @@
+# Azerbaijan: 6 November 2024
+set_research_slots = 2
+set_stability = 0.70
+set_war_support = 0.40
+set_convoys = 30
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 10 communism = 0 fascism = 5 neutrality = 85 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_petro_state_spirit
+}
+
+recruit_character = AZR_ilham_aliyev

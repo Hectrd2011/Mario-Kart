@@ -1,0 +1,29 @@
+# Russia: 6 November 2024
+set_research_slots = 4
+set_stability = 0.60
+set_war_support = 0.55
+set_convoys = 400
+add_nuclear_bombs = 12
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 8 communism = 10 fascism = 12 neutrality = 70 }
+
+add_ideas = {
+	war_economy
+	extensive_conscription
+	limited_exports
+	md_rus_war_economy
+	md_rus_sanctions
+	md_rus_partial_mobilization
+	md_nuclear_triad
+	md_rus_power_vertical
+}
+
+recruit_character = RUS_vladimir_putin
+recruit_character = RUS_sergey_lavrov
+recruit_character = RUS_andrey_belousov
+recruit_character = RUS_mikhail_mishustin
+recruit_character = RUS_valery_gerasimov

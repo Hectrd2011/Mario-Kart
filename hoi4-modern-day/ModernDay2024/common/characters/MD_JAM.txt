@@ -1,0 +1,18 @@
+characters = {
+	JAM_andrew_holness = {
+		name = JAM_andrew_holness
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/JAM/md_JAM_andrew_holness.dds"
+				small = "gfx/interface/ideas/md_leaders/JAM_andrew_holness.dds"
+			}
+		}
+		country_leader = {
+			desc = "JAM_andrew_holness_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

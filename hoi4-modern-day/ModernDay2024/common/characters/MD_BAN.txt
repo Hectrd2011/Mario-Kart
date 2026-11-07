@@ -1,0 +1,18 @@
+characters = {
+	BAN_muhammad_yunus = {
+		name = BAN_muhammad_yunus
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BAN/md_BAN_muhammad_yunus.dds"
+				small = "gfx/interface/ideas/md_leaders/BAN_muhammad_yunus.dds"
+			}
+		}
+		country_leader = {
+			desc = "BAN_muhammad_yunus_desc"
+			ideology = liberalism
+			traits = { md_interim_leader md_economist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	LAT_evika_silina = {
+		name = LAT_evika_silina
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LAT/md_LAT_evika_silina.dds"
+				small = "gfx/interface/ideas/md_leaders/LAT_evika_silina.dds"
+			}
+		}
+		country_leader = {
+			desc = "LAT_evika_silina_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

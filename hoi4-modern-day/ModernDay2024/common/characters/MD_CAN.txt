@@ -1,0 +1,50 @@
+characters = {
+	CAN_justin_trudeau = {
+		name = CAN_justin_trudeau
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAN/md_CAN_justin_trudeau.dds"
+				small = "gfx/interface/ideas/md_leaders/CAN_justin_trudeau.dds"
+			}
+		}
+		country_leader = {
+			desc = "CAN_justin_trudeau_desc"
+			ideology = liberalism
+			traits = { md_unpopular_incumbent md_charismatic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	CAN_mark_carney = {
+		name = CAN_mark_carney
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAN/md_CAN_mark_carney.dds"
+				small = "gfx/interface/ideas/md_leaders/CAN_mark_carney.dds"
+			}
+		}
+		country_leader = {
+			desc = "CAN_mark_carney_desc"
+			ideology = liberalism
+			traits = { md_economist md_crisis_manager }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	CAN_pierre_poilievre = {
+		name = CAN_pierre_poilievre
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAN/md_CAN_pierre_poilievre.dds"
+				small = "gfx/interface/ideas/md_leaders/CAN_pierre_poilievre.dds"
+			}
+		}
+		country_leader = {
+			desc = "CAN_pierre_poilievre_desc"
+			ideology = conservatism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

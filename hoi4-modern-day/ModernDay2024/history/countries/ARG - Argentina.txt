@@ -1,0 +1,23 @@
+# Argentina: 6 November 2024
+set_research_slots = 3
+set_stability = 0.45
+set_war_support = 0.20
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.10.22"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 90 communism = 3 fascism = 3 neutrality = 4 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_arg_chainsaw_austerity
+	md_arg_inflation
+}
+
+recruit_character = ARG_javier_milei

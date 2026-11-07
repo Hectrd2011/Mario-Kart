@@ -1,0 +1,18 @@
+characters = {
+	JOR_abdullah_ii = {
+		name = JOR_abdullah_ii
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/JOR/md_JOR_abdullah_ii.dds"
+				small = "gfx/interface/ideas/md_leaders/JOR_abdullah_ii.dds"
+			}
+		}
+		country_leader = {
+			desc = "JOR_abdullah_ii_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_balancer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

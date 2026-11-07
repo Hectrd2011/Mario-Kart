@@ -1,0 +1,15 @@
+version="1.0.0"
+tags={
+	"Alternative History"
+	"Events"
+	"Gameplay"
+	"Historical"
+	"National Focuses"
+}
+name="Modern Day: 2024"
+picture="thumbnail.png"
+supported_version="1.16.*"
+replace_path="common/bookmarks"
+replace_path="common/national_focus"
+replace_path="common/ai_strategy_plans"
+replace_path="history/countries"

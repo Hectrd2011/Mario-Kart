@@ -1,0 +1,18 @@
+characters = {
+	BAH_hamad_bin_isa_al_khalifa = {
+		name = BAH_hamad_bin_isa_al_khalifa
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BAH/md_BAH_hamad_bin_isa_al_khalifa.dds"
+				small = "gfx/interface/ideas/md_leaders/BAH_hamad_bin_isa_al_khalifa.dds"
+			}
+		}
+		country_leader = {
+			desc = "BAH_hamad_bin_isa_al_khalifa_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

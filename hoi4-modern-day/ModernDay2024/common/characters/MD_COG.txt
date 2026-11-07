@@ -1,0 +1,18 @@
+characters = {
+	COG_denis_sassou_nguesso = {
+		name = COG_denis_sassou_nguesso
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/COG/md_COG_denis_sassou_nguesso.dds"
+				small = "gfx/interface/ideas/md_leaders/COG_denis_sassou_nguesso.dds"
+			}
+		}
+		country_leader = {
+			desc = "COG_denis_sassou_nguesso_desc"
+			ideology = despotism
+			traits = { md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

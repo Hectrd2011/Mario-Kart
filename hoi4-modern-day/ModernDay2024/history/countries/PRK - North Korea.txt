@@ -1,0 +1,23 @@
+# North Korea: 6 November 2024
+set_research_slots = 2
+set_stability = 0.80
+set_war_support = 0.70
+set_convoys = 30
+add_nuclear_bombs = 1
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 0 communism = 100 fascism = 0 neutrality = 0 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	extensive_conscription
+	closed_economy
+	md_prk_songun
+	md_prk_juche_autarky
+	md_prk_nuclear_arsenal
+}
+
+recruit_character = PRK_kim_jong_un

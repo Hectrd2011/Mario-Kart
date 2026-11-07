@@ -1,0 +1,24 @@
+add_namespace = md_geo
+
+country_event = {
+	id = md_geo.1
+	title = md_geo.1.t
+	desc = md_geo.1.d
+	picture = GFX_md_event_protest
+	is_triggered_only = yes
+	option = {
+		name = md_geo.1.a
+		ai_chance = { factor = 80 }
+		add_stability = -0.08
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+	}
+	option = {
+		name = md_geo.1.b
+		ai_chance = { factor = 20 }
+		add_stability = 0.04
+		add_political_power = -75
+	}
+}

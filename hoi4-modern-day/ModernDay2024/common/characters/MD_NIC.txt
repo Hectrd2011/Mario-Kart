@@ -1,0 +1,18 @@
+characters = {
+	NIC_daniel_ortega = {
+		name = NIC_daniel_ortega
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NIC/md_NIC_daniel_ortega.dds"
+				small = "gfx/interface/ideas/md_leaders/NIC_daniel_ortega.dds"
+			}
+		}
+		country_leader = {
+			desc = "NIC_daniel_ortega_desc"
+			ideology = marxism
+			traits = { md_strongman md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,23 @@
+# Austria: 6 November 2024
+set_research_slots = 3
+set_stability = 0.60
+set_war_support = 0.10
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.9.29"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 70 communism = 2 fascism = 28 neutrality = 0 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_neutral_tradition
+}
+
+recruit_character = AUS_karl_nehammer
+recruit_character = AUS_herbert_kickl

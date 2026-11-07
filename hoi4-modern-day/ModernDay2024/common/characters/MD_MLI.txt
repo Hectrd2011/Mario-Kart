@@ -1,0 +1,18 @@
+characters = {
+	MLI_assimi_goita = {
+		name = MLI_assimi_goita
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MLI/md_MLI_assimi_goita.dds"
+				small = "gfx/interface/ideas/md_leaders/MLI_assimi_goita.dds"
+			}
+		}
+		country_leader = {
+			desc = "MLI_assimi_goita_desc"
+			ideology = despotism
+			traits = { md_military_ruler md_sovereigntist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

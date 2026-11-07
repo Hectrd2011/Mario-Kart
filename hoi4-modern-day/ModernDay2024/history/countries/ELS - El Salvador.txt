@@ -1,0 +1,22 @@
+# El Salvador: 6 November 2024
+set_research_slots = 1
+set_stability = 0.75
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.2.4"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 90 communism = 2 fascism = 2 neutrality = 6 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_slv_state_of_exception
+}
+
+recruit_character = ELS_nayib_bukele

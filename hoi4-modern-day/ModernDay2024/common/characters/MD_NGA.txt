@@ -1,0 +1,18 @@
+characters = {
+	NGA_bola_tinubu = {
+		name = NGA_bola_tinubu
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NGA/md_NGA_bola_tinubu.dds"
+				small = "gfx/interface/ideas/md_leaders/NGA_bola_tinubu.dds"
+			}
+		}
+		country_leader = {
+			desc = "NGA_bola_tinubu_desc"
+			ideology = conservatism
+			traits = { md_power_broker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,50 @@
+characters = {
+	AUS_karl_nehammer = {
+		name = AUS_karl_nehammer
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AUS/md_AUS_karl_nehammer.dds"
+				small = "gfx/interface/ideas/md_leaders/AUS_karl_nehammer.dds"
+			}
+		}
+		country_leader = {
+			desc = "AUS_karl_nehammer_desc"
+			ideology = conservatism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	AUS_christian_stocker = {
+		name = AUS_christian_stocker
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AUS/md_AUS_christian_stocker.dds"
+				small = "gfx/interface/ideas/md_leaders/AUS_christian_stocker.dds"
+			}
+		}
+		country_leader = {
+			desc = "AUS_christian_stocker_desc"
+			ideology = conservatism
+			traits = { md_coalition_builder }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	AUS_herbert_kickl = {
+		name = AUS_herbert_kickl
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AUS/md_AUS_herbert_kickl.dds"
+				small = "gfx/interface/ideas/md_leaders/AUS_herbert_kickl.dds"
+			}
+		}
+		country_leader = {
+			desc = "AUS_herbert_kickl_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

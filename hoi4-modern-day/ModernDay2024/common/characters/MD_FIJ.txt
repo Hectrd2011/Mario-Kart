@@ -1,0 +1,18 @@
+characters = {
+	FIJ_sitiveni_rabuka = {
+		name = FIJ_sitiveni_rabuka
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/FIJ/md_FIJ_sitiveni_rabuka.dds"
+				small = "gfx/interface/ideas/md_leaders/FIJ_sitiveni_rabuka.dds"
+			}
+		}
+		country_leader = {
+			desc = "FIJ_sitiveni_rabuka_desc"
+			ideology = conservatism
+			traits = { md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

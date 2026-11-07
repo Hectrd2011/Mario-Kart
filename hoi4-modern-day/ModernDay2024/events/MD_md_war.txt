@@ -1,0 +1,90 @@
+add_namespace = md_war
+
+country_event = {
+	id = md_war.10
+	title = md_war.10.t
+	desc = md_war.10.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_war.10.a
+		ai_chance = { factor = 40 }
+		UKR = {
+			country_event = {
+				id = md_war.13
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = md_war.10.b
+		ai_chance = { factor = 60 }
+		add_war_support = 0.03
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_pressure
+			}
+		}
+	}
+}
+
+country_event = {
+	id = md_war.11
+	title = md_war.11.t
+	desc = md_war.11.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_war.11.a
+		ai_chance = { factor = 30 }
+		md_ukraine_ceasefire = yes
+	}
+	option = {
+		name = md_war.11.b
+		ai_chance = { factor = 70 }
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	id = md_war.12
+	title = md_war.12.t
+	desc = md_war.12.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_war.12.a
+		ai_chance = { factor = 30 }
+		md_ukraine_ceasefire = yes
+	}
+	option = {
+		name = md_war.12.b
+		ai_chance = { factor = 70 }
+		add_war_support = 0.02
+	}
+}
+
+country_event = {
+	id = md_war.13
+	title = md_war.13.t
+	desc = md_war.13.d
+	picture = GFX_md_event_ceasefire
+	is_triggered_only = yes
+	option = {
+		name = md_war.13.a
+		ai_chance = { factor = 50 }
+		md_ukraine_ceasefire = yes
+	}
+	option = {
+		name = md_war.13.b
+		ai_chance = { factor = 50 }
+		add_war_support = 0.05
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_pressure
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+# Mexico: 6 November 2024
+set_research_slots = 3
+set_stability = 0.55
+set_war_support = 0.25
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.6.2"
+	election_frequency = 72
+	elections_allowed = yes
+}
+set_popularities = { democratic = 88 communism = 3 fascism = 3 neutrality = 6 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_mex_cartel_violence
+	md_mex_nearshoring
+}
+
+recruit_character = MEX_claudia_sheinbaum

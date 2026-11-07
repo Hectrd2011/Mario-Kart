@@ -1,0 +1,82 @@
+characters = {
+	RUS_vladimir_putin = {
+		name = RUS_vladimir_putin
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RUS/md_RUS_vladimir_putin.dds"
+				small = "gfx/interface/ideas/md_leaders/RUS_vladimir_putin.dds"
+			}
+		}
+		country_leader = {
+			desc = "RUS_vladimir_putin_desc"
+			ideology = despotism
+			traits = { md_strongman md_war_president md_kgb_veteran }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	RUS_sergey_lavrov = {
+		name = RUS_sergey_lavrov
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/RUS_sergey_lavrov.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_sergey_lavrov_adv
+			allowed = { original_tag = RUS }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RUS_andrey_belousov = {
+		name = RUS_andrey_belousov
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/RUS_andrey_belousov.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_andrey_belousov_adv
+			allowed = { original_tag = RUS }
+			traits = { md_adv_war_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RUS_mikhail_mishustin = {
+		name = RUS_mikhail_mishustin
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/RUS_mikhail_mishustin.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_mikhail_mishustin_adv
+			allowed = { original_tag = RUS }
+			traits = { md_adv_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	RUS_valery_gerasimov = {
+		name = RUS_valery_gerasimov
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/RUS_valery_gerasimov.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RUS_valery_gerasimov_adv
+			allowed = { original_tag = RUS }
+			traits = { md_adv_general_staff }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

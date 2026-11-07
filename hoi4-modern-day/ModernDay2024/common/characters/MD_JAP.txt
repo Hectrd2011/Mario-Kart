@@ -1,0 +1,34 @@
+characters = {
+	JAP_shigeru_ishiba = {
+		name = JAP_shigeru_ishiba
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/JAP/md_JAP_shigeru_ishiba.dds"
+				small = "gfx/interface/ideas/md_leaders/JAP_shigeru_ishiba.dds"
+			}
+		}
+		country_leader = {
+			desc = "JAP_shigeru_ishiba_desc"
+			ideology = conservatism
+			traits = { md_defense_hawk }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	JAP_sanae_takaichi = {
+		name = JAP_sanae_takaichi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/JAP/md_JAP_sanae_takaichi.dds"
+				small = "gfx/interface/ideas/md_leaders/JAP_sanae_takaichi.dds"
+			}
+		}
+		country_leader = {
+			desc = "JAP_sanae_takaichi_desc"
+			ideology = conservatism
+			traits = { md_defense_hawk }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

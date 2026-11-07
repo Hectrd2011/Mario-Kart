@@ -1,0 +1,18 @@
+characters = {
+	MNT_milojko_spajic = {
+		name = MNT_milojko_spajic
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MNT/md_MNT_milojko_spajic.dds"
+				small = "gfx/interface/ideas/md_leaders/MNT_milojko_spajic.dds"
+			}
+		}
+		country_leader = {
+			desc = "MNT_milojko_spajic_desc"
+			ideology = liberalism
+			traits = { md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

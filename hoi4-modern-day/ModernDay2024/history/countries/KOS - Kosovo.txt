@@ -1,0 +1,22 @@
+# Kosovo: 6 November 2024
+set_research_slots = 1
+set_stability = 0.50
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2021.2.14"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 1 fascism = 4 neutrality = 3 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_kos_partial_recognition
+}
+
+recruit_character = KOS_albin_kurti

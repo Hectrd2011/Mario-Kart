@@ -1,0 +1,29 @@
+# China: 6 November 2024
+set_research_slots = 6
+set_stability = 0.70
+set_war_support = 0.35
+set_convoys = 400
+add_nuclear_bombs = 5
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 3 communism = 95 fascism = 1 neutrality = 1 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	limited_conscription
+	export_focus
+	md_prc_worlds_factory
+	md_prc_property_slump
+	md_prc_great_firewall
+	md_prc_pla_modernization
+	md_nuclear_triad
+}
+
+recruit_character = PRC_xi_jinping
+recruit_character = PRC_li_qiang
+recruit_character = PRC_wang_yi
+recruit_character = PRC_dong_jun
+recruit_character = PRC_cai_qi

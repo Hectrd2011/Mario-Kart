@@ -1,0 +1,19 @@
+# Rojava: 6 November 2024
+set_research_slots = 1
+set_stability = 0.45
+set_war_support = 0.60
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	elections_allowed = no
+}
+set_popularities = { democratic = 70 communism = 25 fascism = 0 neutrality = 5 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+}
+
+recruit_character = RJV_mazloum_abdi

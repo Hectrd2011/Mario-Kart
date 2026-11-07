@@ -1,0 +1,23 @@
+# Poland: 6 November 2024
+set_research_slots = 4
+set_stability = 0.60
+set_war_support = 0.45
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.10.15"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 85 communism = 1 fascism = 13 neutrality = 1 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_conscription
+	export_focus
+	md_pol_eastern_shield
+	md_pol_cohabitation
+}
+
+recruit_character = POL_donald_tusk

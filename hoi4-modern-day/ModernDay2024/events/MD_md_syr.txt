@@ -1,0 +1,41 @@
+add_namespace = md_syr
+
+country_event = {
+	id = md_syr.1
+	title = md_syr.1.t
+	desc = md_syr.1.d
+	picture = GFX_md_event_syria
+	is_triggered_only = yes
+	option = {
+		name = md_syr.1.a
+		ai_chance = { factor = 95 }
+		md_syria_offensive = yes
+	}
+	option = {
+		name = md_syr.1.b
+		ai_chance = { factor = 5 }
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = md_syr.2
+	title = md_syr.2.t
+	desc = md_syr.2.d
+	picture = GFX_md_event_syria
+	is_triggered_only = yes
+	trigger = {
+		has_war_with = HTS
+	}
+	option = {
+		name = md_syr.2.a
+		ai_chance = { factor = 95 }
+		md_assad_falls = yes
+	}
+	option = {
+		name = md_syr.2.b
+		ai_chance = { factor = 5 }
+		add_war_support = 0.1
+		add_stability = -0.1
+	}
+}

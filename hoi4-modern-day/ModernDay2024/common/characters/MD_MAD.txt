@@ -1,0 +1,18 @@
+characters = {
+	MAD_andry_rajoelina = {
+		name = MAD_andry_rajoelina
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MAD/md_MAD_andry_rajoelina.dds"
+				small = "gfx/interface/ideas/md_leaders/MAD_andry_rajoelina.dds"
+			}
+		}
+		country_leader = {
+			desc = "MAD_andry_rajoelina_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

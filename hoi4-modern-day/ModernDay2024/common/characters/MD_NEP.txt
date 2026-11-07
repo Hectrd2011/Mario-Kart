@@ -1,0 +1,18 @@
+characters = {
+	NEP_k_p_sharma_oli = {
+		name = NEP_k_p_sharma_oli
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NEP/md_NEP_k_p_sharma_oli.dds"
+				small = "gfx/interface/ideas/md_leaders/NEP_k_p_sharma_oli.dds"
+			}
+		}
+		country_leader = {
+			desc = "NEP_k_p_sharma_oli_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

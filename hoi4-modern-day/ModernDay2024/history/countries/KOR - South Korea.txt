@@ -1,0 +1,24 @@
+# South Korea: 6 November 2024
+set_research_slots = 5
+set_stability = 0.50
+set_war_support = 0.35
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.3.9"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 93 communism = 1 fascism = 2 neutrality = 4 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_kor_chaebol_economy
+	md_kor_k_defense
+	md_kor_low_birthrate
+}
+
+recruit_character = KOR_yoon_suk_yeol

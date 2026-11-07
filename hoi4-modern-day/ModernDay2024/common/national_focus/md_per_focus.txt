@@ -1,0 +1,426 @@
+focus_tree = {
+	id = md_per_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = PER
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = PER_resistance
+		icon = GFX_md_shield_star_military_ir
+		x = 10
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = PER_true_promise_iii
+		icon = GFX_md_rocket_launch_military_ir
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = PER_resistance }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.03
+			add_named_threat = {
+				threat = 2
+				name = md_threat_true_promise
+			}
+		}
+	}
+
+	focus = {
+		id = PER_rebuild_axis
+		icon = GFX_md_earth_arrow_right_military_ir
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_true_promise_iii }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_per_axis_of_resistance
+				add_idea = md_per_rearmed_axis
+			}
+		}
+	}
+
+	focus = {
+		id = PER_houthi_supply
+		icon = GFX_md_ferry_military_ir
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_true_promise_iii }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = YEM
+				}
+				YEM = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 3000
+						producer = PER
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = YEM
+				}
+				add_opinion_modifier = {
+					target = YEM
+					modifier = md_opinion_alliance
+				}
+				YEM = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PER_missile_city
+		icon = GFX_md_rocket_military_ir
+		x = 4
+		y = 3
+		cost = 10
+		prerequisite = { focus = PER_rebuild_axis }
+		prerequisite = { focus = PER_houthi_supply }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = PER_missile_bonus
+				bonus = 1.0
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = PER_nuclear_question
+		icon = GFX_md_atom_nuclear_ir
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = PER_resistance }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = PER_weapons_grade
+		icon = GFX_md_radioactive_nuclear_ir
+		x = 9
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_nuclear_question }
+		mutually_exclusive = { focus = PER_oman_talks }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 0.3 }
+		completion_reward = {
+			add_named_threat = {
+				threat = 4
+				name = md_threat_iran_enrichment
+			}
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = PER_the_bomb
+		icon = GFX_md_radioactive_nuclear_ir
+		x = 9
+		y = 3
+		cost = 10
+		prerequisite = { focus = PER_weapons_grade }
+		available = {
+			NOT = {
+				has_idea = md_per_nuclear_setback
+			}
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 0.2 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_per_nuclear_threshold
+				add_idea = md_per_nuclear_weapon
+			}
+			add_named_threat = {
+				threat = 10
+				name = md_threat_iran_bomb
+			}
+			if = {
+				limit = {
+					country_exists = ISR
+				}
+				ISR = {
+					add_war_support = 0.1
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SAU
+				}
+				SAU = {
+					add_war_support = 0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PER_oman_talks
+		icon = GFX_md_handshake_diplomacy_ir
+		x = 11
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_nuclear_question }
+		mutually_exclusive = { focus = PER_weapons_grade }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = OMA
+				}
+				add_opinion_modifier = {
+					target = OMA
+					modifier = md_opinion_trade_deal
+				}
+				OMA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = PER_new_deal
+		icon = GFX_md_file_sign_diplomacy_ir
+		x = 11
+		y = 3
+		cost = 10
+		prerequisite = { focus = PER_oman_talks }
+		available = {
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > -20
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_per_maximum_pressure
+				add_idea = md_per_sanctions_relief
+			}
+		}
+	}
+
+	focus = {
+		id = PER_look_east
+		icon = GFX_md_compass_diplomacy_ir
+		x = 15
+		y = 1
+		cost = 10
+		prerequisite = { focus = PER_resistance }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_trade_deal
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				add_opinion_modifier = {
+					target = RUS
+					modifier = md_opinion_alliance
+				}
+				RUS = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PER_resistance_economy
+		icon = GFX_md_shield_economy_ir
+		x = 15
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_look_east }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_per_resistance_economy
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PER_energy_crisis
+		icon = GFX_md_flash_alert_energy_ir
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = PER_resistance_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PER_hijab_law
+		icon = GFX_md_gavel_politics_ir
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = PER_resistance }
+		mutually_exclusive = { focus = PER_pezeshkian_reforms }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_per_hijab_enforcement
+		}
+	}
+
+	focus = {
+		id = PER_pezeshkian_reforms
+		icon = GFX_md_account_group_society_ir
+		x = 21
+		y = 1
+		cost = 10
+		prerequisite = { focus = PER_resistance }
+		mutually_exclusive = { focus = PER_hijab_law }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_per_social_opening
+		}
+	}
+
+	focus = {
+		id = PER_succession
+		icon = GFX_md_crown_politics_ir
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = PER_hijab_law focus = PER_pezeshkian_reforms }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 50
+		}
+	}
+
+}

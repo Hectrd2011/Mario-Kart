@@ -1,0 +1,18 @@
+characters = {
+	TMS_serdar_berdimuhamedow = {
+		name = TMS_serdar_berdimuhamedow
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TMS/md_TMS_serdar_berdimuhamedow.dds"
+				small = "gfx/interface/ideas/md_leaders/TMS_serdar_berdimuhamedow.dds"
+			}
+		}
+		country_leader = {
+			desc = "TMS_serdar_berdimuhamedow_desc"
+			ideology = despotism
+			traits = { md_dynast }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	SOL_jeremiah_manele = {
+		name = SOL_jeremiah_manele
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOL/md_SOL_jeremiah_manele.dds"
+				small = "gfx/interface/ideas/md_leaders/SOL_jeremiah_manele.dds"
+			}
+		}
+		country_leader = {
+			desc = "SOL_jeremiah_manele_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

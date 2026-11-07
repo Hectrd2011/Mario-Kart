@@ -1,0 +1,18 @@
+characters = {
+	MLW_lazarus_chakwera = {
+		name = MLW_lazarus_chakwera
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MLW/md_MLW_lazarus_chakwera.dds"
+				small = "gfx/interface/ideas/md_leaders/MLW_lazarus_chakwera.dds"
+			}
+		}
+		country_leader = {
+			desc = "MLW_lazarus_chakwera_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

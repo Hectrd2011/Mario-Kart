@@ -1,0 +1,18 @@
+characters = {
+	LBA_abdul_hamid_dbeibeh = {
+		name = LBA_abdul_hamid_dbeibeh
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LBA/md_LBA_abdul_hamid_dbeibeh.dds"
+				small = "gfx/interface/ideas/md_leaders/LBA_abdul_hamid_dbeibeh.dds"
+			}
+		}
+		country_leader = {
+			desc = "LBA_abdul_hamid_dbeibeh_desc"
+			ideology = conservatism
+			traits = { md_power_broker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

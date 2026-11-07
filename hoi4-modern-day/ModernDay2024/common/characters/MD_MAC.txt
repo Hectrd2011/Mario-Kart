@@ -1,0 +1,18 @@
+characters = {
+	MAC_hristijan_mickoski = {
+		name = MAC_hristijan_mickoski
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MAC/md_MAC_hristijan_mickoski.dds"
+				small = "gfx/interface/ideas/md_leaders/MAC_hristijan_mickoski.dds"
+			}
+		}
+		country_leader = {
+			desc = "MAC_hristijan_mickoski_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

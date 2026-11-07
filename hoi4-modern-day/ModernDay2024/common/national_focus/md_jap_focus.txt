@@ -1,0 +1,661 @@
+focus_tree = {
+	id = md_jap_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = JAP
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = JAP_defence_posture
+		icon = GFX_md_shield_star_military_jp
+		x = 3
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = JAP_counterstrike
+		icon = GFX_md_rocket_launch_military_jp
+		x = 1
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAP_defence_posture }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_jap_counterstrike
+		}
+	}
+
+	focus = {
+		id = JAP_gcap
+		icon = GFX_md_airplane_tech_jp
+		x = 3
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAP_defence_posture }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = md_opinion_trade_deal
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ITA
+				}
+				add_opinion_modifier = {
+					target = ITA
+					modifier = md_opinion_trade_deal
+				}
+				ITA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_rapidus
+		icon = GFX_md_chip_tech_jp
+		x = 5
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAP_defence_posture }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_jap_rapidus
+		}
+	}
+
+	focus = {
+		id = JAP_revise_article_9
+		icon = GFX_md_book_open_variant_politics_jp
+		x = 1
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAP_counterstrike }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 0.5 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_jap_article_9
+				}
+				remove_ideas = md_jap_article_9
+			}
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = JAP_philippines_raa
+		icon = GFX_md_handshake_diplomacy_jp
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAP_gcap }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = PHI
+				}
+				add_opinion_modifier = {
+					target = PHI
+					modifier = md_opinion_aid
+				}
+				PHI = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_revitalize_regions
+		icon = GFX_md_home_city_society_jp
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAP_rapidus }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = JAP_normal_nation
+		icon = GFX_md_flag_military_jp
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAP_revise_article_9 }
+		prerequisite = { focus = JAP_philippines_raa }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = JAPG_development_plan
+		icon = GFX_md_chart_line_economy_jp
+		x = 9
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = JAPG_infrastructure
+		icon = GFX_md_road_variant_economy_jp
+		x = 8
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAPG_development_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_industrial_parks
+		icon = GFX_md_factory_economy_jp
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAPG_development_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_fdi
+		icon = GFX_md_cash_multiple_economy_jp
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_infrastructure }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_arms_industry
+		icon = GFX_md_factory_military_jp
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_industrial_parks }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_digital_economy
+		icon = GFX_md_cellphone_wireless_tech_jp
+		x = 9
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAPG_fdi }
+		prerequisite = { focus = JAPG_arms_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_digital_economy
+		}
+	}
+
+	focus = {
+		id = JAPG_green_transition
+		icon = GFX_md_solar_power_energy_jp
+		x = 8
+		y = 4
+		cost = 10
+		prerequisite = { focus = JAPG_digital_economy }
+		mutually_exclusive = { focus = JAPG_resource_boom }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_green_transition
+		}
+	}
+
+	focus = {
+		id = JAPG_resource_boom
+		icon = GFX_md_pickaxe_energy_jp
+		x = 10
+		y = 4
+		cost = 10
+		prerequisite = { focus = JAPG_digital_economy }
+		mutually_exclusive = { focus = JAPG_green_transition }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_resource_extraction
+		}
+	}
+
+	focus = {
+		id = JAPG_economic_miracle
+		icon = GFX_md_star_four_points_economy_jp
+		x = 9
+		y = 5
+		cost = 10
+		prerequisite = { focus = JAPG_green_transition focus = JAPG_resource_boom }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = JAPG_military_modernization
+		icon = GFX_md_shield_star_military_jp
+		x = 15
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = JAPG_professional_army
+		icon = GFX_md_account_group_military_jp
+		x = 14
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAPG_military_modernization }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_professional_army
+		}
+	}
+
+	focus = {
+		id = JAPG_air_defense
+		icon = GFX_md_radar_military_jp
+		x = 16
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAPG_military_modernization }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_air_defense
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 300
+				producer = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_modern_equipment
+		icon = GFX_md_package_variant_closed_military_jp
+		x = 14
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_professional_army }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_drone_program
+		icon = GFX_md_quadcopter_tech_jp
+		x = 16
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_air_defense }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_drone_program
+		}
+	}
+
+	focus = {
+		id = JAPG_special_forces
+		icon = GFX_md_parachute_military_jp
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAPG_modern_equipment }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 5000
+		}
+	}
+
+	focus = {
+		id = JAPG_navy
+		icon = GFX_md_ship_wheel_military_jp
+		x = 16
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAPG_drone_program }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = JAPG_defense_doctrine
+		icon = GFX_md_book_open_variant_military_jp
+		x = 15
+		y = 4
+		cost = 10
+		prerequisite = { focus = JAPG_special_forces }
+		prerequisite = { focus = JAPG_navy }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 25
+		}
+	}
+
+	focus = {
+		id = JAPG_state_reform
+		icon = GFX_md_domain_politics_jp
+		x = 21
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = JAPG_anti_corruption
+		icon = GFX_md_scale_balance_politics_jp
+		x = 21
+		y = 1
+		cost = 10
+		prerequisite = { focus = JAPG_state_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_anti_corruption
+		}
+	}
+
+	focus = {
+		id = JAPG_strong_institutions
+		icon = GFX_md_pillar_politics_jp
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_anti_corruption }
+		mutually_exclusive = { focus = JAPG_consolidate_power }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_strong_institutions
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_consolidate_power
+		icon = GFX_md_domain_politics_jp
+		x = 22
+		y = 2
+		cost = 10
+		prerequisite = { focus = JAPG_anti_corruption }
+		mutually_exclusive = { focus = JAPG_strong_institutions }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_consolidated_power
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = JAPG_education_reform
+		icon = GFX_md_school_society_jp
+		x = 20
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAPG_strong_institutions focus = JAPG_consolidate_power }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_education_reform
+		}
+	}
+
+	focus = {
+		id = JAPG_healthcare
+		icon = GFX_md_hospital_building_society_jp
+		x = 22
+		y = 3
+		cost = 10
+		prerequisite = { focus = JAPG_strong_institutions focus = JAPG_consolidate_power }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_healthcare
+		}
+	}
+
+	focus = {
+		id = JAPG_national_unity
+		icon = GFX_md_account_group_politics_jp
+		x = 21
+		y = 4
+		cost = 10
+		prerequisite = { focus = JAPG_education_reform }
+		prerequisite = { focus = JAPG_healthcare }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot = 1
+		}
+	}
+
+}

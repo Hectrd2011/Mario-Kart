@@ -1,0 +1,18 @@
+characters = {
+	RJV_mazloum_abdi = {
+		name = RJV_mazloum_abdi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RJV/md_RJV_mazloum_abdi.dds"
+				small = "gfx/interface/ideas/md_leaders/RJV_mazloum_abdi.dds"
+			}
+		}
+		country_leader = {
+			desc = "RJV_mazloum_abdi_desc"
+			ideology = socialism
+			traits = { md_insurgent_commander }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

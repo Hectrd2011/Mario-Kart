@@ -1,0 +1,18 @@
+characters = {
+	BRU_hassanal_bolkiah = {
+		name = BRU_hassanal_bolkiah
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BRU/md_BRU_hassanal_bolkiah.dds"
+				small = "gfx/interface/ideas/md_leaders/BRU_hassanal_bolkiah.dds"
+			}
+		}
+		country_leader = {
+			desc = "BRU_hassanal_bolkiah_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_petro_state }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

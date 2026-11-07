@@ -1,0 +1,19 @@
+# Mauritania: 6 November 2024
+set_research_slots = 1
+set_stability = 0.55
+set_war_support = 0.20
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 30 communism = 0 fascism = 0 neutrality = 70 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+}
+
+recruit_character = MAU_mohamed_ould_ghazouani

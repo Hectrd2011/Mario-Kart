@@ -1,0 +1,29 @@
+# Ukraine: 6 November 2024
+set_research_slots = 3
+set_stability = 0.60
+set_war_support = 0.70
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2019.4.21"
+	election_frequency = 60
+	elections_allowed = no
+}
+set_popularities = { democratic = 88 communism = 0 fascism = 6 neutrality = 6 }
+
+add_ideas = {
+	war_economy
+	service_by_requirement
+	export_focus
+	md_ukr_total_defense
+	md_ukr_western_aid
+	md_ukr_drone_warfare
+	md_ukr_martial_law
+}
+
+recruit_character = UKR_volodymyr_zelensky
+recruit_character = UKR_andriy_yermak
+recruit_character = UKR_andrii_sybiha
+recruit_character = UKR_rustem_umerov
+recruit_character = UKR_oleksandr_syrskyi

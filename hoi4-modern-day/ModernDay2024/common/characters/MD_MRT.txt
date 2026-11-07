@@ -1,0 +1,34 @@
+characters = {
+	MRT_pravind_jugnauth = {
+		name = MRT_pravind_jugnauth
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MRT/md_MRT_pravind_jugnauth.dds"
+				small = "gfx/interface/ideas/md_leaders/MRT_pravind_jugnauth.dds"
+			}
+		}
+		country_leader = {
+			desc = "MRT_pravind_jugnauth_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	MRT_navin_ramgoolam = {
+		name = MRT_navin_ramgoolam
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MRT/md_MRT_navin_ramgoolam.dds"
+				small = "gfx/interface/ideas/md_leaders/MRT_navin_ramgoolam.dds"
+			}
+		}
+		country_leader = {
+			desc = "MRT_navin_ramgoolam_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

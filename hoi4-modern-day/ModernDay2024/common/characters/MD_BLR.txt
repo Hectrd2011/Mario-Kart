@@ -1,0 +1,34 @@
+characters = {
+	BLR_alexander_lukashenko = {
+		name = BLR_alexander_lukashenko
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/md_BLR_alexander_lukashenko.dds"
+				small = "gfx/interface/ideas/md_leaders/BLR_alexander_lukashenko.dds"
+			}
+		}
+		country_leader = {
+			desc = "BLR_alexander_lukashenko_desc"
+			ideology = despotism
+			traits = { md_strongman md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	BLR_sviatlana_tsikhanouskaya = {
+		name = BLR_sviatlana_tsikhanouskaya
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLR/md_BLR_sviatlana_tsikhanouskaya.dds"
+				small = "gfx/interface/ideas/md_leaders/BLR_sviatlana_tsikhanouskaya.dds"
+			}
+		}
+		country_leader = {
+			desc = "BLR_sviatlana_tsikhanouskaya_desc"
+			ideology = liberalism
+			traits = { md_exile_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,22 @@
+# Moldova: 6 November 2024
+set_research_slots = 1
+set_stability = 0.45
+set_war_support = 0.20
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.11.3"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 72 communism = 15 fascism = 0 neutrality = 13 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_mol_transnistria
+}
+
+recruit_character = MOL_maia_sandu

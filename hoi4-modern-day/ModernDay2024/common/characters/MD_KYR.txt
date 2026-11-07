@@ -1,0 +1,18 @@
+characters = {
+	KYR_sadyr_japarov = {
+		name = KYR_sadyr_japarov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KYR/md_KYR_sadyr_japarov.dds"
+				small = "gfx/interface/ideas/md_leaders/KYR_sadyr_japarov.dds"
+			}
+		}
+		country_leader = {
+			desc = "KYR_sadyr_japarov_desc"
+			ideology = despotism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

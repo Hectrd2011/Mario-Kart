@@ -1,0 +1,34 @@
+characters = {
+	LEB_najib_mikati = {
+		name = LEB_najib_mikati
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LEB/md_LEB_najib_mikati.dds"
+				small = "gfx/interface/ideas/md_leaders/LEB_najib_mikati.dds"
+			}
+		}
+		country_leader = {
+			desc = "LEB_najib_mikati_desc"
+			ideology = liberalism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	LEB_joseph_aoun = {
+		name = LEB_joseph_aoun
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LEB/md_LEB_joseph_aoun.dds"
+				small = "gfx/interface/ideas/md_leaders/LEB_joseph_aoun.dds"
+			}
+		}
+		country_leader = {
+			desc = "LEB_joseph_aoun_desc"
+			ideology = liberalism
+			traits = { md_military_reformer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

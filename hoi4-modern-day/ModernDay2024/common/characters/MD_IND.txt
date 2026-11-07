@@ -1,0 +1,18 @@
+characters = {
+	IND_narendra_modi = {
+		name = IND_narendra_modi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/IND/md_IND_narendra_modi.dds"
+				small = "gfx/interface/ideas/md_leaders/IND_narendra_modi.dds"
+			}
+		}
+		country_leader = {
+			desc = "IND_narendra_modi_desc"
+			ideology = conservatism
+			traits = { md_charismatic md_hindu_nationalist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

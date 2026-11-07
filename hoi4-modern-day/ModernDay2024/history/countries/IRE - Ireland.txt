@@ -1,0 +1,23 @@
+# Ireland: 6 November 2024
+set_research_slots = 3
+set_stability = 0.70
+set_war_support = 0.05
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2020.2.8"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 94 communism = 2 fascism = 2 neutrality = 2 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_ire_tech_haven
+	md_neutral_tradition
+}
+
+recruit_character = IRE_simon_harris

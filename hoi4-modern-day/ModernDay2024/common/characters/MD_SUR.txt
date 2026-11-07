@@ -1,0 +1,18 @@
+characters = {
+	SUR_chan_santokhi = {
+		name = SUR_chan_santokhi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SUR/md_SUR_chan_santokhi.dds"
+				small = "gfx/interface/ideas/md_leaders/SUR_chan_santokhi.dds"
+			}
+		}
+		country_leader = {
+			desc = "SUR_chan_santokhi_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,34 @@
+characters = {
+	BEL_alexander_de_croo = {
+		name = BEL_alexander_de_croo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BEL/md_BEL_alexander_de_croo.dds"
+				small = "gfx/interface/ideas/md_leaders/BEL_alexander_de_croo.dds"
+			}
+		}
+		country_leader = {
+			desc = "BEL_alexander_de_croo_desc"
+			ideology = liberalism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	BEL_bart_de_wever = {
+		name = BEL_bart_de_wever
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BEL/md_BEL_bart_de_wever.dds"
+				small = "gfx/interface/ideas/md_leaders/BEL_bart_de_wever.dds"
+			}
+		}
+		country_leader = {
+			desc = "BEL_bart_de_wever_desc"
+			ideology = conservatism
+			traits = { md_coalition_builder }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

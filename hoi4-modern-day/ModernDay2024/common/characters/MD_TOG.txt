@@ -1,0 +1,18 @@
+characters = {
+	TOG_faure_gnassingbe = {
+		name = TOG_faure_gnassingbe
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TOG/md_TOG_faure_gnassingbe.dds"
+				small = "gfx/interface/ideas/md_leaders/TOG_faure_gnassingbe.dds"
+			}
+		}
+		country_leader = {
+			desc = "TOG_faure_gnassingbe_desc"
+			ideology = oligarchism
+			traits = { md_dynast }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

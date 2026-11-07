@@ -1,0 +1,30 @@
+# Israel: 6 November 2024
+set_research_slots = 4
+set_stability = 0.45
+set_war_support = 0.70
+set_convoys = 120
+add_nuclear_bombs = 2
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.11.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 92 communism = 1 fascism = 6 neutrality = 1 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	extensive_conscription
+	export_focus
+	md_isr_iron_dome
+	md_isr_multi_front_war
+	md_isr_hostage_crisis
+	md_isr_tech_nation
+}
+
+recruit_character = ISR_benjamin_netanyahu
+recruit_character = ISR_israel_katz
+recruit_character = ISR_gideon_sa_ar
+recruit_character = ISR_bezalel_smotrich
+recruit_character = ISR_herzi_halevi

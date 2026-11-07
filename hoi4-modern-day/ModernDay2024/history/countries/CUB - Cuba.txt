@@ -1,0 +1,21 @@
+# Cuba: 6 November 2024
+set_research_slots = 2
+set_stability = 0.40
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 8 communism = 82 fascism = 0 neutrality = 10 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	closed_economy
+	md_cub_embargo
+	md_energy_blackouts
+}
+
+recruit_character = CUB_miguel_diaz_canel

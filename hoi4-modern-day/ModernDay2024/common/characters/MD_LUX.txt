@@ -1,0 +1,18 @@
+characters = {
+	LUX_luc_frieden = {
+		name = LUX_luc_frieden
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LUX/md_LUX_luc_frieden.dds"
+				small = "gfx/interface/ideas/md_leaders/LUX_luc_frieden.dds"
+			}
+		}
+		country_leader = {
+			desc = "LUX_luc_frieden_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

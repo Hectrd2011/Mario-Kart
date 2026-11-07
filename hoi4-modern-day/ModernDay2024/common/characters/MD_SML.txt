@@ -1,0 +1,34 @@
+characters = {
+	SML_muse_bihi_abdi = {
+		name = SML_muse_bihi_abdi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SML/md_SML_muse_bihi_abdi.dds"
+				small = "gfx/interface/ideas/md_leaders/SML_muse_bihi_abdi.dds"
+			}
+		}
+		country_leader = {
+			desc = "SML_muse_bihi_abdi_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	SML_abdirahman_irro = {
+		name = SML_abdirahman_irro
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SML/md_SML_abdirahman_irro.dds"
+				small = "gfx/interface/ideas/md_leaders/SML_abdirahman_irro.dds"
+			}
+		}
+		country_leader = {
+			desc = "SML_abdirahman_irro_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,23 @@
+# Brazil: 6 November 2024
+set_research_slots = 4
+set_stability = 0.55
+set_war_support = 0.15
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.10.30"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 84 communism = 6 fascism = 6 neutrality = 4 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_bra_brics_founder
+	md_bra_amazon_stewardship
+}
+
+recruit_character = BRA_luiz_inacio_lula_da_silva

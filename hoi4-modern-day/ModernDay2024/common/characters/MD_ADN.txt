@@ -1,0 +1,18 @@
+characters = {
+	ADN_rashad_al_alimi = {
+		name = ADN_rashad_al_alimi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ADN/md_ADN_rashad_al_alimi.dds"
+				small = "gfx/interface/ideas/md_leaders/ADN_rashad_al_alimi.dds"
+			}
+		}
+		country_leader = {
+			desc = "ADN_rashad_al_alimi_desc"
+			ideology = oligarchism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

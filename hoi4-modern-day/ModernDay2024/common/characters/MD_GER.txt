@@ -1,0 +1,114 @@
+characters = {
+	GER_olaf_scholz = {
+		name = GER_olaf_scholz
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GER/md_GER_olaf_scholz.dds"
+				small = "gfx/interface/ideas/md_leaders/GER_olaf_scholz.dds"
+			}
+		}
+		country_leader = {
+			desc = "GER_olaf_scholz_desc"
+			ideology = socialism
+			traits = { md_cautious_reformer md_coalition_builder }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	GER_friedrich_merz = {
+		name = GER_friedrich_merz
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GER/md_GER_friedrich_merz.dds"
+				small = "gfx/interface/ideas/md_leaders/GER_friedrich_merz.dds"
+			}
+		}
+		country_leader = {
+			desc = "GER_friedrich_merz_desc"
+			ideology = conservatism
+			traits = { md_economist md_atlanticist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	GER_alice_weidel = {
+		name = GER_alice_weidel
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GER/md_GER_alice_weidel.dds"
+				small = "gfx/interface/ideas/md_leaders/GER_alice_weidel.dds"
+			}
+		}
+		country_leader = {
+			desc = "GER_alice_weidel_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	GER_robert_habeck = {
+		name = GER_robert_habeck
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/GER_robert_habeck.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = GER_robert_habeck_adv
+			allowed = { original_tag = GER }
+			traits = { md_adv_green_transition }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GER_boris_pistorius = {
+		name = GER_boris_pistorius
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/GER_boris_pistorius.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = GER_boris_pistorius_adv
+			allowed = { original_tag = GER }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GER_annalena_baerbock = {
+		name = GER_annalena_baerbock
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/GER_annalena_baerbock.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = GER_annalena_baerbock_adv
+			allowed = { original_tag = GER }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	GER_jorg_kukies = {
+		name = GER_jorg_kukies
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/GER_jorg_kukies.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = GER_jorg_kukies_adv
+			allowed = { original_tag = GER }
+			traits = { md_adv_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

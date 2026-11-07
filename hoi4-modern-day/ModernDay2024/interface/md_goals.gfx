@@ -1,0 +1,2102 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_md_timer_sand_politics_us"
+		texturefile = "gfx/interface/goals/md/md_timer_sand_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_us"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_us"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_oil_economy_us"
+		texturefile = "gfx/interface/goals/md/md_oil_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_microphone_variant_politics_us"
+		texturefile = "gfx/interface/goals/md/md_microphone_variant_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_us"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_draw_pen_politics_us"
+		texturefile = "gfx/interface/goals/md/md_draw_pen_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_content_cut_economy_us"
+		texturefile = "gfx/interface/goals/md/md_content_cut_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_minus_economy_us"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_minus_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_remove_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_cash_remove_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gavel_economy_us"
+		texturefile = "gfx/interface/goals/md/md_gavel_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wall_politics_us"
+		texturefile = "gfx/interface/goals/md/md_wall_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_passport_politics_us"
+		texturefile = "gfx/interface/goals/md/md_passport_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_takeoff_politics_us"
+		texturefile = "gfx/interface/goals/md/md_airplane_takeoff_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wall_economy_us"
+		texturefile = "gfx/interface/goals/md/md_wall_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_us"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_cny_economy_us"
+		texturefile = "gfx/interface/goals/md/md_currency_cny_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_truck_economy_us"
+		texturefile = "gfx/interface/goals/md/md_truck_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_economy_us"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_economy_us"
+		texturefile = "gfx/interface/goals/md/md_handshake_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_trending_up_crisis_us"
+		texturefile = "gfx/interface/goals/md/md_trending_up_crisis_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_us"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_us"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_lightning_bolt_energy_us"
+		texturefile = "gfx/interface/goals/md/md_lightning_bolt_energy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_oil_energy_us"
+		texturefile = "gfx/interface/goals/md/md_oil_energy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_atom_energy_us"
+		texturefile = "gfx/interface/goals/md/md_atom_energy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_brain_tech_us"
+		texturefile = "gfx/interface/goals/md/md_brain_tech_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_server_tech_us"
+		texturefile = "gfx/interface/goals/md/md_server_tech_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_robot_tech_us"
+		texturefile = "gfx/interface/goals/md/md_robot_tech_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_shield_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_chart_line_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_help_circle_crisis_us"
+		texturefile = "gfx/interface/goals/md/md_help_circle_crisis_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_off_crisis_us"
+		texturefile = "gfx/interface/goals/md/md_earth_off_crisis_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_peace_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_peace_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_back_left_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_hand_back_left_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_back_right_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_hand_back_right_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_diamond_stone_economy_us"
+		texturefile = "gfx/interface/goals/md/md_diamond_stone_economy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_crescent_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_star_crescent_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_outline_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_handshake_outline_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bomb_military_us"
+		texturefile = "gfx/interface/goals/md/md_bomb_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_arrow_right_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_earth_arrow_right_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_cny_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_currency_cny_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_us"
+		texturefile = "gfx/interface/goals/md/md_shield_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_marker_military_us"
+		texturefile = "gfx/interface/goals/md/md_map_marker_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_politics_us"
+		texturefile = "gfx/interface/goals/md/md_map_politics_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ferry_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_ferry_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_marker_diplomacy_us"
+		texturefile = "gfx/interface/goals/md/md_map_marker_diplomacy_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_crisis_us"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_crisis_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_us"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sword_cross_military_us"
+		texturefile = "gfx/interface/goals/md/md_sword_cross_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_us"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_satellite_variant_tech_us"
+		texturefile = "gfx/interface/goals/md/md_satellite_variant_tech_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_military_us"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_tech_us"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_tech_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_us"
+		texturefile = "gfx/interface/goals/md/md_factory_military_us.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_military_ru"
+		texturefile = "gfx/interface/goals/md/md_flag_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_ru"
+		texturefile = "gfx/interface/goals/md/md_factory_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bomb_military_ru"
+		texturefile = "gfx/interface/goals/md/md_bomb_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_military_ru"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_ru"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sword_cross_military_ru"
+		texturefile = "gfx/interface/goals/md/md_sword_cross_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_marker_military_ru"
+		texturefile = "gfx/interface/goals/md/md_map_marker_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_plus_military_ru"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_plus_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_military_ru"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bridge_military_ru"
+		texturefile = "gfx/interface/goals/md/md_bridge_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_crisis_ru"
+		texturefile = "gfx/interface/goals/md/md_anchor_crisis_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_ru"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handcuffs_politics_ru"
+		texturefile = "gfx/interface/goals/md/md_handcuffs_politics_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_ru"
+		texturefile = "gfx/interface/goals/md/md_school_society_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_medal_politics_ru"
+		texturefile = "gfx/interface/goals/md/md_medal_politics_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_eye_intel_ru"
+		texturefile = "gfx/interface/goals/md/md_eye_intel_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_castle_politics_ru"
+		texturefile = "gfx/interface/goals/md/md_castle_politics_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_compass_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_compass_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gas_station_energy_ru"
+		texturefile = "gfx/interface/goals/md/md_gas_station_energy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ferry_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_ferry_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cogs_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_cogs_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bank_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_bank_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_shield_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_economy_ru"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_economy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_outline_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_handshake_outline_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_politics_ru"
+		texturefile = "gfx/interface/goals/md/md_handshake_politics_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_phone_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_phone_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_ru"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_timer_sand_military_ru"
+		texturefile = "gfx/interface/goals/md/md_timer_sand_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_ru"
+		texturefile = "gfx/interface/goals/md/md_shield_military_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radioactive_nuclear_ru"
+		texturefile = "gfx/interface/goals/md/md_radioactive_nuclear_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_nuclear_ru"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_nuclear_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_nuclear_ru"
+		texturefile = "gfx/interface/goals/md/md_rocket_nuclear_ru.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_ua"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_ua"
+		texturefile = "gfx/interface/goals/md/md_shield_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_marker_military_ua"
+		texturefile = "gfx/interface/goals/md/md_map_marker_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wall_military_ua"
+		texturefile = "gfx/interface/goals/md/md_wall_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_ua"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_ua"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_plus_military_ua"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_plus_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_draw_pen_military_ua"
+		texturefile = "gfx/interface/goals/md/md_draw_pen_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_tech_ua"
+		texturefile = "gfx/interface/goals/md/md_airplane_tech_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_tech_ua"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_tech_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_fire_military_ua"
+		texturefile = "gfx/interface/goals/md/md_fire_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_spider_web_intel_ua"
+		texturefile = "gfx/interface/goals/md/md_spider_web_intel_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sword_cross_military_ua"
+		texturefile = "gfx/interface/goals/md/md_sword_cross_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_eur_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_currency_eur_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_diamond_stone_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_diamond_stone_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_lock_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_cash_lock_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cart_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_cart_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_shield_star_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_transmission_tower_energy_ua"
+		texturefile = "gfx/interface/goals/md/md_transmission_tower_energy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_grain_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_grain_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_ua"
+		texturefile = "gfx/interface/goals/md/md_factory_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_city_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_city_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hard_hat_economy_ua"
+		texturefile = "gfx/interface/goals/md/md_hard_hat_economy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_ua"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_ua"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handcuffs_intel_ua"
+		texturefile = "gfx/interface/goals/md/md_handcuffs_intel_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_ua"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_military_ua"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_vote_politics_ua"
+		texturefile = "gfx/interface/goals/md/md_vote_politics_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_military_ua"
+		texturefile = "gfx/interface/goals/md/md_anchor_military_ua.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_cn"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_car_electric_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_car_electric_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_home_city_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_home_city_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chip_tech_cn"
+		texturefile = "gfx/interface/goals/md/md_chip_tech_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_brain_tech_cn"
+		texturefile = "gfx/interface/goals/md/md_brain_tech_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_robot_tech_cn"
+		texturefile = "gfx/interface/goals/md/md_robot_tech_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_society_cn"
+		texturefile = "gfx/interface/goals/md/md_account_group_society_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sync_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_sync_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_cn"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handcuffs_politics_cn"
+		texturefile = "gfx/interface/goals/md/md_handcuffs_politics_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_cn"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_cn"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_military_cn"
+		texturefile = "gfx/interface/goals/md/md_anchor_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radioactive_nuclear_cn"
+		texturefile = "gfx/interface/goals/md/md_radioactive_nuclear_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_cn"
+		texturefile = "gfx/interface/goals/md/md_radar_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sword_cross_crisis_cn"
+		texturefile = "gfx/interface/goals/md/md_sword_cross_crisis_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_train_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_train_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_arrow_right_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_earth_arrow_right_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_cny_economy_cn"
+		texturefile = "gfx/interface/goals/md/md_currency_cny_economy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_outline_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_handshake_outline_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_globe_model_diplomacy_cn"
+		texturefile = "gfx/interface/goals/md/md_globe_model_diplomacy_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_politics_cn"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_politics_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gavel_politics_cn"
+		texturefile = "gfx/interface/goals/md/md_gavel_politics_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_military_cn"
+		texturefile = "gfx/interface/goals/md/md_map_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_leaf_military_cn"
+		texturefile = "gfx/interface/goals/md/md_leaf_military_cn.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_tw"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_tw"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_tw"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_tw"
+		texturefile = "gfx/interface/goals/md/md_shield_military_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chip_tech_tw"
+		texturefile = "gfx/interface/goals/md/md_chip_tech_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_military_tw"
+		texturefile = "gfx/interface/goals/md/md_chart_line_military_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_tw"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_military_tw"
+		texturefile = "gfx/interface/goals/md/md_anchor_military_tw.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_gb"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hammer_wrench_economy_gb"
+		texturefile = "gfx/interface/goals/md/md_hammer_wrench_economy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_piggy_bank_economy_gb"
+		texturefile = "gfx/interface/goals/md/md_piggy_bank_economy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wind_turbine_energy_gb"
+		texturefile = "gfx/interface/goals/md/md_wind_turbine_energy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_home_city_economy_gb"
+		texturefile = "gfx/interface/goals/md/md_home_city_economy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bank_economy_gb"
+		texturefile = "gfx/interface/goals/md/md_bank_economy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_brain_tech_gb"
+		texturefile = "gfx/interface/goals/md/md_brain_tech_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_gb"
+		texturefile = "gfx/interface/goals/md/md_shield_military_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_gb"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_military_gb"
+		texturefile = "gfx/interface/goals/md/md_chart_line_military_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_submarine_military_gb"
+		texturefile = "gfx/interface/goals/md/md_submarine_military_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_gb"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_gb"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_eur_diplomacy_gb"
+		texturefile = "gfx/interface/goals/md/md_currency_eur_diplomacy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_gb"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_diplomacy_gb"
+		texturefile = "gfx/interface/goals/md/md_shield_star_diplomacy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_truck_economy_gb"
+		texturefile = "gfx/interface/goals/md/md_truck_economy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_diplomacy_gb"
+		texturefile = "gfx/interface/goals/md/md_anchor_diplomacy_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ferry_politics_gb"
+		texturefile = "gfx/interface/goals/md/md_ferry_politics_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bullhorn_politics_gb"
+		texturefile = "gfx/interface/goals/md/md_bullhorn_politics_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_politics_gb"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_politics_gb.dds"
+	}
+	spriteType = {
+		name = "GFX_md_traffic_light_politics_de"
+		texturefile = "gfx/interface/goals/md/md_traffic_light_politics_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_vote_politics_de"
+		texturefile = "gfx/interface/goals/md/md_vote_politics_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_politics_de"
+		texturefile = "gfx/interface/goals/md/md_handshake_politics_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_lock_open_economy_de"
+		texturefile = "gfx/interface/goals/md/md_lock_open_economy_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bridge_economy_de"
+		texturefile = "gfx/interface/goals/md/md_bridge_economy_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_transmission_tower_energy_de"
+		texturefile = "gfx/interface/goals/md/md_transmission_tower_energy_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cogs_economy_de"
+		texturefile = "gfx/interface/goals/md/md_cogs_economy_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_de"
+		texturefile = "gfx/interface/goals/md/md_shield_military_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_tank_military_de"
+		texturefile = "gfx/interface/goals/md/md_tank_military_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_plus_military_de"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_plus_military_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_de"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_de"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_back_left_diplomacy_de"
+		texturefile = "gfx/interface/goals/md/md_hand_back_left_diplomacy_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_fence_politics_de"
+		texturefile = "gfx/interface/goals/md/md_fence_politics_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wall_politics_de"
+		texturefile = "gfx/interface/goals/md/md_wall_politics_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_wall_fire_crisis_de"
+		texturefile = "gfx/interface/goals/md/md_wall_fire_crisis_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_web_tech_de"
+		texturefile = "gfx/interface/goals/md/md_web_tech_de.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_fr"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gavel_politics_fr"
+		texturefile = "gfx/interface/goals/md/md_gavel_politics_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_politics_fr"
+		texturefile = "gfx/interface/goals/md/md_handshake_politics_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_fr"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_diplomacy_fr"
+		texturefile = "gfx/interface/goals/md/md_shield_star_diplomacy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radioactive_nuclear_fr"
+		texturefile = "gfx/interface/goals/md/md_radioactive_nuclear_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_fr"
+		texturefile = "gfx/interface/goals/md/md_factory_military_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_fr"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_diplomacy_fr"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_diplomacy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_military_fr"
+		texturefile = "gfx/interface/goals/md/md_airplane_military_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_takeoff_diplomacy_fr"
+		texturefile = "gfx/interface/goals/md/md_airplane_takeoff_diplomacy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_fr"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_office_building_economy_fr"
+		texturefile = "gfx/interface/goals/md/md_office_building_economy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_atom_energy_fr"
+		texturefile = "gfx/interface/goals/md/md_atom_energy_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_brain_tech_fr"
+		texturefile = "gfx/interface/goals/md/md_brain_tech_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_politics_fr"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_politics_fr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_sword_cross_military_il"
+		texturefile = "gfx/interface/goals/md/md_sword_cross_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_marker_military_il"
+		texturefile = "gfx/interface/goals/md/md_map_marker_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_il"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_military_il"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_home_city_politics_il"
+		texturefile = "gfx/interface/goals/md/md_home_city_politics_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_il"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_military_il"
+		texturefile = "gfx/interface/goals/md/md_map_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_military_il"
+		texturefile = "gfx/interface/goals/md/md_airplane_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_military_il"
+		texturefile = "gfx/interface/goals/md/md_anchor_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bomb_military_il"
+		texturefile = "gfx/interface/goals/md/md_bomb_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flash_tech_il"
+		texturefile = "gfx/interface/goals/md/md_flash_tech_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_outline_diplomacy_il"
+		texturefile = "gfx/interface/goals/md/md_handshake_outline_diplomacy_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_crescent_diplomacy_il"
+		texturefile = "gfx/interface/goals/md/md_star_crescent_diplomacy_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_il"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gavel_politics_il"
+		texturefile = "gfx/interface/goals/md/md_gavel_politics_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_plus_military_il"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_plus_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_il"
+		texturefile = "gfx/interface/goals/md/md_factory_military_il.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_ir"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_ir"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_arrow_right_military_ir"
+		texturefile = "gfx/interface/goals/md/md_earth_arrow_right_military_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ferry_military_ir"
+		texturefile = "gfx/interface/goals/md/md_ferry_military_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_military_ir"
+		texturefile = "gfx/interface/goals/md/md_rocket_military_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_atom_nuclear_ir"
+		texturefile = "gfx/interface/goals/md/md_atom_nuclear_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radioactive_nuclear_ir"
+		texturefile = "gfx/interface/goals/md/md_radioactive_nuclear_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_ir"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_file_sign_diplomacy_ir"
+		texturefile = "gfx/interface/goals/md/md_file_sign_diplomacy_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_compass_diplomacy_ir"
+		texturefile = "gfx/interface/goals/md/md_compass_diplomacy_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_economy_ir"
+		texturefile = "gfx/interface/goals/md/md_shield_economy_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flash_alert_energy_ir"
+		texturefile = "gfx/interface/goals/md/md_flash_alert_energy_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gavel_politics_ir"
+		texturefile = "gfx/interface/goals/md/md_gavel_politics_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_society_ir"
+		texturefile = "gfx/interface/goals/md/md_account_group_society_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_crown_politics_ir"
+		texturefile = "gfx/interface/goals/md/md_crown_politics_ir.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_economy_in"
+		texturefile = "gfx/interface/goals/md/md_flag_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_in"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_in"
+		texturefile = "gfx/interface/goals/md/md_factory_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chip_tech_in"
+		texturefile = "gfx/interface/goals/md/md_chip_tech_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_in"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_in"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_oil_energy_in"
+		texturefile = "gfx/interface/goals/md/md_oil_energy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_tech_in"
+		texturefile = "gfx/interface/goals/md/md_rocket_tech_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_in"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_in"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_in"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_in"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_in"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_in"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_in"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_in"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_in"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_in"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_in"
+		texturefile = "gfx/interface/goals/md/md_radar_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_in"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_in"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_in"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_in"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_in"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_in"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_in"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_in"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_in"
+		texturefile = "gfx/interface/goals/md/md_school_society_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_in"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_in"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_in.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_jp"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_rocket_launch_military_jp"
+		texturefile = "gfx/interface/goals/md/md_rocket_launch_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_tech_jp"
+		texturefile = "gfx/interface/goals/md/md_airplane_tech_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chip_tech_jp"
+		texturefile = "gfx/interface/goals/md/md_chip_tech_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_politics_jp"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_politics_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_jp"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_home_city_society_jp"
+		texturefile = "gfx/interface/goals/md/md_home_city_society_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_military_jp"
+		texturefile = "gfx/interface/goals/md/md_flag_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_jp"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_jp"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_jp"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_jp"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_jp"
+		texturefile = "gfx/interface/goals/md/md_factory_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_jp"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_jp"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_jp"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_jp"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_jp"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_jp"
+		texturefile = "gfx/interface/goals/md/md_radar_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_jp"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_jp"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_jp"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_jp"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_jp"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_jp"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_jp"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_jp"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_jp"
+		texturefile = "gfx/interface/goals/md/md_school_society_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_jp"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_jp"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_jp.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_kr"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_tank_military_kr"
+		texturefile = "gfx/interface/goals/md/md_tank_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chip_tech_kr"
+		texturefile = "gfx/interface/goals/md/md_chip_tech_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_kr"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_crosshairs_gps_military_kr"
+		texturefile = "gfx/interface/goals/md/md_crosshairs_gps_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_atom_nuclear_kr"
+		texturefile = "gfx/interface/goals/md/md_atom_nuclear_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_baby_carriage_society_kr"
+		texturefile = "gfx/interface/goals/md/md_baby_carriage_society_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_kr"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_kr"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_kr"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_kr"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_kr"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_kr"
+		texturefile = "gfx/interface/goals/md/md_factory_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_kr"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_kr"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_kr"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_kr"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_kr"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_kr"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_kr"
+		texturefile = "gfx/interface/goals/md/md_radar_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_kr"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_kr"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_kr"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_kr"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_kr"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_kr"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_kr"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_kr"
+		texturefile = "gfx/interface/goals/md/md_school_society_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_kr"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_kr"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_kr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airplane_tech_tr"
+		texturefile = "gfx/interface/goals/md/md_airplane_tech_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_tr"
+		texturefile = "gfx/interface/goals/md/md_shield_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bank_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_bank_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_map_diplomacy_tr"
+		texturefile = "gfx/interface/goals/md/md_map_diplomacy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_anchor_diplomacy_tr"
+		texturefile = "gfx/interface/goals/md/md_anchor_diplomacy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_crescent_diplomacy_tr"
+		texturefile = "gfx/interface/goals/md/md_star_crescent_diplomacy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_tr"
+		texturefile = "gfx/interface/goals/md/md_factory_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_tr"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_tr"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_tr"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_tr"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_tr"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_tr"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_tr"
+		texturefile = "gfx/interface/goals/md/md_radar_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_tr"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_tr"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_tr"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_tr"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_tr"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_tr"
+		texturefile = "gfx/interface/goals/md/md_school_society_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_tr"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_tr"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_tr.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_pl"
+		texturefile = "gfx/interface/goals/md/md_shield_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_tank_military_pl"
+		texturefile = "gfx/interface/goals/md/md_tank_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_military_pl"
+		texturefile = "gfx/interface/goals/md/md_chart_line_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_currency_eur_diplomacy_pl"
+		texturefile = "gfx/interface/goals/md/md_currency_eur_diplomacy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_multiple_plus_military_pl"
+		texturefile = "gfx/interface/goals/md/md_account_multiple_plus_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_atom_energy_pl"
+		texturefile = "gfx/interface/goals/md/md_atom_energy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_airport_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_airport_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_castle_military_pl"
+		texturefile = "gfx/interface/goals/md/md_castle_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_pl"
+		texturefile = "gfx/interface/goals/md/md_factory_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_pl"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_pl"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_pl"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_pl"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_pl"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_pl"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_pl"
+		texturefile = "gfx/interface/goals/md/md_radar_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_pl"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_pl"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_pl"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_pl"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_pl"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_pl"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_pl"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_pl"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_pl"
+		texturefile = "gfx/interface/goals/md/md_school_society_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_pl"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_pl"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_pl.dds"
+	}
+	spriteType = {
+		name = "GFX_md_city_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_city_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_office_building_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_office_building_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_soccer_society_sa"
+		texturefile = "gfx/interface/goals/md/md_soccer_society_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_oil_energy_sa"
+		texturefile = "gfx/interface/goals/md/md_oil_energy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hand_peace_diplomacy_sa"
+		texturefile = "gfx/interface/goals/md/md_hand_peace_diplomacy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_sa"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_sa"
+		texturefile = "gfx/interface/goals/md/md_factory_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_crescent_diplomacy_sa"
+		texturefile = "gfx/interface/goals/md/md_star_crescent_diplomacy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_sa"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_sa"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_sa"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_sa"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_sa"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_sa"
+		texturefile = "gfx/interface/goals/md/md_radar_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_sa"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_sa"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_sa"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_sa"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_sa"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_sa"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_sa"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_sa"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_sa"
+		texturefile = "gfx/interface/goals/md/md_school_society_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_sa"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_sa"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_sa.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_tie_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_account_tie_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_remove_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_cash_remove_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_truck_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_truck_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military_ca"
+		texturefile = "gfx/interface/goals/md/md_shield_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_snowflake_military_ca"
+		texturefile = "gfx/interface/goals/md/md_snowflake_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_ca"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_gas_station_energy_ca"
+		texturefile = "gfx/interface/goals/md/md_gas_station_energy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_ca"
+		texturefile = "gfx/interface/goals/md/md_factory_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_ca"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_ca"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_ca"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_ca"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_ca"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_ca"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_ca"
+		texturefile = "gfx/interface/goals/md/md_radar_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_ca"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_ca"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_ca"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_ca"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_ca"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_ca"
+		texturefile = "gfx/interface/goals/md/md_school_society_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_ca"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_ca"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_ca.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_politics_br"
+		texturefile = "gfx/interface/goals/md/md_flag_politics_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy_br"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_tree_society_br"
+		texturefile = "gfx/interface/goals/md/md_tree_society_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy_br"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy_br"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_leaf_society_br"
+		texturefile = "gfx/interface/goals/md/md_leaf_society_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy_br"
+		texturefile = "gfx/interface/goals/md/md_factory_economy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_oil_energy_br"
+		texturefile = "gfx/interface/goals/md/md_oil_energy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy_br"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy_br"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy_br"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military_br"
+		texturefile = "gfx/interface/goals/md/md_factory_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech_br"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy_br"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy_br"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy_br"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military_br"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military_br"
+		texturefile = "gfx/interface/goals/md/md_account_group_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military_br"
+		texturefile = "gfx/interface/goals/md/md_radar_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military_br"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech_br"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military_br"
+		texturefile = "gfx/interface/goals/md/md_parachute_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military_br"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military_br"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics_br"
+		texturefile = "gfx/interface/goals/md/md_domain_politics_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics_br"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics_br"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society_br"
+		texturefile = "gfx/interface/goals/md/md_school_society_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society_br"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics_br"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics_br.dds"
+	}
+	spriteType = {
+		name = "GFX_md_chart_line_economy"
+		texturefile = "gfx/interface/goals/md/md_chart_line_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_road_variant_economy"
+		texturefile = "gfx/interface/goals/md/md_road_variant_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_economy"
+		texturefile = "gfx/interface/goals/md/md_factory_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cash_multiple_economy"
+		texturefile = "gfx/interface/goals/md/md_cash_multiple_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_factory_military"
+		texturefile = "gfx/interface/goals/md/md_factory_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_cellphone_wireless_tech"
+		texturefile = "gfx/interface/goals/md/md_cellphone_wireless_tech.dds"
+	}
+	spriteType = {
+		name = "GFX_md_solar_power_energy"
+		texturefile = "gfx/interface/goals/md/md_solar_power_energy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pickaxe_energy"
+		texturefile = "gfx/interface/goals/md/md_pickaxe_energy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_star_four_points_economy"
+		texturefile = "gfx/interface/goals/md/md_star_four_points_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_star_military"
+		texturefile = "gfx/interface/goals/md/md_shield_star_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_military"
+		texturefile = "gfx/interface/goals/md/md_account_group_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_radar_military"
+		texturefile = "gfx/interface/goals/md/md_radar_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_package_variant_closed_military"
+		texturefile = "gfx/interface/goals/md/md_package_variant_closed_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_quadcopter_tech"
+		texturefile = "gfx/interface/goals/md/md_quadcopter_tech.dds"
+	}
+	spriteType = {
+		name = "GFX_md_parachute_military"
+		texturefile = "gfx/interface/goals/md/md_parachute_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_ship_wheel_military"
+		texturefile = "gfx/interface/goals/md/md_ship_wheel_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_book_open_variant_military"
+		texturefile = "gfx/interface/goals/md/md_book_open_variant_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_earth_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_handshake_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_handshake_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_earth_arrow_right_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_earth_arrow_right_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_compass_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_compass_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_shield_military"
+		texturefile = "gfx/interface/goals/md/md_shield_military.dds"
+	}
+	spriteType = {
+		name = "GFX_md_bank_economy"
+		texturefile = "gfx/interface/goals/md/md_bank_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_account_group_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_flag_variant_diplomacy"
+		texturefile = "gfx/interface/goals/md/md_flag_variant_diplomacy.dds"
+	}
+	spriteType = {
+		name = "GFX_md_domain_politics"
+		texturefile = "gfx/interface/goals/md/md_domain_politics.dds"
+	}
+	spriteType = {
+		name = "GFX_md_scale_balance_politics"
+		texturefile = "gfx/interface/goals/md/md_scale_balance_politics.dds"
+	}
+	spriteType = {
+		name = "GFX_md_pillar_politics"
+		texturefile = "gfx/interface/goals/md/md_pillar_politics.dds"
+	}
+	spriteType = {
+		name = "GFX_md_school_society"
+		texturefile = "gfx/interface/goals/md/md_school_society.dds"
+	}
+	spriteType = {
+		name = "GFX_md_hospital_building_society"
+		texturefile = "gfx/interface/goals/md/md_hospital_building_society.dds"
+	}
+	spriteType = {
+		name = "GFX_md_account_group_politics"
+		texturefile = "gfx/interface/goals/md/md_account_group_politics.dds"
+	}
+}

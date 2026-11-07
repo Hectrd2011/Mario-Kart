@@ -1,0 +1,36 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			set_global_flag = md_modern_day
+			if = { limit = { country_exists = USA } USA = { country_event = { id = md_usa.1 days = 75 } } }
+			if = { limit = { country_exists = ISR } ISR = { country_event = { id = md_isr.1 days = 21 } } }
+			if = { limit = { country_exists = ISR } ISR = { country_event = { id = md_isr.11 days = 74 } } }
+			if = { limit = { country_exists = ISR } ISR = { country_event = { id = md_isr.30 days = 219 } } }
+			if = { limit = { country_exists = HTS } HTS = { country_event = { id = md_syr.1 days = 21 } } }
+			if = { limit = { country_exists = SYR } SYR = { country_event = { id = md_syr.2 days = 32 } } }
+			if = { limit = { country_exists = KOR } KOR = { country_event = { id = md_kor.1 days = 27 } } }
+			if = { limit = { country_exists = GER } GER = { country_event = { id = md_ger.1 days = 1 } } }
+			if = { limit = { country_exists = FRA } FRA = { country_event = { id = md_fra.1 days = 28 } } }
+			if = { limit = { country_exists = CAN } CAN = { country_event = { id = md_can.1 days = 61 } } }
+			if = { limit = { country_exists = ROM } ROM = { country_event = { id = md_rom.1 days = 30 } } }
+			if = { limit = { country_exists = GEO } GEO = { country_event = { id = md_geo.1 days = 22 } } }
+			if = { limit = { country_exists = HAI } HAI = { country_event = { id = md_hai.1 days = 5 } } }
+			if = { limit = { country_exists = IND } IND = { country_event = { id = md_ind.1 days = 182 } } }
+			if = { limit = { country_exists = MRT } MRT = { country_event = { id = md_leaders.1 days = 7 } } }
+			if = { limit = { country_exists = LIT } LIT = { country_event = { id = md_leaders.2 days = 36 } } }
+			if = { limit = { country_exists = SML } SML = { country_event = { id = md_leaders.3 days = 36 } } }
+			if = { limit = { country_exists = ICE } ICE = { country_event = { id = md_leaders.4 days = 45 } } }
+			if = { limit = { country_exists = GHA } GHA = { country_event = { id = md_leaders.5 days = 62 } } }
+			if = { limit = { country_exists = LEB } LEB = { country_event = { id = md_leaders.6 days = 64 } } }
+			if = { limit = { country_exists = MZB } MZB = { country_event = { id = md_leaders.7 days = 70 } } }
+			if = { limit = { country_exists = BUL } BUL = { country_event = { id = md_leaders.8 days = 71 } } }
+			if = { limit = { country_exists = IRE } IRE = { country_event = { id = md_leaders.9 days = 78 } } }
+			if = { limit = { country_exists = BEL } BEL = { country_event = { id = md_leaders.10 days = 89 } } }
+			if = { limit = { country_exists = URG } URG = { country_event = { id = md_leaders.11 days = 115 } } }
+			if = { limit = { country_exists = AUS } AUS = { country_event = { id = md_leaders.12 days = 117 } } }
+			if = { limit = { country_exists = NMB } NMB = { country_event = { id = md_leaders.13 days = 135 } } }
+			if = { limit = { country_exists = JAP } JAP = { country_event = { id = md_leaders.14 days = 349 } } }
+
+		}
+	}
+}

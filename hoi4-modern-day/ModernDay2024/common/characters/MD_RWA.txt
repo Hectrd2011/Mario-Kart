@@ -1,0 +1,18 @@
+characters = {
+	RWA_paul_kagame = {
+		name = RWA_paul_kagame
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RWA/md_RWA_paul_kagame.dds"
+				small = "gfx/interface/ideas/md_leaders/RWA_paul_kagame.dds"
+			}
+		}
+		country_leader = {
+			desc = "RWA_paul_kagame_desc"
+			ideology = despotism
+			traits = { md_strongman md_technocrat }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

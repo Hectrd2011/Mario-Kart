@@ -1,0 +1,783 @@
+focus_tree = {
+	id = md_prc_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = PRC
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = PRC_chinese_dream
+		icon = GFX_md_flag_politics_cn
+		x = 12
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = PRC_new_productive_forces
+		icon = GFX_md_car_electric_economy_cn
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = PRC_chinese_dream }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_new_productive_forces
+		}
+	}
+
+	focus = {
+		id = PRC_made_in_china
+		icon = GFX_md_factory_economy_cn
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_new_productive_forces }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_consumer_stimulus
+		icon = GFX_md_home_city_economy_cn
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_new_productive_forces }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_prc_property_slump
+				add_idea = md_prc_stimulus
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_chip_self_reliance
+		icon = GFX_md_chip_tech_cn
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_made_in_china }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_chip_self_reliance
+		}
+	}
+
+	focus = {
+		id = PRC_deepseek
+		icon = GFX_md_brain_tech_cn
+		x = 3
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_chip_self_reliance }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = PRC_ai_plus
+		icon = GFX_md_robot_tech_cn
+		x = 4
+		y = 5
+		cost = 10
+		prerequisite = { focus = PRC_deepseek }
+		prerequisite = { focus = PRC_common_prosperity }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_ai_plus
+		}
+	}
+
+	focus = {
+		id = PRC_common_prosperity
+		icon = GFX_md_account_group_society_cn
+		x = 5
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_consumer_stimulus }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_common_prosperity
+		}
+	}
+
+	focus = {
+		id = PRC_dual_circulation
+		icon = GFX_md_sync_economy_cn
+		x = 5
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_common_prosperity }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_pla_centenary
+		icon = GFX_md_shield_star_military_cn
+		x = 11
+		y = 1
+		cost = 10
+		prerequisite = { focus = PRC_chinese_dream }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_rocket_force_purge
+		icon = GFX_md_handcuffs_politics_cn
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_pla_centenary }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.02
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = PRC_three_carriers
+		icon = GFX_md_ship_wheel_military_cn
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_pla_centenary }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = PRC_hypersonic_arsenal
+		icon = GFX_md_rocket_launch_military_cn
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_rocket_force_purge }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_tech_bonus = {
+				name = PRC_missile_bonus
+				bonus = 1.0
+				uses = 2
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_blue_water_navy
+		icon = GFX_md_anchor_military_cn
+		x = 12
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_three_carriers }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_blue_water_navy
+		}
+	}
+
+	focus = {
+		id = PRC_nuclear_expansion
+		icon = GFX_md_radioactive_nuclear_cn
+		x = 10
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_hypersonic_arsenal }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_nuclear_expansion
+			add_named_threat = {
+				threat = 2
+				name = md_threat_prc_nukes
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_strait_thunder
+		icon = GFX_md_radar_military_cn
+		x = 12
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_blue_water_navy }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_strait_pressure
+			add_named_threat = {
+				threat = 2
+				name = md_threat_strait_thunder
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_reunification_by_force
+		icon = GFX_md_sword_cross_crisis_cn
+		x = 11
+		y = 5
+		cost = 10
+		prerequisite = { focus = PRC_nuclear_expansion }
+		prerequisite = { focus = PRC_strait_thunder }
+		mutually_exclusive = { focus = PRC_peaceful_reunification }
+		available = {
+			has_war_support > 0.5
+		}
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 0.2 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ROC
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = ROC
+				}
+			}
+			add_named_threat = {
+				threat = 10
+				name = md_threat_taiwan_war
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_peaceful_reunification
+		icon = GFX_md_hand_peace_diplomacy_cn
+		x = 13
+		y = 5
+		cost = 10
+		prerequisite = { focus = PRC_strait_thunder }
+		mutually_exclusive = { focus = PRC_reunification_by_force }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ROC
+				}
+				ROC = {
+					country_event = {
+						id = md_prc.10
+						days = 3
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_global_initiatives
+		icon = GFX_md_earth_diplomacy_cn
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = PRC_chinese_dream }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = PRC_belt_and_road
+		icon = GFX_md_train_economy_cn
+		x = 17
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_global_initiatives }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = PAK
+				}
+				add_opinion_modifier = {
+					target = PAK
+					modifier = md_opinion_trade_deal
+				}
+				PAK = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = INS
+				}
+				add_opinion_modifier = {
+					target = INS
+					modifier = md_opinion_trade_deal
+				}
+				INS = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_no_limits
+		icon = GFX_md_handshake_diplomacy_cn
+		x = 19
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_global_initiatives }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				add_opinion_modifier = {
+					target = RUS
+					modifier = md_opinion_alliance
+				}
+				RUS = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_alliance
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_brics_expansion
+		icon = GFX_md_earth_arrow_right_diplomacy_cn
+		x = 21
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_global_initiatives }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = BRA
+				}
+				add_opinion_modifier = {
+					target = BRA
+					modifier = md_opinion_trade_deal
+				}
+				BRA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SAF
+				}
+				add_opinion_modifier = {
+					target = SAF
+					modifier = md_opinion_trade_deal
+				}
+				SAF = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = SAU
+				}
+				add_opinion_modifier = {
+					target = SAU
+					modifier = md_opinion_trade_deal
+				}
+				SAU = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_trade_war_retaliation
+		icon = GFX_md_currency_cny_economy_cn
+		x = 18
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_belt_and_road }
+		prerequisite = { focus = PRC_no_limits }
+		available = {
+			USA = {
+				has_completed_focus = USA_tariffs_on_china
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_prc_rare_earth_leverage
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_tariffs
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_tariffs
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_geneva_truce
+		icon = GFX_md_handshake_outline_diplomacy_cn
+		x = 18
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_trade_war_retaliation }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = PRC_africa_partnership
+		icon = GFX_md_earth_diplomacy_cn
+		x = 21
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_brics_expansion }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ETH
+				}
+				add_opinion_modifier = {
+					target = ETH
+					modifier = md_opinion_trade_deal
+				}
+				ETH = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = NGA
+				}
+				add_opinion_modifier = {
+					target = NGA
+					modifier = md_opinion_trade_deal
+				}
+				NGA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = KEN
+				}
+				add_opinion_modifier = {
+					target = KEN
+					modifier = md_opinion_trade_deal
+				}
+				KEN = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_new_world_order
+		icon = GFX_md_globe_model_diplomacy_cn
+		x = 20
+		y = 5
+		cost = 10
+		prerequisite = { focus = PRC_geneva_truce }
+		prerequisite = { focus = PRC_africa_partnership }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = PRC_xi_thought
+		icon = GFX_md_book_open_variant_politics_cn
+		x = 25
+		y = 1
+		cost = 10
+		prerequisite = { focus = PRC_chinese_dream }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = PRC_anti_corruption
+		icon = GFX_md_handcuffs_politics_cn
+		x = 24
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_xi_thought }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+
+	focus = {
+		id = PRC_third_plenum
+		icon = GFX_md_gavel_politics_cn
+		x = 26
+		y = 2
+		cost = 10
+		prerequisite = { focus = PRC_xi_thought }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = PRC_nine_dash_line
+		icon = GFX_md_map_military_cn
+		x = 25
+		y = 3
+		cost = 10
+		prerequisite = { focus = PRC_anti_corruption }
+		prerequisite = { focus = PRC_third_plenum }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			navy_experience = 20
+			if = {
+				limit = {
+					country_exists = PHI
+				}
+				add_opinion_modifier = {
+					target = PHI
+					modifier = md_opinion_pressure
+				}
+				PHI = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = VIE
+				}
+				add_opinion_modifier = {
+					target = VIE
+					modifier = md_opinion_pressure
+				}
+				VIE = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_pressure
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_scarborough
+		icon = GFX_md_leaf_military_cn
+		x = 25
+		y = 4
+		cost = 10
+		prerequisite = { focus = PRC_nine_dash_line }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_named_threat = {
+				threat = 1
+				name = md_threat_scarborough
+			}
+			add_war_support = 0.02
+		}
+	}
+
+}

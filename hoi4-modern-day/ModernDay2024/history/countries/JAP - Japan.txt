@@ -1,0 +1,24 @@
+# Japan: 6 November 2024
+set_research_slots = 5
+set_stability = 0.55
+set_war_support = 0.20
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.10.27"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 94 communism = 2 fascism = 3 neutrality = 1 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_jap_ageing_society
+	md_jap_defense_buildup
+	md_jap_article_9
+}
+
+recruit_character = JAP_shigeru_ishiba

@@ -1,0 +1,18 @@
+characters = {
+	TUN_kais_saied = {
+		name = TUN_kais_saied
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TUN/md_TUN_kais_saied.dds"
+				small = "gfx/interface/ideas/md_leaders/TUN_kais_saied.dds"
+			}
+		}
+		country_leader = {
+			desc = "TUN_kais_saied_desc"
+			ideology = despotism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

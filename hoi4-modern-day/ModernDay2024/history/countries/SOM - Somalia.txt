@@ -1,0 +1,20 @@
+# Somalia: 6 November 2024
+set_research_slots = 1
+set_stability = 0.15
+set_war_support = 0.40
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	elections_allowed = no
+}
+set_popularities = { democratic = 55 communism = 0 fascism = 0 neutrality = 45 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_som_al_shabaab
+}
+
+recruit_character = SOM_hassan_sheikh_mohamud

@@ -1,0 +1,18 @@
+characters = {
+	CAM_hun_manet = {
+		name = CAM_hun_manet
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAM/md_CAM_hun_manet.dds"
+				small = "gfx/interface/ideas/md_leaders/CAM_hun_manet.dds"
+			}
+		}
+		country_leader = {
+			desc = "CAM_hun_manet_desc"
+			ideology = oligarchism
+			traits = { md_dynast }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	BHM_philip_davis = {
+		name = BHM_philip_davis
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BHM/md_BHM_philip_davis.dds"
+				small = "gfx/interface/ideas/md_leaders/BHM_philip_davis.dds"
+			}
+		}
+		country_leader = {
+			desc = "BHM_philip_davis_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

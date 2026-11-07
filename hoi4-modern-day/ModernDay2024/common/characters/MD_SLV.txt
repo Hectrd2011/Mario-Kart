@@ -1,0 +1,18 @@
+characters = {
+	SLV_robert_golob = {
+		name = SLV_robert_golob
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SLV/md_SLV_robert_golob.dds"
+				small = "gfx/interface/ideas/md_leaders/SLV_robert_golob.dds"
+			}
+		}
+		country_leader = {
+			desc = "SLV_robert_golob_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

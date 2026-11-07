@@ -1,0 +1,686 @@
+focus_tree = {
+	id = md_can_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = CAN
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = CAN_leadership_question
+		icon = GFX_md_account_tie_politics_ca
+		x = 3
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = CAN_elbows_up
+		icon = GFX_md_flag_politics_ca
+		x = 2
+		y = 1
+		cost = 10
+		prerequisite = { focus = CAN_leadership_question }
+		available = {
+			USA = {
+				has_country_flag = md_usa_trump_era
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_can_elbows_up
+		}
+	}
+
+	focus = {
+		id = CAN_counter_tariffs
+		icon = GFX_md_cash_remove_economy_ca
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = CAN_leadership_question }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_can_housing_crisis
+				}
+				remove_ideas = md_can_housing_crisis
+			}
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_tariffs
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_tariffs
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CAN_one_canadian_economy
+		icon = GFX_md_truck_economy_ca
+		x = 4
+		y = 2
+		cost = 10
+		prerequisite = { focus = CAN_counter_tariffs }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CAN_defence_two_percent
+		icon = GFX_md_shield_military_ca
+		x = 2
+		y = 2
+		cost = 10
+		prerequisite = { focus = CAN_elbows_up }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = CAN_arctic_sovereignty
+		icon = GFX_md_snowflake_military_ca
+		x = 1
+		y = 3
+		cost = 10
+		prerequisite = { focus = CAN_defence_two_percent }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			navy_experience = 20
+		}
+	}
+
+	focus = {
+		id = CAN_diversify_trade
+		icon = GFX_md_earth_diplomacy_ca
+		x = 4
+		y = 3
+		cost = 10
+		prerequisite = { focus = CAN_one_canadian_economy }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = md_opinion_trade_deal
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = JAP
+				}
+				add_opinion_modifier = {
+					target = JAP
+					modifier = md_opinion_trade_deal
+				}
+				JAP = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CAN_energy_superpower
+		icon = GFX_md_gas_station_energy_ca
+		x = 3
+		y = 4
+		cost = 10
+		prerequisite = { focus = CAN_arctic_sovereignty }
+		prerequisite = { focus = CAN_diversify_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = CANG_development_plan
+		icon = GFX_md_chart_line_economy_ca
+		x = 9
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = CANG_infrastructure
+		icon = GFX_md_road_variant_economy_ca
+		x = 8
+		y = 1
+		cost = 10
+		prerequisite = { focus = CANG_development_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_industrial_parks
+		icon = GFX_md_factory_economy_ca
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = CANG_development_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_fdi
+		icon = GFX_md_cash_multiple_economy_ca
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_infrastructure }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_arms_industry
+		icon = GFX_md_factory_military_ca
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_industrial_parks }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_digital_economy
+		icon = GFX_md_cellphone_wireless_tech_ca
+		x = 9
+		y = 3
+		cost = 10
+		prerequisite = { focus = CANG_fdi }
+		prerequisite = { focus = CANG_arms_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_digital_economy
+		}
+	}
+
+	focus = {
+		id = CANG_green_transition
+		icon = GFX_md_solar_power_energy_ca
+		x = 8
+		y = 4
+		cost = 10
+		prerequisite = { focus = CANG_digital_economy }
+		mutually_exclusive = { focus = CANG_resource_boom }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_green_transition
+		}
+	}
+
+	focus = {
+		id = CANG_resource_boom
+		icon = GFX_md_pickaxe_energy_ca
+		x = 10
+		y = 4
+		cost = 10
+		prerequisite = { focus = CANG_digital_economy }
+		mutually_exclusive = { focus = CANG_green_transition }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_resource_extraction
+		}
+	}
+
+	focus = {
+		id = CANG_economic_miracle
+		icon = GFX_md_star_four_points_economy_ca
+		x = 9
+		y = 5
+		cost = 10
+		prerequisite = { focus = CANG_green_transition focus = CANG_resource_boom }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = CANG_military_modernization
+		icon = GFX_md_shield_star_military_ca
+		x = 15
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = CANG_professional_army
+		icon = GFX_md_account_group_military_ca
+		x = 14
+		y = 1
+		cost = 10
+		prerequisite = { focus = CANG_military_modernization }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_professional_army
+		}
+	}
+
+	focus = {
+		id = CANG_air_defense
+		icon = GFX_md_radar_military_ca
+		x = 16
+		y = 1
+		cost = 10
+		prerequisite = { focus = CANG_military_modernization }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_air_defense
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 300
+				producer = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_modern_equipment
+		icon = GFX_md_package_variant_closed_military_ca
+		x = 14
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_professional_army }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 200
+				producer = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_drone_program
+		icon = GFX_md_quadcopter_tech_ca
+		x = 16
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_air_defense }
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_drone_program
+		}
+	}
+
+	focus = {
+		id = CANG_special_forces
+		icon = GFX_md_parachute_military_ca
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = CANG_modern_equipment }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			add_manpower = 5000
+		}
+	}
+
+	focus = {
+		id = CANG_navy
+		icon = GFX_md_ship_wheel_military_ca
+		x = 16
+		y = 3
+		cost = 10
+		prerequisite = { focus = CANG_drone_program }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			navy_experience = 15
+		}
+	}
+
+	focus = {
+		id = CANG_defense_doctrine
+		icon = GFX_md_book_open_variant_military_ca
+		x = 15
+		y = 4
+		cost = 10
+		prerequisite = { focus = CANG_special_forces }
+		prerequisite = { focus = CANG_navy }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+			add_command_power = 25
+		}
+	}
+
+	focus = {
+		id = CANG_state_reform
+		icon = GFX_md_domain_politics_ca
+		x = 21
+		y = 0
+		cost = 10
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = CANG_anti_corruption
+		icon = GFX_md_scale_balance_politics_ca
+		x = 21
+		y = 1
+		cost = 10
+		prerequisite = { focus = CANG_state_reform }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_anti_corruption
+		}
+	}
+
+	focus = {
+		id = CANG_strong_institutions
+		icon = GFX_md_pillar_politics_ca
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_anti_corruption }
+		mutually_exclusive = { focus = CANG_consolidate_power }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_strong_institutions
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_consolidate_power
+		icon = GFX_md_domain_politics_ca
+		x = 22
+		y = 2
+		cost = 10
+		prerequisite = { focus = CANG_anti_corruption }
+		mutually_exclusive = { focus = CANG_strong_institutions }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_consolidated_power
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = CANG_education_reform
+		icon = GFX_md_school_society_ca
+		x = 20
+		y = 3
+		cost = 10
+		prerequisite = { focus = CANG_strong_institutions focus = CANG_consolidate_power }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_education_reform
+		}
+	}
+
+	focus = {
+		id = CANG_healthcare
+		icon = GFX_md_hospital_building_society_ca
+		x = 22
+		y = 3
+		cost = 10
+		prerequisite = { focus = CANG_strong_institutions focus = CANG_consolidate_power }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_gen_healthcare
+		}
+	}
+
+	focus = {
+		id = CANG_national_unity
+		icon = GFX_md_account_group_politics_ca
+		x = 21
+		y = 4
+		cost = 10
+		prerequisite = { focus = CANG_education_reform }
+		prerequisite = { focus = CANG_healthcare }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.05
+			add_research_slot = 1
+		}
+	}
+
+}

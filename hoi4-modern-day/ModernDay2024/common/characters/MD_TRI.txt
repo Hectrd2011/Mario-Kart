@@ -1,0 +1,18 @@
+characters = {
+	TRI_keith_rowley = {
+		name = TRI_keith_rowley
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TRI/md_TRI_keith_rowley.dds"
+				small = "gfx/interface/ideas/md_leaders/TRI_keith_rowley.dds"
+			}
+		}
+		country_leader = {
+			desc = "TRI_keith_rowley_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

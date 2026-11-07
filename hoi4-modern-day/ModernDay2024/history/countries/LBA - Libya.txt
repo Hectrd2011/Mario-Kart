@@ -1,0 +1,20 @@
+# Libya: 6 November 2024
+set_research_slots = 1
+set_stability = 0.25
+set_war_support = 0.30
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	elections_allowed = no
+}
+set_popularities = { democratic = 60 communism = 0 fascism = 0 neutrality = 40 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_lba_divided_country
+}
+
+recruit_character = LBA_abdul_hamid_dbeibeh

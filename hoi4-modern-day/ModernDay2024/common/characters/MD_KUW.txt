@@ -1,0 +1,18 @@
+characters = {
+	KUW_mishal_al_ahmad_al_jaber = {
+		name = KUW_mishal_al_ahmad_al_jaber
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KUW/md_KUW_mishal_al_ahmad_al_jaber.dds"
+				small = "gfx/interface/ideas/md_leaders/KUW_mishal_al_ahmad_al_jaber.dds"
+			}
+		}
+		country_leader = {
+			desc = "KUW_mishal_al_ahmad_al_jaber_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	CAF_faustin_archange_touadera = {
+		name = CAF_faustin_archange_touadera
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CAF/md_CAF_faustin_archange_touadera.dds"
+				small = "gfx/interface/ideas/md_leaders/CAF_faustin_archange_touadera.dds"
+			}
+		}
+		country_leader = {
+			desc = "CAF_faustin_archange_touadera_desc"
+			ideology = oligarchism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,113 @@
+bookmarks = {
+	bookmark = {
+		name = "MD_BOOKMARK_NAME"
+		desc = "MD_BOOKMARK_DESC"
+		date = 2024.11.6.12
+		picture = "GFX_select_date_1936"
+		default_country = "USA"
+		default = yes
+
+		"USA" = {
+			history = "MD_BM_USA"
+			ideology = democratic
+			ideas = { md_usa_polarized_nation md_usa_reserve_currency md_usa_arsenal }
+		}
+		"PRC" = {
+			history = "MD_BM_PRC"
+			ideology = communism
+			ideas = { md_prc_worlds_factory md_prc_property_slump md_prc_great_firewall }
+		}
+		"RUS" = {
+			history = "MD_BM_RUS"
+			ideology = neutrality
+			ideas = { md_rus_war_economy md_rus_sanctions md_rus_partial_mobilization }
+		}
+		"ENG" = {
+			history = "MD_BM_ENG"
+			ideology = democratic
+			ideas = { md_eng_fiscal_black_hole md_eng_city_of_london md_nuclear_deterrent }
+		}
+		"FRA" = {
+			history = "MD_BM_FRA"
+			ideology = democratic
+			ideas = { md_fra_hung_parliament md_fra_force_de_frappe md_fra_francafrique_retreat }
+		}
+		"GER" = {
+			history = "MD_BM_GER"
+			ideology = democratic
+			ideas = { md_ger_debt_brake md_ger_energy_shock md_ger_zeitenwende }
+		}
+		"IND" = {
+			history = "MD_BM_IND"
+			ideology = democratic
+			ideas = { md_ind_demographic_dividend md_ind_strategic_autonomy md_nuclear_deterrent }
+		}
+		"---" = {
+			history = "OTHER_GAMES_DESC"
+		}
+		"UKR" = {
+			history = "MD_BM_UKR"
+			ideology = democratic
+			ideas = { md_ukr_total_defense md_ukr_western_aid md_ukr_drone_warfare }
+		}
+		"ISR" = {
+			history = "MD_BM_ISR"
+			ideology = democratic
+			ideas = { md_isr_iron_dome md_isr_multi_front_war md_isr_hostage_crisis }
+		}
+		"PER" = {
+			history = "MD_BM_PER"
+			ideology = neutrality
+			ideas = { md_per_maximum_pressure md_per_axis_of_resistance md_per_nuclear_threshold }
+		}
+		"JAP" = {
+			history = "MD_BM_JAP"
+			ideology = democratic
+			ideas = { md_jap_ageing_society md_jap_defense_buildup md_jap_article_9 }
+		}
+		"KOR" = {
+			history = "MD_BM_KOR"
+			ideology = democratic
+			ideas = { md_kor_chaebol_economy md_kor_k_defense md_kor_low_birthrate }
+		}
+		"ROC" = {
+			history = "MD_BM_ROC"
+			ideology = democratic
+			ideas = { md_roc_silicon_shield md_roc_porcupine }
+		}
+		"TUR" = {
+			history = "MD_BM_TUR"
+			ideology = democratic
+			ideas = { md_tur_inflation md_tur_defense_industry md_tur_bosporus }
+		}
+		"POL" = {
+			history = "MD_BM_POL"
+			ideology = democratic
+			ideas = { md_pol_eastern_shield md_pol_cohabitation }
+		}
+		"SAU" = {
+			history = "MD_BM_SAU"
+			ideology = neutrality
+			ideas = { md_sau_vision_2030 md_sau_opec_swing }
+		}
+		"PRK" = {
+			history = "MD_BM_PRK"
+			ideology = communism
+			ideas = { md_prk_songun md_prk_juche_autarky md_prk_nuclear_arsenal }
+		}
+		"BRA" = {
+			history = "MD_BM_BRA"
+			ideology = democratic
+			ideas = { md_bra_brics_founder md_bra_amazon_stewardship }
+		}
+		"SYR" = {
+			history = "MD_BM_SYR"
+			ideology = neutrality
+			ideas = { md_syr_hollow_army md_syr_captagon_economy md_western_sanctions_light }
+		}
+
+		effect = {
+			randomize_weather = 22345
+		}
+	}
+}

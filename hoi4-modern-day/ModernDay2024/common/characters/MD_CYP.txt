@@ -1,0 +1,18 @@
+characters = {
+	CYP_nikos_christodoulides = {
+		name = CYP_nikos_christodoulides
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CYP/md_CYP_nikos_christodoulides.dds"
+				small = "gfx/interface/ideas/md_leaders/CYP_nikos_christodoulides.dds"
+			}
+		}
+		country_leader = {
+			desc = "CYP_nikos_christodoulides_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

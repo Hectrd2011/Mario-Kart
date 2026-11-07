@@ -1,0 +1,389 @@
+focus_tree = {
+	id = md_ger_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = GER
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = GER_traffic_light_collapse
+		icon = GFX_md_traffic_light_politics_de
+		x = 12
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = -0.02
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = GER_snap_election
+		icon = GFX_md_vote_politics_de
+		x = 12
+		y = 1
+		cost = 10
+		prerequisite = { focus = GER_traffic_light_collapse }
+		available = {
+			has_country_flag = md_ger_election_held
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = GER_grand_coalition
+		icon = GFX_md_handshake_politics_de
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = GER_snap_election }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = GER_debt_brake_reform
+		icon = GFX_md_lock_open_economy_de
+		x = 8
+		y = 3
+		cost = 10
+		prerequisite = { focus = GER_grand_coalition }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_ger_debt_brake
+				}
+				remove_ideas = md_ger_debt_brake
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = GER_infrastructure_fund
+		icon = GFX_md_bridge_economy_de
+		x = 7
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_debt_brake_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ger_infrastructure_fund
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_energy_reset
+		icon = GFX_md_transmission_tower_energy_de
+		x = 9
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_debt_brake_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_ger_energy_shock
+				}
+				remove_ideas = md_ger_energy_shock
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_modell_deutschland
+		icon = GFX_md_cogs_economy_de
+		x = 8
+		y = 5
+		cost = 10
+		prerequisite = { focus = GER_infrastructure_fund }
+		prerequisite = { focus = GER_energy_reset }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_bundeswehr
+		icon = GFX_md_shield_military_de
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = GER_grand_coalition }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_brigade_lithuania
+		icon = GFX_md_tank_military_de
+		x = 13
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_bundeswehr }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = LIT
+				}
+				add_opinion_modifier = {
+					target = LIT
+					modifier = md_opinion_aid
+				}
+				LIT = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = GER_military_service
+		icon = GFX_md_account_multiple_plus_military_de
+		x = 15
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_bundeswehr }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ger_military_service
+		}
+	}
+
+	focus = {
+		id = GER_strongest_army
+		icon = GFX_md_shield_star_military_de
+		x = 14
+		y = 5
+		cost = 10
+		prerequisite = { focus = GER_brigade_lithuania }
+		prerequisite = { focus = GER_military_service }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = md_ger_zeitenwende
+				add_idea = md_ger_bundeswehr_reborn
+			}
+		}
+	}
+
+	focus = {
+		id = GER_taurus
+		icon = GFX_md_rocket_launch_military_de
+		x = 16
+		y = 5
+		cost = 10
+		prerequisite = { focus = GER_bundeswehr }
+		mutually_exclusive = { focus = GER_no_taurus }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					add_timed_idea = {
+						idea = md_ukr_long_range_strikes
+						days = 365
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_no_taurus
+		icon = GFX_md_hand_back_left_diplomacy_de
+		x = 18
+		y = 5
+		cost = 10
+		prerequisite = { focus = GER_bundeswehr }
+		mutually_exclusive = { focus = GER_taurus }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = GER_migration_turnaround
+		icon = GFX_md_fence_politics_de
+		x = 18
+		y = 3
+		cost = 10
+		prerequisite = { focus = GER_grand_coalition }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ger_migration_turnaround
+		}
+	}
+
+	focus = {
+		id = GER_keep_firewall
+		icon = GFX_md_wall_politics_de
+		x = 17
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_migration_turnaround }
+		mutually_exclusive = { focus = GER_break_firewall }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ger_firewall
+		}
+	}
+
+	focus = {
+		id = GER_break_firewall
+		icon = GFX_md_wall_fire_crisis_de
+		x = 19
+		y = 4
+		cost = 10
+		prerequisite = { focus = GER_migration_turnaround }
+		mutually_exclusive = { focus = GER_keep_firewall }
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = { factor = 0.1 }
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_stability = -0.03
+		}
+	}
+
+	focus = {
+		id = GER_digital_ministry
+		icon = GFX_md_web_tech_de
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = GER_grand_coalition }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+}

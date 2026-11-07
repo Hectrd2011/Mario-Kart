@@ -1,0 +1,18 @@
+characters = {
+	BEN_patrice_talon = {
+		name = BEN_patrice_talon
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BEN/md_BEN_patrice_talon.dds"
+				small = "gfx/interface/ideas/md_leaders/BEN_patrice_talon.dds"
+			}
+		}
+		country_leader = {
+			desc = "BEN_patrice_talon_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

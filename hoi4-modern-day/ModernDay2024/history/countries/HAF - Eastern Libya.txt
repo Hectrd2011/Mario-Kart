@@ -1,0 +1,20 @@
+# Eastern Libya: 6 November 2024
+set_research_slots = 1
+set_stability = 0.45
+set_war_support = 0.40
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 10 communism = 0 fascism = 0 neutrality = 90 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_lba_divided_country
+}
+
+recruit_character = HAF_khalifa_haftar

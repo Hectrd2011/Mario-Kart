@@ -1,0 +1,23 @@
+# Netherlands: 6 November 2024
+set_research_slots = 4
+set_stability = 0.50
+set_war_support = 0.10
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.11.22"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 78 communism = 3 fascism = 18 neutrality = 1 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_hol_chip_machines
+}
+
+recruit_character = HOL_dick_schoof
+recruit_character = HOL_geert_wilders

@@ -1,0 +1,226 @@
+characters = {
+	USA_joe_biden = {
+		name = USA_joe_biden
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/USA/md_USA_joe_biden.dds"
+				small = "gfx/interface/ideas/md_leaders/USA_joe_biden.dds"
+			}
+		}
+		country_leader = {
+			desc = "USA_joe_biden_desc"
+			ideology = liberalism
+			traits = { md_lame_duck md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	USA_donald_trump = {
+		name = USA_donald_trump
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/USA/md_USA_donald_trump.dds"
+				small = "gfx/interface/ideas/md_leaders/USA_donald_trump.dds"
+			}
+		}
+		country_leader = {
+			desc = "USA_donald_trump_desc"
+			ideology = conservatism
+			traits = { md_dealmaker md_populist_firebrand md_america_first }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	USA_jd_vance = {
+		name = USA_jd_vance
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/USA/md_USA_jd_vance.dds"
+				small = "gfx/interface/ideas/md_leaders/USA_jd_vance.dds"
+			}
+		}
+		country_leader = {
+			desc = "USA_jd_vance_desc"
+			ideology = conservatism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	USA_kamala_harris = {
+		name = USA_kamala_harris
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/USA/md_USA_kamala_harris.dds"
+				small = "gfx/interface/ideas/md_leaders/USA_kamala_harris.dds"
+			}
+		}
+		country_leader = {
+			desc = "USA_kamala_harris_desc"
+			ideology = liberalism
+			traits = { md_prosecutor }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	USA_antony_blinken = {
+		name = USA_antony_blinken
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_antony_blinken.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_antony_blinken_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_lloyd_austin = {
+		name = USA_lloyd_austin
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_lloyd_austin.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_lloyd_austin_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_jake_sullivan = {
+		name = USA_jake_sullivan
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_jake_sullivan.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_jake_sullivan_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_security_hawk }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_janet_yellen = {
+		name = USA_janet_yellen
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_janet_yellen.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_janet_yellen_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_marco_rubio = {
+		name = USA_marco_rubio
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_marco_rubio.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_marco_rubio_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_pete_hegseth = {
+		name = USA_pete_hegseth
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_pete_hegseth.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_pete_hegseth_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_security_hawk }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_elon_musk = {
+		name = USA_elon_musk
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_elon_musk.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_elon_musk_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_efficiency }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_scott_bessent = {
+		name = USA_scott_bessent
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_scott_bessent.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_scott_bessent_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_treasury_hawk }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_tom_homan = {
+		name = USA_tom_homan
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_tom_homan.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_tom_homan_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_border_czar }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	USA_susie_wiles = {
+		name = USA_susie_wiles
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/USA_susie_wiles.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_susie_wiles_adv
+			allowed = { original_tag = USA }
+			traits = { md_adv_chief_of_staff }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

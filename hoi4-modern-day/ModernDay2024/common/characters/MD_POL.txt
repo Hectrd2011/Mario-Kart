@@ -1,0 +1,18 @@
+characters = {
+	POL_donald_tusk = {
+		name = POL_donald_tusk
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/POL/md_POL_donald_tusk.dds"
+				small = "gfx/interface/ideas/md_leaders/POL_donald_tusk.dds"
+			}
+		}
+		country_leader = {
+			desc = "POL_donald_tusk_desc"
+			ideology = liberalism
+			traits = { md_eu_federalist md_atlanticist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

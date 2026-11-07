@@ -1,0 +1,37 @@
+add_namespace = md_can
+
+country_event = {
+	id = md_can.1
+	title = md_can.1.t
+	desc = md_can.1.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_can.1.a
+		add_political_power = -25
+		country_event = {
+			id = md_can.2
+			days = 67
+		}
+	}
+}
+
+country_event = {
+	id = md_can.2
+	title = md_can.2.t
+	desc = md_can.2.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_can.2.a
+		if = {
+			limit = {
+				has_character = CAN_justin_trudeau
+			}
+			retire_character = CAN_justin_trudeau
+		}
+		recruit_character = CAN_mark_carney
+		promote_character = CAN_mark_carney
+		add_stability = 0.06
+	}
+}

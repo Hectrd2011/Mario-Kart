@@ -1,0 +1,22 @@
+# Syria: 6 November 2024
+set_research_slots = 1
+set_stability = 0.20
+set_war_support = 0.25
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 5 communism = 5 fascism = 5 neutrality = 85 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_syr_hollow_army
+	md_syr_captagon_economy
+	md_western_sanctions_light
+}
+
+recruit_character = SYR_bashar_al_assad

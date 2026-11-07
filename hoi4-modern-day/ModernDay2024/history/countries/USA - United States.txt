@@ -1,0 +1,30 @@
+# United States: 6 November 2024
+set_research_slots = 6
+set_stability = 0.55
+set_war_support = 0.30
+set_convoys = 400
+add_nuclear_bombs = 12
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.11.5"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 90 communism = 2 fascism = 5 neutrality = 3 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_usa_polarized_nation
+	md_usa_reserve_currency
+	md_usa_arsenal
+	md_usa_transition
+}
+
+recruit_character = USA_joe_biden
+recruit_character = USA_antony_blinken
+recruit_character = USA_lloyd_austin
+recruit_character = USA_jake_sullivan
+recruit_character = USA_janet_yellen

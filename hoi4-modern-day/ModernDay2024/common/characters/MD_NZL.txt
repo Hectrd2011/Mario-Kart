@@ -1,0 +1,18 @@
+characters = {
+	NZL_christopher_luxon = {
+		name = NZL_christopher_luxon
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NZL/md_NZL_christopher_luxon.dds"
+				small = "gfx/interface/ideas/md_leaders/NZL_christopher_luxon.dds"
+			}
+		}
+		country_leader = {
+			desc = "NZL_christopher_luxon_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,31 @@
+add_namespace = md_prc
+
+country_event = {
+	id = md_prc.10
+	title = md_prc.10.t
+	desc = md_prc.10.d
+	picture = GFX_md_event_deal
+	is_triggered_only = yes
+	option = {
+		name = md_prc.10.a
+		ai_chance = { factor = 98 }
+		add_stability = 0.05
+		add_war_support = 0.05
+		PRC = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = md_opinion_pressure
+			}
+		}
+	}
+	option = {
+		name = md_prc.10.b
+		ai_chance = { factor = 2 }
+		PRC = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+}

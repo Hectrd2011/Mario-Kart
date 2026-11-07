@@ -1,0 +1,18 @@
+characters = {
+	CMR_paul_biya = {
+		name = CMR_paul_biya
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CMR/md_CMR_paul_biya.dds"
+				small = "gfx/interface/ideas/md_leaders/CMR_paul_biya.dds"
+			}
+		}
+		country_leader = {
+			desc = "CMR_paul_biya_desc"
+			ideology = oligarchism
+			traits = { md_absent_ruler md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

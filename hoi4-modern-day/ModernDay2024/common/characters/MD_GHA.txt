@@ -1,0 +1,34 @@
+characters = {
+	GHA_nana_akufo_addo = {
+		name = GHA_nana_akufo_addo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GHA/md_GHA_nana_akufo_addo.dds"
+				small = "gfx/interface/ideas/md_leaders/GHA_nana_akufo_addo.dds"
+			}
+		}
+		country_leader = {
+			desc = "GHA_nana_akufo_addo_desc"
+			ideology = conservatism
+			traits = { md_lame_duck }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	GHA_john_mahama = {
+		name = GHA_john_mahama
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GHA/md_GHA_john_mahama.dds"
+				small = "gfx/interface/ideas/md_leaders/GHA_john_mahama.dds"
+			}
+		}
+		country_leader = {
+			desc = "GHA_john_mahama_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

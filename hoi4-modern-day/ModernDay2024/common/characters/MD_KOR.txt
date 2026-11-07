@@ -1,0 +1,50 @@
+characters = {
+	KOR_yoon_suk_yeol = {
+		name = KOR_yoon_suk_yeol
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/md_KOR_yoon_suk_yeol.dds"
+				small = "gfx/interface/ideas/md_leaders/KOR_yoon_suk_yeol.dds"
+			}
+		}
+		country_leader = {
+			desc = "KOR_yoon_suk_yeol_desc"
+			ideology = conservatism
+			traits = { md_prosecutor md_unpopular_incumbent }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	KOR_lee_jae_myung = {
+		name = KOR_lee_jae_myung
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/md_KOR_lee_jae_myung.dds"
+				small = "gfx/interface/ideas/md_leaders/KOR_lee_jae_myung.dds"
+			}
+		}
+		country_leader = {
+			desc = "KOR_lee_jae_myung_desc"
+			ideology = liberalism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	KOR_han_duck_soo = {
+		name = KOR_han_duck_soo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOR/md_KOR_han_duck_soo.dds"
+				small = "gfx/interface/ideas/md_leaders/KOR_han_duck_soo.dds"
+			}
+		}
+		country_leader = {
+			desc = "KOR_han_duck_soo_desc"
+			ideology = conservatism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

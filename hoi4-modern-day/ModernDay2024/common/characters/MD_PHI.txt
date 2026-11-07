@@ -1,0 +1,18 @@
+characters = {
+	PHI_ferdinand_marcos_jr = {
+		name = PHI_ferdinand_marcos_jr
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PHI/md_PHI_ferdinand_marcos_jr.dds"
+				small = "gfx/interface/ideas/md_leaders/PHI_ferdinand_marcos_jr.dds"
+			}
+		}
+		country_leader = {
+			desc = "PHI_ferdinand_marcos_jr_desc"
+			ideology = conservatism
+			traits = { md_dynast md_atlanticist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

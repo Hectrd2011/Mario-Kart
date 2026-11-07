@@ -1,0 +1,349 @@
+leader_traits = {
+	md_lame_duck = {
+		random = no
+		political_power_factor = -0.15
+	}
+	md_elder_statesman = {
+		random = no
+		stability_factor = 0.05
+		opinion_gain_monthly_factor = 0.1
+	}
+	md_dealmaker = {
+		random = no
+		trade_opinion_factor = 0.2
+		opinion_gain_monthly_factor = 0.15
+	}
+	md_populist_firebrand = {
+		random = no
+		political_power_gain = 0.15
+		stability_factor = -0.03
+		war_support_factor = 0.05
+	}
+	md_america_first = {
+		random = no
+		production_speed_industrial_complex_factor = 0.05
+		trade_opinion_factor = -0.1
+		war_support_factor = 0.05
+	}
+	md_prosecutor = {
+		random = no
+		stability_factor = 0.03
+	}
+	md_unpopular_incumbent = {
+		random = no
+		stability_factor = -0.05
+	}
+	md_charismatic = {
+		random = no
+		political_power_gain = 0.1
+		stability_factor = 0.03
+	}
+	md_economist = {
+		random = no
+		consumer_goods_factor = -0.03
+		production_speed_buildings_factor = 0.05
+	}
+	md_crisis_manager = {
+		random = no
+		stability_factor = 0.05
+		political_power_factor = 0.05
+	}
+	md_technocrat = {
+		random = no
+		research_speed_factor = 0.05
+	}
+	md_reformer = {
+		random = no
+		political_power_gain = 0.1
+		stability_factor = -0.02
+	}
+	md_anti_corruption = {
+		random = no
+		political_power_factor = 0.1
+		stability_factor = 0.03
+	}
+	md_strongman = {
+		random = no
+		stability_factor = 0.1
+		democratic_drift = -0.02
+		political_power_gain = 0.1
+	}
+	md_crypto_president = {
+		random = no
+		research_speed_factor = 0.02
+		trade_opinion_factor = -0.05
+	}
+	md_contested_mandate = {
+		random = no
+		stability_factor = -0.08
+		drift_defence_factor = -0.1
+	}
+	md_interim_leader = {
+		random = no
+		political_power_factor = -0.1
+		stability_factor = 0.03
+	}
+	md_libertarian_shock = {
+		random = no
+		consumer_goods_factor = -0.05
+		production_speed_buildings_factor = 0.05
+	}
+	md_oil_boom_president = {
+		random = no
+		local_resources_factor = 0.05
+	}
+	md_cautious_reformer = {
+		random = no
+		stability_factor = 0.04
+		political_power_factor = -0.05
+	}
+	md_lawyer = {
+		random = no
+		political_power_factor = 0.03
+	}
+	md_young_leader = {
+		random = no
+		political_power_gain = 0.05
+		stability_factor = -0.02
+	}
+	md_jupiterian = {
+		random = no
+		political_power_gain = 0.1
+		stability_factor = -0.03
+	}
+	md_eu_federalist = {
+		random = no
+		trade_opinion_factor = 0.1
+		opinion_gain_monthly_factor = 0.1
+	}
+	md_caretaker = {
+		random = no
+		political_power_factor = -0.2
+	}
+	md_coalition_builder = {
+		random = no
+		stability_factor = 0.05
+		political_power_factor = -0.03
+	}
+	md_atlanticist = {
+		random = no
+		opinion_gain_monthly_factor = 0.1
+		war_support_factor = 0.03
+	}
+	md_survivor = {
+		random = no
+		stability_factor = 0.04
+		drift_defence_factor = 0.1
+	}
+	md_illiberal_democrat = {
+		random = no
+		stability_factor = 0.08
+		drift_defence_factor = 0.15
+		opinion_gain_monthly_factor = -0.05
+	}
+	md_eurosceptic = {
+		random = no
+		trade_opinion_factor = -0.05
+		political_power_gain = 0.05
+	}
+	md_balancer = {
+		random = no
+		drift_defence_factor = 0.1
+		trade_opinion_factor = 0.1
+	}
+	md_war_president = {
+		random = no
+		war_support_factor = 0.1
+		army_morale_factor = 0.05
+	}
+	md_kgb_veteran = {
+		random = no
+		encryption_factor = 0.2
+		decryption_factor = 0.2
+	}
+	md_exile_leader = {
+		random = no
+		political_power_factor = -0.1
+	}
+	md_petro_state = {
+		random = no
+		local_resources_factor = 0.05
+		stability_factor = 0.03
+	}
+	md_dynast = {
+		random = no
+		stability_factor = 0.05
+		political_power_factor = 0.05
+	}
+	md_hollow_regime = {
+		random = no
+		stability_factor = -0.1
+		army_morale_factor = -0.1
+	}
+	md_insurgent_commander = {
+		random = no
+		army_attack_factor = 0.05
+		army_morale_factor = 0.05
+	}
+	md_absolute_monarch = {
+		random = no
+		stability_factor = 0.1
+		political_power_gain = 0.1
+	}
+	md_mediator = {
+		random = no
+		opinion_gain_monthly_factor = 0.2
+	}
+	md_power_broker = {
+		random = no
+		political_power_gain = 0.1
+		trade_opinion_factor = 0.05
+	}
+	md_vision_2030 = {
+		random = no
+		production_speed_buildings_factor = 0.05
+		stability_factor = 0.03
+	}
+	md_supreme_leader = {
+		random = no
+		stability_factor = 0.1
+		democratic_drift = -0.03
+	}
+	md_recluse = {
+		random = no
+		opinion_gain_monthly_factor = -0.1
+		stability_factor = 0.03
+	}
+	md_military_ruler = {
+		random = no
+		army_org_factor = 0.03
+		stability_factor = 0.03
+		democratic_drift = -0.02
+	}
+	md_military_backed = {
+		random = no
+		stability_factor = 0.05
+	}
+	md_military_reformer = {
+		random = no
+		army_org_factor = 0.05
+	}
+	md_sovereigntist = {
+		random = no
+		war_support_factor = 0.08
+		trade_opinion_factor = -0.05
+	}
+	md_hustler = {
+		random = no
+		political_power_gain = 0.05
+	}
+	md_absent_ruler = {
+		random = no
+		political_power_factor = -0.15
+		stability_factor = 0.03
+	}
+	md_hindu_nationalist = {
+		random = no
+		war_support_factor = 0.05
+		stability_factor = 0.03
+	}
+	md_core_leader = {
+		random = no
+		stability_factor = 0.1
+		political_power_gain = 0.15
+	}
+	md_party_apparatchik = {
+		random = no
+		political_power_factor = 0.05
+	}
+	md_defense_hawk = {
+		random = no
+		production_speed_arms_factory_factor = 0.05
+		war_support_factor = 0.03
+	}
+	md_adv_diplomat = {
+		random = no
+		opinion_gain_monthly_factor = 0.2
+		trade_opinion_factor = 0.1
+	}
+	md_adv_defense_chief = {
+		random = no
+		production_speed_arms_factory_factor = 0.08
+		army_org_factor = 0.03
+	}
+	md_adv_security_hawk = {
+		random = no
+		war_support_factor = 0.08
+		enemy_justify_war_goal_time = 0.15
+	}
+	md_adv_economist = {
+		random = no
+		consumer_goods_factor = -0.03
+		production_speed_industrial_complex_factor = 0.08
+	}
+	md_adv_party_whip = {
+		random = no
+		political_power_gain = 0.15
+	}
+	md_adv_negotiator = {
+		random = no
+		opinion_gain_monthly_factor = 0.15
+		political_power_gain = 0.05
+	}
+	md_adv_war_economist = {
+		random = no
+		production_speed_arms_factory_factor = 0.1
+		industrial_capacity_factory = 0.05
+	}
+	md_adv_general_staff = {
+		random = no
+		army_org_factor = 0.05
+		planning_speed = 0.1
+	}
+	md_adv_green_transition = {
+		random = no
+		production_speed_buildings_factor = 0.05
+		research_speed_factor = 0.03
+	}
+	md_adv_hardliner = {
+		random = no
+		war_support_factor = 0.1
+		stability_factor = -0.03
+	}
+	md_adv_reformist = {
+		random = no
+		stability_factor = 0.05
+		trade_opinion_factor = 0.1
+	}
+	md_adv_efficiency = {
+		random = no
+		political_power_factor = 0.1
+		consumer_goods_factor = -0.03
+		stability_factor = -0.03
+	}
+	md_adv_border_czar = {
+		random = no
+		stability_factor = 0.05
+		monthly_population = -0.05
+	}
+	md_adv_treasury_hawk = {
+		random = no
+		consumer_goods_factor = -0.05
+		trade_opinion_factor = 0.05
+	}
+	md_adv_intel_chief = {
+		random = no
+		encryption_factor = 0.2
+		decryption_factor = 0.2
+	}
+	md_adv_public_health = {
+		random = no
+		stability_factor = -0.02
+		monthly_population = 0.03
+	}
+	md_adv_chief_of_staff = {
+		random = no
+		political_power_gain = 0.1
+		stability_factor = 0.02
+	}
+}

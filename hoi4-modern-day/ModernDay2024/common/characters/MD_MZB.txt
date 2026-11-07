@@ -1,0 +1,34 @@
+characters = {
+	MZB_filipe_nyusi = {
+		name = MZB_filipe_nyusi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MZB/md_MZB_filipe_nyusi.dds"
+				small = "gfx/interface/ideas/md_leaders/MZB_filipe_nyusi.dds"
+			}
+		}
+		country_leader = {
+			desc = "MZB_filipe_nyusi_desc"
+			ideology = oligarchism
+			traits = { md_lame_duck }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	MZB_daniel_chapo = {
+		name = MZB_daniel_chapo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MZB/md_MZB_daniel_chapo.dds"
+				small = "gfx/interface/ideas/md_leaders/MZB_daniel_chapo.dds"
+			}
+		}
+		country_leader = {
+			desc = "MZB_daniel_chapo_desc"
+			ideology = oligarchism
+			traits = { md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

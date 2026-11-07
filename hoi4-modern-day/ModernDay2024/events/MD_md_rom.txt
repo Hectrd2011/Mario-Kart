@@ -1,0 +1,46 @@
+add_namespace = md_rom
+
+country_event = {
+	id = md_rom.1
+	title = md_rom.1.t
+	desc = md_rom.1.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_rom.1.a
+		add_stability = -0.08
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.04
+		}
+		country_event = {
+			id = md_rom.2
+			days = 163
+		}
+	}
+}
+
+country_event = {
+	id = md_rom.2
+	title = md_rom.2.t
+	desc = md_rom.2.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_rom.2.a
+		if = {
+			limit = {
+				has_character = ROM_klaus_iohannis
+			}
+			retire_character = ROM_klaus_iohannis
+		}
+		recruit_character = ROM_nicusor_dan
+		promote_character = ROM_nicusor_dan
+		set_party_name = {
+			ideology = democratic
+			long_name = ROM_democratic_party_nicusor_dan_long
+			name = ROM_democratic_party_nicusor_dan
+		}
+		add_stability = 0.06
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	UAE_mohamed_bin_zayed = {
+		name = UAE_mohamed_bin_zayed
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UAE/md_UAE_mohamed_bin_zayed.dds"
+				small = "gfx/interface/ideas/md_leaders/UAE_mohamed_bin_zayed.dds"
+			}
+		}
+		country_leader = {
+			desc = "UAE_mohamed_bin_zayed_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch md_power_broker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	LIB_joseph_boakai = {
+		name = LIB_joseph_boakai
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LIB/md_LIB_joseph_boakai.dds"
+				small = "gfx/interface/ideas/md_leaders/LIB_joseph_boakai.dds"
+			}
+		}
+		country_leader = {
+			desc = "LIB_joseph_boakai_desc"
+			ideology = conservatism
+			traits = { md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

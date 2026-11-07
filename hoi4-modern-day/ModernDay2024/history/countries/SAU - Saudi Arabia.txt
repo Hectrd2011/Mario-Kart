@@ -1,0 +1,21 @@
+# Saudi Arabia: 6 November 2024
+set_research_slots = 3
+set_stability = 0.75
+set_war_support = 0.30
+set_convoys = 120
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 0 communism = 0 fascism = 0 neutrality = 100 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_conscription
+	export_focus
+	md_sau_vision_2030
+	md_sau_opec_swing
+}
+
+recruit_character = SAU_mohammed_bin_salman

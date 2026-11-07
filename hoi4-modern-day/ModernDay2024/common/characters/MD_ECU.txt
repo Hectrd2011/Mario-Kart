@@ -1,0 +1,18 @@
+characters = {
+	ECU_daniel_noboa = {
+		name = ECU_daniel_noboa
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ECU/md_ECU_daniel_noboa.dds"
+				small = "gfx/interface/ideas/md_leaders/ECU_daniel_noboa.dds"
+			}
+		}
+		country_leader = {
+			desc = "ECU_daniel_noboa_desc"
+			ideology = conservatism
+			traits = { md_strongman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

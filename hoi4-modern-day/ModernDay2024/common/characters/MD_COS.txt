@@ -1,0 +1,18 @@
+characters = {
+	COS_rodrigo_chaves = {
+		name = COS_rodrigo_chaves
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/COS/md_COS_rodrigo_chaves.dds"
+				small = "gfx/interface/ideas/md_leaders/COS_rodrigo_chaves.dds"
+			}
+		}
+		country_leader = {
+			desc = "COS_rodrigo_chaves_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

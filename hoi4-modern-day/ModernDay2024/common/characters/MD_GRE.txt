@@ -1,0 +1,18 @@
+characters = {
+	GRE_kyriakos_mitsotakis = {
+		name = GRE_kyriakos_mitsotakis
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GRE/md_GRE_kyriakos_mitsotakis.dds"
+				small = "gfx/interface/ideas/md_leaders/GRE_kyriakos_mitsotakis.dds"
+			}
+		}
+		country_leader = {
+			desc = "GRE_kyriakos_mitsotakis_desc"
+			ideology = conservatism
+			traits = { md_technocrat }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

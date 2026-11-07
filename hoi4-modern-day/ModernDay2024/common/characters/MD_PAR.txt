@@ -1,0 +1,18 @@
+characters = {
+	PAR_santiago_pena = {
+		name = PAR_santiago_pena
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PAR/md_PAR_santiago_pena.dds"
+				small = "gfx/interface/ideas/md_leaders/PAR_santiago_pena.dds"
+			}
+		}
+		country_leader = {
+			desc = "PAR_santiago_pena_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

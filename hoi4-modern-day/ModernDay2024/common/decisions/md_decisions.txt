@@ -1,0 +1,506 @@
+md_cat_economy = {
+	md_stimulus_package = {
+		icon = md_cash_multiple_economy
+		cost = 75
+		available = {
+			NOT = {
+				has_idea = md_dec_austerity
+			}
+		}
+		days_re_enable = 365
+		complete_effect = {
+			add_timed_idea = {
+				idea = md_dec_stimulus
+				days = 180
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+	md_austerity_budget = {
+		icon = md_content_cut_economy
+		cost = 25
+		available = {
+			NOT = {
+				has_idea = md_dec_stimulus
+			}
+		}
+		days_re_enable = 365
+		complete_effect = {
+			add_timed_idea = {
+				idea = md_dec_austerity
+				days = 180
+			}
+			add_political_power = 75
+		}
+		ai_will_do = { factor = 0 }
+	}
+	md_infrastructure_push = {
+		icon = md_road_variant_economy
+		cost = 100
+		days_re_enable = 180
+		complete_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_foreign_investment = {
+		icon = md_office_building_economy
+		cost = 120
+		available = {
+			has_stability > 0.4
+		}
+		days_re_enable = 240
+		complete_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+}
+
+md_cat_defense = {
+	md_arms_factory_program = {
+		icon = md_factory_military
+		cost = 120
+		days_re_enable = 240
+		complete_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+	md_call_up_reserves = {
+		icon = md_account_multiple_plus_military
+		cost = 50
+		available = {
+			has_war = yes
+		}
+		days_re_enable = 120
+		complete_effect = {
+			add_manpower = 50000
+			add_stability = -0.03
+		}
+		ai_will_do = { factor = 3 }
+	}
+	md_emergency_arms_purchase = {
+		icon = md_package_variant_closed_military
+		cost = 75
+		days_re_enable = 120
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 300
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+	md_military_exercises = {
+		icon = md_target_military
+		cost = 25
+		days_re_enable = 90
+		complete_effect = {
+			army_experience = 10
+			add_war_support = 0.01
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_defense_spending = {
+		icon = md_chart_line_military
+		cost = 100
+		days_re_enable = 365
+		complete_effect = {
+			add_timed_idea = {
+				idea = md_dec_defense_spending
+				days = 365
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+}
+
+md_cat_diplomacy = {
+	md_request_nato_membership = {
+		icon = md_shield_star_diplomacy
+		cost = 150
+		visible = {
+			has_government = democratic
+			NOT = {
+				is_in_faction = yes
+			}
+			NOT = {
+				tag = USA
+			}
+			country_exists = USA
+			USA = {
+				is_faction_leader = yes
+			}
+		}
+		available = {
+			has_war = no
+			USA = {
+				has_opinion = {
+					target = ROOT
+					value > 40
+				}
+			}
+			has_stability > 0.5
+		}
+		days_re_enable = 365
+		complete_effect = {
+			USA = {
+				country_event = {
+					id = md_dip.1
+					days = 1
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_brics_partnership = {
+		icon = md_earth_diplomacy
+		cost = 75
+		visible = {
+			NOT = {
+				is_in_faction_with = USA
+			}
+			NOT = {
+				has_idea = md_gen_brics_partner
+			}
+			NOT = {
+				has_idea = md_gen_western_partner
+			}
+			NOT = {
+				tag = PRC
+			}
+			NOT = {
+				tag = RUS
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_ideas = md_gen_brics_partner
+			if = {
+				limit = {
+					country_exists = PRC
+				}
+				add_opinion_modifier = {
+					target = PRC
+					modifier = md_opinion_brics_alignment
+				}
+				PRC = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_brics_alignment
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_send_aid_ukraine = {
+		icon = md_package_variant_closed_diplomacy
+		cost = 50
+		visible = {
+			has_government = democratic
+			country_exists = UKR
+			UKR = {
+				has_war_with = RUS
+			}
+			NOT = {
+				tag = UKR
+			}
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 2999
+			}
+		}
+		days_re_enable = 120
+		complete_effect = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 2000
+				target = UKR
+			}
+			UKR = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = md_opinion_aid
+				}
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+}
+
+md_cat_ukraine_war = {
+	md_rus_summer_offensive = {
+		icon = md_sword_cross_military
+		cost = 100
+		visible = {
+			tag = RUS
+		}
+		available = {
+			has_war_with = UKR
+		}
+		days_re_enable = 180
+		complete_effect = {
+			add_timed_idea = {
+				idea = md_dec_offensive
+				days = 60
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+	md_rus_strike_grid = {
+		icon = md_flash_alert_crisis
+		cost = 75
+		visible = {
+			tag = RUS
+		}
+		available = {
+			has_war_with = UKR
+		}
+		days_re_enable = 150
+		complete_effect = {
+			UKR = {
+				add_timed_idea = {
+					idea = md_dec_grid_strikes
+					days = 90
+				}
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+	md_rus_offer_ceasefire = {
+		icon = md_hand_peace_diplomacy
+		cost = 100
+		visible = {
+			tag = RUS
+		}
+		available = {
+			has_war_with = UKR
+		}
+		days_re_enable = 180
+		complete_effect = {
+			UKR = {
+				country_event = {
+					id = md_war.11
+					days = 1
+				}
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+	md_ukr_deep_strikes = {
+		icon = md_fire_military
+		cost = 75
+		visible = {
+			tag = UKR
+		}
+		available = {
+			has_war_with = RUS
+		}
+		days_re_enable = 150
+		complete_effect = {
+			RUS = {
+				add_timed_idea = {
+					idea = md_ukr_fuel_shortage
+					days = 120
+				}
+			}
+		}
+		ai_will_do = { factor = 3 }
+	}
+	md_ukr_request_patriots = {
+		icon = md_shield_military
+		cost = 75
+		visible = {
+			tag = UKR
+		}
+		available = {
+			has_war_with = RUS
+		}
+		days_re_enable = 365
+		complete_effect = {
+			add_timed_idea = {
+				idea = md_dec_patriots
+				days = 365
+			}
+		}
+		ai_will_do = { factor = 2 }
+	}
+	md_ukr_offer_talks = {
+		icon = md_hand_peace_diplomacy
+		cost = 50
+		visible = {
+			tag = UKR
+		}
+		available = {
+			has_war_with = RUS
+		}
+		days_re_enable = 180
+		complete_effect = {
+			RUS = {
+				country_event = {
+					id = md_war.12
+					days = 1
+				}
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+}
+
+md_cat_middle_east = {
+	md_isr_hostage_deal = {
+		icon = md_hand_peace_diplomacy
+		cost = 50
+		visible = {
+			tag = ISR
+			NOT = {
+				has_global_flag = md_gaza_ceasefire
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			md_gaza_ceasefire = yes
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_isr_targeted_strike = {
+		icon = md_crosshairs_gps_military
+		cost = 50
+		visible = {
+			tag = ISR
+		}
+		days_re_enable = 120
+		complete_effect = {
+			add_war_support = 0.02
+			army_experience = 5
+			add_named_threat = {
+				threat = 1
+				name = md_threat_targeted_killing
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_per_missile_salvo = {
+		icon = md_rocket_launch_crisis
+		cost = 100
+		visible = {
+			tag = PER
+		}
+		days_re_enable = 240
+		complete_effect = {
+			add_war_support = 0.03
+			add_named_threat = {
+				threat = 2
+				name = md_threat_true_promise
+			}
+			ISR = {
+				add_war_support = 0.03
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+	md_yem_red_sea_attacks = {
+		icon = md_ferry_crisis
+		cost = 50
+		visible = {
+			tag = YEM
+		}
+		days_re_enable = 90
+		complete_effect = {
+			add_war_support = 0.03
+			add_named_threat = {
+				threat = 1
+				name = md_threat_red_sea
+			}
+			EGY = {
+				add_political_power = -25
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+}
+
+md_cat_strategic_arsenal = {
+	md_nuclear_test = {
+		icon = md_rocket_nuclear
+		cost = 50
+		days_re_enable = 180
+		complete_effect = {
+			add_war_support = 0.02
+			add_named_threat = {
+				threat = 1
+				name = md_threat_missile_test
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+	md_build_warheads = {
+		icon = md_radioactive_nuclear
+		cost = 150
+		days_re_enable = 365
+		complete_effect = {
+			add_nuclear_bombs = 1
+			add_named_threat = {
+				threat = 1
+				name = md_threat_arsenal
+			}
+		}
+		ai_will_do = { factor = 1 }
+	}
+}

@@ -1,0 +1,34 @@
+characters = {
+	AST_anthony_albanese = {
+		name = AST_anthony_albanese
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AST/md_AST_anthony_albanese.dds"
+				small = "gfx/interface/ideas/md_leaders/AST_anthony_albanese.dds"
+			}
+		}
+		country_leader = {
+			desc = "AST_anthony_albanese_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	AST_peter_dutton = {
+		name = AST_peter_dutton
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AST/md_AST_peter_dutton.dds"
+				small = "gfx/interface/ideas/md_leaders/AST_peter_dutton.dds"
+			}
+		}
+		country_leader = {
+			desc = "AST_peter_dutton_desc"
+			ideology = conservatism
+			traits = { md_defense_hawk }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

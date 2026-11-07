@@ -1,0 +1,29 @@
+# Germany: 6 November 2024
+set_research_slots = 5
+set_stability = 0.45
+set_war_support = 0.20
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2021.9.26"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 75 communism = 5 fascism = 18 neutrality = 2 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_ger_debt_brake
+	md_ger_energy_shock
+	md_ger_zeitenwende
+}
+
+recruit_character = GER_olaf_scholz
+recruit_character = GER_alice_weidel
+recruit_character = GER_robert_habeck
+recruit_character = GER_boris_pistorius
+recruit_character = GER_annalena_baerbock
+recruit_character = GER_jorg_kukies

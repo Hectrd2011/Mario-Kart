@@ -1,0 +1,21 @@
+# Egypt: 6 November 2024
+set_research_slots = 2
+set_stability = 0.55
+set_war_support = 0.25
+set_convoys = 120
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 10 communism = 0 fascism = 0 neutrality = 90 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_conscription
+	export_focus
+	md_egy_debt_crisis
+	md_egy_suez_revenue_loss
+}
+
+recruit_character = EGY_abdel_fattah_el_sisi

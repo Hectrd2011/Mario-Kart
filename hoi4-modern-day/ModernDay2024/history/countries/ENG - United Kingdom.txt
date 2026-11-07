@@ -1,0 +1,30 @@
+# United Kingdom: 6 November 2024
+set_research_slots = 5
+set_stability = 0.55
+set_war_support = 0.30
+set_convoys = 120
+add_nuclear_bombs = 3
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.7.4"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 84 communism = 2 fascism = 12 neutrality = 2 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_eng_fiscal_black_hole
+	md_eng_city_of_london
+	md_nuclear_deterrent
+}
+
+recruit_character = ENG_keir_starmer
+recruit_character = ENG_nigel_farage
+recruit_character = ENG_rachel_reeves
+recruit_character = ENG_david_lammy
+recruit_character = ENG_john_healey
+recruit_character = ENG_angela_rayner

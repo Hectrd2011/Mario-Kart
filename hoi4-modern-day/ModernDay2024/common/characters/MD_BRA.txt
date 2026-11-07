@@ -1,0 +1,18 @@
+characters = {
+	BRA_luiz_inacio_lula_da_silva = {
+		name = BRA_luiz_inacio_lula_da_silva
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BRA/md_BRA_luiz_inacio_lula_da_silva.dds"
+				small = "gfx/interface/ideas/md_leaders/BRA_luiz_inacio_lula_da_silva.dds"
+			}
+		}
+		country_leader = {
+			desc = "BRA_luiz_inacio_lula_da_silva_desc"
+			ideology = socialism
+			traits = { md_elder_statesman md_charismatic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

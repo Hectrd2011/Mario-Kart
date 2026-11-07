@@ -1,0 +1,23 @@
+# DR Congo: 6 November 2024
+set_research_slots = 1
+set_stability = 0.20
+set_war_support = 0.30
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.12.20"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 70 communism = 0 fascism = 0 neutrality = 30 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_drc_eastern_war
+	md_drc_critical_minerals
+}
+
+recruit_character = DRC_felix_tshisekedi

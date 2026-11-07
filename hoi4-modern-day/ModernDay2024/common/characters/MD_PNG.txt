@@ -1,0 +1,18 @@
+characters = {
+	PNG_james_marape = {
+		name = PNG_james_marape
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PNG/md_PNG_james_marape.dds"
+				small = "gfx/interface/ideas/md_leaders/PNG_james_marape.dds"
+			}
+		}
+		country_leader = {
+			desc = "PNG_james_marape_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,22 @@
+# Denmark: 6 November 2024
+set_research_slots = 3
+set_stability = 0.75
+set_war_support = 0.20
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.11.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 94 communism = 2 fascism = 3 neutrality = 1 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_den_greenland_question
+}
+
+recruit_character = DEN_mette_frederiksen

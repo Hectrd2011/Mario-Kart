@@ -1,0 +1,18 @@
+characters = {
+	BDI_evariste_ndayishimiye = {
+		name = BDI_evariste_ndayishimiye
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BDI/md_BDI_evariste_ndayishimiye.dds"
+				small = "gfx/interface/ideas/md_leaders/BDI_evariste_ndayishimiye.dds"
+			}
+		}
+		country_leader = {
+			desc = "BDI_evariste_ndayishimiye_desc"
+			ideology = despotism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

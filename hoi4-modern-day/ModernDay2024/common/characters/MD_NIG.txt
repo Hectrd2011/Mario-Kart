@@ -1,0 +1,18 @@
+characters = {
+	NIG_abdourahamane_tchiani = {
+		name = NIG_abdourahamane_tchiani
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NIG/md_NIG_abdourahamane_tchiani.dds"
+				small = "gfx/interface/ideas/md_leaders/NIG_abdourahamane_tchiani.dds"
+			}
+		}
+		country_leader = {
+			desc = "NIG_abdourahamane_tchiani_desc"
+			ideology = despotism
+			traits = { md_military_ruler md_sovereigntist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

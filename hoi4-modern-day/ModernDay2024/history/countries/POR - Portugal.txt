@@ -1,0 +1,21 @@
+# Portugal: 6 November 2024
+set_research_slots = 3
+set_stability = 0.60
+set_war_support = 0.10
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2024.3.10"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 80 communism = 4 fascism = 16 neutrality = 0 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = POR_luis_montenegro

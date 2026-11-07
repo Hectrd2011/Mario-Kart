@@ -1,0 +1,14 @@
+add_namespace = md_fra
+
+country_event = {
+	id = md_fra.1
+	title = md_fra.1.t
+	desc = md_fra.1.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_fra.1.a
+		add_stability = -0.05
+		add_political_power = -50
+	}
+}

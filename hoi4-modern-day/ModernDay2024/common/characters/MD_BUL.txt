@@ -1,0 +1,34 @@
+characters = {
+	BUL_dimitar_glavchev = {
+		name = BUL_dimitar_glavchev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BUL/md_BUL_dimitar_glavchev.dds"
+				small = "gfx/interface/ideas/md_leaders/BUL_dimitar_glavchev.dds"
+			}
+		}
+		country_leader = {
+			desc = "BUL_dimitar_glavchev_desc"
+			ideology = conservatism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	BUL_rosen_zhelyazkov = {
+		name = BUL_rosen_zhelyazkov
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BUL/md_BUL_rosen_zhelyazkov.dds"
+				small = "gfx/interface/ideas/md_leaders/BUL_rosen_zhelyazkov.dds"
+			}
+		}
+		country_leader = {
+			desc = "BUL_rosen_zhelyazkov_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

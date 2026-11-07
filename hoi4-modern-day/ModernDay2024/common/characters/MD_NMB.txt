@@ -1,0 +1,34 @@
+characters = {
+	NMB_nangolo_mbumba = {
+		name = NMB_nangolo_mbumba
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NMB/md_NMB_nangolo_mbumba.dds"
+				small = "gfx/interface/ideas/md_leaders/NMB_nangolo_mbumba.dds"
+			}
+		}
+		country_leader = {
+			desc = "NMB_nangolo_mbumba_desc"
+			ideology = socialism
+			traits = { md_caretaker }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	NMB_netumbo_nandi_ndaitwah = {
+		name = NMB_netumbo_nandi_ndaitwah
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/NMB/md_NMB_netumbo_nandi_ndaitwah.dds"
+				small = "gfx/interface/ideas/md_leaders/NMB_netumbo_nandi_ndaitwah.dds"
+			}
+		}
+		country_leader = {
+			desc = "NMB_netumbo_nandi_ndaitwah_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

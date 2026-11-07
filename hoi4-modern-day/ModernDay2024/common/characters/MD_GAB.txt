@@ -1,0 +1,18 @@
+characters = {
+	GAB_brice_oligui_nguema = {
+		name = GAB_brice_oligui_nguema
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/GAB/md_GAB_brice_oligui_nguema.dds"
+				small = "gfx/interface/ideas/md_leaders/GAB_brice_oligui_nguema.dds"
+			}
+		}
+		country_leader = {
+			desc = "GAB_brice_oligui_nguema_desc"
+			ideology = despotism
+			traits = { md_military_ruler }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

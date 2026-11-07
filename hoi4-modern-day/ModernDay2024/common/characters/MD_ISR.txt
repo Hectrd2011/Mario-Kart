@@ -1,0 +1,114 @@
+characters = {
+	ISR_benjamin_netanyahu = {
+		name = ISR_benjamin_netanyahu
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ISR/md_ISR_benjamin_netanyahu.dds"
+				small = "gfx/interface/ideas/md_leaders/ISR_benjamin_netanyahu.dds"
+			}
+		}
+		country_leader = {
+			desc = "ISR_benjamin_netanyahu_desc"
+			ideology = conservatism
+			traits = { md_survivor md_war_president }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ISR_yair_lapid = {
+		name = ISR_yair_lapid
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ISR/md_ISR_yair_lapid.dds"
+				small = "gfx/interface/ideas/md_leaders/ISR_yair_lapid.dds"
+			}
+		}
+		country_leader = {
+			desc = "ISR_yair_lapid_desc"
+			ideology = liberalism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ISR_naftali_bennett = {
+		name = ISR_naftali_bennett
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ISR/md_ISR_naftali_bennett.dds"
+				small = "gfx/interface/ideas/md_leaders/ISR_naftali_bennett.dds"
+			}
+		}
+		country_leader = {
+			desc = "ISR_naftali_bennett_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ISR_israel_katz = {
+		name = ISR_israel_katz
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ISR_israel_katz.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_israel_katz_adv
+			allowed = { original_tag = ISR }
+			traits = { md_adv_security_hawk }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_gideon_sa_ar = {
+		name = ISR_gideon_sa_ar
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ISR_gideon_sa_ar.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_gideon_sa_ar_adv
+			allowed = { original_tag = ISR }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_bezalel_smotrich = {
+		name = ISR_bezalel_smotrich
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ISR_bezalel_smotrich.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_bezalel_smotrich_adv
+			allowed = { original_tag = ISR }
+			traits = { md_adv_hardliner }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ISR_herzi_halevi = {
+		name = ISR_herzi_halevi
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ISR_herzi_halevi.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ISR_herzi_halevi_adv
+			allowed = { original_tag = ISR }
+			traits = { md_adv_general_staff }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

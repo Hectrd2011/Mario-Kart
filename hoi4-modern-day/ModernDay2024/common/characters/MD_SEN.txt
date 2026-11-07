@@ -1,0 +1,18 @@
+characters = {
+	SEN_bassirou_diomaye_faye = {
+		name = SEN_bassirou_diomaye_faye
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SEN/md_SEN_bassirou_diomaye_faye.dds"
+				small = "gfx/interface/ideas/md_leaders/SEN_bassirou_diomaye_faye.dds"
+			}
+		}
+		country_leader = {
+			desc = "SEN_bassirou_diomaye_faye_desc"
+			ideology = socialism
+			traits = { md_young_leader md_anti_corruption }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

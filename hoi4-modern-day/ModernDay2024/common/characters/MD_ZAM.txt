@@ -1,0 +1,18 @@
+characters = {
+	ZAM_hakainde_hichilema = {
+		name = ZAM_hakainde_hichilema
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ZAM/md_ZAM_hakainde_hichilema.dds"
+				small = "gfx/interface/ideas/md_leaders/ZAM_hakainde_hichilema.dds"
+			}
+		}
+		country_leader = {
+			desc = "ZAM_hakainde_hichilema_desc"
+			ideology = liberalism
+			traits = { md_economist }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

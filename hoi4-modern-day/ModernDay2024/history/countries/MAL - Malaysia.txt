@@ -1,0 +1,21 @@
+# Malaysia: 6 November 2024
+set_research_slots = 2
+set_stability = 0.60
+set_war_support = 0.15
+set_convoys = 30
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.11.19"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 88 communism = 0 fascism = 4 neutrality = 8 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+}
+
+recruit_character = MAL_anwar_ibrahim

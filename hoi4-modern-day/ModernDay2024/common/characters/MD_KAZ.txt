@@ -1,0 +1,18 @@
+characters = {
+	KAZ_kassym_jomart_tokayev = {
+		name = KAZ_kassym_jomart_tokayev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KAZ/md_KAZ_kassym_jomart_tokayev.dds"
+				small = "gfx/interface/ideas/md_leaders/KAZ_kassym_jomart_tokayev.dds"
+			}
+		}
+		country_leader = {
+			desc = "KAZ_kassym_jomart_tokayev_desc"
+			ideology = oligarchism
+			traits = { md_balancer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

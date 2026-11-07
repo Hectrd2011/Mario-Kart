@@ -1,0 +1,18 @@
+characters = {
+	KOS_albin_kurti = {
+		name = KOS_albin_kurti
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/KOS/md_KOS_albin_kurti.dds"
+				small = "gfx/interface/ideas/md_leaders/KOS_albin_kurti.dds"
+			}
+		}
+		country_leader = {
+			desc = "KOS_albin_kurti_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

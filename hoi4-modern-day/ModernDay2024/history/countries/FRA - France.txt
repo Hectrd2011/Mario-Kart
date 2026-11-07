@@ -1,0 +1,31 @@
+# France: 6 November 2024
+set_research_slots = 5
+set_stability = 0.40
+set_war_support = 0.30
+set_convoys = 120
+add_nuclear_bombs = 3
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2022.4.24"
+	election_frequency = 60
+	elections_allowed = yes
+}
+set_popularities = { democratic = 64 communism = 8 fascism = 26 neutrality = 2 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_fra_hung_parliament
+	md_fra_force_de_frappe
+	md_fra_francafrique_retreat
+}
+
+recruit_character = FRA_emmanuel_macron
+recruit_character = FRA_marine_le_pen
+recruit_character = FRA_jordan_bardella
+recruit_character = FRA_jean_luc_melenchon
+recruit_character = FRA_michel_barnier
+recruit_character = FRA_jean_noel_barrot
+recruit_character = FRA_sebastien_lecornu

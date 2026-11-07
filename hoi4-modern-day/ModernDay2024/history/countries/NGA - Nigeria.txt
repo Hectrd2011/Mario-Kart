@@ -1,0 +1,23 @@
+# Nigeria: 6 November 2024
+set_research_slots = 2
+set_stability = 0.35
+set_war_support = 0.25
+set_convoys = 120
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2023.2.25"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 90 communism = 1 fascism = 0 neutrality = 9 }
+
+add_ideas = {
+	low_economic_mobilisation
+	volunteer_only
+	export_focus
+	md_nga_insurgency
+	md_petro_state_spirit
+}
+
+recruit_character = NGA_bola_tinubu

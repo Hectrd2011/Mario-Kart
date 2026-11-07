@@ -1,0 +1,854 @@
+focus_tree = {
+	id = md_ukr_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = UKR
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = UKR_victory_plan
+		icon = GFX_md_flag_politics_ua
+		x = 12
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.03
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = UKR_hold_the_line
+		icon = GFX_md_shield_military_ua
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = UKR_victory_plan }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			army_experience = 25
+		}
+	}
+
+	focus = {
+		id = UKR_kursk_operation
+		icon = GFX_md_map_marker_military_ua
+		x = 1
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_hold_the_line }
+		available = {
+			has_war_with = RUS
+		}
+		bypass = {
+			NOT = {
+				has_war_with = RUS
+			}
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_command_power = 25
+			add_war_support = 0.02
+		}
+	}
+
+	focus = {
+		id = UKR_fortify_donbas
+		icon = GFX_md_wall_military_ua
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_hold_the_line }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_fortified_donbas
+		}
+	}
+
+	focus = {
+		id = UKR_corps_reform
+		icon = GFX_md_account_group_military_ua
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_hold_the_line }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_corps_system
+		}
+	}
+
+	focus = {
+		id = UKR_drone_line
+		icon = GFX_md_quadcopter_tech_ua
+		x = 2
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_kursk_operation }
+		prerequisite = { focus = UKR_fortify_donbas }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_drone_line
+		}
+	}
+
+	focus = {
+		id = UKR_mobilization_reform
+		icon = GFX_md_account_multiple_plus_military_ua
+		x = 5
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_corps_reform }
+		mutually_exclusive = { focus = UKR_volunteer_contracts }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 0.5 }
+		completion_reward = {
+			add_ideas = md_ukr_mobilization_reform
+			add_manpower = 100000
+		}
+	}
+
+	focus = {
+		id = UKR_volunteer_contracts
+		icon = GFX_md_draw_pen_military_ua
+		x = 7
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_corps_reform }
+		mutually_exclusive = { focus = UKR_mobilization_reform }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_contract_18_24
+			add_manpower = 30000
+		}
+	}
+
+	focus = {
+		id = UKR_long_range_drones
+		icon = GFX_md_airplane_tech_ua
+		x = 2
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_drone_line }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			air_experience = 25
+		}
+	}
+
+	focus = {
+		id = UKR_neptune_flamingo
+		icon = GFX_md_rocket_launch_tech_ua
+		x = 4
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_drone_line }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = UKR_missile_bonus
+				bonus = 1.0
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_refinery_strikes
+		icon = GFX_md_fire_military_ua
+		x = 2
+		y = 5
+		cost = 10
+		prerequisite = { focus = UKR_long_range_drones }
+		available = {
+			has_war_with = RUS
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					add_timed_idea = {
+						idea = md_ukr_fuel_shortage
+						days = 270
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_spiderweb
+		icon = GFX_md_spider_web_intel_ua
+		x = 4
+		y = 5
+		cost = 10
+		prerequisite = { focus = UKR_neptune_flamingo }
+		available = {
+			has_war_with = RUS
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					add_timed_idea = {
+						idea = md_rus_bombers_destroyed
+						days = 365
+					}
+				}
+			}
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_liberation_offensive
+		icon = GFX_md_sword_cross_military_ua
+		x = 3
+		y = 6
+		cost = 10
+		prerequisite = { focus = UKR_refinery_strikes }
+		prerequisite = { focus = UKR_spiderweb }
+		available = {
+			has_war_with = RUS
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_ukr_liberation_offensive
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_appeal_to_west
+		icon = GFX_md_earth_diplomacy_ua
+		x = 12
+		y = 1
+		cost = 10
+		prerequisite = { focus = UKR_victory_plan }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = UKR_ramstein
+		icon = GFX_md_package_variant_closed_diplomacy_ua
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_appeal_to_west }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 800
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_eu_accession
+		icon = GFX_md_currency_eur_diplomacy_ua
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_appeal_to_west }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_eu_candidate
+		}
+	}
+
+	focus = {
+		id = UKR_us_minerals
+		icon = GFX_md_diamond_stone_economy_ua
+		x = 14
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_appeal_to_west }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_trade_deal
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_coalition_of_willing
+		icon = GFX_md_account_group_diplomacy_ua
+		x = 10
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_ramstein }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = md_opinion_aid
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = FRA
+				}
+				add_opinion_modifier = {
+					target = FRA
+					modifier = md_opinion_aid
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_frozen_assets
+		icon = GFX_md_cash_lock_economy_ua
+		x = 11
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_coalition_of_willing }
+		prerequisite = { focus = UKR_eu_accession }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_purl
+		icon = GFX_md_cart_diplomacy_ua
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_us_minerals }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = anti_air_equipment
+				amount = 1000
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 1500
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_nato_path
+		icon = GFX_md_shield_star_diplomacy_ua
+		x = 13
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_purl }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_aid
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = UKR_security_guarantees
+		icon = GFX_md_shield_star_diplomacy_ua
+		x = 12
+		y = 5
+		cost = 10
+		prerequisite = { focus = UKR_frozen_assets }
+		prerequisite = { focus = UKR_nato_path }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_security_guarantees
+		}
+	}
+
+	focus = {
+		id = UKR_wartime_economy
+		icon = GFX_md_chart_line_economy_ua
+		x = 19
+		y = 1
+		cost = 10
+		prerequisite = { focus = UKR_victory_plan }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_energy_resilience
+		icon = GFX_md_transmission_tower_energy_ua
+		x = 18
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_wartime_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = UKR_grain_corridor
+		icon = GFX_md_grain_economy_ua
+		x = 20
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_wartime_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 25
+		}
+	}
+
+	focus = {
+		id = UKR_danish_model
+		icon = GFX_md_factory_military_ua
+		x = 18
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_energy_resilience }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_defense_city
+		icon = GFX_md_city_economy_ua
+		x = 20
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_grain_corridor }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_arsenal_of_ukraine
+		icon = GFX_md_factory_military_ua
+		x = 19
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_danish_model }
+		prerequisite = { focus = UKR_defense_city }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_arsenal
+		}
+	}
+
+	focus = {
+		id = UKR_reconstruction
+		icon = GFX_md_hard_hat_economy_ua
+		x = 19
+		y = 5
+		cost = 10
+		prerequisite = { focus = UKR_arsenal_of_ukraine }
+		available = {
+			has_war = no
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_national_unity
+		icon = GFX_md_account_group_politics_ua
+		x = 24
+		y = 1
+		cost = 10
+		prerequisite = { focus = UKR_victory_plan }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = UKR_anti_corruption
+		icon = GFX_md_scale_balance_politics_ua
+		x = 23
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_national_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_ukr_clean_government
+		}
+	}
+
+	focus = {
+		id = UKR_sanction_collaborators
+		icon = GFX_md_handcuffs_intel_ua
+		x = 25
+		y = 2
+		cost = 10
+		prerequisite = { focus = UKR_national_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.03
+			}
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = UKR_peace_talks
+		icon = GFX_md_hand_peace_diplomacy_ua
+		x = 23
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_anti_corruption }
+		mutually_exclusive = { focus = UKR_not_one_step }
+		available = {
+			has_war_with = RUS
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = RUS
+				}
+				RUS = {
+					country_event = {
+						id = md_war.12
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = UKR_not_one_step
+		icon = GFX_md_flag_variant_military_ua
+		x = 25
+		y = 3
+		cost = 10
+		prerequisite = { focus = UKR_sanction_collaborators }
+		mutually_exclusive = { focus = UKR_peace_talks }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_war_support = 0.08
+		}
+	}
+
+	focus = {
+		id = UKR_postwar_elections
+		icon = GFX_md_vote_politics_ua
+		x = 23
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_peace_talks }
+		available = {
+			has_war = no
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_ukr_martial_law
+				}
+				remove_ideas = md_ukr_martial_law
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = UKR_liberate_crimea
+		icon = GFX_md_anchor_military_ua
+		x = 25
+		y = 4
+		cost = 10
+		prerequisite = { focus = UKR_not_one_step }
+		available = {
+			has_war_with = RUS
+		}
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_timed_idea = {
+				idea = md_ukr_liberation_offensive
+				days = 240
+			}
+			every_state = {
+				limit = {
+					is_owned_by = RUS
+					is_core_of = UKR
+				}
+				add_claim_by = ROOT
+			}
+		}
+	}
+
+}

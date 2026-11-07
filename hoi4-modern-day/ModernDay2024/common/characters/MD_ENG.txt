@@ -1,0 +1,114 @@
+characters = {
+	ENG_keir_starmer = {
+		name = ENG_keir_starmer
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ENG/md_ENG_keir_starmer.dds"
+				small = "gfx/interface/ideas/md_leaders/ENG_keir_starmer.dds"
+			}
+		}
+		country_leader = {
+			desc = "ENG_keir_starmer_desc"
+			ideology = socialism
+			traits = { md_cautious_reformer md_lawyer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ENG_kemi_badenoch = {
+		name = ENG_kemi_badenoch
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ENG/md_ENG_kemi_badenoch.dds"
+				small = "gfx/interface/ideas/md_leaders/ENG_kemi_badenoch.dds"
+			}
+		}
+		country_leader = {
+			desc = "ENG_kemi_badenoch_desc"
+			ideology = conservatism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ENG_nigel_farage = {
+		name = ENG_nigel_farage
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ENG/md_ENG_nigel_farage.dds"
+				small = "gfx/interface/ideas/md_leaders/ENG_nigel_farage.dds"
+			}
+		}
+		country_leader = {
+			desc = "ENG_nigel_farage_desc"
+			ideology = fascism
+			traits = { md_populist_firebrand }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	ENG_rachel_reeves = {
+		name = ENG_rachel_reeves
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ENG_rachel_reeves.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ENG_rachel_reeves_adv
+			allowed = { original_tag = ENG }
+			traits = { md_adv_economist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ENG_david_lammy = {
+		name = ENG_david_lammy
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ENG_david_lammy.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ENG_david_lammy_adv
+			allowed = { original_tag = ENG }
+			traits = { md_adv_diplomat }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ENG_john_healey = {
+		name = ENG_john_healey
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ENG_john_healey.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ENG_john_healey_adv
+			allowed = { original_tag = ENG }
+			traits = { md_adv_defense_chief }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	ENG_angela_rayner = {
+		name = ENG_angela_rayner
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/ENG_angela_rayner.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ENG_angela_rayner_adv
+			allowed = { original_tag = ENG }
+			traits = { md_adv_party_whip }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

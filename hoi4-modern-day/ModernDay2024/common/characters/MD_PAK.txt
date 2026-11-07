@@ -1,0 +1,18 @@
+characters = {
+	PAK_shehbaz_sharif = {
+		name = PAK_shehbaz_sharif
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PAK/md_PAK_shehbaz_sharif.dds"
+				small = "gfx/interface/ideas/md_leaders/PAK_shehbaz_sharif.dds"
+			}
+		}
+		country_leader = {
+			desc = "PAK_shehbaz_sharif_desc"
+			ideology = conservatism
+			traits = { md_military_backed }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

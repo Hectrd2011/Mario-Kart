@@ -1,0 +1,18 @@
+characters = {
+	TLS_xanana_gusmao = {
+		name = TLS_xanana_gusmao
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TLS/md_TLS_xanana_gusmao.dds"
+				small = "gfx/interface/ideas/md_leaders/TLS_xanana_gusmao.dds"
+			}
+		}
+		country_leader = {
+			desc = "TLS_xanana_gusmao_desc"
+			ideology = conservatism
+			traits = { md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	MOL_maia_sandu = {
+		name = MOL_maia_sandu
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MOL/md_MOL_maia_sandu.dds"
+				small = "gfx/interface/ideas/md_leaders/MOL_maia_sandu.dds"
+			}
+		}
+		country_leader = {
+			desc = "MOL_maia_sandu_desc"
+			ideology = liberalism
+			traits = { md_eu_federalist md_anti_corruption }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+characters = {
+	HON_xiomara_castro = {
+		name = HON_xiomara_castro
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HON/md_HON_xiomara_castro.dds"
+				small = "gfx/interface/ideas/md_leaders/HON_xiomara_castro.dds"
+			}
+		}
+		country_leader = {
+			desc = "HON_xiomara_castro_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

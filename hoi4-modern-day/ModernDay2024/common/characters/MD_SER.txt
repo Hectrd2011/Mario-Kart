@@ -1,0 +1,18 @@
+characters = {
+	SER_aleksandar_vucic = {
+		name = SER_aleksandar_vucic
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SER/md_SER_aleksandar_vucic.dds"
+				small = "gfx/interface/ideas/md_leaders/SER_aleksandar_vucic.dds"
+			}
+		}
+		country_leader = {
+			desc = "SER_aleksandar_vucic_desc"
+			ideology = conservatism
+			traits = { md_balancer md_strongman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

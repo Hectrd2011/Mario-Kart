@@ -1,0 +1,22 @@
+# Iceland: 6 November 2024
+set_research_slots = 1
+set_stability = 0.60
+set_war_support = 0.05
+set_convoys = 5
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "2021.9.25"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = { democratic = 98 communism = 1 fascism = 0 neutrality = 1 }
+
+add_ideas = {
+	civilian_economy
+	volunteer_only
+	export_focus
+	md_no_standing_army
+}
+
+recruit_character = ICE_bjarni_benediktsson

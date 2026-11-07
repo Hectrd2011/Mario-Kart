@@ -1,0 +1,18 @@
+characters = {
+	MOR_mohammed_vi = {
+		name = MOR_mohammed_vi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MOR/md_MOR_mohammed_vi.dds"
+				small = "gfx/interface/ideas/md_leaders/MOR_mohammed_vi.dds"
+			}
+		}
+		country_leader = {
+			desc = "MOR_mohammed_vi_desc"
+			ideology = oligarchism
+			traits = { md_absolute_monarch }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

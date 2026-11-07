@@ -1,0 +1,18 @@
+characters = {
+	EQG_teodoro_obiang_nguema_mbasogo = {
+		name = EQG_teodoro_obiang_nguema_mbasogo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/EQG/md_EQG_teodoro_obiang_nguema_mbasogo.dds"
+				small = "gfx/interface/ideas/md_leaders/EQG_teodoro_obiang_nguema_mbasogo.dds"
+			}
+		}
+		country_leader = {
+			desc = "EQG_teodoro_obiang_nguema_mbasogo_desc"
+			ideology = despotism
+			traits = { md_elder_statesman md_petro_state }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

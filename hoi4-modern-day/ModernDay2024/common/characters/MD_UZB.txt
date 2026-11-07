@@ -1,0 +1,18 @@
+characters = {
+	UZB_shavkat_mirziyoyev = {
+		name = UZB_shavkat_mirziyoyev
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/UZB/md_UZB_shavkat_mirziyoyev.dds"
+				small = "gfx/interface/ideas/md_leaders/UZB_shavkat_mirziyoyev.dds"
+			}
+		}
+		country_leader = {
+			desc = "UZB_shavkat_mirziyoyev_desc"
+			ideology = oligarchism
+			traits = { md_reformer }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

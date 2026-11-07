@@ -1,0 +1,18 @@
+characters = {
+	BOS_borjana_kristo = {
+		name = BOS_borjana_kristo
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BOS/md_BOS_borjana_kristo.dds"
+				small = "gfx/interface/ideas/md_leaders/BOS_borjana_kristo.dds"
+			}
+		}
+		country_leader = {
+			desc = "BOS_borjana_kristo_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

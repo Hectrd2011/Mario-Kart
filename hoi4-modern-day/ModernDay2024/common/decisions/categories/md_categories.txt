@@ -1,0 +1,45 @@
+md_cat_economy = {
+}
+
+md_cat_defense = {
+}
+
+md_cat_diplomacy = {
+}
+
+md_cat_ukraine_war = {
+	allowed = {
+		OR = {
+			tag = RUS
+			tag = UKR
+		}
+		country_exists = UKR
+		country_exists = RUS
+	}
+}
+
+md_cat_middle_east = {
+	allowed = {
+		OR = {
+			tag = ISR
+			tag = PER
+			tag = YEM
+		}
+	}
+}
+
+md_cat_strategic_arsenal = {
+	allowed = {
+		OR = {
+			tag = USA
+			tag = RUS
+			tag = PRC
+			tag = ENG
+			tag = FRA
+			tag = IND
+			tag = PAK
+			tag = PRK
+			tag = ISR
+		}
+	}
+}

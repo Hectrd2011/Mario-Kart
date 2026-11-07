@@ -1,0 +1,34 @@
+characters = {
+	VEN_nicolas_maduro = {
+		name = VEN_nicolas_maduro
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/VEN/md_VEN_nicolas_maduro.dds"
+				small = "gfx/interface/ideas/md_leaders/VEN_nicolas_maduro.dds"
+			}
+		}
+		country_leader = {
+			desc = "VEN_nicolas_maduro_desc"
+			ideology = marxism
+			traits = { md_strongman md_contested_mandate }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	VEN_maria_corina_machado = {
+		name = VEN_maria_corina_machado
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/VEN/md_VEN_maria_corina_machado.dds"
+				small = "gfx/interface/ideas/md_leaders/VEN_maria_corina_machado.dds"
+			}
+		}
+		country_leader = {
+			desc = "VEN_maria_corina_machado_desc"
+			ideology = liberalism
+			traits = { md_charismatic }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

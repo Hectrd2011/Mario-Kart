@@ -1,0 +1,66 @@
+characters = {
+	PER_ali_khamenei = {
+		name = PER_ali_khamenei
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/PER/md_PER_ali_khamenei.dds"
+				small = "gfx/interface/ideas/md_leaders/PER_ali_khamenei.dds"
+			}
+		}
+		country_leader = {
+			desc = "PER_ali_khamenei_desc"
+			ideology = despotism
+			traits = { md_supreme_leader md_elder_statesman }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+	PER_masoud_pezeshkian = {
+		name = PER_masoud_pezeshkian
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PER_masoud_pezeshkian.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PER_masoud_pezeshkian_adv
+			allowed = { original_tag = PER }
+			traits = { md_adv_reformist }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PER_abbas_araghchi = {
+		name = PER_abbas_araghchi
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PER_abbas_araghchi.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PER_abbas_araghchi_adv
+			allowed = { original_tag = PER }
+			traits = { md_adv_negotiator }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	PER_hossein_salami = {
+		name = PER_hossein_salami
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/md/PER_hossein_salami.dds"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = PER_hossein_salami_adv
+			allowed = { original_tag = PER }
+			traits = { md_adv_general_staff }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

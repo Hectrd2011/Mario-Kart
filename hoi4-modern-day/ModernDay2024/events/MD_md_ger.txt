@@ -1,0 +1,64 @@
+add_namespace = md_ger
+
+country_event = {
+	id = md_ger.1
+	title = md_ger.1.t
+	desc = md_ger.1.d
+	picture = GFX_md_event_germany
+	is_triggered_only = yes
+	option = {
+		name = md_ger.1.a
+		add_stability = -0.05
+		add_political_power = -25
+		set_country_flag = md_ger_snap_election
+		country_event = {
+			id = md_ger.2
+			days = 109
+		}
+	}
+}
+
+country_event = {
+	id = md_ger.2
+	title = md_ger.2.t
+	desc = md_ger.2.d
+	picture = GFX_md_event_election
+	is_triggered_only = yes
+	option = {
+		name = md_ger.2.a
+		set_country_flag = md_ger_election_held
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+		country_event = {
+			id = md_ger.3
+			days = 72
+		}
+	}
+}
+
+country_event = {
+	id = md_ger.3
+	title = md_ger.3.t
+	desc = md_ger.3.d
+	picture = GFX_md_event_parliament
+	is_triggered_only = yes
+	option = {
+		name = md_ger.3.a
+		if = {
+			limit = {
+				has_character = GER_olaf_scholz
+			}
+			retire_character = GER_olaf_scholz
+		}
+		recruit_character = GER_friedrich_merz
+		promote_character = GER_friedrich_merz
+		set_party_name = {
+			ideology = democratic
+			long_name = GER_democratic_party_friedrich_merz_long
+			name = GER_democratic_party_friedrich_merz
+		}
+		add_stability = 0.05
+	}
+}

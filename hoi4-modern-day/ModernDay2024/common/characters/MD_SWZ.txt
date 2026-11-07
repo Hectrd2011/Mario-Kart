@@ -1,0 +1,18 @@
+characters = {
+	SWZ_mswati_iii = {
+		name = SWZ_mswati_iii
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SWZ/md_SWZ_mswati_iii.dds"
+				small = "gfx/interface/ideas/md_leaders/SWZ_mswati_iii.dds"
+			}
+		}
+		country_leader = {
+			desc = "SWZ_mswati_iii_desc"
+			ideology = despotism
+			traits = { md_absolute_monarch }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

@@ -1,0 +1,21 @@
+# Vietnam: 6 November 2024
+set_research_slots = 2
+set_stability = 0.70
+set_war_support = 0.30
+set_convoys = 30
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = { democratic = 0 communism = 100 fascism = 0 neutrality = 0 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_vie_bamboo_diplomacy
+	md_vie_export_boom
+}
+
+recruit_character = VIE_to_lam

@@ -1,0 +1,18 @@
+characters = {
+	TZA_samia_suluhu_hassan = {
+		name = TZA_samia_suluhu_hassan
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TZA/md_TZA_samia_suluhu_hassan.dds"
+				small = "gfx/interface/ideas/md_leaders/TZA_samia_suluhu_hassan.dds"
+			}
+		}
+		country_leader = {
+			desc = "TZA_samia_suluhu_hassan_desc"
+			ideology = oligarchism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

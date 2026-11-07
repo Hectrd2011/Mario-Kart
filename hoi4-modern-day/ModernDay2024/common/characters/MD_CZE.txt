@@ -1,0 +1,18 @@
+characters = {
+	CZE_petr_fiala = {
+		name = CZE_petr_fiala
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CZE/md_CZE_petr_fiala.dds"
+				small = "gfx/interface/ideas/md_leaders/CZE_petr_fiala.dds"
+			}
+		}
+		country_leader = {
+			desc = "CZE_petr_fiala_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

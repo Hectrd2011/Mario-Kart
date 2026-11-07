@@ -3,3 +3,6 @@ node_modules/
 .DS_Store
 /shots/
 /dist/
+__pycache__/
+*.pyc
+hoi4-modern-day/tools/vanilla/

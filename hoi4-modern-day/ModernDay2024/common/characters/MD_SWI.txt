@@ -1,0 +1,18 @@
+characters = {
+	SWI_viola_amherd = {
+		name = SWI_viola_amherd
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SWI/md_SWI_viola_amherd.dds"
+				small = "gfx/interface/ideas/md_leaders/SWI_viola_amherd.dds"
+			}
+		}
+		country_leader = {
+			desc = "SWI_viola_amherd_desc"
+			ideology = conservatism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

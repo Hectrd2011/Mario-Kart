@@ -1,0 +1,503 @@
+focus_tree = {
+	id = md_eng_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = ENG
+		}
+	}
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = ENG_change
+		icon = GFX_md_flag_politics_gb
+		x = 10
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ENG_fix_foundations
+		icon = GFX_md_hammer_wrench_economy_gb
+		x = 4
+		y = 1
+		cost = 10
+		prerequisite = { focus = ENG_change }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_autumn_budget
+		icon = GFX_md_piggy_bank_economy_gb
+		x = 3
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_fix_foundations }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = md_eng_fiscal_black_hole
+				}
+				remove_ideas = md_eng_fiscal_black_hole
+			}
+			add_stability = -0.02
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_gb_energy
+		icon = GFX_md_wind_turbine_energy_gb
+		x = 5
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_fix_foundations }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_eng_gb_energy
+		}
+	}
+
+	focus = {
+		id = ENG_planning_reform
+		icon = GFX_md_home_city_economy_gb
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_autumn_budget }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_eng_planning_reform
+		}
+	}
+
+	focus = {
+		id = ENG_national_wealth_fund
+		icon = GFX_md_bank_economy_gb
+		x = 5
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_gb_energy }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_ai_opportunities
+		icon = GFX_md_brain_tech_gb
+		x = 4
+		y = 4
+		cost = 10
+		prerequisite = { focus = ENG_planning_reform }
+		prerequisite = { focus = ENG_national_wealth_fund }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = ENG_defence_review
+		icon = GFX_md_shield_military_gb
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = ENG_change }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_eng_defence_review
+		}
+	}
+
+	focus = {
+		id = ENG_storm_shadow
+		icon = GFX_md_rocket_launch_military_gb
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_defence_review }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_three_percent
+		icon = GFX_md_chart_line_military_gb
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_defence_review }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_aukus_submarines
+		icon = GFX_md_submarine_military_gb
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_defence_review }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			navy_experience = 25
+		}
+	}
+
+	focus = {
+		id = ENG_coalition_of_willing
+		icon = GFX_md_account_group_diplomacy_gb
+		x = 9
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_storm_shadow }
+		prerequisite = { focus = ENG_three_percent }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				add_opinion_modifier = {
+					target = UKR
+					modifier = md_opinion_aid
+				}
+				UKR = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = FRA
+				}
+				add_opinion_modifier = {
+					target = FRA
+					modifier = md_opinion_aid
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = ENG_global_britain_navy
+		icon = GFX_md_ship_wheel_military_gb
+		x = 12
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_aukus_submarines }
+		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			navy_experience = 25
+			if = {
+				limit = {
+					country_exists = JAP
+				}
+				add_opinion_modifier = {
+					target = JAP
+					modifier = md_opinion_aid
+				}
+				JAP = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_aid
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_eu_reset
+		icon = GFX_md_currency_eur_diplomacy_gb
+		x = 16
+		y = 1
+		cost = 10
+		prerequisite = { focus = ENG_change }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_eng_eu_reset
+		}
+	}
+
+	focus = {
+		id = ENG_special_relationship
+		icon = GFX_md_handshake_diplomacy_gb
+		x = 18
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_eu_reset }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = USA
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = md_opinion_trade_deal
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_security_pact
+		icon = GFX_md_shield_star_diplomacy_gb
+		x = 15
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_eu_reset }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = FRA
+				}
+				add_opinion_modifier = {
+					target = FRA
+					modifier = md_opinion_trade_deal
+				}
+				FRA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = GER
+				}
+				add_opinion_modifier = {
+					target = GER
+					modifier = md_opinion_trade_deal
+				}
+				GER = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_economic_prosperity_deal
+		icon = GFX_md_truck_economy_gb
+		x = 18
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_special_relationship }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_chagos_deal
+		icon = GFX_md_anchor_diplomacy_gb
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = ENG_security_pact }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					country_exists = MRT
+				}
+				add_opinion_modifier = {
+					target = MRT
+					modifier = md_opinion_trade_deal
+				}
+				MRT = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = md_opinion_trade_deal
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_stop_the_boats
+		icon = GFX_md_ferry_politics_gb
+		x = 22
+		y = 1
+		cost = 10
+		prerequisite = { focus = ENG_change }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_ideas = md_eng_border_security_command
+		}
+	}
+
+	focus = {
+		id = ENG_reform_threat
+		icon = GFX_md_bullhorn_politics_gb
+		x = 22
+		y = 2
+		cost = 10
+		prerequisite = { focus = ENG_stop_the_boats }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.03
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.03
+			}
+		}
+	}
+
+	focus = {
+		id = ENG_renew_britain
+		icon = GFX_md_star_four_points_politics_gb
+		x = 20
+		y = 4
+		cost = 10
+		prerequisite = { focus = ENG_reform_threat }
+		prerequisite = { focus = ENG_economic_prosperity_deal }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+
+}

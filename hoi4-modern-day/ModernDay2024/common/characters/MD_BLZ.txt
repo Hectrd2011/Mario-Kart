@@ -1,0 +1,18 @@
+characters = {
+	BLZ_johnny_briceno = {
+		name = BLZ_johnny_briceno
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BLZ/md_BLZ_johnny_briceno.dds"
+				small = "gfx/interface/ideas/md_leaders/BLZ_johnny_briceno.dds"
+			}
+		}
+		country_leader = {
+			desc = "BLZ_johnny_briceno_desc"
+			ideology = socialism
+			traits = {  }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

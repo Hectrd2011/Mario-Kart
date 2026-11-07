@@ -1,0 +1,18 @@
+characters = {
+	BFA_ibrahim_traore = {
+		name = BFA_ibrahim_traore
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/BFA/md_BFA_ibrahim_traore.dds"
+				small = "gfx/interface/ideas/md_leaders/BFA_ibrahim_traore.dds"
+			}
+		}
+		country_leader = {
+			desc = "BFA_ibrahim_traore_desc"
+			ideology = despotism
+			traits = { md_military_ruler md_sovereigntist md_young_leader }
+			expire = "2070.1.1.1"
+			id = -1
+		}
+	}
+}

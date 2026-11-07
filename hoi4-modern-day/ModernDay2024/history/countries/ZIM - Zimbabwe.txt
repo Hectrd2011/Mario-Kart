@@ -1,0 +1,20 @@
+# Zimbabwe: 6 November 2024
+set_research_slots = 1
+set_stability = 0.40
+set_war_support = 0.15
+set_convoys = 5
+
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = no
+}
+set_popularities = { democratic = 30 communism = 0 fascism = 0 neutrality = 70 }
+
+add_ideas = {
+	civilian_economy
+	limited_conscription
+	export_focus
+	md_western_sanctions_light
+}
+
+recruit_character = ZIM_emmerson_mnangagwa
